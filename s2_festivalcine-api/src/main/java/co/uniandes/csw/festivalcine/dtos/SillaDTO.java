@@ -11,7 +11,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author María Juliana Moya
  */
 public class SillaDTO implements Serializable{
       //Atributos -------------------------------------------------------------------------
@@ -26,23 +26,23 @@ public class SillaDTO implements Serializable{
     /**
      * Constructor por defecto
      */
-    public SillaDTO (){
+    public SillaDTO (){}
     
     /**
      * Convertir Entity a DTO (Crea un nuevoDTO con los valores que recibe en
      * la entidad que vienede argumento.)
      * @param sillaEntity: es la entidad que se va a convertir a DTO
      */
-    public SillaDTO (SillaEntity sillaEntity)
-    {
-        if(sillaEntity != null)
-        {
-            this.id = sillaEntity.getId();
-            this.disponible = sillaEntity.getDisponible();
-            this.tipo= sillaEntity.getGeneral();
-            this.numero = sillaEntity.getNumero();
-        }
-    }
+    //public SillaDTO (SillaEntity sillaEntity)
+    //{
+    //    if(sillaEntity != null)
+    //    {
+    //        this.id = sillaEntity.getId();
+    //        this.disponible = sillaEntity.getDisponible();
+    //        this.tipo= sillaEntity.getGeneral();
+    //        this.numero = sillaEntity.getNumero();
+    //    }
+    //}
     
     
     //Métodos -------------------------------------------------------------------------------
@@ -124,15 +124,15 @@ public class SillaDTO implements Serializable{
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
      */
-    public SillaEntity toEntity()
-    {
-        SillaEntity sillaEntity = new SillaEntity();
-        sillaEntity.setId(this.id);
-        sillaEntity.setNumero(this.numero);
-        sillaEntity.setDisponible( this.disponible);
-        sillaEntity.setTipo ( this.tipo);
-        return sillaEntity ;
-    }
+    //public SillaEntity toEntity()
+    //{
+    //   SillaEntity sillaEntity = new SillaEntity();
+    //    sillaEntity.setId(this.id);
+    //    sillaEntity.setNumero(this.numero);
+    //    sillaEntity.setDisponible( this.disponible);
+    //    sillaEntity.setTipo ( this.tipo);
+    //    return sillaEntity ;
+    //}
     
     @Override
     public String toString()

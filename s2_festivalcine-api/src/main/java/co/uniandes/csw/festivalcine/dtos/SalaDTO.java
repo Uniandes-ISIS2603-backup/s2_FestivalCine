@@ -11,9 +11,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author María Juliana Moya
  */
-class SalaDTO implements Serializable{
+public class SalaDTO implements Serializable{
     
     
     //Atributos -------------------------------------------------------------------------
@@ -27,22 +27,22 @@ class SalaDTO implements Serializable{
     /**
      * Constructor por defecto
      */
-    public SalaDTO (){
+    public SalaDTO (){}
     
     /**
      * Convertir Entity a DTO (Crea un nuevoDTO con los valores que recibe en
      * la entidad que vienede argumento.)
      * @param salaEntity: es la entidad que se va a convertir a DTO
      */
-    public SalaDTO (SalaEntity salaEntity)
-    {
-        if(salaEntity != null)
-        {
-            this.id = salaEntity.getId();
-            this.numSillasGene = salaEntity.getSillasGeneral();
-            this.numSillasPref= salaEntity.getSillasPreferencial();
-        }
-    }
+    //public SalaDTO (SalaEntity salaEntity)
+    //{
+    //    if(salaEntity != null)
+    //    {
+    //        this.id = salaEntity.getId();
+    //        this.numSillasGene = salaEntity.getSillasGeneral();
+    //        this.numSillasPref= salaEntity.getSillasPreferencial();
+    //    }
+    
     
     
     //Métodos -------------------------------------------------------------------------------
@@ -107,14 +107,14 @@ class SalaDTO implements Serializable{
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
      */
-    public SalaEntity toEntity()
-    {
-        SalaEntity salaEntity = new SalaEntity();
-        salaEntity.setId(this.id);
-        salaEntity.setSillasGenerales (this.numSillasGene);
-        salaEntity.setSillasPreferenciales (this.numSillasPref);
-        return salaEntity ;
-    }
+    //public SalaEntity toEntity()
+    //{
+    //    SalaEntity salaEntity = new SalaEntity();
+    //    salaEntity.setId(this.id);
+    //    salaEntity.setSillasGenerales (this.numSillasGene);
+    //    salaEntity.setSillasPreferenciales (this.numSillasPref);
+    //    return salaEntity ;
+    //}
     
     @Override
     public String toString()

@@ -12,7 +12,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author María Juliana Moya
  */
 public class FuncionDTO implements Serializable{
     
@@ -37,18 +37,18 @@ public class FuncionDTO implements Serializable{
      * la entidad que vienede argumento.)
      * @param funcionEntity: es la entidad que se va a convertir a DTO
      */
-    public FuncionDTO(FuncionEntity funcionEntity)
-    {
-        if(funcionEntity != null)
-        {
-            this.id = funcionEntity.getId();
-            this.horaInicio = funcionEntity.getHoraInicio();
-            this.horaFin = funcionEntity.getHoraFin();
-            this.precioBase = funcionEntity.getPrecioBase();
-            this.sala = funcionEntity.getSala();
-            this.pelicula = funcionEntity.getPelicula();
-        }
-    }
+    //public FuncionDTO(FuncionEntity funcionEntity)
+    //{
+    //    if(funcionEntity != null)
+    //    {
+    //        this.id = funcionEntity.getId();
+    //        this.horaInicio = funcionEntity.getHoraInicio();
+    //        this.horaFin = funcionEntity.getHoraFin();
+    //        this.precioBase = funcionEntity.getPrecioBase();
+    //        this.sala = funcionEntity.getSala();
+    //       this.pelicula = funcionEntity.getPelicula();
+    //   }
+    //}
    
     
     //Métodos -------------------------------------------------------------------------------
@@ -166,17 +166,16 @@ public class FuncionDTO implements Serializable{
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
      */
-    public FuncionEntity toEntity()
-    {
-        FuncionEntity funcionEntity = new FuncionEntity();
-        funcionEntity.setId(this.id);
-        funcionEntity.setHoraInicio(this.horaInicio);
-        funcionEntity.setHoraFin(this.horaFin);
-        funcionEntity.setPrecioBase(this.precioBase);
-        funcionEntity.setPelicula(this.pelicula);
-        funcionEntity.setSala(this.sala);
-        return funcionEntity ;
-    }
+   // public FuncionEntity toEntity()
+   //{
+     // funcionEntity.setId(this.id);
+     // funcionEntity.setHoraInicio(this.horaInicio);
+     // funcionEntity.setHoraFin(this.horaFin);
+     // funcionEntity.setPrecioBase(this.precioBase);
+     // funcionEntity.setPelicula(this.pelicula);
+     // funcionEntity.setSala(this.sala);
+     //   return funcionEntity ;
+    //}
     
     @Override
     public String toString()
