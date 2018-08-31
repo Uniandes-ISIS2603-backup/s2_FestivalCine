@@ -43,8 +43,7 @@ public class ReservaResource
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaResource.class.getName());
     
-    @Inject
-    ReservaLogic reservaLogic;
+   
     
     
     
@@ -63,15 +62,8 @@ public class ReservaResource
     @POST
     public ReservaDTO createReserva(ReservaDTO reserva) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "ReservaResource createReserva: input: {0}", reserva.toString());
-        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-        ReservaEntity reservaEntity = reserva.toEntity();
-        // Invoca la lógica para crear la editorial nueva
-        ReservaEntity nuevaReservaEntity = reservaLogic.createReserva(reservaEntity);
-        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-       ReservaDTO nuevaReservaDTO = new ReservaDTO(nuevaReservaEntity);
-        LOGGER.log(Level.INFO, "ReservaResource createReserva: output: {0}", nuevaReservaDTO.toString());
-        return nuevaReservaDTO;
+        
+        return reserva;
     }
     
    /**
@@ -82,10 +74,8 @@ public class ReservaResource
      */
     @GET
     public List<ReservaDTO> getReservas() {
-        LOGGER.info("ReservaResource getReservas: input: void");
-        List<ReservaDTO> listaReservas = listEntity2DetailDTO(reservaLogic.getReservas());
-        LOGGER.log(Level.INFO, "ReservaResource getReservas: output: {0}", listaReservas.toString());
-        return listaReservas;
+       
+        return new ArrayList<>();
     }
 
     /**
@@ -99,15 +89,9 @@ public class ReservaResource
      */
     @GET
     @Path("{reservasId: \\d+}")
-    public ReservaDTO getReserva(@PathParam("reservassId") Long reservasId) throws WebApplicationException {
-        LOGGER.log(Level.INFO, "ReservaResource getReserva: input: {0}", reservasId);
-        ReservaEntity reservaEntity = reservaLogic.getReserva(reservasId);
-        if (reservaEntity == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
-        }
-        ReservaDTO detailDTO = new ReservaDTO(reservaEntity);
-        LOGGER.log(Level.INFO, "ReservaResource getReserva: output: {0}", detailDTO.toString());
-        return detailDTO;
+    public ReservaDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException {
+       
+        return null;
     }
 
     /**
@@ -125,14 +109,8 @@ public class ReservaResource
     @PUT
     @Path("{reservasId: \\d+}")
     public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException {
-        LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id:{0} , reserva: {1}", new Object[]{reservasId, reserva.toString()});
-        reserva.setId(reservasId);
-        if (reservaLogic.getReserva(reservasId) == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
-        }
-        ReservaDTO detailDTO = new ReservaDTO(reservaLogic.updateEditorial(reservasId, reserva.toEntity()));
-        LOGGER.log(Level.INFO, "EditorialResource updateEditorial: output: {0}", detailDTO.toString());
-        return detailDTO;
+       
+        return reserva;
     }
 
     /**
@@ -148,14 +126,11 @@ public class ReservaResource
     @DELETE
     @Path("{reservasId: \\d+}")
     public void deleteReserva(@PathParam("reservasId") Long reservasId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "ReservaResource deleteReserva: input: {0}", reservasId);
-        if (reservaLogic.getReserva(reservasId) == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
-        }
-        reservaLogic.deleteReserva(reservasId);
-        LOGGER.info("ReservaResource deleteReserva: output: void");
+        
+        
     }
 
+    
     /**
      * Convierte una lista de entidades a DTO.
      *

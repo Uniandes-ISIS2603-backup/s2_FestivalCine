@@ -17,10 +17,13 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class ReservaDTO implements Serializable
 {
     private Long id;
-    private boolean abono;
+    private Boolean abono;
     private Integer descuento;
     private Integer precioTotal;
 
+    public ReservaDTO(){
+    }
+    
     public Long getId() {
         return id;
     }
@@ -29,11 +32,8 @@ public class ReservaDTO implements Serializable
         this.id = id;
     }
 
-    public boolean isAbono() {
-        return abono;
-    }
 
-    public void setAbono(boolean abono) {
+    public void setAbono(Boolean abono) {
         this.abono = abono;
     }
 
@@ -54,9 +54,7 @@ public class ReservaDTO implements Serializable
     }
   
     
-    public ReservaDTO()
-    {
-    }
+    
     
     public ReservaDTO(ReservaEntity reservaEntity) 
     {
@@ -70,10 +68,10 @@ public class ReservaDTO implements Serializable
     }
     public ReservaEntity toEntity() {
         ReservaEntity reservaEntity = new ReservaEntity();
-        reservaEntity.setId(this.id);
-        reservaEntity.setAbono(this.abono);
-        reservaEntity.setDescuento(this.descuento);
-        reservaEntity.setPreciototal(this.precioTotal);
+        reservaEntity.setId(this.getId());
+        reservaEntity.setAbono(this.getAbono());
+        reservaEntity.setDescuento(this.getDescuento());
+        reservaEntity.setPreciototal(this.getPrecioTotal());
         return reservaEntity;
     }
 
@@ -81,4 +79,12 @@ public class ReservaDTO implements Serializable
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+
+    /**
+     * @return the abono
+     */
+    public Boolean getAbono() {
+        return abono;
+    }
+
 }

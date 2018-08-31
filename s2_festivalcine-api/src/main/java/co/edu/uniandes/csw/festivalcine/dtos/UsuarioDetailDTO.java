@@ -26,49 +26,10 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
     
     public UsuarioDetailDTO()
     {
-        
+        super();
     }
     
-     /**
-     * Constructor para transformar un Entity a un DTO
-     * @param usuarioEntity La entidad del critico para transformar a DTO.
-     */
-    public UsuarioDetailDTO(UsuarioEntity usuarioEntity)
-    {
-        super(usuarioEntity);
-        if(usuarioEntity != null)
-        {
-            if(usuarioEntity.darReservas() != null)
-            {
-                reservas = new ArrayList<ReservaDTO>();
-                for(ReservaEntity entityReserva : usuarioEntity.darReservas())
-                {
-                    reservas.add(new ReservaDTO(entityReserva));
-                }
-            }    
-        }
-    }
-    
-     /**
-     * Transforma un DTO a un Entity
-     * @return El DTO del critico para transformar a Entity
-     */
-    @Override
-    public UsuarioEntity toEntity()
-    {
-        UsuarioEntity usuarioEntity = super.toEntity();
-        if(reservas != null)
-        {
-            List<ReservaEntity> reservaEntity =  new ArrayList<>();
-            for(ReservaDTO dtoReserva : reservas)
-            {
-                reservaEntity.add(dtoReserva.toEntity());
-            }
-            usuarioEntity.setReservas(reservaEntity);
-        }
-        return usuarioEntity;
-    }
-    
+  
     public List<ReservaDTO> getReservas() {
         return reservas;
     }

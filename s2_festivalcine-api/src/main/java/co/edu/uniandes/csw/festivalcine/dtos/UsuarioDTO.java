@@ -27,20 +27,9 @@ public class UsuarioDTO implements Serializable
     private String nickname;
     private String password;
     
-    public UsuarioDTO(UsuarioEntity usuarioEntity)
+    public UsuarioDTO()
     {
-         if (usuarioEntity != null) 
-         {
-            this.id = usuarioEntity.getId();
-            this.nombres = usuarioEntity.getNombres();
-            this.apellidos = usuarioEntity.getApellidos();
-            this.identificacion = usuarioEntity.getIdentificacion();
-            this.celular = usuarioEntity.getUsuario();
-            this.email = usuarioEntity.getEmail();
-            this.tipoPersona = usuarioEntity.getTipoPersona();
-            this.nickname = usuarioEntity.getNickname();
-            this.password = usuarioEntity.getPassword();
-        }
+        
     }
 
     public Long getId() {
@@ -115,20 +104,7 @@ public class UsuarioDTO implements Serializable
         this.password = password;
     }
   
-    public UsuarioEntity toEntity()
-    {
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setId(this.id);
-        usuarioEntity.setName(this.nombres);
-        usuarioEntity.setApellidos(this.apellidos);
-        usuarioEntity.setIdentificacion(this.identificacion);
-        usuarioEntity.setCelular(this.celular);
-        usuarioEntity.setEmail(this.email);
-        usuarioEntity.setTipoPersona(this.tipoPersona);
-        usuarioEntity.setNickname(this.nickname);
-        usuarioEntity.setPassword(this.password);
-        return usuarioEntity;
-    }
+  
     
     @Override
     public String toString()
