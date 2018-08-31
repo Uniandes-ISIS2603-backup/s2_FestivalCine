@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
-
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
