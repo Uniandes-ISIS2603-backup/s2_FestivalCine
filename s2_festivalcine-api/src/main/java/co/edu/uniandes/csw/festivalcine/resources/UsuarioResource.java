@@ -100,7 +100,15 @@ public class UsuarioResource {
     @Path("{usuariosId: \\d+}")
     public UsuarioDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException {
 
-        return null;
+        UsuarioDTO usuario = new UsuarioDTO();
+        usuario.setNombres("Sebastian");
+        usuario.setApellidos("Chacón");
+        usuario.setCelular("3143972366");
+        usuario.setEmail("sb.velandia@uniandes.edu.co");
+        usuario.setNickname("Sebitas");
+        usuario.setPassword("Cosa");
+        usuario.setTipoPersona(2);
+        return usuario;
     }
 
     /**

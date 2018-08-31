@@ -87,6 +87,9 @@ public class ReservaResource
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la reserva.
      */
+    
+    //PENDIENTE PRUEBA
+    
     @GET
     @Path("{reservasId: \\d+}")
     public ReservaDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException {
@@ -106,6 +109,8 @@ public class ReservaResource
      * Error de lógica que se genera cuando no se encuentra la reserva a
      * actualizar.
      */
+     
+    
     @PUT
     @Path("{reservasId: \\d+}")
     public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException {
