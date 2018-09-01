@@ -30,6 +30,23 @@ public class BandaAnuncioPersistence {
          em.persist(entity);
         return entity;
      }
-     public BandaAnuncioEntity update ()
+     public BandaAnuncioEntity update (BandaAnuncioEntity entity){
+         LOGGER.info("Actualizando el recurso"+ System.currentTimeMillis());
+         return em.merge(entity);
+     }
      
+     public BandaAnuncioEntity findById(Long id){
+         LOGGER.info("Buscando un recurso Banda Anuncio con id="+id);
+         return em.find(BandaAnuncioEntity.class, id);
+              }
+     
+     public List<BandaAnuncioEntity> findAll(){
+         LOGGER.info("Buscando todos los recursos Banda Anuncio");
+        TypedQuery query = em.createQuery("select u from BandaAnuncioEntity u", BandaAnuncioEntity.class);
+        return query.getResultList();
+     }
+     public void delete(Long id){
+    BandaAnuncioEntity entity= em.find(BandaAnuncioEntity.class, id);
+    em.remove(entity);
+    }
 }

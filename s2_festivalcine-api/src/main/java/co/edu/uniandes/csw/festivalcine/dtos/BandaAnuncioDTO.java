@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
+
+import co.edu.uniandes.csw.festivalcine.entities.BandaAnuncioEntity;
+
 /*
 imports
 */
