@@ -68,7 +68,7 @@ public class PeliculaResource {
      * 
      */
     @GET
-    public List<PeliculaDTO> getEstudiantes() {
+    public List<PeliculaDTO> getPeliculas() {
         return listEntity2DTO(peliculaLogic.getPeliculas());
     }
 
