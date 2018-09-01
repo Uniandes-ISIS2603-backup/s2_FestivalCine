@@ -33,7 +33,6 @@ import javax.ws.rs.core.MediaType;
 @Path("/festival")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@RequestScoped
 public class FestivalResource {
 
     private static final Logger LOGGER = Logger.getLogger(FestivalResource.class.getName());
@@ -87,8 +86,8 @@ public class FestivalResource {
      *
      * @param id Identificador del festival que se desea actualizar. Este
      * debe ser una cadena de dígitos.
-     * @param festival  El autor que se desea guardar.
-     * @return JSON - El autor guardado.
+     * @param festival  El festival que se desea guardar.
+     * @return JSON - El festival guardado.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el festival a
      * actualizar.

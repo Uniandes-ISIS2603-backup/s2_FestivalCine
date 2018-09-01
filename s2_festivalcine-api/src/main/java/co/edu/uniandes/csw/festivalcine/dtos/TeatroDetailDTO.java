@@ -62,10 +62,10 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class TeatroDetailDTO extends TeatroDTO implements Serializable
 {
   // relación de cero a muchas funciones.
-  private List<FuncionDTO> funciones;
+  //private List<FuncionDTO> funciones;
   
   //relación de cero a muchas salas asignadas.
-  private List<SalaDTO> salasAsignadas;
+ // private List<SalaDTO> salasAsignadas;
   
   public TeatroDetailDTO()
   {
@@ -75,33 +75,33 @@ public class TeatroDetailDTO extends TeatroDTO implements Serializable
      * Devuelve la lista con las funciones del teatro.
      * @return funciones
      */
-    public List<FuncionDTO> getFunciones() {
+   /* public List<FuncionDTO> getFunciones() {
         return funciones;
-    }
-    
+    }*/
+  
     /**
      * Devuelve la lista con las salas del teatro asignadas al festival.
      * @param salasAsignadas 
      */
-    public List<SalasDTO> getSalasAsignadas() {
+   /** public List<SalasDTO> getSalasAsignadas() {
         return salasAsignadas;
-    }
+    }*/
 
     /**
      * Modifica la lista con las funciones del teatro.
      * @param funciones 
      */
-    public void setFunciones(List<FuncionDTO> funciones) {
+   /* public void setFunciones(List<FuncionDTO> funciones) {
         this.funciones = funciones;
-    }
+    }*/
 
     /**
      * Modifica la lista con las salas del teatro asignadas a festival.
      * @param salasAsignadas 
      */
-    public void setSalasAsignadas(List<SalasDTO> salasAsignadas) {
+    /*public void setSalasAsignadas(List<SalasDTO> salasAsignadas) {
         this.salasAsignadas = salasAsignadas;
-    }
+    }*/
     
        @Override
     public String toString() {

@@ -73,7 +73,7 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
     private List<TeatroDTO> teatros;
     
     //Relación de cero a muchos criticos.
-    private List<CriticoDTO> criticos;
+   // private List<CriticoDTO> criticos;
     
     public FestivalDetailDTO()
     {
@@ -92,9 +92,9 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
      * Devuelve la lista con los criticos del festival.
      * @return 
      */
-    public List<CriticoDTO> getCriticos() {
+   /* public List<CriticoDTO> getCriticos() {
         return criticos;
-    }
+    }*/
     
     /**
      * Modifica la lista de teatros para el festival.
@@ -108,9 +108,9 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
      * Modifica la lista de criticos para el festival.
      * @param criticos 
      */
-    public void setCriticos(List<CriticoDTO> criticos) {
+    /*public void setCriticos(List<CriticoDTO> criticos) {
         this.criticos = criticos;
-    }
+    }*/
     
     @Override
     public String toString() {
