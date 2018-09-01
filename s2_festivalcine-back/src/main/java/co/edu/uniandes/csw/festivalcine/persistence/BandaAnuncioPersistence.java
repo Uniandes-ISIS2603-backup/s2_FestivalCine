@@ -20,7 +20,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class BandaAnuncioPersistence {
      private static final Logger LOGGER = Logger.getLogger(BandaAnuncioPersistence.class.getName());
-     @PersistenceContext(unitName= "FestivalCinePU")
+     @PersistenceContext(unitName= "TarantinoPU")
      
      protected  EntityManager em;
      

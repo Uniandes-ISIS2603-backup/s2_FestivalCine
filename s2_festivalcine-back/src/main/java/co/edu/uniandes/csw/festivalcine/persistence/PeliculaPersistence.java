@@ -25,7 +25,7 @@ public class PeliculaPersistence {
 
     
  private static final Logger LOGGER = Logger.getLogger(PeliculaPersistence.class.getName());
- @PersistenceContext(unitName = "FestivalCinePU")
+ @PersistenceContext(unitName = "TarantinoPU")
     protected EntityManager em;
  
      public PeliculaEntity create(PeliculaEntity entity){
