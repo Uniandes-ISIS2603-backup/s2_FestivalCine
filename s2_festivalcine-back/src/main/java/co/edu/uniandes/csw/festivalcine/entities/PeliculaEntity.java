@@ -3,46 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.entities;
 
-import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
+
+
+//IMPORTS
 
 /**
  *
- * @author cc.cardenas
+ * @author Cristian
  */
-public class PeliculaDTO {
-    private long id;
-     private String nombre;
+public class PeliculaEntity extends BaseEntity implements Serializable{
+    
+    private String nombre;
     private String director;
     private String creditos;
     private String pais;
     private int duracion;
     private double puntaje;
     
-    
-    public PeliculaDTO(){
-        
-    }
-    
-    public PeliculaDTO(PeliculaEntity pelicula){
-        this.nombre= pelicula.getNombre();
-        this.director= pelicula.getDirector();
-        this.creditos= pelicula.getCreditos();
-        this.pais=pelicula.getPais();
-        this.duracion=pelicula.getDuracion();
-        this.puntaje=pelicula.getPuntaje();
-        
-               
+    // @PodamExclude
+   // @OneToMany (mappedBy = "peliucla", cascade = CascadeType.ALL, orphanRemoval = true)
+   // private List<CalificacionesEntity> calificaciones;
+      @PodamExclude
+    @OneToOne (mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BandaAnuncioEntity> bandas;
+
+    public List<BandaAnuncioEntity> getBandas() {
+        return bandas;
     }
 
-    public long getId() {
-        return id;
+    public void setBandas(List<BandaAnuncioEntity> bandas) {
+        this.bandas = bandas;
     }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    
 
     public String getNombre() {
         return nombre;
@@ -92,23 +92,5 @@ public class PeliculaDTO {
         this.puntaje = puntaje;
     }
     
-     /**
-     * Convertir DTO a Entity
-     * @return Un Entity con los valores del DTO 
-     */
-    public PeliculaEntity toEntity() {
-       PeliculaEntity entity = new PeliculaEntity();
-       
-       entity.setId(this.id);
-       entity.setNombre(this.nombre);
-       entity.setDirector(this.director);
-       entity.setCreditos(this.creditos);
-       entity.setDuracion(this.duracion);
-       entity.setPais(this.pais);
-       entity.setPuntaje(this.puntaje);
-
-        
-       
-        return entity;
-    }
+    
 }
