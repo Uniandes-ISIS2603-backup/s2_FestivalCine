@@ -57,7 +57,7 @@ public class FuncionResource {
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
     //    FuncionDTO nuevoFuncionDTO = new FuncionDTO(nuevoFuncionEntity);
     //    LOGGER.log(Level.INFO, "FuncionResource createFuncion: output: {0}", nuevoFuncionDTO.toString());
-        return null;
+        return funcion;
     }
 
     /**
@@ -120,7 +120,7 @@ public class FuncionResource {
     //    }
     //    //FuncionDTO detailDTO = new FuncionDTO(funcionLogic.updateEditorial(editorialsId, editorial.toEntity()));
     //    LOGGER.log(Level.INFO, "EditorialResource updateEditorial: output: {0}", detailDTO.toString());
-        return null;
+        return funcion;
     }
 
     /**
@@ -144,17 +144,18 @@ public class FuncionResource {
     //    LOGGER.info("EditorialResource deleteEditorial: output: void");
     }
     
-        /**
-     * Busca la funcion con el id asociado recibido en la URL y la devuelve.
+        
+    /**
+     * Busca la funcion con el id asociado recibido en la URL y devuelve la pelicula de esa función.
      * @param funcionesId Identificador de la funcion que se esta buscando.
      * Este debe ser una cadena de dígitos.
-     * @return JSON {@link FuncionDTO} - La funcion buscada
+     * @return JSON {@link PeliculaDTO} - La pelicula de la función buscada
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la editorial.
      */
-    @GET
-    @Path("{funcionesId: \\d+}")
-    public FuncionDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    //@GET
+    //@Path("{funcionesId: \\d+}")
+   // public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
     //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
     //    if (funcionEntity == null) {
@@ -162,8 +163,8 @@ public class FuncionResource {
     //     }
     //    FuncionDTO detailDTO = new FuncionDTO(funcionEntity);
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
-        return null;
-    }
+    //    return null;
+    //}
     
     
 }

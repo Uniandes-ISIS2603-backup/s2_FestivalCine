@@ -32,7 +32,7 @@ import javax.ws.rs.WebApplicationException;
 public class SalaResource {
         //private static final Logger LOGGER = Logger.getLogger(SalaResource.class.getName());
 
-    @Inject
+    
     //SalaLogic salaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
@@ -57,7 +57,7 @@ public class SalaResource {
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
     //    SalaDTO nuevoSalaDTO = new SalaDTO(nuevoSalaEntity);
     //    LOGGER.log(Level.INFO, "SalaResource createSala: output: {0}", nuevoSalaDTO.toString());
-        return null;
+        return sala;
     }
 
     /**
@@ -67,7 +67,7 @@ public class SalaResource {
      * la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<SalaDTO> getSalas() {
+    public List<SalaDTO> getsalas() {
     //    LOGGER.info("SalaResource getsalas: input: void");
     //    List<SalaDTO> listaSalas = listEntity2DetailDTO(salaLogic.getFunciones());
     //    LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
@@ -118,7 +118,7 @@ public class SalaResource {
     //    }
         //SalaDTO detailDTO = new SalaDTO(funcionLogic.updateEditorial(editorialsId, editorial.toEntity()));
     //    LOGGER.log(Level.INFO, "SalaResource updateEditorial: output: {0}", detailDTO.toString());
-        return null;
+        return sala;
     }
 
     /**
@@ -141,6 +141,8 @@ public class SalaResource {
     //    salaLogic.deleteSala(salasId);
     //    LOGGER.info("SalaResource deleteSala: output: void");
     }
+
+
     
     
 }

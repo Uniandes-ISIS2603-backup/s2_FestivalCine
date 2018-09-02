@@ -49,7 +49,7 @@ public class SillaResource {
      * Error de lógica que se genera cuando ya existe la sala.
      */
     @POST
-    public SillaDTO createSala(SillaDTO silla) throws BusinessLogicException {
+    public SillaDTO createSilla(SillaDTO silla) throws BusinessLogicException {
      
         return silla;
     }

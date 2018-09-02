@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.festivalcine.resources;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.uniandes.csw.festivalcine.dtos.SillaDTO;
 import java.util.List;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,9 +16,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ws.rs.WebApplicationException;
 
  /**
@@ -33,7 +29,7 @@ import javax.ws.rs.WebApplicationException;
 @Produces(MediaType.APPLICATION_JSON)
 public class SalaSillasResource {
 
-    private static final Logger LOGGER = Logger.getLogger(SalaSillasResource.class.getName());
+   // private static final Logger LOGGER = Logger.getLogger(SalaSillasResource.class.getName());
 
     //@Inject
     //private EditorialBooksLogic editorialBooksLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
