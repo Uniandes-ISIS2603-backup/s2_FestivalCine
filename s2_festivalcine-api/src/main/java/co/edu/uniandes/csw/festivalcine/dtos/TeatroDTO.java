@@ -90,7 +90,7 @@ public class TeatroDTO implements Serializable {
      * Establece el numero de salas del teatro.
      * @param numSalasFest 
      */
-    public void setNumSalasFest(int numSalasFest) {
+    public void setNumSalasFest(Integer numSalasFest) {
         this.numSalasFest = numSalasFest;
     }
 

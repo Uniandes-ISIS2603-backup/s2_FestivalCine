@@ -24,15 +24,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 
+
 /**
  * Clase que implementa el recurso "festivales".
  *
  * @author Mario Andrade
  * @version 1.0
  */
-@Path("/festival")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Path("festivales")
+@Consumes("application/json")
+@Produces("application/json")
+@RequestScoped
 public class FestivalResource {
 
     private static final Logger LOGGER = Logger.getLogger(FestivalResource.class.getName());
@@ -49,7 +51,7 @@ public class FestivalResource {
      */
     @POST
     public FestivalDTO createFestival(FestivalDTO festival) {
-        return null;
+        return festival;
     }
 
     /**
@@ -94,9 +96,16 @@ public class FestivalResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public FestivalDetailDTO updatFestival(@PathParam("id") Long id, FestivalDetailDTO festival) {
+    public FestivalDetailDTO updateFestival(@PathParam("id") Long id, FestivalDetailDTO festival) {
         
-        return null;
+        return festival;
+    }
+    
+     @DELETE
+    @Path("{id: \\d+}")
+    public void deleteFestival(@PathParam("id") Long id)
+    {
+       
     }
 
 }

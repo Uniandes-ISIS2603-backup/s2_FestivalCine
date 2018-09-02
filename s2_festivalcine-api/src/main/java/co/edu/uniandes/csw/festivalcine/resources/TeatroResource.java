@@ -5,12 +5,13 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
-import co.edu.uniandes.csw.festivalcine.dtos.FestivalDetailDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.TeatroDetailDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.TeatroDTO;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -21,12 +22,13 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author estudiante
+ * @author Mario Andrade
  */
-@Path("/teatro")
-@Consumes(MediaType.APPLICATION_JSON)
-@Produces(MediaType.APPLICATION_JSON)
+@Path("teatros")
+@Consumes("application/json")
+@Produces("application/json")
 @RequestScoped
+
 public class TeatroResource 
 {
     private static final Logger LOGGER = Logger.getLogger(FestivalResource.class.getName());
@@ -41,8 +43,8 @@ public class TeatroResource
      * autogenerado.
      */
     @POST
-    public TeatroDTO createFestival(TeatroDTO festival) {
-        return null;
+    public TeatroDTO createTeatro(TeatroDTO teatro) {
+        return teatro;
     }
     
         /**
@@ -52,7 +54,7 @@ public class TeatroResource
      * aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
-    public List<TeatroDTO> getFestivals() {
+    public List<TeatroDTO> getTeatro() {
 
         return null;
     }
@@ -68,7 +70,7 @@ public class TeatroResource
      */
     @GET
     @Path("{id: \\d+}")
-    public TeatroDTO getFestival(@PathParam("id") Long id) {
+    public TeatroDTO getTeatro(@PathParam("id") Long id) {
 
         return null;
     }
@@ -79,7 +81,7 @@ public class TeatroResource
      *
      * @param id Identificador del teatro que se desea actualizar. Este
      * debe ser una cadena de dígitos.
-     * @param festival  El teatro que se desea guardar.
+     * @param tatro  El teatro que se desea guardar.
      * @return JSON - El teatro guardado.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el teatro a
@@ -87,8 +89,15 @@ public class TeatroResource
      */
     @PUT
     @Path("{id: \\d+}")
-    public FestivalDetailDTO updatFestival(@PathParam("id") Long id, FestivalDetailDTO festival) {
+    public TeatroDetailDTO updateTatro(@PathParam("id") Long id, TeatroDetailDTO teatro) {
         
-        return null;
+        return teatro;
+    }
+    
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteTeatro(@PathParam("id") Long id)
+    {
+       
     }
 }
