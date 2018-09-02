@@ -51,7 +51,7 @@ public class SillaResource {
     @POST
     public SillaDTO createSala(SillaDTO silla) throws BusinessLogicException {
      
-        return null;
+        return silla;
     }
 
     /**
@@ -98,7 +98,7 @@ public class SillaResource {
     @Path("{sillasId: \\d+}")
     public SillaDTO updateSilla(@PathParam("sillasId") Long sillasId, SillaDTO silla) throws WebApplicationException {
 
-        return null;
+        return silla;
     }
 
     /**
@@ -116,6 +116,8 @@ public class SillaResource {
     public void deleteSala(@PathParam("sillasId") Long sillasId) throws BusinessLogicException {
 
     }
+    
+    
     
     
 }

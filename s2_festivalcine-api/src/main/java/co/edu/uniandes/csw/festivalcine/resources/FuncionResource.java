@@ -21,8 +21,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
 /**
- * Clase que implementa el recurso "funciones".
-
+ * Clase que implementa el recurso "funciones"
+ * @author María Juliana Moya
  */
 @Path("funciones")
 @Produces("application/json")
@@ -76,7 +76,6 @@ public class FuncionResource {
 
     /**
      * Busca la funcion con el id asociado recibido en la URL y la devuelve.
-     *
      * @param funcionesId Identificador de la funcion que se esta buscando.
      * Este debe ser una cadena de dígitos.
      * @return JSON {@link FuncionDTO} - La funcion buscada
@@ -95,6 +94,9 @@ public class FuncionResource {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
         return null;
     }
+    
+    
+    
 
     /**
      * Actualiza la funcion con el id recibido en la URL con la informacion
@@ -141,4 +143,27 @@ public class FuncionResource {
     //    funcionLogic.deleteFuncion(funcionesId);
     //    LOGGER.info("EditorialResource deleteEditorial: output: void");
     }
+    
+        /**
+     * Busca la funcion con el id asociado recibido en la URL y la devuelve.
+     * @param funcionesId Identificador de la funcion que se esta buscando.
+     * Este debe ser una cadena de dígitos.
+     * @return JSON {@link FuncionDTO} - La funcion buscada
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la editorial.
+     */
+    @GET
+    @Path("{funcionesId: \\d+}")
+    public FuncionDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+    //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
+    //    if (funcionEntity == null) {
+    //        throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+    //     }
+    //    FuncionDTO detailDTO = new FuncionDTO(funcionEntity);
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
+        return null;
+    }
+    
+    
 }

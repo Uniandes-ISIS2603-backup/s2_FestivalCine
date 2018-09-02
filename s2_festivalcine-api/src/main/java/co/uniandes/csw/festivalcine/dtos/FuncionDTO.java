@@ -21,11 +21,29 @@ public class FuncionDTO implements Serializable{
     private Date horaInicio;
     private Date horaFin;
     private Integer precioBase;
+    
+    /*
+    * Relación a una sala
+    * dado que esta tiene cardinalidad 1.
+     */
+
     private SalaDTO sala;
+    
+    /*
+    * Relación a una película  
+    * dado que esta tiene cardinalidad 1.
+     */
+
     private PeliculaDTO pelicula;
     
+    /*
+    * Relación a un crítico 
+    * dado que esta tiene cardinalidad 1.
+     */
+
+    private CriticoDTO critico;
     
-    
+   
     //Constructor ----------------------------------------------------------------------------
     
     /**
@@ -45,8 +63,6 @@ public class FuncionDTO implements Serializable{
     //        this.horaInicio = funcionEntity.getHoraInicio();
     //        this.horaFin = funcionEntity.getHoraFin();
     //        this.precioBase = funcionEntity.getPrecioBase();
-    //        this.sala = funcionEntity.getSala();
-    //       this.pelicula = funcionEntity.getPelicula();
     //   }
     //}
    
@@ -107,7 +123,15 @@ public class FuncionDTO implements Serializable{
         return pelicula;
     }
     
-    
+     /**
+     * Devuelve el crítico asignado en la función
+     * @return CriticoDTO
+     */
+    public CriticoDTO getCritico()
+    {
+        return critico;
+    }
+      
     /**
      * Modifica el ID de la función
      * @param id el id nuevo
@@ -160,6 +184,15 @@ public class FuncionDTO implements Serializable{
     public void setPelicula(PeliculaDTO pelicula)
     {
         this.pelicula = pelicula;
+    }
+    
+    /**
+     * Modifica el crítico de la función
+     * @param CriticoDTO 
+     */
+    public void setCritico(CriticoDTO critico)
+    {
+        this.critico = critico;
     }
    
     /**
