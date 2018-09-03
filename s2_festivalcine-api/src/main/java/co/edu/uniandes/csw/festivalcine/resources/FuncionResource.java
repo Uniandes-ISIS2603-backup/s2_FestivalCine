@@ -155,7 +155,7 @@ public class FuncionResource {
      * Error de lógica que se genera cuando no se encuentra la función.
      */
     @GET
-    @Path("{funcionesId: \\d+}")
+    @Path("{funcionesId: \\d+}/peliculas")
     public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
     //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
@@ -176,7 +176,7 @@ public class FuncionResource {
      * Error de lógica que se genera cuando no se encuentra la función.
      */
     @GET
-    @Path("{funcionesId: \\d+}")
+    @Path("{funcionesId: \\d+}/criticos")
     public CriticoDTO getCriticoFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
     //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
@@ -197,7 +197,7 @@ public class FuncionResource {
      * Error de lógica que se genera cuando no se encuentra la función.
      */
     @GET
-    @Path("{funcionesId: \\d+}")
+    @Path("{funcionesId: \\d+}/salas")
     public SalaDTO getSalaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
     //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
