@@ -5,50 +5,94 @@
  */
 package co.edu.uniandes.csw.festivalcine.entities;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
+
 /**
  *
  * @author estudiante
  */
-public class ReservaEntity {
+@Entity
+public class ReservaEntity extends BaseEntity implements Serializable
+{
+    @Id
+    private Long id;
+    
+    private Boolean abono;
+    
+    private Integer descuento;
+    
+    private Integer precioTotal;
+    
+//    @PodamExclude
+//    @OneToMany(mappedBy = "reserva")
+//    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
+//
+//    @PodamExclude
+//    @OneToMany(mappedBy = "reserva")
+//    private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    
+    
+    @PodamExclude
+    @ManyToOne
+    private UsuarioEntity usuario;
+    
+    public ReservaEntity()
+    {
+        
+    }
+    
+//    public List<FuncionEntity> getFunciones() {
+//        return funciones;
+//    }
+//
+//    public void setFunciones(List<FuncionEntity> funciones) {
+//        this.funciones = funciones;
+//    }
+//    
+//     public List<SillaEntity> getSillas() {
+//        return sillas;
+//    }
+//
+//    public void setSillas(List<SillaEntity> sillas) {
+//        this.sillas = sillas;
+//    }
+    
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id = id;
     }
 
-    public void setAbono(boolean abono) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean getAbono() {
+        return abono;
     }
 
-    public void setDescuento(Integer descuento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setPreciototal(Integer precioTotal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Integer getPrecioTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setAbono(Boolean abono) {
+        this.abono = abono;
     }
 
     public Integer getDescuento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return descuento;
     }
 
-    public boolean getAbono() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setDescuento(Integer descuento) {
+        this.descuento = descuento;
     }
 
-    public Long getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Integer getPrecioTotal() {
+        return precioTotal;
     }
 
-    public Object darSillas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setPrecioTotal(Integer precioTotal) {
+        this.precioTotal = precioTotal;
     }
-
-    public Object darFunciones() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
