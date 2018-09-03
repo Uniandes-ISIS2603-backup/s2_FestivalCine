@@ -34,14 +34,14 @@ public class FuncionDTO implements Serializable{
     * dado que esta tiene cardinalidad 1.
      */
 
-    //private PeliculaDTO pelicula;
+    private PeliculaDTO pelicula;
     
     /*
     * Relación a un crítico 
     * dado que esta tiene cardinalidad 1.
      */
 
-    //private CriticoDTO critico;
+    private CriticoDTO critico;
     
    
     //Constructor ----------------------------------------------------------------------------
@@ -118,19 +118,19 @@ public class FuncionDTO implements Serializable{
      * Devuelve la pelicula que se presentará en la función
      * @return SalaDTO
      */
-    //public PeliculaDTO getPelicula()
-    //{
-    //    return pelicula;
-    //}
+    public PeliculaDTO getPelicula()
+    {
+        return pelicula;
+    }
     
      /**
      * Devuelve el crítico asignado en la función
      * @return CriticoDTO
      */
-   // public CriticoDTO getCritico()
-   //{
-   //     return critico;
-   //}
+    public CriticoDTO getCritico()
+   {
+        return critico;
+   }
       
     /**
      * Modifica el ID de la función
@@ -181,19 +181,19 @@ public class FuncionDTO implements Serializable{
      * Modifica la sala de la función
      * @param PeliculaDTO 
      */
-    //public void setPelicula(PeliculaDTO pelicula)
-    //{
-    //    this.pelicula = pelicula;
-    //}
+    public void setPelicula(PeliculaDTO pelicula)
+    {
+        this.pelicula = pelicula;
+    }
     
     /**
      * Modifica el crítico de la función
      * @param CriticoDTO 
      */
-    //public void setCritico(CriticoDTO critico)
-    //{
-    //    this.critico = critico;
-    //}
+    public void setCritico(CriticoDTO critico)
+    {
+        this.critico = critico;
+    }
    
     /**
      * Convertir DTO a Entity

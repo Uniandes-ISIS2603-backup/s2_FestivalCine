@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.uniandes.csw.festivalcine.dtos.FuncionDTO;
+import co.uniandes.csw.festivalcine.dtos.SalaDTO;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -151,11 +152,11 @@ public class FuncionResource {
      * Este debe ser una cadena de dígitos.
      * @return JSON {@link PeliculaDTO} - La pelicula de la función buscada
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la editorial.
+     * Error de lógica que se genera cuando no se encuentra la función.
      */
-    //@GET
-    //@Path("{funcionesId: \\d+}")
-   // public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    @GET
+    @Path("{funcionesId: \\d+}")
+    public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
     //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
     //    if (funcionEntity == null) {
@@ -163,8 +164,56 @@ public class FuncionResource {
     //     }
     //    FuncionDTO detailDTO = new FuncionDTO(funcionEntity);
     //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
-    //    return null;
-    //}
+        return null;
+    }
+    
+    /**
+     * Busca la funcion con el id asociado recibido en la URL y devuelve el crítico de esa función.
+     * @param funcionesId Identificador de la funcion que se esta buscando.
+     * Este debe ser una cadena de dígitos.
+     * @return JSON {@link CriticoDTO} - El critico de la función buscada
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la función.
+     */
+    @GET
+    @Path("{funcionesId: \\d+}")
+    public CriticoDTO getCriticoFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+    //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
+    //    if (funcionEntity == null) {
+    //        throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+    //     }
+    //    FuncionDTO detailDTO = new FuncionDTO(funcionEntity);
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
+        return null;
+    }
+    
+    /**
+     * Busca la funcion con el id asociado recibido en la URL y devuelve la sala de esa función.
+     * @param funcionesId Identificador de la funcion que se esta buscando.
+     * Este debe ser una cadena de dígitos.
+     * @return JSON {@link SalaDTO} - La sala de la función buscada
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la función.
+     */
+    @GET
+    @Path("{funcionesId: \\d+}")
+    public SalaDTO getSalaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+    //    FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
+    //    if (funcionEntity == null) {
+    //        throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+    //     }
+    //    FuncionDTO detailDTO = new FuncionDTO(funcionEntity);
+    //    LOGGER.log(Level.INFO, "FuncionResource getFuncion: output: {0}", detailDTO.toString());
+        return null;
+    }
+    
+    
+    
+    
+    
+   
     
     
 }

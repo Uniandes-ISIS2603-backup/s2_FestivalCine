@@ -21,7 +21,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 
 /**
- * Clase que implementa el recurso "salas".
+ * Clase que implementa el recurso "sillas".
 
  */
 @Path("sillas")
