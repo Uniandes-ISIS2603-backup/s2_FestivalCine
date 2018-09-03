@@ -96,7 +96,7 @@ public class FestivalResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public FestivalDetailDTO updateFestival(@PathParam("id") Long id, FestivalDetailDTO festival) {
+    public FestivalDTO updateFestival(@PathParam("id") Long id, FestivalDTO festival) {
         
         return festival;
     }

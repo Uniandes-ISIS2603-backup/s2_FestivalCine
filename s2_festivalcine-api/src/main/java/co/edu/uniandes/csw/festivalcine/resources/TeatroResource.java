@@ -27,7 +27,7 @@ import javax.ws.rs.core.MediaType;
 @Path("teatros")
 @Consumes("application/json")
 @Produces("application/json")
-@RequestScoped
+//@RequestScoped
 
 public class TeatroResource 
 {
@@ -89,7 +89,7 @@ public class TeatroResource
      */
     @PUT
     @Path("{id: \\d+}")
-    public TeatroDetailDTO updateTatro(@PathParam("id") Long id, TeatroDetailDTO teatro) {
+    public TeatroDTO updateTatro(@PathParam("id") Long id, TeatroDTO teatro) {
         
         return teatro;
     }
