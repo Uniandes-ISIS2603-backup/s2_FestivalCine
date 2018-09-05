@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "4158c478-42f2-4252-828e-08c9271f7f43",
+		"name": "PruebasTeatros",
+		"description": "Pruebas de POST,GET, GET all, PUT y DELETE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST nuevo teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f6c96d3d-d004-4166-a883-49dc8aebd1b5",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\", data.id);",
+							"postman.setGlobalVariable(\"nombre\", data.nombre);",
+							"postman.setGlobalVariable(\"nombre\", data.nombre);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1520\",\n\t\"nombre\": \"hola\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_festivalcine-api/api/teatros?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "84602460",
+							"disabled": true
+						}
+					]
+				},
+				"description": "POST: un nuevo teatro"
+			},
+			"response": []
+		},
+		{
+			"name": "GET teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12e4d9ae-094f-40ef-9e37-46853943930e",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1520\",\n\t\"nombre\": \"hola\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_festivalcine-api/api/teatros/1520?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"1520"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "84602460",
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET:retorna un teatro por un ID buscado. No existe el teatro, retorna null."
+			},
+			"response": []
+		},
+		{
+			"name": "GET todos los teatros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12e4d9ae-094f-40ef-9e37-46853943930e",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"1520\",\n\t\"nombre\": \"hola\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_festivalcine-api/api/teatros/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "84602460",
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET: retorna todos los teatros creados. No hay ningun teatro, retorna null."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT  teatro existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3a37d97-4077-4bc3-b441-c517931f94d8",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\", data.id);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"2015\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_festivalcine-api/api/teatros/1520?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"1520"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "84602460",
+							"disabled": true
+						}
+					]
+				},
+				"description": "PUT: modifica el teatro existente con un nuevo ID.,"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE tatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3a37d97-4077-4bc3-b441-c517931f94d8",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"id\", data.id);",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/s2_festivalcine-api/api/teatros/222222?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"222222"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "84602460",
+							"disabled": true
+						}
+					]
+				},
+				"description": "DELETE: un teatro por un id dado. No hay teatros por lo cual manda 204."
+			},
+			"response": []
+		}
+	]
+}
