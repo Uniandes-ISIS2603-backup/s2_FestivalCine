@@ -1,0 +1,824 @@
+{
+	"id": "8ce7c578-9d69-428b-9ec1-806c33ec7353",
+	"name": "FestivalCine_Pruebas",
+	"allTests": [],
+	"timestamp": "2018-09-01T03:34:02.106Z",
+	"collection_id": "77f1a726-899e-498b-af86-9f73744ddeb0",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "77f1a726-899e-498b-af86-9f73744ddeb0",
+		"name": "FestivalCine_Pruebas",
+		"description": null,
+		"auth": null,
+		"events": null,
+		"variables": null,
+		"order": [],
+		"folders_order": [
+			"8aaa1e5c-f53a-4d16-b4b2-651fcc2f0d73",
+			"93a7000e-f9ec-446b-bf33-65d74ce571bd"
+		],
+		"owner": "0",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": null,
+	"results": [
+		{
+			"name": "POST critico",
+			"id": "9a7d8621-d0d9-4f52-8396-40de65a1de06",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET critico especifico",
+			"id": "c761f3c7-c6f7-47d7-99a9-7b14a4c03506",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"124"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "124",
+			"totalRequestTime": "124",
+			"iterationResults": {}
+		},
+		{
+			"name": "PUT actualizar critico",
+			"id": "864984f5-c0dd-4d4e-9413-06de8b985f8b",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"19"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "19",
+			"totalRequestTime": "19",
+			"iterationResults": {}
+		},
+		{
+			"name": "DELETE critico",
+			"id": "02371b3c-07f7-4e39-9be4-00d3712c4031",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST añadir pelicula a critico",
+			"id": "77df7f4f-1d65-43f0-9bf1-e67ec2eb1e1e",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/10",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"17"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "17",
+			"totalRequestTime": "17",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET peliculas de un critico especifico",
+			"id": "678653e0-1925-4208-ad8e-ff81cac8f2df",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"13"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "13",
+			"totalRequestTime": "13",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET pelicula de un critico en especifico",
+			"id": "92ed5e52-87bd-4761-97c2-29b9a5ddb554",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/10",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "DELETE elimina peicula esficifico de critico especifico",
+			"id": "66ce1628-b8e1-456d-a1c1-9f3f481eb980",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET funciones de un critico en especifico",
+			"id": "e59b673d-c2fe-4273-bf26-e3b98c4e6545",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "DELETE elimina funcion especifica de critico especifico",
+			"id": "e4e4113c-ad11-41cb-ade8-ba6f7ea1eff7",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET funcion especifica critico especifico",
+			"id": "74a8be99-d3f8-4c52-9c61-454a5c524a96",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funnciones/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"12"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "12",
+			"totalRequestTime": "12",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST añadir funcion critico",
+			"id": "6a2f6bb5-9346-454e-985a-7008f988fe31",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funnciones/1/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST añadir calificacion a critico especifico",
+			"id": "2c4aebc2-17b8-4291-b198-149a6a73a289",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET calificaciones de un critico en especifico",
+			"id": "211b31d5-9329-4318-93dc-626616208753",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET calificacion especifica de un critico en especifico",
+			"id": "b890f687-315a-4946-9149-caf63af40bdb",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "DELETE calificacion especifica de un critico",
+			"id": "bce822ab-e4da-420d-bb7a-f445cd95747e",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "POST calificaciones",
+			"id": "6f7147f2-ebf4-46d1-9216-a779ef74d308",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"43"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "43",
+			"totalRequestTime": "43",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET calificacion especifico",
+			"id": "993579e3-663b-4cd8-8906-8d56aa63f060",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "DELETE calificacion",
+			"id": "3618b923-b38f-488c-984a-ea06a4473e57",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"8"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "8",
+			"totalRequestTime": "8",
+			"iterationResults": {}
+		},
+		{
+			"name": "GET usuario calificaciones",
+			"id": "d03eeb72-ccc5-4bd5-8345-deb632672d3c",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/1/usuarios/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 396,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "POST critico",
+			"id": "9a7d8621-d0d9-4f52-8396-40de65a1de06",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET critico especifico",
+			"id": "c761f3c7-c6f7-47d7-99a9-7b14a4c03506",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "PUT actualizar critico",
+			"id": "864984f5-c0dd-4d4e-9413-06de8b985f8b",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "DELETE critico",
+			"id": "02371b3c-07f7-4e39-9be4-00d3712c4031",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "POST añadir pelicula a critico",
+			"id": "77df7f4f-1d65-43f0-9bf1-e67ec2eb1e1e",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/10",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET peliculas de un critico especifico",
+			"id": "678653e0-1925-4208-ad8e-ff81cac8f2df",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET pelicula de un critico en especifico",
+			"id": "92ed5e52-87bd-4761-97c2-29b9a5ddb554",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/10",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "DELETE elimina peicula esficifico de critico especifico",
+			"id": "66ce1628-b8e1-456d-a1c1-9f3f481eb980",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/1",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET funciones de un critico en especifico",
+			"id": "e59b673d-c2fe-4273-bf26-e3b98c4e6545",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "DELETE elimina funcion especifica de critico especifico",
+			"id": "e4e4113c-ad11-41cb-ade8-ba6f7ea1eff7",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET funcion especifica critico especifico",
+			"id": "74a8be99-d3f8-4c52-9c61-454a5c524a96",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funnciones/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "POST añadir funcion critico",
+			"id": "6a2f6bb5-9346-454e-985a-7008f988fe31",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funnciones/1/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "POST añadir calificacion a critico especifico",
+			"id": "2c4aebc2-17b8-4291-b198-149a6a73a289",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET calificaciones de un critico en especifico",
+			"id": "211b31d5-9329-4318-93dc-626616208753",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET calificacion especifica de un critico en especifico",
+			"id": "b890f687-315a-4946-9149-caf63af40bdb",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "DELETE calificacion especifica de un critico",
+			"id": "bce822ab-e4da-420d-bb7a-f445cd95747e",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "POST calificaciones",
+			"id": "6f7147f2-ebf4-46d1-9216-a779ef74d308",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET calificacion especifico",
+			"id": "993579e3-663b-4cd8-8906-8d56aa63f060",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "DELETE calificacion",
+			"id": "3618b923-b38f-488c-984a-ea06a4473e57",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "GET usuario calificaciones",
+			"id": "d03eeb72-ccc5-4bd5-8345-deb632672d3c",
+			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/1/usuarios/",
+			"time": "2018-09-01T03:34:02.106Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}
