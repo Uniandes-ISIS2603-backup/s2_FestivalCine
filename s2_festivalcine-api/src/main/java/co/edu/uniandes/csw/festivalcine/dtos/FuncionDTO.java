@@ -206,11 +206,13 @@ public class FuncionDTO implements Serializable{
      */
     public FuncionEntity toEntity()
    {
+      FuncionEntity funcionEntity = new FuncionEntity();
       funcionEntity.setId(this.id);
       funcionEntity.setHoraInicio(this.horaInicio);
       funcionEntity.setHoraFin(this.horaFin);
       funcionEntity.setPrecioBase(this.precioBase);
       funcionEntity.setPelicula(this.pelicula);
+      funcionEntity.setCritico (this.critico);
       funcionEntity.setSala(this.sala);
       return funcionEntity ;
     }
