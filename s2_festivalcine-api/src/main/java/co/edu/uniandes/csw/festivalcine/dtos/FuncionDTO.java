@@ -26,6 +26,7 @@ public class FuncionDTO implements Serializable{
     private Date horaFin;
     private Integer precioBase;
     
+    
     /*
     * Relación a una sala
     * dado que esta tiene cardinalidad 1.
