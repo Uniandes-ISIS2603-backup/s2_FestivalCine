@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.dtos;
 
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
