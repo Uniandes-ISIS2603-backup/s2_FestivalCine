@@ -1,10 +1,14 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.dtos;
 
+
+import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import java.io.Serializable;
 import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -21,6 +25,7 @@ public class FuncionDTO implements Serializable{
     private Date horaInicio;
     private Date horaFin;
     private Integer precioBase;
+    
     
     /*
     * Relación a una sala
@@ -55,16 +60,16 @@ public class FuncionDTO implements Serializable{
      * la entidad que vienede argumento.)
      * @param funcionEntity: es la entidad que se va a convertir a DTO
      */
-    //public FuncionDTO(FuncionEntity funcionEntity)
-    //{
-    //    if(funcionEntity != null)
-    //    {
-    //        this.id = funcionEntity.getId();
-    //        this.horaInicio = funcionEntity.getHoraInicio();
-    //        this.horaFin = funcionEntity.getHoraFin();
-    //        this.precioBase = funcionEntity.getPrecioBase();
-    //   }
-    //}
+    public FuncionDTO(FuncionEntity funcionEntity)
+    {
+        if(funcionEntity != null)
+        {
+           this.id = funcionEntity.getId();
+           this.horaInicio = funcionEntity.getHoraInicio();
+           this.horaFin = funcionEntity.getHoraFin();
+           this.precioBase = funcionEntity.getPrecioBase();
+       }
+    }
    
     
     //Métodos -------------------------------------------------------------------------------
@@ -179,7 +184,7 @@ public class FuncionDTO implements Serializable{
        
      /**
      * Modifica la sala de la función
-     * @param PeliculaDTO 
+     * @param pelicula PeliculaDTO 
      */
     public void setPelicula(PeliculaDTO pelicula)
     {
@@ -188,7 +193,7 @@ public class FuncionDTO implements Serializable{
     
     /**
      * Modifica el crítico de la función
-     * @param CriticoDTO 
+     * @param critico CriticoDTO 
      */
     public void setCritico(CriticoDTO critico)
     {
@@ -199,16 +204,18 @@ public class FuncionDTO implements Serializable{
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
      */
-   // public FuncionEntity toEntity()
-   //{
-     // funcionEntity.setId(this.id);
-     // funcionEntity.setHoraInicio(this.horaInicio);
-     // funcionEntity.setHoraFin(this.horaFin);
-     // funcionEntity.setPrecioBase(this.precioBase);
-     // funcionEntity.setPelicula(this.pelicula);
-     // funcionEntity.setSala(this.sala);
-     //   return funcionEntity ;
-    //}
+    public FuncionEntity toEntity()
+   {
+      FuncionEntity funcionEntity = new FuncionEntity();
+      funcionEntity.setId(this.id);
+      funcionEntity.setHoraInicio(this.horaInicio);
+      funcionEntity.setHoraFin(this.horaFin);
+      funcionEntity.setPrecioBase(this.precioBase);
+      funcionEntity.setPelicula(this.pelicula);
+      funcionEntity.setCritico (this.critico);
+      funcionEntity.setSala(this.sala);
+      return funcionEntity ;
+    }
     
     @Override
     public String toString()
