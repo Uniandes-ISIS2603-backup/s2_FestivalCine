@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.edu.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.ejb;
 
 /**
  *
  * @author estudiante
  */
-public class SillaDTO {
+public class CalificacionLogic {
     
 }

@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.edu.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.entities;
 
 /**
  *
  * @author estudiante
  */
-public class UsuarioDetail extends UsuarioDTO
-{
-    private arrayList reservas;
+public class SalaEntity {
     
-    public UsuarioDetail()
-    {
-        reservas=null;
-    }
+    
 }
