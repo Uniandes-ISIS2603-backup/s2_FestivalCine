@@ -61,6 +61,7 @@ public class ReservaDTO implements Serializable
         if (reservaEntity != null) 
         {
             this.id = reservaEntity.getId();
+            
             this.abono = reservaEntity.getAbono();
             this.descuento = reservaEntity.getDescuento();
             this.precioTotal = reservaEntity.getPrecioTotal();
