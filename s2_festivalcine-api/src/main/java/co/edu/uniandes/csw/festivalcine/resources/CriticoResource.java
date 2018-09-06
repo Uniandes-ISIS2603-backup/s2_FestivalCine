@@ -27,6 +27,8 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @RequestScoped
 
+//Clase critico
+
 /**
  *
  * @author estudiante
