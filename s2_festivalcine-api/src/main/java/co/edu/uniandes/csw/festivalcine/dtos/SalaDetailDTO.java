@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,35 +33,35 @@ public class SalaDetailDTO extends SalaDTO implements Serializable {
     
      * @param salaEntity La entidad de la sala para transformar a DTO.
      */
-    //public SalaDetailDTO(SalaEntity salaEntity) {
-    //    super(salaEntity);
-    //    if (salaEntity != null) {
-    //        if (salaEntity.getSillas() != null) {
-    //            sillas= new ArrayList<>();
-    //           // for (SillaEntity entitySilla : SalaEntity.getSillas()) {
-    //           //    sillas.add(new SillaDTO(entitySilla));
-    //           //}
-    //        }
-    //    }
-    //}
+    public SalaDetailDTO(SalaEntity salaEntity) {
+        super(salaEntity);
+        if (salaEntity != null) {
+            if (salaEntity.getSillas() != null) {
+                sillas= new ArrayList<>();
+                for (SillaEntity entitySilla : salaEntity.getSillas()) {
+                  sillas.add(new SillaDTO(entitySilla));
+               }
+            }
+        }
+    }
 
     /**
      * Transformar un DTO a un Entity
      *
      * @return El DTO de la editorial para transformar a Entity
      */
-    //@Override
-    //public SalaEntity toEntity() {
-    //    SalaEntity salaEntity = super.toEntity();
-    //    if (sillas != null) {
-    //        List <SillaEntity> sillasEntity = new ArrayList<>();
-    //        for (SillaDTO dtoSilla : sillas) {
-    //            sillasEntity.add(dtoSilla.toEntity());
-    //        }
-    //        salaEntity.setSillas(sillasEntity);
-    //    }
-    //    return salaEntity;
-    //}
+    @Override
+    public SalaEntity toEntity() {
+        SalaEntity salaEntity = super.toEntity();
+        if (sillas != null) {
+           List <SillaEntity> sillasEntity = new ArrayList<>();
+           for (SillaDTO dtoSilla : sillas) {
+                sillasEntity.add(dtoSilla.toEntity());
+            }
+            salaEntity.setSillas(sillasEntity);
+        }
+        return salaEntity;
+    }
 
     /**
      * Devuelve la lista de sillas de la sala

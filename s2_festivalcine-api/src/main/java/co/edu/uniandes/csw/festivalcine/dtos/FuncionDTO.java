@@ -68,6 +68,18 @@ public class FuncionDTO implements Serializable{
            this.horaInicio = funcionEntity.getHoraInicio();
            this.horaFin = funcionEntity.getHoraFin();
            this.precioBase = funcionEntity.getPrecioBase();
+           if (funcionEntity.getCritico() != null) {
+                this.critico = new CriticoDTO(funcionEntity.getCritico());
+           } else {
+                this.critico = null;
+           }
+           
+           if (funcionEntity.getSala() != null) {
+                this.sala = new SalaDTO(funcionEntity.getSala());
+           } else {
+                this.sala = null;
+           }
+           //FALTA PELICULA
        }
     }
    
@@ -211,9 +223,19 @@ public class FuncionDTO implements Serializable{
       funcionEntity.setHoraInicio(this.horaInicio);
       funcionEntity.setHoraFin(this.horaFin);
       funcionEntity.setPrecioBase(this.precioBase);
-      funcionEntity.setPelicula(this.pelicula);
-      funcionEntity.setCritico (this.critico);
-      funcionEntity.setSala(this.sala);
+              
+      if (this.critico != null) {
+            funcionEntity.setCritico(this.critico.toEntity());
+      }
+      if (this.sala != null) {
+            funcionEntity.setSala(this.sala.toEntity());
+      }
+      
+      //FALTA PELICULA
+     // if (this.pelicula != null) {
+     //      funcionEntity.setCritico(this.critico.toEntity());
+      //}
+;
       return funcionEntity ;
     }
     

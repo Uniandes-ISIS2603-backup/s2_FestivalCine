@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.test.persistence;
-
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
-import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -23,16 +22,14 @@ import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
-
 /**
  *
- * @author María Juliana Moya
+ * @author estudiante
  */
 @RunWith(Arquillian.class)
-public class FuncionPersistenceTest {
-    
+public class SalaPersistenceTest {
     @Inject
-    private FuncionPersistence funcionPersistence;
+    private SalaPersistence salaPersistence;
     
     @PersistenceContext
     private EntityManager em;
@@ -40,7 +37,7 @@ public class FuncionPersistenceTest {
     @Inject
     UserTransaction utx;
     
-    private List<FuncionEntity> data = new ArrayList<FuncionEntity>();
+    private List<SalaEntity> data = new ArrayList<SalaEntity>();
     
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -50,41 +47,41 @@ public class FuncionPersistenceTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(FuncionEntity.class.getPackage())
-                .addPackage(FuncionEntity.class.getPackage())
+                .addPackage(SalaEntity.class.getPackage())
+                .addPackage(SalaEntity.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
     /**
-     * Prueba de crear una función
+     * Prueba de crear una Sala
      * 
      */
     
     @Test
-    public void createFuncionTest(){
+    public void createSalaTest(){
         PodamFactory factory = new PodamFactoryImpl();
-        FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
-        FuncionEntity result = funcionPersistence.create(newEntity);
+        SalaEntity newEntity = factory.manufacturePojo(SalaEntity.class);
+        SalaEntity result = salaPersistence.create(newEntity);
         
         
         Assert.assertNotNull(result);
         
-        FuncionEntity entity = em.find(FuncionEntity.class, result.getId());
+        SalaEntity entity = em.find(SalaEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());          
     }
     
      /**
-     * Prueba para consultar la lista de funciones.
+     * Prueba para consultar la lista de salas.
      */
     @Test
-    public void getFuncionesTest() {
-        List<FuncionEntity> list = funcionPersistence.findAll();
+    public void getSalasTest() {
+        List<SalaEntity> list = salaPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for (FuncionEntity ent : list) {
+        for (SalaEntity ent : list) {
             boolean found = false;
-            for (FuncionEntity entity : data) {
+            for (SalaEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -94,14 +91,14 @@ public class FuncionPersistenceTest {
     }
 
     /**
-     * Prueba para consultar una Funcion
+     * Prueba para consultar una Sala
      */
     @Test
-    public void getFuncionTest() {
-        FuncionEntity entity = data.get(0);
-        FuncionEntity newEntity = funcionPersistence.find(entity.getId());
+    public void getSalaTest() {
+        SalaEntity entity = data.get(0);
+        SalaEntity newEntity = salaPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getPrecioBase(), newEntity.getPrecioBase());
+        Assert.assertEquals(entity.getNumero(), newEntity.getNumero());
     }
 
     /**
@@ -109,9 +106,9 @@ public class FuncionPersistenceTest {
      */
     @Test
     public void deleteFuncionTest() {
-        FuncionEntity entity = data.get(0);
-        funcionPersistence.delete(entity.getId());
-        FuncionEntity deleted = em.find(FuncionEntity.class, entity.getId());
+        SalaEntity entity = data.get(0);
+        salaPersistence.delete(entity.getId());
+        SalaEntity deleted = em.find(SalaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
@@ -120,17 +117,16 @@ public class FuncionPersistenceTest {
      */
     @Test
     public void updateFuncionTest() {
-        FuncionEntity entity = data.get(0);
+        SalaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
+        SalaEntity newEntity = factory.manufacturePojo(SalaEntity.class);
 
         newEntity.setId(entity.getId());
 
-        funcionPersistence.update(newEntity);
+        salaPersistence.update(newEntity);
 
-        FuncionEntity resp = em.find(FuncionEntity.class, entity.getId());
+        SalaEntity resp = em.find(SalaEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getPrecioBase(), resp.getPrecioBase());
+        Assert.assertEquals(newEntity.getNumero(), resp.getNumero());
     }
-
 }
