@@ -34,7 +34,7 @@ public class SalaPersistence {
     public SalaEntity create(SalaEntity salaEntity) {
         LOGGER.log(Level.INFO, "Creando una sala nueva");
         em.persist(salaEntity);
-        LOGGER.log(Level.INFO, "Saliendo de crear una editorial nueva");
+        LOGGER.log(Level.INFO, "Saliendo de crear una sala nueva");
         return salaEntity;
     }
 	
@@ -82,6 +82,6 @@ public class SalaPersistence {
         LOGGER.log(Level.INFO, "Borrando sala con id = {0}", salasId);
         SalaEntity entity = em.find(SalaEntity.class, salasId);
         em.remove(entity);
-        LOGGER.log(Level.INFO, "Saliendo de borrar la editorial con id = {0}", salasId);
+        LOGGER.log(Level.INFO, "Saliendo de borrar la sala con id = {0}", salasId);
     }
 }
