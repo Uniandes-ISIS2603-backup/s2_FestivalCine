@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.uniandes.csw.festivalcine.dtos;
+package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- *
+ * Clase que representa una sala en la persistencia y permite su
+ * serialización.
  * @author María Juliana Moya
  */
 public class SalaDTO implements Serializable{
@@ -21,6 +23,7 @@ public class SalaDTO implements Serializable{
     private Long id;
     private Integer numSillasGene;
     private Integer numSillasPref;
+    private Integer numero;
 
     //Constructor ----------------------------------------------------------------------------
     
@@ -34,16 +37,16 @@ public class SalaDTO implements Serializable{
      * la entidad que vienede argumento.)
      * @param salaEntity: es la entidad que se va a convertir a DTO
      */
-    //public SalaDTO (SalaEntity salaEntity)
-    //{
-    //    if(salaEntity != null)
-    //    {
-    //        this.id = salaEntity.getId();
-    //        this.numSillasGene = salaEntity.getSillasGeneral();
-    //        this.numSillasPref= salaEntity.getSillasPreferencial();
-    //    }
+    public SalaDTO (SalaEntity salaEntity)
+    {
+        if(salaEntity != null)
+        {
+            this.id = salaEntity.getId();
+            this.numSillasGene = salaEntity.getNumSillasGene();
+            this.numSillasPref= salaEntity.getNumSillasPref();
+        }
     
-    
+    }
     
     //Métodos -------------------------------------------------------------------------------
     
@@ -102,19 +105,27 @@ public class SalaDTO implements Serializable{
     {
         this.numSillasPref =numSillasPref;
     }
+    
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
      
     /**
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
      */
-    //public SalaEntity toEntity()
-    //{
-    //    SalaEntity salaEntity = new SalaEntity();
-    //    salaEntity.setId(this.id);
-    //    salaEntity.setSillasGenerales (this.numSillasGene);
-    //    salaEntity.setSillasPreferenciales (this.numSillasPref);
-    //    return salaEntity ;
-    //}
+    public SalaEntity toEntity()
+    {
+        SalaEntity salaEntity = new SalaEntity();
+        salaEntity.setId(this.id);
+        salaEntity.setNumSillasGene(this.numSillasGene);
+        salaEntity.setNumSillasPref(this.numSillasPref);
+        return salaEntity ;
+    }
     
     @Override
     public String toString()

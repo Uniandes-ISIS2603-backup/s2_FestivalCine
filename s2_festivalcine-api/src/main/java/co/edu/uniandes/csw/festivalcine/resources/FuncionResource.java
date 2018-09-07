@@ -5,9 +5,10 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
+import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.SalaDTO;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.uniandes.csw.festivalcine.dtos.FuncionDTO;
-import co.uniandes.csw.festivalcine.dtos.SalaDTO;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

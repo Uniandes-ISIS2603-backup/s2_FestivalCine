@@ -5,8 +5,8 @@
  */
 package co.edu.uniandes.csw.festivalcine.test.persistence;
 
-import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
-import co.edu.uniandes.csw.festivalcine.persistence.FestivalPersistence;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
+import co.edu.uniandes.csw.festivalcine.persistence.TeatroPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -27,13 +27,13 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author Mario Andrade
  */
 @RunWith(Arquillian.class)
-public class FestivalPersistenceTest {
+public class TeatroPersistenceTest {
     
     @Inject
-    private FestivalPersistence festPersistence;
+    private TeatroPersistence teatroPersistence;
     
     @PersistenceContext
     private EntityManager em;
@@ -41,13 +41,13 @@ public class FestivalPersistenceTest {
     @Inject
     UserTransaction utx;
     
-    private List<FestivalEntity> data = new ArrayList<FestivalEntity>();
+    private List<TeatroEntity> data = new ArrayList<TeatroEntity>();
     
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(FestivalEntity.class.getPackage())
-                .addPackage(FestivalPersistence.class.getPackage())
+                .addPackage(TeatroEntity.class.getPackage())
+                .addPackage(TeatroPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -78,7 +78,7 @@ public class FestivalPersistenceTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from FestivalEntity").executeUpdate();
+        em.createQuery("delete from TeatroEntity").executeUpdate();
     }
 
     /**
@@ -89,7 +89,7 @@ public class FestivalPersistenceTest {
         PodamFactory factory = new PodamFactoryImpl();
         for (int i = 0; i < 3; i++) {
 
-            FestivalEntity entity = factory.manufacturePojo(FestivalEntity.class);
+            TeatroEntity entity = factory.manufacturePojo(TeatroEntity.class);
 
             em.persist(entity);
 
@@ -97,29 +97,30 @@ public class FestivalPersistenceTest {
         }
     }
     
+
     @Test
     public void createFestivalTest(){
         PodamFactory factory = new PodamFactoryImpl();
         
-        FestivalEntity newEntity = factory.manufacturePojo(FestivalEntity.class);
-        FestivalEntity result = festPersistence.create(newEntity);
+        TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);
+        TeatroEntity result = teatroPersistence.create(newEntity);
         
-        FestivalEntity entity = em.find(FestivalEntity.class, result.getId());
+        TeatroEntity entity = em.find(TeatroEntity.class, result.getId());
 
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
         
     }
     
         /**
-     * Prueba para consultar la lista de Festivales.
+     * Prueba para consultar la lista de Teatros.
      */
     @Test
     public void getFestivalssTest() {
-        List<FestivalEntity> list =festPersistence.findAll();
+        List<TeatroEntity> list =teatroPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
-        for(FestivalEntity ent : list) {
+        for(TeatroEntity ent : list) {
             boolean found = false;
-            for (FestivalEntity entity : data) {
+            for (TeatroEntity entity : data) {
                 if (ent.getId().equals(entity.getId())) {
                     found = true;
                 }
@@ -129,44 +130,44 @@ public class FestivalPersistenceTest {
     }
     
         /**
-     * Prueba para consultar un Festival.
+     * Prueba para consultar un Teatro.
      */
     @Test
     public void getEditorialTest() {
-       FestivalEntity entity = data.get(0);
-        FestivalEntity newEntity = festPersistence.find(entity.getId());
+       TeatroEntity entity = data.get(0);
+        TeatroEntity newEntity = teatroPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
     }
     
     /**
-     * Prueba para eliminar una Festival.
+     * Prueba para eliminar un Teatro.
      */
     @Test
     public void deleteEditorialTest() {
-        FestivalEntity entity = data.get(0);
-        festPersistence.delete(entity.getId());
-        FestivalEntity deleted = em.find(FestivalEntity.class, entity.getId());
+        TeatroEntity entity = data.get(0);
+        teatroPersistence.delete(entity.getId());
+        TeatroEntity deleted = em.find(TeatroEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
 
     /**
-     * Prueba para actualizar una Festival.
+     * Prueba para actualizar un Teatro.
      */
     @Test
     public void updateEditorialTest() {
-        FestivalEntity entity = data.get(0);
+        TeatroEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
-        FestivalEntity newEntity = factory.manufacturePojo(FestivalEntity.class);
+        TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);
 
         newEntity.setId(entity.getId());
 
-        festPersistence.update(newEntity);
+        teatroPersistence.update(newEntity);
 
-        FestivalEntity resp = em.find(FestivalEntity.class, entity.getId());
+        TeatroEntity resp = em.find(TeatroEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
 
+    
 }
-

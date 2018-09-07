@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import uk.co.jemos.podam.common.PodamStrategyValue;
 import java.util.Date;
+import java.util.List;
 import uk.co.jemos.podam.common.PodamExclude;
 
 /**
@@ -35,13 +36,14 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
     //@PodamStrategyValue(DateStrategy.class)
     private Date fechaFin;
     
-//    @PodamExclude
-//    @OneToMany(mappedBy = "festivales")
-//    private List<CriticoEntity> criticos = new ArrayList<>();
+    @PodamExclude
+    @OneToMany(mappedBy = "festivales")
+    private List<CriticoEntity> criticos = new ArrayList<>();
 
-//    @PodamExclude
-//    @OneToMany(mappedBy = "festivales")
-//    private List<TeatroEntity> teatros = new ArrayList<>();    
+    @PodamExclude
+    @OneToMany(mappedBy = "festivales")
+    private List<TeatroEntity> teatros = new ArrayList<>();    
+
        
     private String nombre;
     private Integer duracion;
@@ -135,6 +137,35 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
      */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+    
+    /**
+     * Retorna la lista de criticos del festival.
+     * @return criticos
+     */
+    public List<CriticoEntity> getCriticos() {
+        return criticos;
+    }
+    /**
+     * Modifica los criticos del festival.
+     * @param criticos nuevos criticos.
+     */
+    public void setCriticos(List<CriticoEntity> criticos) {
+        this.criticos = criticos;
+    }
+    /**
+     * Retorna la lista de teatros del festival.
+     * @return teatros
+     */
+    public List<TeatroEntity> getTeatros() {
+        return teatros;
+    }
+    /**
+     * Modifica los teatros del festival.
+     * @param teatros nuevos teatros.
+     */
+    public void setTeatros(List<TeatroEntity> teatros) {
+        this.teatros = teatros;
     }
 
     

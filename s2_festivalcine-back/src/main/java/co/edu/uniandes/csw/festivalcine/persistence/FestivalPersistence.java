@@ -9,16 +9,20 @@ import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
  *
  * @author Mario Andrade
  */
+@Stateless
 public class FestivalPersistence {
 
-private static final Logger LOGGER = Logger.getLogger(FestivalPersistence.class.getName());    
+private static final Logger LOGGER = Logger.getLogger(FestivalPersistence.class.getName());
+@PersistenceContext(unitName = "tarantinoDB")
 protected EntityManager em;
 
 /**
