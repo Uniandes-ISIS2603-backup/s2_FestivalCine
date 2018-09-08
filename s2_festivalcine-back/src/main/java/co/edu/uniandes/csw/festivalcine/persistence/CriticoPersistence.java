@@ -23,7 +23,7 @@ public class CriticoPersistence
 {
     private static final Logger LOGGER = Logger.getLogger(CriticoPersistence.class.getName());
     
-    @PersistenceContext(unitName = "FestivalCriticos") protected EntityManager em;
+    @PersistenceContext(unitName = "tarantinoPU") protected EntityManager em;
     
     public CriticoEntity create(CriticoEntity criticoEntity)
     {

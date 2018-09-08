@@ -7,8 +7,8 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 
 import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
-import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -23,7 +23,7 @@ import javax.ws.rs.Produces;
 
 /**
  *
- * @author estudiante
+ * @author Andres Felipe Rodriguez Murillo
  */
 @Path("calificaciones")
 @Produces("application/json")
@@ -49,23 +49,34 @@ public class CalificacionResource
     }
     
     @GET
-    @Path("{calificacionesID: \\d+}")
-    public CalificacionDTO getCalificacion(@PathParam("calificacionesID") Long calificacionesID)
+    @Path("{calificacionesId: \\d+}")
+    public CalificacionDTO getCalificacion(@PathParam("calificacionesId") Long calificacionesId)
     {
         return null;
     }
     
     @PUT
     @Path("{calificacionesID: \\d+}")
-    public CalificacionDTO updateCalificacion(@PathParam("calificacionesID") Long calificacionesID, CalificacionDTO calificacion)
+    public CalificacionDTO updateCalificacion(@PathParam("calificacionesId") Long calificacionesId, CalificacionDTO calificacion)
     {
         return null;
     }
     
     @DELETE
     @Path("{calificacionesID: \\d+}")
-    public void deleteCalificacion(@PathParam("calificacionesID") Long calificacionesID)
+    public void deleteCalificacion(@PathParam("calificacionesId") Long calificacionesId)
     {
         
+    }
+    
+    //----------------------------------------------------------------------------------------------------------------------------------------------------
+    //Funciones
+    //----------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    @GET
+    @Path("{calificacionesId: \\d+}/usuarios/")
+    public UsuarioDTO getUsuario(@PathParam("calificacionesId") Long calificacionesId)
+    {
+        return new UsuarioDTO();
     }
 }
