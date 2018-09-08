@@ -52,9 +52,13 @@ public class ReservaDTO implements Serializable
     public void setPrecioTotal(Integer precioTotal) {
         this.precioTotal = precioTotal;
     }
-  
     
-    
+      /**
+     * @return the abono
+     */
+    public Boolean getAbono() {
+        return abono;
+    }
     
     public ReservaDTO(ReservaEntity reservaEntity) 
     {
@@ -71,7 +75,7 @@ public class ReservaDTO implements Serializable
         reservaEntity.setId(this.getId());
         reservaEntity.setAbono(this.getAbono());
         reservaEntity.setDescuento(this.getDescuento());
-        reservaEntity.setPreciototal(this.getPrecioTotal());
+        reservaEntity.setPrecioTotal(this.getPrecioTotal());
         return reservaEntity;
     }
 
@@ -79,12 +83,4 @@ public class ReservaDTO implements Serializable
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
-
-    /**
-     * @return the abono
-     */
-    public Boolean getAbono() {
-        return abono;
-    }
-
 }

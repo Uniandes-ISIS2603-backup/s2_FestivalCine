@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
+import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.ArrayList;
@@ -53,7 +55,15 @@ public class UsuarioResource {
      */
     @POST
     public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException {
-        return usuario;
+         LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario.toString());
+
+        UsuarioEntity usuarioEntity = usuario.toEntity();
+ 
+        UsuarioEntity nuevoUsuarioEntity = usuarioLogic.createUsuario(usuarioEntity);
+        
+        UsuarioDTO nuevoUsuarioDTO = new UsuarioDTO(nuevoUsuarioEntity);
+        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: output: {0}", nuevoUsuarioDTO.toString());
+        return nuevoUsuarioDTO;
     }
 
     /**
@@ -71,8 +81,15 @@ public class UsuarioResource {
     @PUT
     @Path("{usuariosId: \\d+}")
     public UsuarioDTO updateUsuario(@PathParam("usuariosId") Long usuariosId, UsuarioDTO usuario) throws WebApplicationException {
-
-        return usuario;
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: input: id:{0} , usuario: {1}", new Object[]{usuariosId, usuario.toString()});
+        usuario.setId(usuariosId);
+        if (usuarioLogic.getUsuario(usuariosId) == null) 
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioLogic.updateUsuario(usuariosId, usuario.toEntity()));
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: output: {0}", detailDTO.toString());
+        return detailDTO;
     }
 
     /**
@@ -82,9 +99,12 @@ public class UsuarioResource {
      * aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
-    public List<UsuarioDTO> getUsuarios() {
+    public List<UsuarioDetailDTO> getUsuarios() {
 
-        return new ArrayList<>();
+        LOGGER.info("UsuarioResource getUsuarios: input: void");
+        List<UsuarioDetailDTO> listaUsuarios = listEntity2DetailDTO(usuarioLogic.getUsuarios());
+        LOGGER.log(Level.INFO, "EditorialResource getEditorials: output: {0}", listaUsuarios.toString());
+        return listaUsuarios;
     }
 
     /**
@@ -100,15 +120,15 @@ public class UsuarioResource {
     @Path("{usuariosId: \\d+}")
     public UsuarioDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException {
 
-        UsuarioDTO usuario = new UsuarioDTO();
-        usuario.setNombres("Sebastian");
-        usuario.setApellidos("Chacón");
-        usuario.setCelular("3143972366");
-        usuario.setEmail("sb.velandia@uniandes.edu.co");
-        usuario.setNickname("Sebitas");
-        usuario.setPassword("Cosa");
-        usuario.setTipoPersona(2);
-        return usuario;
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", usuariosId);
+        UsuarioEntity usuarioEntity = usuarioLogic.getUsuario(usuariosId);
+        if (usuarioEntity == null) 
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioEntity);
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO.toString());
+        return detailDTO;
     }
 
     /**
@@ -124,7 +144,45 @@ public class UsuarioResource {
     @DELETE
     @Path("{usuariosId: \\d+}")
     public void deleteUsuario(@PathParam("usuariosId") Long usuariosId) throws BusinessLogicException {
-
+        LOGGER.log(Level.INFO, "UsuarioResource deleteUsuario: input: {0}", usuariosId);
+        if (usuarioLogic.getUsuario(usuariosId) == null) {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        usuarioLogic.deleteUsuario(usuariosId);
+        LOGGER.info("UsuarioResource deleteUsuario: output: void");
     }
-
+    
+    /**
+     * Método que retorna las reservas de un usuario
+     * @param usuariosId
+     * @return lista de las reservas correspondientes al usuario ingresado por parametro
+     */
+    @Path("{usuariosId: \\d+}/reservas")
+    public List<ReservaDTO> getUsuarioReservaResource(@PathParam("usuariosId") Long usuariosId) {
+        if (usuarioLogic.getUsuario(usuariosId) == null) 
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioLogic.getUsuario(usuariosId));
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO.toString());
+        return detailDTO.getReservas();
+    }
+     /**
+     * Convierte una lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos UsuarioEntity a una lista de
+     * objetos UsuarioDetailDTO (json)
+     *
+     * @param entityList corresponde a la lista de usuarios de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de usuarios en forma DTO (json)
+     */
+    private List<UsuarioDetailDTO> listEntity2DetailDTO(List<UsuarioEntity> entityList) {
+        List<UsuarioDetailDTO> list = new ArrayList<>();
+        for (UsuarioEntity entity : entityList) 
+        {
+            list.add(new UsuarioDetailDTO(entity));
+        }
+        return list;
+    }
 }

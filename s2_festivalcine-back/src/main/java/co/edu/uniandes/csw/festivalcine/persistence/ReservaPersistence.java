@@ -5,7 +5,9 @@
  */
 package co.edu.uniandes.csw.festivalcine.persistence;
 
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.List;
 import java.util.logging.Level;
@@ -61,5 +63,19 @@ public class ReservaPersistence
         UsuarioEntity entity = em.find(UsuarioEntity.class, reservasId);
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la reserva con id = {0}", reservasId);
+    }
+    
+    public List<SillaEntity> findAllSillas() 
+    {
+        LOGGER.log(Level.INFO, "Consultando todas las sillas");
+        TypedQuery query = em.createQuery("select u from SillaEntity u", SillaEntity.class);
+        return query.getResultList();
+    }
+    
+    public List<FuncionEntity> findAllFunciones() 
+    {
+        LOGGER.log(Level.INFO, "Consultando todas las funciones");
+        TypedQuery query = em.createQuery("select u from FuncionEntity u", FuncionEntity.class);
+        return query.getResultList();
     }
 }

@@ -30,13 +30,37 @@ public class ReservaEntity extends BaseEntity implements Serializable
     
     private Integer precioTotal;
     
-//    @PodamExclude
-//    @OneToMany(mappedBy = "reserva")
-//    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
-//
-//    @PodamExclude
-//    @OneToMany(mappedBy = "reserva")
-//    private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    @PodamExclude
+    @OneToMany(mappedBy = "reserva")
+   private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
+
+    @PodamExclude
+    @OneToMany(mappedBy = "reserva")
+    private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+
+    public List<SillaEntity> getSillas() {
+        return sillas;
+    }
+
+    public void setSillas(List<SillaEntity> sillas) {
+        this.sillas = sillas;
+    }
+
+    public List<FuncionEntity> getFunciones() {
+        return funciones;
+    }
+
+    public void setFunciones(List<FuncionEntity> funciones) {
+        this.funciones = funciones;
+    }
+
+    public UsuarioEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioEntity usuario) {
+        this.usuario = usuario;
+    }
     
     
     @PodamExclude
@@ -47,22 +71,6 @@ public class ReservaEntity extends BaseEntity implements Serializable
     {
         
     }
-    
-//    public List<FuncionEntity> getFunciones() {
-//        return funciones;
-//    }
-//
-//    public void setFunciones(List<FuncionEntity> funciones) {
-//        this.funciones = funciones;
-//    }
-//    
-//     public List<SillaEntity> getSillas() {
-//        return sillas;
-//    }
-//
-//    public void setSillas(List<SillaEntity> sillas) {
-//        this.sillas = sillas;
-//    }
     
     public Long getId() {
         return id;

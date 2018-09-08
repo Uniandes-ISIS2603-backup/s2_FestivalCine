@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -30,6 +31,14 @@ public class UsuarioDTO implements Serializable
     public UsuarioDTO()
     {
         
+    }
+    
+    public UsuarioDTO(UsuarioEntity usuarioEntity)
+    {
+        if (usuarioEntity != null) {
+            this.id = usuarioEntity.getId();
+            this.nombres = usuarioEntity.getNombres();
+        }
     }
 
     public Long getId() {
@@ -103,7 +112,18 @@ public class UsuarioDTO implements Serializable
     public void setPassword(String password) {
         this.password = password;
     }
-  
+    
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public UsuarioEntity toEntity() {
+        UsuarioEntity usuarioEntity = new UsuarioEntity();
+        usuarioEntity.setId(this.id);
+        usuarioEntity.setNombres(this.nombres);
+        return usuarioEntity;
+    }
   
     
     @Override

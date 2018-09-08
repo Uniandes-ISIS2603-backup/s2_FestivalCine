@@ -29,6 +29,11 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
         super();
     }
     
+    public UsuarioDetailDTO(UsuarioEntity usuarioEntity)
+    {
+        
+    }
+    
   
     public List<ReservaDTO> getReservas() {
         return reservas;
