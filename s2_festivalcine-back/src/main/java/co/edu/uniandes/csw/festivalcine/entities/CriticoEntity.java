@@ -7,8 +7,12 @@ package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -46,7 +50,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
     /**
      * tipo de persona del critico
      */
-    private int tipoPersona;
+    private Integer tipoPersona;
     
     /**
      * NickName del critico
@@ -61,7 +65,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
     /**
      * Puntaje promedio de las calificaciones del critico
      */
-    private double puntaje;
+    private Double puntaje;
     
     /**
      * Credencial del critico
@@ -71,17 +75,20 @@ public class CriticoEntity extends BaseEntity implements Serializable
     /*
     * Lista de calificaciones del critico
     */
-    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    @javax.persistence.OneToMany(fetch = FetchType.LAZY)
+    private Collection<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
     
     /**
      * Lista de funciones del critico
      */
-    private List funciones = new ArrayList();
+    @javax.persistence.OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
+    private Collection<FuncionEntity> funciones = new ArrayList();
     
     /**
      * Lista de peliculas del critico
      */
-    private List peliculas = new ArrayList();
+    @javax.persistence.OneToMany(fetch = FetchType.LAZY)
+    private Collection peliculas = new ArrayList();
 
     
     /**
@@ -133,7 +140,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Retorna el tipo de persona del critico
      * @return int con el tipo de persona del critico
      */
-    public int darTipoPersona()
+    public Integer darTipoPersona()
     {
         return tipoPersona;
     }
@@ -160,7 +167,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Retorna el puntaje promedio de calificaciones del critico
      * @return double con puntaje del critico
      */
-    public double darPuntaje()
+    public Double darPuntaje()
     {
         return puntaje;
     }
@@ -178,7 +185,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de calificaciones del critico
      * @return List con las calificaciones
      */
-    public List<CalificacionEntity> darCalificaciones()
+    public Collection<CalificacionEntity> darCalificaciones()
     {
         return calificaciones;
     }
@@ -187,7 +194,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de funciones del critico
      * @return List con las funciones
      */
-    public List darFunciones()
+    public Collection<FuncionEntity> darFunciones()
     {
         return funciones;
     }
@@ -196,7 +203,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de peliculas del critico
      * @return List de peliculas
      */
-    public List darPeliculas()
+    public Collection darPeliculas()
     {
         return peliculas;
     }
@@ -256,7 +263,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
         this.calificaciones = calificaciones;
     }
     
-    public void setFunciones(List funciones)
+    public void setFunciones(List<FuncionEntity> funciones)
     {
         this.funciones= funciones;
     }

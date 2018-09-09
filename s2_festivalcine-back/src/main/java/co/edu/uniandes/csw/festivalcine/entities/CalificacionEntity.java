@@ -6,6 +6,8 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
+import javax.persistence.OneToOne;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -13,13 +15,15 @@ import java.io.Serializable;
  */
 public class CalificacionEntity extends BaseEntity implements Serializable
 {
-    private double puntaje;
+    private Double puntaje;
     
     private String comentario;
     
-    //private UsuarioEntity usuario;
+    @PodamExclude
+    @OneToOne
+    private UsuarioEntity usuario;
     
-    public double getPuntaje()
+    public Double getPuntaje()
     {
         return puntaje;
     }
@@ -29,10 +33,10 @@ public class CalificacionEntity extends BaseEntity implements Serializable
         return comentario;
     }
     
-    //public UsuarioEntity getUsuario()
-    //{
-      //  return usuario;
-    //}
+    public UsuarioEntity getUsuario()
+    {
+        return usuario;
+    }
     
     public void setPuntaje(double puntaje)
     {
@@ -44,8 +48,8 @@ public class CalificacionEntity extends BaseEntity implements Serializable
         this.comentario = comentario;
     }
     
-    //public void setUsuario(UsuarioEntity usuario)
-    //{
-      //  this.usuario = usuario;
-    //}
+    public void setUsuario(UsuarioEntity usuario)
+    {
+        this.usuario = usuario;
+    }
 }
