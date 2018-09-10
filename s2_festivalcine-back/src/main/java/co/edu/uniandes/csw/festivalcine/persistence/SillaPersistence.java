@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
@@ -22,7 +23,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class SillaPersistence {
     private static final Logger LOGGER = Logger.getLogger(SillaPersistence.class.getName());
-    protected EntityManager em;
+    @PersistenceContext(unitName = "TarantinoPU")protected EntityManager em;
 
     /**
      * Método para persisitir la entidad en la base de datos.

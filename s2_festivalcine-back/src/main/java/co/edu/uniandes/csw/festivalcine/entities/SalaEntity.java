@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -26,8 +28,16 @@ public class SalaEntity extends BaseEntity implements Serializable {
     private Integer numero;
     
     @PodamExclude
-    @OneToMany(mappedBy = "sala")
+    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
     private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
+    private List<FuncionEntity> funciones;
+    
+    @PodamExclude
+    @ManyToOne(fetch =FetchType.LAZY)
+    private TeatroEntity teatro;
     
 
     public Integer getNumSillasGene() {
@@ -61,8 +71,19 @@ public class SalaEntity extends BaseEntity implements Serializable {
         this.sillas = sillas;
     }
     
+    public void setFuncion(List<FuncionEntity> funciones) {
+        this.funciones = funciones;
+    }
 
-    
+    public void setTeatro(TeatroEntity teatro) {
+        this.teatro = teatro;
+    }
 
-    
+    public List<FuncionEntity> getFuncion() {
+        return funciones;
+    }
+
+    public TeatroEntity getTeatro() {
+        return teatro;
+    }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
@@ -19,7 +20,7 @@ import javax.persistence.TypedQuery;
 public class TeatroPersistence {
 
 private static final Logger LOGGER = Logger.getLogger(TeatroPersistence.class.getName());    
-protected EntityManager em;    
+@PersistenceContext(unitName = "TarantinoPU")protected EntityManager em;    
 
 /**
  * Crea un teatro en la base de datos

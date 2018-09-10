@@ -49,7 +49,7 @@ public class SillaPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(SillaEntity.class.getPackage())
-                .addPackage(SillaEntity.class.getPackage())
+                .addPackage(SillaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

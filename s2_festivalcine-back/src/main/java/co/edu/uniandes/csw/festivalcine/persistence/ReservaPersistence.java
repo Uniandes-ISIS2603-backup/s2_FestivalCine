@@ -26,7 +26,7 @@ public class ReservaPersistence
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaPersistence.class.getName());
     
-    @PersistenceContext(unitName="TarantinoPU")
+    @PersistenceContext(unitName = "TarantinoPU")
     protected EntityManager em;
     
      public ReservaEntity create(ReservaEntity reservaEntity)
@@ -46,7 +46,7 @@ public class ReservaPersistence
      
      public ReservaEntity findReserva(Long reservasId) 
      {
-        LOGGER.log(Level.INFO, "Consultando reserva con id={0}", reservasId);
+        LOGGER.log(Level.INFO, "Consultando reserva con id = {0}", reservasId);
         return em.find(ReservaEntity.class, reservasId);
     }
      

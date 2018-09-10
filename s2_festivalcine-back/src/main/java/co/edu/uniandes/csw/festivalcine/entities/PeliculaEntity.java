@@ -6,8 +6,12 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -19,31 +23,68 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author Cristian
  */
+@Entity
 public class PeliculaEntity extends BaseEntity implements Serializable{
     
     private String nombre;
     private String director;
     private String creditos;
     private String pais;
-    private int duracion;
-    private double puntaje;
+    private Integer duracion;
+    private Double puntaje;
     
-    // @PodamExclude
-   // @OneToMany (mappedBy = "peliucla", cascade = CascadeType.ALL, orphanRemoval = true)
-   // private List<CalificacionesEntity> calificaciones;
-      @PodamExclude
-    @OneToOne (mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BandaAnuncioEntity> bandas;
-
-    public List<BandaAnuncioEntity> getBandas() {
-        return bandas;
+    @PodamExclude
+    @OneToMany (mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CalificacionEntity> calificaciones;
+    
+     @PodamExclude
+    @OneToOne(mappedBy = "pelicula", fetch = FetchType.LAZY)
+    private BandaAnuncioEntity banda;
+      
+    @PodamExclude
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<CriticoEntity> criticos = new ArrayList();
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
+    private List<FuncionEntity> funciones = new ArrayList();
+    
+    public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 
-    public void setBandas(List<BandaAnuncioEntity> bandas) {
-        this.bandas = bandas;
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
     }
     
+    public BandaAnuncioEntity getBanda() {
+        return banda;
+    }
+    
+    public List<CriticoEntity> getCriticos()
+    {
+        return criticos;
+    }
+    
+    public List<FuncionEntity> getFunciones() 
+    {
+        return funciones;
+    }
 
+    public void setBanda(BandaAnuncioEntity banda) {
+        this.banda = banda;
+    }
+    
+    public void setCriticos(List<CriticoEntity> criticos)
+    {
+        this.criticos = criticos;
+    }
+    
+    public void setFunciones(List<FuncionEntity> funciones)
+    {
+        this.funciones = funciones;
+    }
+   
     public String getNombre() {
         return nombre;
     }
@@ -60,11 +101,11 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
         return pais;
     }
 
-    public int getDuracion() {
+    public Integer getDuracion() {
         return duracion;
     }
 
-    public double getPuntaje() {
+    public Double getPuntaje() {
         return puntaje;
     }
 
@@ -84,11 +125,11 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
         this.pais = pais;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(Integer duracion) {
         this.duracion = duracion;
     }
 
-    public void setPuntaje(double puntaje) {
+    public void setPuntaje(Double puntaje) {
         this.puntaje = puntaje;
     }
     

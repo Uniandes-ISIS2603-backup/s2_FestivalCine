@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,12 +38,12 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
     private Date fechaFin;
     
     @PodamExclude
-    @OneToMany(mappedBy = "festivales")
-    private List<CriticoEntity> criticos = new ArrayList<>();
+    @ManyToMany(mappedBy = "festivales", fetch = FetchType.LAZY)
+    private Collection<CriticoEntity> criticos = new ArrayList<>();
 
     @PodamExclude
-    @OneToMany(mappedBy = "festivales")
-    private List<TeatroEntity> teatros = new ArrayList<>();    
+    @ManyToMany(mappedBy = "festivales")
+    private Collection<TeatroEntity> teatros = new ArrayList<>();    
 
        
     private String nombre;
@@ -143,28 +144,28 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
      * Retorna la lista de criticos del festival.
      * @return criticos
      */
-    public List<CriticoEntity> getCriticos() {
+    public Collection<CriticoEntity> getCriticos() {
         return criticos;
     }
     /**
      * Modifica los criticos del festival.
      * @param criticos nuevos criticos.
      */
-    public void setCriticos(List<CriticoEntity> criticos) {
+    public void setCriticos(Collection<CriticoEntity> criticos) {
         this.criticos = criticos;
     }
     /**
      * Retorna la lista de teatros del festival.
      * @return teatros
      */
-    public List<TeatroEntity> getTeatros() {
+    public Collection<TeatroEntity> getTeatros() {
         return teatros;
     }
     /**
      * Modifica los teatros del festival.
      * @param teatros nuevos teatros.
      */
-    public void setTeatros(List<TeatroEntity> teatros) {
+    public void setTeatros(Collection<TeatroEntity> teatros) {
         this.teatros = teatros;
     }
 

@@ -42,19 +42,20 @@ public class CalificacionPersistence
     
     public CalificacionEntity find(Long calificacionesId)
     {
-        LOGGER.log(Level.INFO,"Consultando la calificacion con id={0}", calificacionesId);
+        LOGGER.log(Level.INFO,"Consultando la calificacion con id = {0}", calificacionesId);
         return em.find(CalificacionEntity.class, calificacionesId);
     }
     
     public CalificacionEntity update(CalificacionEntity calificacionEntity)
     {
-        LOGGER.log(Level.INFO, "Actualizando la calificacion con id={0}", calificacionEntity.getId());
+        LOGGER.log(Level.INFO, "Actualizando la calificacion con id = {0}", calificacionEntity.getId());
         return em.merge(calificacionEntity);
     }
     
     public void delete( Long calificacionesId)
     {
-        LOGGER.log(Level.INFO, "Borrando la calificacion con id={0}", calificacionesId);
+        LOGGER.log(Level.INFO, "Borrando la calificacion con id = {0}", calificacionesId);
         CalificacionEntity calificacionEntity = em.find(CalificacionEntity.class, calificacionesId);
+        em.remove(calificacionEntity);
     }
 }

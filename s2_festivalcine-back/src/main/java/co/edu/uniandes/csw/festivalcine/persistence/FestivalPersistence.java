@@ -22,7 +22,7 @@ import javax.persistence.TypedQuery;
 public class FestivalPersistence {
 
 private static final Logger LOGGER = Logger.getLogger(FestivalPersistence.class.getName());
-@PersistenceContext(unitName = "tarantinoDB")
+@PersistenceContext(unitName = "TarantinoPU")
 protected EntityManager em;
 
 /**
@@ -74,7 +74,7 @@ public List<FestivalEntity> findAll() {
      * @return una festival con los cambios aplicados.
      */
     public FestivalEntity update(FestivalEntity festivalEntity) {
-        LOGGER.log(Level.INFO, "Actualizando el festival con id={0}", festivalEntity.getId());
+        LOGGER.log(Level.INFO, "Actualizando el festival con id = {0}", festivalEntity.getId());
 
         return em.merge(festivalEntity);
     }

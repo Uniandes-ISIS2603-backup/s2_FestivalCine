@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
@@ -23,7 +24,7 @@ import javax.persistence.TypedQuery;
 public class SalaPersistence {
     
     private static final Logger LOGGER = Logger.getLogger(SalaPersistence.class.getName());
-    protected EntityManager em;
+    @PersistenceContext(unitName = "TarantinoPU")protected EntityManager em;
 
     /**
      * Método para persisitir la entidad en la base de datos.
@@ -55,7 +56,7 @@ public class SalaPersistence {
      * @return una salal.
      */
     public SalaEntity find(Long salaId) {
-        LOGGER.log(Level.INFO, "Consultando sala con id={0}", salaId);
+        LOGGER.log(Level.INFO, "Consultando sala con id = {0}", salaId);
         return em.find(SalaEntity.class, salaId);
     }
     

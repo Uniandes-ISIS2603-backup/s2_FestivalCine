@@ -51,7 +51,7 @@ public class FuncionPersistenceTest {
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(FuncionEntity.class.getPackage())
-                .addPackage(FuncionEntity.class.getPackage())
+                .addPackage(FuncionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

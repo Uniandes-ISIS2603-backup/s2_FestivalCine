@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
@@ -20,9 +21,6 @@ import uk.co.jemos.podam.common.PodamExclude;
  @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable
 {
-    @Id
-    private Long id;
-
     private String nombres;
     
     private String apellidos;
@@ -38,15 +36,14 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     private String nickname;
     
     private String password;
-   
-    public UsuarioEntity()
-    {
-        
-    }
     
     @PodamExclude
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<ReservaEntity> reservas= new ArrayList<ReservaEntity>();
+    
+    @PodamExclude
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private List<CalificacionEntity> calificaciones = new ArrayList();
 
     public List<ReservaEntity> getReservas() {
         return reservas;
@@ -54,14 +51,6 @@ public class UsuarioEntity extends BaseEntity implements Serializable
 
     public void setReservas(List<ReservaEntity> reservas) {
         this.reservas = reservas;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNombres() {
@@ -126,5 +115,13 @@ public class UsuarioEntity extends BaseEntity implements Serializable
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+     public void setCalificaciones(List<CalificacionEntity> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
+    public List<CalificacionEntity> getCalificaciones() {
+        return calificaciones;
     }
 }

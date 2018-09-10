@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,12 +32,16 @@ public class ReservaEntity extends BaseEntity implements Serializable
     private Integer precioTotal;
     
     @PodamExclude
-    @OneToMany(mappedBy = "reserva")
+    @OneToMany(fetch = FetchType.LAZY)
    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
 
     @PodamExclude
-    @OneToMany(mappedBy = "reserva")
+    @OneToMany(mappedBy = "reserva", fetch = FetchType.LAZY)
     private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    
+    @PodamExclude
+    @ManyToOne(fetch = FetchType.LAZY)
+    private UsuarioEntity usuario;
 
     public List<SillaEntity> getSillas() {
         return sillas;
@@ -60,16 +65,6 @@ public class ReservaEntity extends BaseEntity implements Serializable
 
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
-    }
-    
-    
-    @PodamExclude
-    @ManyToOne
-    private UsuarioEntity usuario;
-    
-    public ReservaEntity()
-    {
-        
     }
     
     public Long getId() {

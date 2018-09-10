@@ -6,7 +6,12 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -14,19 +19,26 @@ import uk.co.jemos.podam.common.PodamExclude;
  *
  * @author Mario Andrade
  */
+@Entity
 public class TeatroEntity extends BaseEntity implements Serializable{
     
-//    @PodamExclude
-//    @OneToMany(mappedBy = "teatros")
-//    private List<FuncionEntity> funciones = new ArrayList<>();
+    @PodamExclude
+    @OneToMany(mappedBy = "teatro", fetch = FetchType.LAZY)
+    private List<FuncionEntity> funciones = new ArrayList<>();
 
-//    @PodamExclude
-//    @OneToMany(mappedBy = "teatros")
-//    private List<SalaEntity> salas = new ArrayList<>(); 
+    @PodamExclude
+    @OneToMany(mappedBy = "teatro", fetch = FetchType.LAZY)
+    private List<SalaEntity> salas = new ArrayList<>(); 
     
- private String nombre;
- private String direccion;
- private Integer numSalasFest;
+    @PodamExclude
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<FestivalEntity> festivales = new ArrayList<FestivalEntity>();
+    
+    private String nombre;
+    
+    private String direccion;
+    
+    private Integer numSalasFest;
 
    
     /**
@@ -77,10 +89,29 @@ public class TeatroEntity extends BaseEntity implements Serializable{
     public void setNumSalasFest(Integer numSalasFest) {
         this.numSalasFest = numSalasFest;
     }
- 
- 
- 
- 
- 
     
+       public List<FuncionEntity> getFunciones() {
+        return funciones;
+    }
+
+    public List<SalaEntity> getSalas() {
+        return salas;
+    }
+
+    public List<FestivalEntity> getFestivales() {
+        return festivales;
+    }
+    
+    
+    public void setFunciones(List<FuncionEntity> funciones) {
+        this.funciones = funciones;
+    }
+
+    public void setSalas(List<SalaEntity> salas) {
+        this.salas = salas;
+    }
+
+    public void setFestivales(List<FestivalEntity> festivales) {
+        this.festivales = festivales;
+    }
 }

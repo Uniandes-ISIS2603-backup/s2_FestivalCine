@@ -6,8 +6,13 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -32,17 +37,24 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     private Integer precioBase;
     
     @PodamExclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private CriticoEntity critico;
     
     @PodamExclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private PeliculaEntity pelicula;
     
     @PodamExclude
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private SalaEntity sala;
     
+    @PodamExclude  
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TeatroEntity teatro;
+    
+    @PodamExclude
+    @ManyToMany(mappedBy = "funciones", fetch = FetchType.LAZY)
+    private Collection<ReservaEntity> reservas = new ArrayList<ReservaEntity>();    
 
     public Date getHoraInicio() {
         return horaInicio;
@@ -92,8 +104,13 @@ public class FuncionEntity extends BaseEntity implements Serializable {
         this.sala = sala;
     }
     
-
-
+    public TeatroEntity getTeatro()
+    {
+        return teatro;
+    }
     
-    
+    public void setTeatro(TeatroEntity teatro)
+    {
+        this.teatro = teatro;
+    }
 }

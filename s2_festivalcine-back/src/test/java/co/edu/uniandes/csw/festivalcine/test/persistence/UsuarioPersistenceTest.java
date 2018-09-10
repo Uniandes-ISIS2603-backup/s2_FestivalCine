@@ -54,8 +54,8 @@ public class UsuarioPersistenceTest {
     public static JavaArchive createDeployment() 
     {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(ReservaEntity.class.getPackage())
-                .addPackage(ReservaPersistence.class.getPackage())
+                .addPackage(UsuarioEntity.class.getPackage())
+                .addPackage(UsuarioPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

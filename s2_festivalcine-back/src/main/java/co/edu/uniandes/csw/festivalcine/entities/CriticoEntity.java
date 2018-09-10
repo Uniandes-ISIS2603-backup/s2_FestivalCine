@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -75,20 +77,27 @@ public class CriticoEntity extends BaseEntity implements Serializable
     /*
     * Lista de calificaciones del critico
     */
-    @javax.persistence.OneToMany(fetch = FetchType.LAZY)
-    private Collection<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    @PodamExclude
+    @OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
+    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
     
     /**
      * Lista de funciones del critico
      */
-    @javax.persistence.OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
-    private Collection<FuncionEntity> funciones = new ArrayList();
+    @PodamExclude
+    @OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
+    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
     
     /**
      * Lista de peliculas del critico
      */
-    @javax.persistence.OneToMany(fetch = FetchType.LAZY)
-    private Collection peliculas = new ArrayList();
+    @PodamExclude
+    @ManyToMany(mappedBy = "criticos",fetch = FetchType.LAZY)
+    private List<PeliculaEntity> peliculas = new ArrayList<PeliculaEntity>();
+    
+    @PodamExclude
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<FestivalEntity> festivales = new ArrayList<FestivalEntity>();
 
     
     /**
@@ -185,7 +194,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de calificaciones del critico
      * @return List con las calificaciones
      */
-    public Collection<CalificacionEntity> darCalificaciones()
+    public List<CalificacionEntity> darCalificaciones()
     {
         return calificaciones;
     }
@@ -194,7 +203,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de funciones del critico
      * @return List con las funciones
      */
-    public Collection<FuncionEntity> darFunciones()
+    public List<FuncionEntity> darFunciones()
     {
         return funciones;
     }
@@ -203,7 +212,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
      * Devuelve la lista de peliculas del critico
      * @return List de peliculas
      */
-    public Collection darPeliculas()
+    public List<PeliculaEntity> darPeliculas()
     {
         return peliculas;
     }
@@ -268,9 +277,19 @@ public class CriticoEntity extends BaseEntity implements Serializable
         this.funciones= funciones;
     }
     
-    public void setPeliculas(List peliculas)
+    public void setPeliculas(List<PeliculaEntity> peliculas)
     {
         this.peliculas = peliculas;
+    }
+    
+    public List<FestivalEntity> darFestival()
+    {
+        return festivales;
+    }
+    
+    public void setFestivales(List<FestivalEntity> festivales)
+    {
+        this.festivales = festivales;
     }
 }
 

@@ -195,7 +195,7 @@ public class ReservaResource
     
     
     @GET
-    @Path("{reservasId: \\d+}/funciones")
+    @Path("{reservasId: \\d+}/sillas")
     public List<SillaDTO> getSillasResource(@PathParam("reservasId") Long reservasId) 
     {
         if (reservaLogic.getReserva(reservasId) == null) 

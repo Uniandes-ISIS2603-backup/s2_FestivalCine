@@ -26,19 +26,20 @@ public class BandaAnuncioPersistence {
      
      
      public  BandaAnuncioEntity create ( BandaAnuncioEntity entity){
-        LOGGER.info("Se esta creando un recurso Banda Anuncio nuevo");
-         em.persist(entity);
+        LOGGER.log(Level.INFO, "Se esta creando un recurso Banda Anuncio nuevo");
+        em.persist(entity);
+        LOGGER.log(Level.INFO, "Saliendo de crear Banda Anuncio");
         return entity;
      }
      public BandaAnuncioEntity update (BandaAnuncioEntity entity){
-         LOGGER.info("Actualizando el recurso"+ System.currentTimeMillis());
+         LOGGER.log(Level.INFO, "Actualizando la Banda Anuncio con id = {0}", entity.getId());
          return em.merge(entity);
      }
      
      public BandaAnuncioEntity findById(Long id){
          LOGGER.info("Buscando un recurso Banda Anuncio con id="+id);
          return em.find(BandaAnuncioEntity.class, id);
-              }
+     }
      
      public List<BandaAnuncioEntity> findAll(){
          LOGGER.info("Buscando todos los recursos Banda Anuncio");

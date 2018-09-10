@@ -42,19 +42,19 @@ public class CriticoPersistence
     
     public CriticoEntity find(Long criticosId)
     {
-        LOGGER.log(Level.INFO, "Consultando el critico con id={0}", criticosId);
+        LOGGER.log(Level.INFO, "Consultando el critico con id = {0}", criticosId);
         return em.find(CriticoEntity.class, criticosId);
     }
     
     public CriticoEntity update(CriticoEntity criticoEntity)
     {
-        LOGGER.log(Level.INFO, "Actualizando el critico con id={0}", criticoEntity.getId());
+        LOGGER.log(Level.INFO, "Actualizando el critico con id = {0}", criticoEntity.getId());
         return em.merge(criticoEntity);
     }
     
     public void delete(Long criticosId)
     {
-        LOGGER.log(Level.INFO, "Borrando el critico con id={0}", criticosId);
+        LOGGER.log(Level.INFO, "Borrando el critico con id = {0}", criticosId);
         CriticoEntity criticoEntity = em.find(CriticoEntity.class, criticosId);
         em.remove(criticoEntity);
     }
