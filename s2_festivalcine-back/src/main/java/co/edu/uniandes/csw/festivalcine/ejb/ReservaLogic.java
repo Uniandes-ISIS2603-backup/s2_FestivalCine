@@ -150,11 +150,11 @@ public class ReservaLogic
      * @return una lista de reservas.
      */
     public List<FuncionEntity> getFunciones() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las sillas");
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las funciones");
        
         List<FuncionEntity> funciones = persistence.findAllFunciones();
         
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las sillas");
+        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las funciones");
         return funciones;
     }
 

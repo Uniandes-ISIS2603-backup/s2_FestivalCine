@@ -7,8 +7,12 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SalaDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -23,17 +27,17 @@ import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "salas".
-
+ * @author: María Juliana Moya
  */
 @Path("salas")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
 public class SalaResource {
-        //private static final Logger LOGGER = Logger.getLogger(SalaResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SalaResource.class.getName());
 
     
-    //SalaLogic salaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    SalaLogic salaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
      * Crea una nueva sala con la informacion que se recibe en el cuerpo de
@@ -49,15 +53,15 @@ public class SalaResource {
      */
     @POST
     public SalaDTO createSala(SalaDTO sala) throws BusinessLogicException {
-    //    LOGGER.log(Level.INFO, "SalaResource createSala: input: {0}", sala.toString());
+        LOGGER.log(Level.INFO, "SalaResource createSala: input: {0}", sala.toString());
        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
-    //    SalaEntity salaEntity = sala.toEntity();
+        SalaEntity salaEntity = sala.toEntity();
         // Invoca la lógica para crear la editorial nueva
-    //    SalaEntity nuevoSalaEntity = salaLogic.createSala(salaEntity);
+        SalaEntity nuevoSalaEntity = salaLogic.createSala(salaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
-    //    SalaDTO nuevoSalaDTO = new SalaDTO(nuevoSalaEntity);
-    //    LOGGER.log(Level.INFO, "SalaResource createSala: output: {0}", nuevoSalaDTO.toString());
-        return sala;
+        SalaDTO nuevaSalaDTO = new SalaDTO(nuevoSalaEntity);
+        LOGGER.log(Level.INFO, "SalaResource createSala: output: {0}", nuevaSalaDTO.toString());
+        return nuevaSalaDTO;
     }
 
     /**
@@ -68,9 +72,9 @@ public class SalaResource {
      */
     @GET
     public List<SalaDTO> getsalas() {
-    //    LOGGER.info("SalaResource getsalas: input: void");
-    //    List<SalaDTO> listaSalas = listEntity2DetailDTO(salaLogic.getFunciones());
-    //    LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
+        LOGGER.info("SalaResource getsalas: input: void");
+        List<SalaDTO> listaSalas = listEntity2DetailDTO(salaLogic.getSalas());
+        LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
         return null;
     }
 
@@ -86,14 +90,14 @@ public class SalaResource {
     @GET
     @Path("{salasId: \\d+}")
     public SalaDTO getSala(@PathParam("salasId") Long salasId) throws WebApplicationException {
-    //    LOGGER.log(Level.INFO, "SalaResource getSala: input: {0}", salasId);
-    //    SalaEntity funcionEntity = salaLogic.getSala(salasId);
-    //    if (salaEntity == null) {
-    //        throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
-    //    }
-    //    SalaDTO detailDTO = new SalaDTO(funcionEntity);
-    //    LOGGER.log(Level.INFO, "SalaResource getSala: output: {0}", detailDTO.toString());
-        return null;
+       LOGGER.log(Level.INFO, "SalaResource getSala: input: {0}", salasId);
+       SalaEntity salaEntity = salaLogic.getSala(salasId);
+       if (salaEntity == null) {
+           throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+       }
+       SalaDTO detailDTO = new SalaDTO(salaEntity);
+       LOGGER.log(Level.INFO, "SalaResource getSala: output: {0}", detailDTO.toString());
+       return detailDTO;
     }
 
     /**
@@ -102,29 +106,29 @@ public class SalaResource {
      *
      * @param salasId Identificador de la sala que se desea
      * actualizar. Este debe ser una cadena de dígitos.
-     * @param sala {@link SalaDTO} La Funcion que se desea guardar.
-     * @return JSON {@link SalaDTO} - La Funcion guardada.
+     * @param sala {@link SalaDTO} La sala que se desea guardar.
+     * @return JSON {@link SalaDTO} - La sala guardada.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la Funcion a
+     * Error de lógica que se genera cuando no se encuentra la sala a
      * actualizar.
      */
     @PUT
     @Path("{salasId: \\d+}")
     public SalaDTO updateSala(@PathParam("salasId") Long salasId, SalaDTO sala) throws WebApplicationException {
-    //    LOGGER.log(Level.INFO, "SalaResource updateSala: input: id:{0} , sala: {1}", new Object[]{salasId, sala.toString()});
-    //    sala.setId(salasId);
-    //    if (salaLogic.getSala(salasId) == null) {
-    //        throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
-    //    }
-        //SalaDTO detailDTO = new SalaDTO(funcionLogic.updateEditorial(editorialsId, editorial.toEntity()));
-    //    LOGGER.log(Level.INFO, "SalaResource updateEditorial: output: {0}", detailDTO.toString());
-        return sala;
+       LOGGER.log(Level.INFO, "SalaResource updateSala: input: id:{0} , sala: {1}", new Object[]{salasId, sala.toString()});
+       sala.setId(salasId);
+       if (salaLogic.getSala(salasId) == null) {
+           throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+       }
+       SalaDTO detailDTO = new SalaDTO(salaLogic.updateSala(salasId, sala.toEntity()));
+       LOGGER.log(Level.INFO, "SalaResource updateEditorial: output: {0}", detailDTO.toString());
+       return sala;
     }
 
     /**
      * Borra la sala con el id asociado recibido en la URL.
      *
-     * @param salasId Identificador de la esala que se desea borrar.
+     * @param salasId Identificador de la sala que se desea borrar.
      * Este debe ser una cadena de dígitos.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
      * Error de lógica que se genera cuando no se puede eliminar la sala
@@ -134,14 +138,31 @@ public class SalaResource {
     @DELETE
     @Path("{salasId: \\d+}")
     public void deleteSala(@PathParam("salasId") Long salasId) throws BusinessLogicException {
-    //    LOGGER.log(Level.INFO, "SalaResource deleteSala: input: {0}", salasId);
-    //    if (salaLogic.getSala(salasId) == null) {
-    //        throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
-    //    }
-    //    salaLogic.deleteSala(salasId);
-    //    LOGGER.info("SalaResource deleteSala: output: void");
+        LOGGER.log(Level.INFO, "SalaResource deleteSala: input: {0}", salasId);
+        if (salaLogic.getSala(salasId) == null) {
+            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+        }
+        salaLogic.deleteSala(salasId);
+        LOGGER.info("SalaResource deleteSala: output: void");
     }
 
+    /**
+     * Convierte una lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos SalaEntity a una lista de
+     * objetos SalaDTO (json)
+     *
+     * @param salaList corresponde a la lista de funciones de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de salas en forma DTO (json)
+     */
+    private List<SalaDTO> listEntity2DetailDTO(List<SalaEntity> entityList) {
+        List<SalaDTO> list = new ArrayList<>();
+        for (SalaEntity entity : entityList) {
+            list.add(new SalaDTO(entity));
+        }
+        return list;
+    }
 
     
     
