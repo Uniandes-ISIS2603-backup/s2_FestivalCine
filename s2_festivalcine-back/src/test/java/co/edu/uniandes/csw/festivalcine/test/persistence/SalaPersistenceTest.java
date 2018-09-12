@@ -17,6 +17,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -51,6 +52,45 @@ public class SalaPersistenceTest {
                 .addPackage(SalaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
+    }
+    
+    @Before
+    public void configTest()
+    {
+        try
+        {
+            utx.begin();
+            em.joinTransaction();
+            clearData();
+            insertData();
+            utx.commit();
+        } catch (Exception e) 
+        {
+            e.printStackTrace();
+            try
+            {
+                utx.rollback();
+            } catch(Exception e1)
+            {
+                e1.printStackTrace();
+            }
+        }
+    }
+    
+    private void clearData()
+    {
+        em.createQuery("delete from SalaEntity").executeUpdate();
+    }
+    
+    private void insertData()
+    {
+        PodamFactory factory = new PodamFactoryImpl();
+        for(int i = 0; i < 3; i++)
+        {
+            SalaEntity entity = factory.manufacturePojo(SalaEntity.class);
+            em.persist(entity);
+            data.add(entity);
+        }
     }
     
     /**
