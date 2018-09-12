@@ -5,8 +5,10 @@
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
 
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,6 +31,9 @@ public class SalaLogic {
     @Inject
     private SalaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
+     @Inject
+    private FuncionPersistence funcionPersistence;
+     
     /**
      * Crea una sala en la persistencia.
      *
@@ -100,11 +105,15 @@ public class SalaLogic {
      */
     public void deleteSala(Long salasId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la sala con id = {0}", salasId);
-        //FALTA DEFINIR REGLA DE NEGOCIO CON FUNCION
-        //List<BookEntity> books = getEditorial(funcionesId).getBooks();
-        //if (books != null && !books.isEmpty()) {
-        //    throw new BusinessLogicException("No se puede borrar la editorial con id = " + funcionesId + " porque tiene books asociados");
-        //}
+       
+        // REGLA DE NEGOCIO: No se puede eliminar una sala con una función asignada
+       
+        List<FuncionEntity> funciones = funcionPersistence.findAll();
+        for (FuncionEntity funcion: funciones){
+            if(funcion.getSala().getId()== salasId){
+                throw new BusinessLogicException("No se puede borrar la sala con id = " + salasId + " porque tiene funciones asociadas");
+            }
+        }
         persistence.delete(salasId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la sala con id = {0}", salasId);
     }

@@ -115,10 +115,11 @@ public class FuncionResource {
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la funcion a
      * actualizar.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @PUT
     @Path("{funcionesId: \\d+}")
-    public FuncionDTO updateFuncion(@PathParam("funcionesId") Long funcionesId, FuncionDTO funcion) throws WebApplicationException {
+    public FuncionDTO updateFuncion(@PathParam("funcionesId") Long funcionesId, FuncionDTO funcion) throws WebApplicationException,BusinessLogicException {
        LOGGER.log(Level.INFO, "FuncionResource updateFuncion: input: id:{0} , funcion: {1}", new Object[]{funcionesId, funcion.toString()});
        funcion.setId(funcionesId);
        if (funcionLogic.getFuncion(funcionesId) == null) {
