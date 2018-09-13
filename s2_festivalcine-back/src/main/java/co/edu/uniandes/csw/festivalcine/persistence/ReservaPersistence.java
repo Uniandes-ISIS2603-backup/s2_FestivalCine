@@ -46,8 +46,13 @@ public class ReservaPersistence
      
      public ReservaEntity findReserva(Long reservasId) 
      {
+         if(reservasId == null)
+         {
+             return null;
+         }
         LOGGER.log(Level.INFO, "Consultando reserva con id = {0}", reservasId);
         return em.find(ReservaEntity.class, reservasId);
+        
     }
      
     public ReservaEntity updateReserva(ReservaEntity reservaEntity) 
@@ -60,7 +65,7 @@ public class ReservaPersistence
     public void deleteReserva(Long reservasId) 
     {
         LOGGER.log(Level.INFO, "Borrando la reserva con id = {0}", reservasId);
-        UsuarioEntity entity = em.find(UsuarioEntity.class, reservasId);
+        ReservaEntity entity = em.find(ReservaEntity.class, reservasId);
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la reserva con id = {0}", reservasId);
     }

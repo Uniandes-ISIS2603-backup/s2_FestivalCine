@@ -135,10 +135,17 @@ public class ReservaResource
     public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException {
        LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva.toString()});
         reserva.setId(reservasId);
-        if (reservaLogic.getReserva(reservasId) == null) {
+        ReservaDetailDTO detailDTO = null;
+        if (reservaLogic.getReserva(reservasId) == null) 
+        {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        ReservaDetailDTO detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
+        try 
+        {
+            detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
+        } catch (BusinessLogicException ex) {
+            Logger.getLogger(ReservaResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO.toString());
         return detailDTO;
     }

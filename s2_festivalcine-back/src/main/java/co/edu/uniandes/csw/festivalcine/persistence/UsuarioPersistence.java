@@ -65,8 +65,8 @@ public class UsuarioPersistence
      public UsuarioEntity findUserByName(String name) 
      {
         LOGGER.log(Level.INFO, "Consultando usuario por nombre ", name);
-        TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.name = :name", UsuarioEntity.class); 
-        query = query.setParameter("name", name);
+        TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.nombres = :nombres", UsuarioEntity.class); 
+        query = query.setParameter("nombres", name);
         List<UsuarioEntity> sameName = query.getResultList();
         UsuarioEntity result;
         if (sameName == null) 
