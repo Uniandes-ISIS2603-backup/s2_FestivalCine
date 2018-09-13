@@ -9,14 +9,16 @@ import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author Mario Andrade
  */
+@Stateless
 public class TeatroPersistence {
 
 private static final Logger LOGGER = Logger.getLogger(TeatroPersistence.class.getName());    
@@ -84,7 +86,7 @@ public List<TeatroEntity> findAll() {
      */
     public void delete(Long teatroId) {
 
-        LOGGER.log(Level.INFO, "Borrando el author con id={0}", teatroId);
+        LOGGER.log(Level.INFO, "Borrando el teatro con id={0}", teatroId);
         TeatroEntity teatroEntity = em.find(TeatroEntity.class, teatroId);
 
         em.remove(teatroEntity);

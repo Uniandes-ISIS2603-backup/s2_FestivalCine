@@ -99,7 +99,7 @@ public class TeatroPersistenceTest {
     
 
     @Test
-    public void createFestivalTest(){
+    public void createTeatroTest(){
         PodamFactory factory = new PodamFactoryImpl();
         
         TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);
@@ -115,7 +115,7 @@ public class TeatroPersistenceTest {
      * Prueba para consultar la lista de Teatros.
      */
     @Test
-    public void getFestivalssTest() {
+    public void getTeatrosTest() {
         List<TeatroEntity> list =teatroPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for(TeatroEntity ent : list) {
@@ -133,7 +133,7 @@ public class TeatroPersistenceTest {
      * Prueba para consultar un Teatro.
      */
     @Test
-    public void getEditorialTest() {
+    public void getTeatroTest() {
        TeatroEntity entity = data.get(0);
         TeatroEntity newEntity = teatroPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -144,7 +144,7 @@ public class TeatroPersistenceTest {
      * Prueba para eliminar un Teatro.
      */
     @Test
-    public void deleteEditorialTest() {
+    public void deleteTeatroTest() {
         TeatroEntity entity = data.get(0);
         teatroPersistence.delete(entity.getId());
         TeatroEntity deleted = em.find(TeatroEntity.class, entity.getId());
@@ -155,7 +155,7 @@ public class TeatroPersistenceTest {
      * Prueba para actualizar un Teatro.
      */
     @Test
-    public void updateEditorialTest() {
+    public void updateTeatroTest() {
         TeatroEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);

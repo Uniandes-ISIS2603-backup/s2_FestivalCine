@@ -27,7 +27,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author Mario Andrade
  */
 @RunWith(Arquillian.class)
 public class FestivalPersistenceTest {
@@ -114,7 +114,7 @@ public class FestivalPersistenceTest {
      * Prueba para consultar la lista de Festivales.
      */
     @Test
-    public void getFestivalssTest() {
+    public void getFestivalsTest() {
         List<FestivalEntity> list =festPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for(FestivalEntity ent : list) {
@@ -132,7 +132,7 @@ public class FestivalPersistenceTest {
      * Prueba para consultar un Festival.
      */
     @Test
-    public void getEditorialTest() {
+    public void getFestivalTest() {
        FestivalEntity entity = data.get(0);
         FestivalEntity newEntity = festPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -143,7 +143,7 @@ public class FestivalPersistenceTest {
      * Prueba para eliminar una Festival.
      */
     @Test
-    public void deleteEditorialTest() {
+    public void deleteFestivalTest() {
         FestivalEntity entity = data.get(0);
         festPersistence.delete(entity.getId());
         FestivalEntity deleted = em.find(FestivalEntity.class, entity.getId());
@@ -154,7 +154,7 @@ public class FestivalPersistenceTest {
      * Prueba para actualizar una Festival.
      */
     @Test
-    public void updateEditorialTest() {
+    public void updateFestivalTest() {
         FestivalEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         FestivalEntity newEntity = factory.manufacturePojo(FestivalEntity.class);
