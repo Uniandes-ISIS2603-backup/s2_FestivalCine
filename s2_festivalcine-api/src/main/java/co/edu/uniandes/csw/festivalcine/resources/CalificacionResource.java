@@ -22,6 +22,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 /**
+ * Clase que implementa el recurso "calificaiones"
  *
  * @author Andres Felipe Rodriguez Murillo
  */
@@ -36,6 +37,15 @@ public class CalificacionResource
     
     private static final Logger LOGGER = Logger.getLogger(CalificacionResource.class.getName());
     
+    /**
+     * Crea una nueva calificacion con la información que se recibe en el cuerpo de la
+     * petición y se regresa un objeto identico con un id auto_generado por la base de
+     * datos
+     * 
+     * @param calificacion {@link CalificacionDTO} - La calificiacion que se desea guardar.
+     * @return JSON {@link CalificacionDTO} - La calificacion guardada con el atributo id
+     * autogenerado
+     */
     @POST
     public CalificacionDTO createCalificacion(CalificacionDTO calificacion)
     {

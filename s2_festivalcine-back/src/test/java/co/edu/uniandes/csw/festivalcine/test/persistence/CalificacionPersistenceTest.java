@@ -92,7 +92,7 @@ public class CalificacionPersistenceTest
     }
     
     @Test
-    public void createCritico()
+    public void createCalificacion()
     {
         PodamFactory factory = new PodamFactoryImpl();
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
@@ -105,7 +105,7 @@ public class CalificacionPersistenceTest
     }
     
     @Test
-    public void getCriticosTest()
+    public void getCalificacionesTest()
     {
         List<CalificacionEntity> list = calificacionPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
@@ -124,7 +124,7 @@ public class CalificacionPersistenceTest
     }
     
     @Test
-    public void getCriticoTest()
+    public void getCalificacionTest()
     {
         CalificacionEntity entity = data.get(0);
         CalificacionEntity newEntity = calificacionPersistence.find(entity.getId());
@@ -133,7 +133,7 @@ public class CalificacionPersistenceTest
     }
     
     @Test
-    public void updateCriticoTest()
+    public void updateCalificacionTest()
     {
         CalificacionEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
@@ -148,7 +148,7 @@ public class CalificacionPersistenceTest
     }
     
     @Test
-    public void deleteCriticoTest()
+    public void deleteCalificacionTest()
     {
         CalificacionEntity entity = data.get(0);
         calificacionPersistence.delete(entity.getId());

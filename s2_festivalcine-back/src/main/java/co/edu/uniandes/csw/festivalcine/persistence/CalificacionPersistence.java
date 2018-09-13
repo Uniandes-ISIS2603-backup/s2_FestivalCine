@@ -36,7 +36,7 @@ public class CalificacionPersistence
     public List<CalificacionEntity> findAll()
     {
         LOGGER.log(Level.INFO, "Consultando todos los criticos");
-        TypedQuery query = em.createQuery("select u from CalificacionEntity u", CalificacionEntity.class);
+        TypedQuery query = em.createQuery("SELECT u FROM CalificacionEntity u", CalificacionEntity.class);
         return query.getResultList();
     }
     

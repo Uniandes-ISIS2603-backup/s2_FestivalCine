@@ -159,16 +159,16 @@ public class CriticoPersistenceTest
         Assert.assertNull(deleted);
     }
     
-//    @Test
-//    public void findCriticoByIdentificacionTest()
-//    {
-//        CriticoEntity entity = data.get(0);
-//        CriticoEntity newEntity = criticoPersistence.findByIdentificacion(entity.darIdentificacion());
-//        Assert.assertNotNull(newEntity);
-//        Assert.assertEquals(entity.darIdentificacion(), newEntity.darIdentificacion());
-//        
-//        newEntity = criticoPersistence.findByIdentificacion(null);
-//        Assert.assertNull(newEntity);
-//    }
+    @Test
+    public void findCriticoByIdentificacionTest()
+    {
+        CriticoEntity entity = data.get(0);
+        CriticoEntity newEntity = criticoPersistence.findByIdentificacion(entity.darIdentificacion());
+        Assert.assertNotNull(newEntity);
+        Assert.assertEquals(entity.darIdentificacion(), newEntity.darIdentificacion());
+        
+        newEntity = criticoPersistence.findByIdentificacion(null);
+        Assert.assertNull(newEntity);
+    }
     
 }
