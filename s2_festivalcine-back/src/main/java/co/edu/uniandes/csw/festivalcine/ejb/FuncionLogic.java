@@ -135,6 +135,11 @@ public class FuncionLogic {
     public void deleteFuncion(Long funcionesId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la función con id = {0}", funcionesId);
         //FALTA DEFINIR REGLA DE NEGOCIO CON RESERVAS
+        List<ReservaEntity> reservas = (List<ReservaEntity>) persistence.find(funcionesId).getReservas();
+        if (reservas != null && !reservas.isEmpty()) {
+            throw new BusinessLogicException("No se puede borrar la funcion con id = " + funcionesId + " porque tiene reservas asociados");
+        }
+        
         persistence.delete(funcionesId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la función con id = {0}", funcionesId);
     }

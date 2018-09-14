@@ -7,11 +7,17 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.SalaSillasLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -29,13 +35,13 @@ import javax.ws.rs.WebApplicationException;
 @Produces(MediaType.APPLICATION_JSON)
 public class SalaSillasResource {
 
-   // private static final Logger LOGGER = Logger.getLogger(SalaSillasResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SalaSillasResource.class.getName());
 
-    //@Inject
-    //private EditorialBooksLogic editorialBooksLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    @Inject
+    private SalaSillasLogic salaSillasLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
-    //@Inject
-    //private BookLogic bookLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    @Inject
+    private SillaLogic sillaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
      * Asigna una silla a la sala con la informacion que recibe el
@@ -46,24 +52,24 @@ public class SalaSillasResource {
      * @param sillasId Identificador dde la silla que se desea asignar. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link SillaDTO} - La silla asignada a la sala
+     * @throws BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra el libro.
+     * Error de lógica que se genera cuando no se encuentra la silla.
      */
     @POST
     @Path("{sillasId: \\d+}")
-    public SillaDTO asignarSilla(@PathParam("salasId") Long salasId, @PathParam("sillasId") Long sillasId) {
-        //LOGGER.log(Level.INFO, "EditorialBooksResource addBook: input: editorialsID: {0} , booksId: {1}", new Object[]{editorialsId, booksId});
-        //if (bookLogic.getBook(booksId) == null) {
-        //    throw new WebApplicationException("El recurso /books/" + booksId + " no existe.", 404);
-        //}
-        //SillaDTO sillaDTO = new SillaDTO(editorialBooksLogic.addBook(booksId, editorialsId));
-        //LOGGER.log(Level.INFO, "EditorialBooksResource addBook: output: {0}", bookDTO.toString());
-        return null;
+    public SillaDTO asignarSilla(@PathParam("salasId") Long salasId, @PathParam("sillasId") Long sillasId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "SalaSillasResource addSilla: input: salasId: {0} , sillasId: {1}", new Object[]{salasId, sillasId});
+        if (sillaLogic.getSilla(sillasId) == null) {
+            throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+        }
+        SillaDTO sillaDTO = new SillaDTO(salaSillasLogic.addSilla(sillasId, salasId));
+        LOGGER.log(Level.INFO, "SalaSillasResource addSilla: output: {0}", sillaDTO);
+        return sillaDTO;
     }
 
     /**
      * Busca y devuelve todos las sillas que existen en la sala.
-     *
      * @param salasId Identificador de la sala que se esta buscando.
      * Este debe ser una cadena de dígitos.
      * @return JSONArray {@link SillaDTO} - Los sillas encontradas en la sala.
@@ -71,10 +77,10 @@ public class SalaSillasResource {
      */
     @GET
     public List<SillaDTO> getSillas(@PathParam("salasId") Long salasId) {
-        //LOGGER.log(Level.INFO, "EditorialBooksResource getBooks: input: {0}", editorialsId);
-        //List<BookDetailDTO> listaDetailDTOs = booksListEntity2DTO(editorialBooksLogic.getBooks(editorialsId));
-        //LOGGER.log(Level.INFO, "EditorialBooksResource getBooks: output: {0}", listaDetailDTOs.toString());
-        return null;
+        LOGGER.log(Level.INFO, "SalaSIllasResource getSillas: input: {0}", salasId);
+        List<SillaDTO> listaSillasDTOs = sillaListEntity2DTO(salaSillasLogic.getSillas(salasId));
+        LOGGER.log(Level.INFO, "SalaSillasResource getSillas: output: {0}", listaSillasDTOs.toString());
+        return listaSillasDTOs;
     }
 
     /**
@@ -93,38 +99,28 @@ public class SalaSillasResource {
      */
     @GET
     @Path("{sillasId: \\d+}")
-    public SillaDTO getSilla(@PathParam("salasId") Long salasId, @PathParam("sillasId") Long booksId) throws BusinessLogicException {
-        //LOGGER.log(Level.INFO, "EditorialBooksResource getBook: input: editorialsID: {0} , booksId: {1}", new Object[]{editorialsId, booksId});
-        //if (bookLogic.getBook(booksId) == null) {
-        //    throw new WebApplicationException("El recurso /editorials/" + editorialsId + "/books/" + booksId + " no existe.", 404);
-        //}
-        //BookDetailDTO bookDetailDTO = new BookDetailDTO(editorialBooksLogic.getBook(editorialsId, booksId));
-        //LOGGER.log(Level.INFO, "EditorialBooksResource getBook: output: {0}", bookDetailDTO.toString());
-        return null;
-    }
-
-    /**
-     * Remplaza las instancias de Silla asociadas a una instancia de Sala
-     *
-     * @param salasId Identificador de la sala que se esta
-     * remplazando. Este debe ser una cadena de dígitos.
-     * @param sillas JSONArray {@link SillaDTO} El arreglo de sillas nuevo para la
-     * sala.
-     * @return JSON {@link sillaDTO} - El arreglo de Sillas asignado a la sala. 
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la silla.
-     */
-    @PUT
-    public List<SillaDTO> replaceSillas(@PathParam("salasId") Long salasId, List<SillaDTO> sillass) {
-        //LOGGER.log(Level.INFO, "EditorialBooksResource replaceBooks: input: editorialsId: {0} , books: {1}", new Object[]{editorialsId, books.toString()});
-        //for (BookDetailDTO book : books) {
-        //    if (bookLogic.getBook(book.getId()) == null) {
-        //        throw new WebApplicationException("El recurso /books/" + book.getId() + " no existe.", 404);
-        //    }
-        //}
-        //List<BookDetailDTO> listaDetailDTOs = booksListEntity2DTO(editorialBooksLogic.replaceBooks(editorialsId, booksListDTO2Entity(books)));
-        //LOGGER.log(Level.INFO, "EditorialBooksResource replaceBooks: output: {0}", listaDetailDTOs.toString());
-        return null;
+    public SillaDTO getSilla(@PathParam("salasId") Long salasId, @PathParam("sillasId") Long sillasId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "SalaSillasResource getSilla: input: salaId: {0} , sillasId: {1}", new Object[]{salasId, sillasId});
+        if (sillaLogic.getSilla(sillasId) == null) {
+            throw new WebApplicationException("El recurso /salas/" + salasId + "/sillas/" + sillasId + " no existe.", 404);
+        }
+        SillaDTO sillaDTO = new SillaDTO(salaSillasLogic.getSilla(salasId, sillasId));
+        LOGGER.log(Level.INFO, "SalaSillasResource getSilla: output: {0}", sillaDTO.toString());
+        return sillaDTO;
     }
     
+    /**
+     * Convierte una lista de SillaEntity a una lista de SillaDTO.
+     *
+     * @param entityList Lista de SillaEntity a convertir.
+     * @return Lista de SillaDTO convertida.
+     */
+    private List<SillaDTO> sillaListEntity2DTO(List<SillaEntity> entityList) {
+        List<SillaDTO> list = new ArrayList();
+        for (SillaEntity entity : entityList) {
+            list.add(new SillaDTO(entity));
+        }
+        return list;
+    }
+
 }

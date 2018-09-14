@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -28,7 +29,7 @@ public class SalaEntity extends BaseEntity implements Serializable {
     private Integer numero;
     
     @PodamExclude
-    @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
     
     @PodamExclude

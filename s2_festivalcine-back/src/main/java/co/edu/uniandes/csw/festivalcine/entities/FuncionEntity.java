@@ -56,6 +56,8 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     @ManyToMany(mappedBy = "funciones", fetch = FetchType.LAZY)
     private Collection<ReservaEntity> reservas = new ArrayList<ReservaEntity>();    
 
+
+
     public Date getHoraInicio() {
         return horaInicio;
     }
@@ -112,5 +114,13 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     public void setTeatro(TeatroEntity teatro)
     {
         this.teatro = teatro;
+    }
+    
+    public Collection<ReservaEntity> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(Collection<ReservaEntity> reservas) {
+        this.reservas = reservas;
     }
 }

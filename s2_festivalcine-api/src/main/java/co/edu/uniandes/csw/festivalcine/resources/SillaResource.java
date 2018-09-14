@@ -7,7 +7,11 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -32,9 +36,11 @@ import javax.ws.rs.WebApplicationException;
 
 
 public class SillaResource {
+    private static final Logger LOGGER = Logger.getLogger(SillaResource.class.getName());
     
+
     @Inject
-    //SillaLogic sillaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    SillaLogic sillaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
      * Crea una nueva silla con la informacion que se recibe en el cuerpo de
@@ -50,8 +56,15 @@ public class SillaResource {
      */
     @POST
     public SillaDTO createSilla(SillaDTO silla) throws BusinessLogicException {
-     
-        return silla;
+        LOGGER.log(Level.INFO, "SillaResource createSilla: input: {0}", silla.toString());
+       // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
+        SillaEntity sillaEntity = silla.toEntity();
+        // Invoca la lógica para crear la editorial nuev
+        SillaEntity nuevoSillaEntity = sillaLogic.createSilla(sillaEntity);
+        // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
+        SillaDTO nuevaSillaDTO = new SillaDTO(nuevoSillaEntity);
+        LOGGER.log(Level.INFO, "SillaResource createSilla: output: {0}", nuevaSillaDTO.toString());
+        return nuevaSillaDTO;
     }
 
     /**
@@ -62,7 +75,7 @@ public class SillaResource {
      */
     @GET
     public List<SillaDTO> getSillas() {
-   
+      
         return null;
     }
 

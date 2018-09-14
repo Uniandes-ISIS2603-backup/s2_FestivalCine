@@ -30,10 +30,7 @@ public class SalaLogic {
 
     @Inject
     private SalaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
-
-     @Inject
-    private FuncionPersistence funcionPersistence;
-     
+    
     /**
      * Crea una sala en la persistencia.
      *
@@ -107,16 +104,11 @@ public class SalaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la sala con id = {0}", salasId);
        
         // REGLA DE NEGOCIO: No se puede eliminar una sala con una función asignada
-       
-        List<FuncionEntity> funciones = funcionPersistence.findAll();
-        for (FuncionEntity funcion: funciones){
-            if(funcion.getSala().getId()== salasId){
-                throw new BusinessLogicException("No se puede borrar la sala con id = " + salasId + " porque tiene funciones asociadas");
-            }
+        List<FuncionEntity> funciones = persistence.find(salasId).getFuncion();
+        if (funciones != null && !funciones.isEmpty()) {
+            throw new BusinessLogicException("No se puede borrar la sala con id = " + salasId + " porque tiene funciones asociados");
         }
         persistence.delete(salasId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la sala con id = {0}", salasId);
-    }
-    
-    
+    }   
 }
