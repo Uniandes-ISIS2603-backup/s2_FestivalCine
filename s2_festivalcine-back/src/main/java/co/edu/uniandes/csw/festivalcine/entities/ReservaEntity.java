@@ -71,7 +71,8 @@ public class ReservaEntity extends BaseEntity implements Serializable
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {   
         this.id = id;
     }
 

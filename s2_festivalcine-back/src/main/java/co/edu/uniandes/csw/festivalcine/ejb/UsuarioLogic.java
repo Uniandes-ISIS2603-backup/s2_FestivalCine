@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,6 +27,9 @@ public class UsuarioLogic
 
     @Inject
     private UsuarioPersistence persistence;
+    
+    @Inject
+    private ReservaPersistence reservaPersistence;
    
     /**
      * Crea un usuario en la persistencia.
@@ -117,5 +121,80 @@ public class UsuarioLogic
         }
         persistence.deleteUsuario(usuariosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el usuario con id = {0}", usuariosId);
+    }
+    
+    /**
+     * LÓGICA DE LA RELACIÓN
+     */
+    /**
+     * Agregar una reserva al usuario
+     *
+     * @param reservasId El id la reserva a guardar
+     * @param usuariosId El id del usuario en el cual se va a guardar la
+     * reserva.
+     * @return El libro creado.
+     */
+    public ReservaEntity addReserva(Long reservasId, Long usuariosId) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de agregarle una reserva al usuario con id = {0}", usuariosId);
+        UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
+        ReservaEntity reservaEntity = reservaPersistence.findReserva(reservasId);
+        reservaEntity.setUsuario(usuarioEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de agregarle una reserva al usuario con id = {0}", usuariosId);
+        return reservaEntity;
+    }
+    
+     /**
+     * Retorna todos las reservas asociadas a un usuario
+     *
+     * @param usuariosId El ID del usuario buscada
+     * @return La lista de reservas del usuario
+     */
+    public List<ReservaEntity> getReservas(Long usuariosId) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar las reservas asociadas al usuario con id = {0}", usuariosId);
+        return persistence.findUsuario(usuariosId).getReservas();
+    }
+    
+    /**
+     * Retorna una reserva asociada a un usuario
+     *
+     * @param usuariosId El id del usuario a buscar.
+     * @param reservasId El id de la reserva a buscar
+     * @return La reserva encontrada dentro del usuario.
+     * @throws BusinessLogicException Si la reserva no se encuentra en el usuario
+     */
+    public ReservaEntity getReserva(Long usuariosId, Long reservasId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);
+        List<ReservaEntity> reservas = persistence.findUsuario(usuariosId).getReservas();
+        ReservaEntity reservaEntity = reservaPersistence.findReserva(reservasId);
+        int index = reservas.indexOf(reservaEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);
+        if (index >= 0) {
+            return reservas.get(index);
+        }
+        throw new BusinessLogicException("La reserva no está asociada a un usuario");
+    }
+    
+    /**
+     * Remplazar reservas de un usuario
+     *
+     * @param reservas Lista de reservas que serán las del usuario.
+     * @param usuariosId El id del usuario que se quiere actualizar.
+     * @return La lista de reservas actualizada.
+     */
+    public List<ReservaEntity> replaceReservas(Long usuariosId, List<ReservaEntity> reservas) {
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar el usuario con id = {0}", usuariosId);
+        UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
+        List<ReservaEntity> reservaList = reservaPersistence.findAllReservas();
+        for (ReservaEntity reserva : reservaList) {
+            if (reservas.contains(reserva)) {
+                reserva.setUsuario(usuarioEntity);
+            } else if (reserva.getUsuario() != null && reserva.getUsuario().equals(usuarioEntity)) {
+                reserva.setUsuario(null);
+            }
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la editorial con id = {0}", usuariosId);
+        return reservas;
     }
 }
