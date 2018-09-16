@@ -47,7 +47,7 @@ public class UsuarioLogic
             throw new BusinessLogicException("Ya existe un usuario con el nombre \"" + usuarioEntity.getNombres() + "\"");
         }
        
-        persistence.createUsuario(usuarioEntity);
+        usuarioEntity = persistence.createUsuario(usuarioEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del usuario");
         return usuarioEntity;
     }
@@ -124,7 +124,7 @@ public class UsuarioLogic
     }
     
     /**
-     * LÓGICA DE LA RELACIÓN
+     * LÓGICA DE LA RELACIÓN CON USUARIO
      */
     /**
      * Agregar una reserva al usuario
@@ -164,15 +164,25 @@ public class UsuarioLogic
      * @return La reserva encontrada dentro del usuario.
      * @throws BusinessLogicException Si la reserva no se encuentra en el usuario
      */
-    public ReservaEntity getReserva(Long usuariosId, Long reservasId) throws BusinessLogicException {
+    public ReservaEntity getReserva(Long usuariosId, Long reservasId) throws BusinessLogicException 
+    {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);
         List<ReservaEntity> reservas = persistence.findUsuario(usuariosId).getReservas();
         ReservaEntity reservaEntity = reservaPersistence.findReserva(reservasId);
-        int index = reservas.indexOf(reservaEntity);
+        
+        int index = -1;
+        
+        if(reservas.indexOf(reservaEntity) >= 0)
+        {
+            index = reservas.indexOf(reservaEntity);
+        }
         LOGGER.log(Level.INFO, "Termina proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);
-        if (index >= 0) {
+        
+        if (index >= 0) 
+        {
             return reservas.get(index);
         }
+        
         throw new BusinessLogicException("La reserva no está asociada a un usuario");
     }
     
@@ -186,15 +196,21 @@ public class UsuarioLogic
     public List<ReservaEntity> replaceReservas(Long usuariosId, List<ReservaEntity> reservas) {
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el usuario con id = {0}", usuariosId);
         UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
+        
         List<ReservaEntity> reservaList = reservaPersistence.findAllReservas();
-        for (ReservaEntity reserva : reservaList) {
-            if (reservas.contains(reserva)) {
+        
+        for (ReservaEntity reserva : reservaList)
+        {
+            if (reservas.contains(reserva)) 
+            {
                 reserva.setUsuario(usuarioEntity);
-            } else if (reserva.getUsuario() != null && reserva.getUsuario().equals(usuarioEntity)) {
+            } 
+            else if (reserva.getUsuario() != null && reserva.getUsuario().equals(usuarioEntity)) 
+            {
                 reserva.setUsuario(null);
             }
         }
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar la editorial con id = {0}", usuariosId);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar el usuario con id = {0}", usuariosId);
         return reservas;
     }
 }

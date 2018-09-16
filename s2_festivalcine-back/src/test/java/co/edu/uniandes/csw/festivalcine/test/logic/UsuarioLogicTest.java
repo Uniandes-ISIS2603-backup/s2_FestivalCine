@@ -108,7 +108,8 @@ public class UsuarioLogicTest
             UsuarioEntity entity = factory.manufacturePojo(UsuarioEntity.class);
             em.persist(entity);
             data.add(entity);
-            if (i == 0) {
+            if (i == 0) 
+            {
                 reservasData.get(i).setUsuario(entity);
             }
         }
@@ -218,16 +219,47 @@ public class UsuarioLogicTest
      * PRUEBAS DE LA RELACIÓN USUARIO A RESERVAS
      */
     /**
-     * Prueba para asociar un Books existente a un Editorial.
+     * Prueba para asociar una reservas existente a un Usuario.
      */
     @Test
     public void addReservasTest() 
     {
-//        UsuarioEntity entity = data.get(0);
-//        ReservaEntity reservaEntity = reservasData.get(1);
-//        ReservaEntity response = usuarioLogic.addReserva(reservaEntity.getId(), entity.getId());
-//
-//        Assert.assertNotNull(response);
-//        Assert.assertEquals(bookEntity.getId(), response.getId());
+        UsuarioEntity entity = data.get(0);
+        ReservaEntity reservaEntity = reservasData.get(1);
+        ReservaEntity response = usuarioLogic.addReserva(reservaEntity.getId(), entity.getId());
+
+        Assert.assertNotNull(response);
+        Assert.assertEquals(reservaEntity.getId(), response.getId());
+    }
+    
+    /**
+     * Prueba para obtener una colección de instancias de Reservas asociadas a una
+     * instancia Usuario.
+     */
+    @Test
+    public void getReservasTest() 
+    {
+        List<ReservaEntity> list = usuarioLogic.getReservas(data.get(0).getId());
+
+        Assert.assertEquals(1, list.size());
+    }
+    
+    /**
+     * Prueba para obtener una instancia de Reservas asociada a una instancia
+     * Usuario.
+     *
+     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
+     */
+    @Test
+    public void getReservaTest() throws BusinessLogicException 
+    {
+        UsuarioEntity entity = data.get(0);
+        ReservaEntity reservaEntity = reservasData.get(0);
+        ReservaEntity response = usuarioLogic.getReserva(entity.getId(), reservaEntity.getId());
+
+        Assert.assertEquals(reservaEntity.getId(), response.getId());
+        Assert.assertEquals(reservaEntity.getAbono(), response.getAbono());
+        Assert.assertEquals(reservaEntity.getPrecioTotal(), response.getPrecioTotal());
+        Assert.assertEquals(reservaEntity.getDescuento(), response.getDescuento());
     }
 }

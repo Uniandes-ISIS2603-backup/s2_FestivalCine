@@ -50,6 +50,9 @@ public class ReservaLogicTest
 
     private List<UsuarioEntity> usuarioData = new ArrayList();
     
+    private List<SillaEntity> sillaData = new ArrayList();
+    
+    
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
      * El jar contiene las clases, el descriptor de la base de datos y el
@@ -101,17 +104,45 @@ public class ReservaLogicTest
      */
     private void insertData() 
     {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
+            SillaEntity sillas = factory.manufacturePojo(SillaEntity.class);
+            em.persist(sillas);
+            sillaData.add(sillas);
+        }
+        for (int i = 0; i < 3; i++) 
+        {
             UsuarioEntity usuario = factory.manufacturePojo(UsuarioEntity.class);
             em.persist(usuario);
             usuarioData.add(usuario);
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
             ReservaEntity entity = factory.manufacturePojo(ReservaEntity.class);
             entity.setUsuario(usuarioData.get(0));
-
+            entity.setSillas(sillaData);
             em.persist(entity);
             data.add(entity);
+        }
+    }
+    
+    private void insertaDataPruebasSilla() 
+    {
+        for (int i = 0; i < 3; i++) 
+        {
+            SillaEntity sillas = factory.manufacturePojo(SillaEntity.class);
+            em.persist(sillas);
+            sillaData.add(sillas);
+        }
+        for (int i = 0; i < 3; i++) 
+        {
+            ReservaEntity entity = factory.manufacturePojo(ReservaEntity.class);
+            em.persist(entity);
+            data.add(entity);
+            if (i == 0) 
+            {
+                sillaData.get(i).setReserva(entity);
+            }
         }
     }
     
@@ -283,6 +314,65 @@ public class ReservaLogicTest
      * pueden haber sillas sin reserva. En el ejemplo book, no pueden haber autores sin libros. 
      */
     
+    /**
+     * PRUEBAS DE LA RELACIÓN CON USUARIO
+     */
+    
+    /**
+     * Prueba para remplazar las instancias de Reservas asociadas a una instancia
+     * de Usuario.
+     */
+    @Test
+    public void replaceUsuarioTest() 
+    {
+        ReservaEntity entity = data.get(0);
+        reservaLogic.replaceUsuario(entity.getId(), usuarioData.get(1).getId());
+        entity = reservaLogic.getReserva(entity.getId());
+        Assert.assertEquals(entity.getUsuario(), usuarioData.get(1));
+    }
+
+    /**
+     * Prueba para desasociar una Reserva existente de un Usuario existente
+     *
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
+     */
+    @Test
+    public void removeReservasTest() throws BusinessLogicException 
+    {
+        reservaLogic.removeUsuario(data.get(0).getId());
+        ReservaEntity response = reservaLogic.getReserva(data.get(0).getId());
+        Assert.assertNull(response.getUsuario());
+    }
+    
+    /**
+     * PRUEBAS DE LA RELACIÓN CON SILLA
+     */
+    
+    /**
+     * Prueba para asociar un Silla existente a un Reserva.
+     */
+    //@Test
+    public void addSillasTest() 
+    {
+        ReservaEntity entity = data.get(0);
+        SillaEntity sillaEntity = sillaData.get(1);
+        SillaEntity response = reservaLogic.addSilla(sillaEntity.getId(), entity.getId());
+
+        Assert.assertNotNull(response);
+        Assert.assertEquals(sillaEntity.getId(), response.getId());
+    }
+    
+//     /**
+//     * Prueba para obtener una colección de instancias de Sillas asociadas a una
+//     * instancia Reserva.
+//     */
+//    @Test
+//    public void getSillasTest() 
+//    {
+//        List<SillaEntity> list = reservaLogic.getSillas(data.get(0).getId());
+//
+//        Assert.assertEquals(1, list.size());
+//    }
     
     
 }

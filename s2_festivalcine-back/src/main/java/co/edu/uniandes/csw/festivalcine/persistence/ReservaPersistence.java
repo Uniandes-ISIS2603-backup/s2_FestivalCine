@@ -83,4 +83,12 @@ public class ReservaPersistence
         TypedQuery query = em.createQuery("select u from FuncionEntity u", FuncionEntity.class);
         return query.getResultList();
     }
+    
+    public FuncionEntity findFuncion(Long funcionId) 
+    {
+        LOGGER.log(Level.INFO, "Consultando la función con el id: " + funcionId);
+        return em.find(FuncionEntity.class, funcionId);
+    }
+    
+    
 }
