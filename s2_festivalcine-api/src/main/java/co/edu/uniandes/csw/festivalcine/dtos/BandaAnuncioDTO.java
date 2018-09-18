@@ -6,77 +6,84 @@
 package co.edu.uniandes.csw.festivalcine.dtos;
 
 import co.edu.uniandes.csw.festivalcine.entities.BandaAnuncioEntity;
-
-/*
-imports
-*/
-
+import java.io.Serializable;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author cc.cardenas
+ * @author cc.cardeans
  */
-public class BandaAnuncioDTO {
-   private Long id;
-   private int duracionMin;
+public class BandaAnuncioDTO implements Serializable{
+      //Atributos -------------------------------------------------------------------------
+    
+    private Long id;
+   private Integer duracion;
+
+    //Constructor ----------------------------------------------------------------------------
+    
+    /**
+     * Constructor por defecto
+     */
+    public BandaAnuncioDTO (){}
+    
+    /**
+     * Convertir Entity a DTO (Crea un nuevoDTO con los valores que recibe en
+     * la entidad que vienede argumento.)
+     * @param bandaAnuncioEntity: es la entidad que se va a convertir a DTO
+     */
+    public BandaAnuncioDTO (BandaAnuncioEntity banda)
+    {
+        if(banda != null)
+        {
+            this.id = banda.getId();
+            this.duracion= banda.getDuracion();
+        }
+    }
+    
+    
+    //Métodos -------------------------------------------------------------------------------
+    
+    /**
+     * Devuelve el ID de de la banda de anuncio
+     * @return Long 
+     */
+    public Long getId()
+    {
+        return id;
+    }
+    
+    public Integer getDuracion(){
+        return duracion;
+    }
    
-  
-   //Constructor//
-  public BandaAnuncioDTO(){
-      
-  }
-  /**
-     * Conviertir Entity a DTO
-     * (Crea un nuevo DTO con los valores que recibe en la entidad que viene de argumento.
-     * @param bandaAnuncio: Es la entidad que se va a convertir a DTO 
+    /**
+     * Modifica el ID de la banda
+     * @param id el id nuevo
      */
-public BandaAnuncioDTO (BandaAnuncioEntity banda){
-this.id= banda.getId();
-this.duracionMin= banda.getDuracion();
-}
-
-
-/**
- * @return el id de la banda
- */
-public long getId(){
-    return id;
-}
-
-/**
- * @param id  se hace set del id de la banda
- */
-
-public void setId(){
-    this.id=id;
-}
-
-/**
- * @return la duracion de la banda en minutos
- */
-public long getDuracion(){
-    return duracionMin;
-}
-
-/**
- * @param integer de duracion se hace set de la duracion de la banda
- */
-
-public void setDuracion(int duracion){
-    this.duracionMin=duracion;
-}
-
- /**
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
+    
+    public void setDuracion(Integer duracion){
+        this.duracion=duracion;
+    }
+    /**
      * Convertir DTO a Entity
-     * @return Un Entity con los valores del DTO 
+     * @return Entity BandaAnuncio con los valores de BandaAnuncioDTO
      */
-    public BandaAnuncioEntity toEntity() {
-       BandaAnuncioEntity entity = new BandaAnuncioEntity();
-        entity.setId(this.id);
-        entity.setDuracion(this.duracionMin);
-
-        
-       
-        return entity;
+    public BandaAnuncioEntity toEntity()
+    {
+        BandaAnuncioEntity banda= new BandaAnuncioEntity();
+        banda.setId(this.id);
+        banda.setDuracion(this.duracion);
+       return banda ;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }
