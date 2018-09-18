@@ -13,103 +13,218 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 public class UsuarioDTO implements Serializable
 {
-    
+    /**
+     * Id del usuario
+     */
     private Long id;
+    
+    /**
+     * Nombres del usuario
+     */
     private String nombres;
+    
+    /**
+     * Apellidos del usuario
+     */
     private String apellidos;
+    
+    /**
+     * Documento de identificcación del usuario
+     */
     private String identificacion;
+    
+    /**
+     * Celular del usuario
+     */
     private String celular;
+    
+    /**
+     * Email del usuario
+     */
     private String email;
+    
+    /**
+     * Tipo de persona del usuario
+     */
     private Integer tipoPersona;
-    private String nickname;
+    
+    /**
+     * Contraseña del usuario
+     */
     private String password;
     
+    /**
+     * Constructor vacio
+     */
     public UsuarioDTO()
     {
         
     }
     
+    /**
+     * Constructor que recibe un entity
+     * @param usuarioEntity 
+     */
     public UsuarioDTO(UsuarioEntity usuarioEntity)
     {
-        if (usuarioEntity != null) {
+        if (usuarioEntity != null) 
+        {
             this.id = usuarioEntity.getId();
             this.nombres = usuarioEntity.getNombres();
+            this.apellidos = usuarioEntity.getApellidos();
+            this.identificacion = usuarioEntity.getIdentificacion();
+            this.celular =  usuarioEntity.getCelular();
+            this.tipoPersona = usuarioEntity.getTipoPersona();
+            this.password = usuarioEntity.getPassword();
+            this.email = usuarioEntity.getEmail();
         }
     }
 
-    public Long getId() {
+    /**
+     * Metodo get Id
+     * @return 
+     */
+    public Long getId()
+    {
         return id;
     }
-
-    public void setId(Long id) {
+    
+    /**
+     * Metodo set Id
+     * @param id 
+     */
+    public void setId(Long id) 
+    {
         this.id = id;
     }
-
-    public String getNombres() {
+    
+    /**
+     * Metodo get nombres
+     * @return 
+     */
+    public String getNombres() 
+    {
         return nombres;
     }
-
-    public void setNombres(String nombres) {
+    
+    /**
+     * Metodo set nombres
+     * @param nombres 
+     */
+    public void setNombres(String nombres) 
+    {
         this.nombres = nombres;
     }
-
-    public String getApellidos() {
+    
+    /**
+     * Metodo get apellidos
+     * @return 
+     */
+    public String getApellidos() 
+    {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
+    /**
+     * Metodo set apellidos
+     * @param apellidos 
+     */
+    public void setApellidos(String apellidos) 
+    {
         this.apellidos = apellidos;
     }
 
-    public String getIdentificacion() {
+    /**
+     * Metodo get identificacion
+     * @return 
+     */
+    public String getIdentificacion() 
+    {
         return identificacion;
     }
-
-    public void setIdentificacion(String identificacion) {
+    
+    /**
+     * Metodo set identificacion
+     * @param identificacion 
+     */
+    public void setIdentificacion(String identificacion) 
+    {
         this.identificacion = identificacion;
     }
-
-    public String getCelular() {
+    
+    /**
+     * Metodo get celular
+     * @return 
+     */
+    public String getCelular() 
+    {
         return celular;
     }
-
-    public void setCelular(String celular) {
+    
+    /**
+     * Metodo set celular
+     * @param celular 
+     */
+    public void setCelular(String celular) 
+    {
         this.celular = celular;
     }
 
-    public String getEmail() {
+    /**
+     * Metodo set email
+     * @return 
+     */
+    public String getEmail() 
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    /**
+     * Metodo set email
+     * @param email 
+     */
+    public void setEmail(String email) 
+    {
         this.email = email;
     }
 
-    public Integer getTipoPersona() {
+    /**
+     * Metodo get tipo de persona
+     * @return 
+     */
+    public Integer getTipoPersona() 
+    {
         return tipoPersona;
     }
-
-    public void setTipoPersona(Integer tipoPersona) {
+    
+    /**
+     * Metodo set tipo persona
+     * @param tipoPersona 
+     */
+    public void setTipoPersona(Integer tipoPersona) 
+    {
         this.tipoPersona = tipoPersona;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public String getPassword() {
+    /**
+     * Metodo get tipo persona
+     * @return 
+     */
+    public String getPassword() 
+    {
         return password;
     }
-
-    public void setPassword(String password) {
+    
+    /**
+     * Metodo set password
+     * @param password 
+     */
+    public void setPassword(String password) 
+    {
         this.password = password;
     }
     
@@ -118,17 +233,22 @@ public class UsuarioDTO implements Serializable
      *
      * @return Un Entity con los valores del DTO
      */
-    public UsuarioEntity toEntity() {
+    public UsuarioEntity toEntity() 
+    {
         UsuarioEntity usuarioEntity = new UsuarioEntity();
         usuarioEntity.setId(this.id);
         usuarioEntity.setNombres(this.nombres);
+        usuarioEntity.setApellidos(this.apellidos);
+        usuarioEntity.setIdentificacion(this.identificacion);
+        usuarioEntity.setCelular(this.celular);
+        usuarioEntity.setTipoPersona(this.tipoPersona);
+        usuarioEntity.setPassword( this.password);
+        usuarioEntity.setEmail(this.email);
         return usuarioEntity;
     }
-  
     
-    @Override
-    public String toString()
-    {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+    /**
+     * ELIMINÉ EL MÉTODO TO STRING
+     */
+    
 }

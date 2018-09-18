@@ -59,7 +59,6 @@ public class ReservaPersistenceTest
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
     
-    
      /**
      * Configuración inicial de la prueba.
      */
@@ -179,7 +178,7 @@ public class ReservaPersistenceTest
         Assert.assertEquals(newEntity.getId(), resp.getId());
      }
      
-      //@Test
+      @Test
       public void deleteReservaTest()
       {
         ReservaEntity entity = data.get(0);

@@ -5,9 +5,9 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
-//import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
-//import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
-//import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
@@ -18,16 +18,16 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 public class ReservaDetailDTO extends ReservaDTO implements Serializable
 {
     /**
-     * Lista de tipo CalificacionDTO, contiene las calificaciones asociadas con el critico
+     * Lista de tipo sillasDTO, contiene las sillas asociadas con la reserva
      */
     private List<SillaDTO> sillas;
     /**
-     * Lista de tipo FuncionDTO, contiene las funciones asociadas con el critico
+     * Lista de tipo FuncionDTO, contiene las funciones asociadas con la reserva
      */
     private List<FuncionDTO> funciones;
   
@@ -36,7 +36,9 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
     /**
      * Constructor por defecto
      */
-    //public ReservaDetailDTO(){}
+    public ReservaDetailDTO()
+    {
+    }
     
     /**
      * Constructor para transformar un Entity a un DTO
@@ -69,7 +71,7 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
     
     /**
      * Transforma un DTO a un Entity
-     * @return El DTO del critico para transformar a Entity
+     * @return El DTO de la reserva para transformar a Entity
      */
     @Override
     public ReservaEntity toEntity()
@@ -96,18 +98,37 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
         return reservaEntity;
     }
     
-     public List<SillaDTO> getSillas() {
+    /**
+     * Metodo get sillas
+     * @return 
+     */
+     public List<SillaDTO> getSillas() 
+    {
         return sillas;
     }
-
-    public void setSillas(List<SillaDTO> sillas) {
+     
+     /**
+      * Metodo set sillas
+      * @param sillas 
+      */
+    public void setSillas(List<SillaDTO> sillas) 
+    {
         this.sillas = sillas;
     }
-
-    public List getFunciones() {
+    
+    /**
+     * Metodo get funciones
+     * @return 
+     */
+    public List getFunciones() 
+    {
         return funciones;
     }
-
+    
+    /**
+     * Metodo set funciones
+     * @param funciones 
+     */
     public void setFunciones(List funciones) {
         this.funciones = funciones;
     }

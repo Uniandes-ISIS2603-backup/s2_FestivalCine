@@ -1,3 +1,3 @@
-
+delete from UsuarioEntity;
 
 

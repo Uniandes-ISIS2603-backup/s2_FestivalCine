@@ -21,20 +21,39 @@ import uk.co.jemos.podam.common.PodamExclude;
  @Entity
 public class UsuarioEntity extends BaseEntity implements Serializable
 {
+     /**
+      * Nombres del usuario
+      */
     private String nombres;
     
+    /**
+     * Apellidos del usuario
+     */
     private String apellidos;
     
+    /**
+     * Cedula del usuario
+     */
     private String identificacion;
     
+    /**
+     * Celular del usuario
+     */
     private String celular;
     
+    /**
+     * Email usuario
+     */
     private String email;
     
+    /**
+     * Tipo de persona del usuario
+     */
     private Integer tipoPersona;
     
-    private String nickname;
-    
+    /**
+     * Password del usuario
+     */
     private String password;
     
     @PodamExclude
@@ -99,14 +118,6 @@ public class UsuarioEntity extends BaseEntity implements Serializable
 
     public void setTipoPersona(Integer tipoPersona) {
         this.tipoPersona = tipoPersona;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
     }
 
     public String getPassword() {

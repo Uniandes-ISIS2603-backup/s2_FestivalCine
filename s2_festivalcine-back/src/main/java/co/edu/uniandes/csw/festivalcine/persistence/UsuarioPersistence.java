@@ -16,7 +16,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @Stateless
 public class UsuarioPersistence 

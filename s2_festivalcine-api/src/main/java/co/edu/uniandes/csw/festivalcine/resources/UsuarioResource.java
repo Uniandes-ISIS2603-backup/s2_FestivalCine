@@ -5,10 +5,14 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
+import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
+import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,38 +33,47 @@ import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @Path("usuarios")
 @Produces("application/json")
 @Consumes("application/json")
 @RequestScoped
-public class UsuarioResource {
-
+public class UsuarioResource 
+{
+    /**
+     * Atributo Logger
+     */
     private static final Logger LOGGER = Logger.getLogger(UsuarioResource.class.getName());
-
+    
+    /**
+     * Inyectar lógica de usuario
+     */
     @Inject
     UsuarioLogic usuarioLogic;
+    
+    /**
+     * Inyectar lógica de reserva
+     */
+     @Inject
+    private ReservaLogic reservaLogic;
 
     /**
      * Crea un nuevo usuario con la informacion que se recibe en el cuerpo de la
      * petición y se regresa un objeto identico con un id auto-generado por la
      * base de datos.
-     *
      * @param usuario {@link UsuarioDTO} - El usuario que se desea guardar.
      * @return JSON {@link UsuarioDTO} - El usuario guardado con el atributo id
      * autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
-     * Error de lógica que se genera cuando ya existe la editorial.
+     * Error de lógica que se genera cuando ya existe el usuario.
      */
     @POST
-    public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException {
+    public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException 
+    {
          LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario.toString());
-
         UsuarioEntity usuarioEntity = usuario.toEntity();
- 
         UsuarioEntity nuevoUsuarioEntity = usuarioLogic.createUsuario(usuarioEntity);
-        
         UsuarioDTO nuevoUsuarioDTO = new UsuarioDTO(nuevoUsuarioEntity);
         LOGGER.log(Level.INFO, "UsuarioResource createUsuario: output: {0}", nuevoUsuarioDTO.toString());
         return nuevoUsuarioDTO;
@@ -70,17 +83,18 @@ public class UsuarioResource {
      * Actualiza el usuario con el id recibido en la URL con la informacion que
      * se recibe en el cuerpo de la petición.
      *
-     * @param usuariossId Identificador del usuario que se desea actualizar.
+     * @param usuariosId Identificador del usuario que se desea actualizar.
      * Este debe ser una cadena de dígitos.
      * @param usuario {@link UsuarioDTO}el usuario que se desea guardar.
      * @return JSON {@link UsuarioDTO} - El usuario guardado.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la editorial a
+     * Error de lógica que se genera cuando no se encuentra el usuario a
      * actualizar.
      */
     @PUT
     @Path("{usuariosId: \\d+}")
-    public UsuarioDTO updateUsuario(@PathParam("usuariosId") Long usuariosId, UsuarioDTO usuario) throws WebApplicationException {
+    public UsuarioDTO updateUsuario(@PathParam("usuariosId") Long usuariosId, UsuarioDTO usuario) throws WebApplicationException 
+    {
         LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: input: id:{0} , usuario: {1}", new Object[]{usuariosId, usuario.toString()});
         usuario.setId(usuariosId);
         if (usuarioLogic.getUsuario(usuariosId) == null) 
@@ -99,11 +113,11 @@ public class UsuarioResource {
      * aplicación. Si no hay ninguno retorna una lista vacía.
      */
     @GET
-    public List<UsuarioDetailDTO> getUsuarios() {
-
+    public List<UsuarioDetailDTO> getUsuarios() 
+    {
         LOGGER.info("UsuarioResource getUsuarios: input: void");
         List<UsuarioDetailDTO> listaUsuarios = listEntity2DetailDTO(usuarioLogic.getUsuarios());
-        LOGGER.log(Level.INFO, "EditorialResource getEditorials: output: {0}", listaUsuarios.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuarios: output: {0}", listaUsuarios.toString());
         return listaUsuarios;
     }
 
@@ -118,8 +132,8 @@ public class UsuarioResource {
      */
     @GET
     @Path("{usuariosId: \\d+}")
-    public UsuarioDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException {
-
+    public UsuarioDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException 
+    {
         LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", usuariosId);
         UsuarioEntity usuarioEntity = usuarioLogic.getUsuario(usuariosId);
         if (usuarioEntity == null) 
@@ -133,7 +147,6 @@ public class UsuarioResource {
 
     /**
      * Borra la el usuario con el id asociado recibido en la URL.
-     *
      * @param usuariosId Identificador del usuario que se desea borrar. Este
      * debe ser una cadena de dígitos.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
@@ -143,7 +156,8 @@ public class UsuarioResource {
      */
     @DELETE
     @Path("{usuariosId: \\d+}")
-    public void deleteUsuario(@PathParam("usuariosId") Long usuariosId) throws BusinessLogicException {
+    public void deleteUsuario(@PathParam("usuariosId") Long usuariosId) throws BusinessLogicException 
+    {
         LOGGER.log(Level.INFO, "UsuarioResource deleteUsuario: input: {0}", usuariosId);
         if (usuarioLogic.getUsuario(usuariosId) == null) {
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
@@ -152,21 +166,39 @@ public class UsuarioResource {
         LOGGER.info("UsuarioResource deleteUsuario: output: void");
     }
     
-    /**
+        /**
      * Método que retorna las reservas de un usuario
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro
      */
+    @GET
     @Path("{usuariosId: \\d+}/reservas")
-    public List<ReservaDTO> getUsuarioReservaResource(@PathParam("usuariosId") Long usuariosId) {
+    public Class<UsuarioReservasResource> getUsuarioReservasResource(@PathParam("usuariosId") Long usuariosId) 
+    {
         if (usuarioLogic.getUsuario(usuariosId) == null) 
         {
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
         }
-        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioLogic.getUsuario(usuariosId));
-        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO.toString());
-        return detailDTO.getReservas();
+        return UsuarioReservasResource.class;
     }
+    
+        /**
+     * Método que retorna las calificaciones de un usuario
+     * @param usuariosId
+     * @return lista de las reservas correspondientes al usuario ingresado por parametro
+     */
+    @GET
+    @Path("{usuariosId: \\d+}/calificaciones")
+    public Class<UsuarioCalificacionesResource> getUsuarioCalificacionesResource(@PathParam("usuariosId") Long usuariosId) 
+    {
+        if (usuarioLogic.getUsuario(usuariosId) == null) 
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        return UsuarioCalificacionesResource.class;
+    }
+    
+    
      /**
      * Convierte una lista de entidades a DTO.
      *
@@ -185,4 +217,6 @@ public class UsuarioResource {
         }
         return list;
     }
+ 
+    
 }

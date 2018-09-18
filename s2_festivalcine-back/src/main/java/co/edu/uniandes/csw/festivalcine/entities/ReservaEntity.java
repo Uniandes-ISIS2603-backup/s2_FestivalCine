@@ -22,9 +22,6 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class ReservaEntity extends BaseEntity implements Serializable
 {
-    @Id
-    private Long id;
-    
     private Boolean abono;
     
     private Integer descuento;
@@ -65,15 +62,6 @@ public class ReservaEntity extends BaseEntity implements Serializable
 
     public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) 
-    {   
-        this.id = id;
     }
 
     public Boolean getAbono() {

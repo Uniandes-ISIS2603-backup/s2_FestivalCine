@@ -46,10 +46,10 @@ public class UsuarioLogicTest
     private UserTransaction utx;
 
     private List<UsuarioEntity> data = new ArrayList<UsuarioEntity>();
-
-    private List<ReservaEntity> reservasData = new ArrayList();
     
-     /**
+    private List<ReservaEntity> reservasData = new ArrayList<ReservaEntity>();
+    
+      /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
      * El jar contiene las clases, el descriptor de la base de datos y el
      * archivo beans.xml para resolver la inyección de dependencias.
@@ -83,15 +83,15 @@ public class UsuarioLogicTest
             }
         }
     }
-
-    /**
+    
+     /**
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
         em.createQuery("delete from ReservaEntity").executeUpdate();
         em.createQuery("delete from UsuarioEntity").executeUpdate();
     }
-
+    
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
@@ -115,8 +115,7 @@ public class UsuarioLogicTest
         }
     }
     
-    /**
-     * Prueba para crear un Usuario.
+     /* Prueba para crear un Usuario.
      *
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
@@ -213,53 +212,5 @@ public class UsuarioLogicTest
     public void deleteUsuarioConReservasAsociadasTest() throws BusinessLogicException {
         UsuarioEntity entity = data.get(0);
         usuarioLogic.deleteUsuario(entity.getId());
-    }
-    
-    /**
-     * PRUEBAS DE LA RELACIÓN USUARIO A RESERVAS
-     */
-    /**
-     * Prueba para asociar una reservas existente a un Usuario.
-     */
-    @Test
-    public void addReservasTest() 
-    {
-        UsuarioEntity entity = data.get(0);
-        ReservaEntity reservaEntity = reservasData.get(1);
-        ReservaEntity response = usuarioLogic.addReserva(reservaEntity.getId(), entity.getId());
-
-        Assert.assertNotNull(response);
-        Assert.assertEquals(reservaEntity.getId(), response.getId());
-    }
-    
-    /**
-     * Prueba para obtener una colección de instancias de Reservas asociadas a una
-     * instancia Usuario.
-     */
-    @Test
-    public void getReservasTest() 
-    {
-        List<ReservaEntity> list = usuarioLogic.getReservas(data.get(0).getId());
-
-        Assert.assertEquals(1, list.size());
-    }
-    
-    /**
-     * Prueba para obtener una instancia de Reservas asociada a una instancia
-     * Usuario.
-     *
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test
-    public void getReservaTest() throws BusinessLogicException 
-    {
-        UsuarioEntity entity = data.get(0);
-        ReservaEntity reservaEntity = reservasData.get(0);
-        ReservaEntity response = usuarioLogic.getReserva(entity.getId(), reservaEntity.getId());
-
-        Assert.assertEquals(reservaEntity.getId(), response.getId());
-        Assert.assertEquals(reservaEntity.getAbono(), response.getAbono());
-        Assert.assertEquals(reservaEntity.getPrecioTotal(), response.getPrecioTotal());
-        Assert.assertEquals(reservaEntity.getDescuento(), response.getDescuento());
     }
 }

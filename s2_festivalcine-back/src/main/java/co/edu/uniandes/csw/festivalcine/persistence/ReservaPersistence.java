@@ -19,7 +19,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @Stateless
 public class ReservaPersistence 
@@ -68,27 +68,5 @@ public class ReservaPersistence
         ReservaEntity entity = em.find(ReservaEntity.class, reservasId);
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar la reserva con id = {0}", reservasId);
-    }
-    
-    public List<SillaEntity> findAllSillas() 
-    {
-        LOGGER.log(Level.INFO, "Consultando todas las sillas");
-        TypedQuery query = em.createQuery("select u from SillaEntity u", SillaEntity.class);
-        return query.getResultList();
-    }
-    
-    public List<FuncionEntity> findAllFunciones() 
-    {
-        LOGGER.log(Level.INFO, "Consultando todas las funciones");
-        TypedQuery query = em.createQuery("select u from FuncionEntity u", FuncionEntity.class);
-        return query.getResultList();
-    }
-    
-    public FuncionEntity findFuncion(Long funcionId) 
-    {
-        LOGGER.log(Level.INFO, "Consultando la función con el id: " + funcionId);
-        return em.find(FuncionEntity.class, funcionId);
-    }
-    
-    
+    }  
 }

@@ -12,54 +12,114 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 public class ReservaDTO implements Serializable
 {
+    /**
+     * id dela reserva
+     */
     private Long id;
+    
+    /**
+     * Tiene o no abono
+     */
     private Boolean abono;
+    
+    /**
+     * Cual es el descuento
+     */
     private Integer descuento;
+    
+    /**
+     * Precio total de la reserva
+     */
     private Integer precioTotal;
-
-    public ReservaDTO(){
+    
+    
+    /**
+     * Constructor de la clase
+     */
+    public ReservaDTO()
+    {
     }
     
-    public Long getId() {
+    /**
+     * Metodo get Id
+     * @return 
+     */
+    public Long getId() 
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    /**
+     * Metodo set id
+     * @param id 
+     */
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
-
-    public void setAbono(Boolean abono) {
+    /**
+     * Metodo set abono
+     * @param abono 
+     */
+    public void setAbono(Boolean abono) 
+    {
         this.abono = abono;
     }
-
-    public Integer getDescuento() {
+    
+    /**
+     * Metodo get descuento
+     * @return 
+     */
+    public Integer getDescuento() 
+    {
         return descuento;
     }
-
-    public void setDescuento(Integer descuento) {
+    
+    /**
+     * Metodo set descuento
+     * @param descuento 
+     */
+    public void setDescuento(Integer descuento) 
+    {
         this.descuento = descuento;
     }
 
-    public Integer getPrecioTotal() {
+    /**
+     * Metodo get precio total
+     * @return 
+     */
+    public Integer getPrecioTotal() 
+    {
         return precioTotal;
     }
-
-    public void setPrecioTotal(Integer precioTotal) {
+    
+    /**
+     * Metodo set precio Total
+     * @param precioTotal 
+     */
+    public void setPrecioTotal(Integer precioTotal) 
+    {
         this.precioTotal = precioTotal;
     }
     
-      /**
+     /**
+     * Metodo get abono
      * @return the abono
      */
-    public Boolean getAbono() {
+    public Boolean getAbono() 
+    {
         return abono;
     }
     
+    /**
+     * Metodo constructor que recibe un Entity
+     * @param reservaEntity 
+     */
     public ReservaDTO(ReservaEntity reservaEntity) 
     {
         if (reservaEntity != null) 
@@ -70,7 +130,13 @@ public class ReservaDTO implements Serializable
             this.precioTotal = reservaEntity.getPrecioTotal();
         }
     }
-    public ReservaEntity toEntity() {
+    
+    /**
+     * Metodo que convierte a entity
+     * @return 
+     */
+    public ReservaEntity toEntity()
+    {
         ReservaEntity reservaEntity = new ReservaEntity();
         reservaEntity.setId(this.getId());
         reservaEntity.setAbono(this.getAbono());
@@ -79,8 +145,7 @@ public class ReservaDTO implements Serializable
         return reservaEntity;
     }
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+    /**
+     * ELIMINÉ EL MÉTODO TO STRING
+     */
 }

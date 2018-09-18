@@ -34,11 +34,13 @@ import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 
 @Path("reservas")
@@ -53,7 +55,13 @@ public class ReservaResource
     private ReservaLogic reservaLogic; 
      
      @Inject
-    private UsuarioLogic usuariolLogic;
+    private UsuarioLogic usuarioLogic;
+     
+      @Inject
+    private FuncionLogic funcionLogic;
+      
+      @Inject
+    private SillaLogic sillaLogic;
   /**
      * Crea una nueva reserva con la informacion que se recibe en el cuerpo de
      * la petición y se regresa un objeto identico con un id auto-generado por
@@ -70,6 +78,8 @@ public class ReservaResource
     public ReservaDTO createReserva(ReservaDTO reserva) throws BusinessLogicException
     { 
         LOGGER.log(Level.INFO, "ReservaResource createReserva: input: {0}", reserva.toString());
+        ReservaEntity reservaEntity = reserva.toEntity();
+        ReservaEntity nuevoReservaEntity = reservaLogic.createReserva(reservaEntity);
         ReservaDTO nuevaReservaDTO = new ReservaDTO(reservaLogic.createReserva(reserva.toEntity()));
         LOGGER.log(Level.INFO, "ReservaResource createReserva: output: {0}", nuevaReservaDTO.toString());
         return nuevaReservaDTO;
@@ -99,9 +109,6 @@ public class ReservaResource
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la reserva.
      */
-    
-    //PENDIENTE PRUEBA
-    
     @GET
     @Path("{reservasId: \\d+}")
     public ReservaDetailDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException {
@@ -128,8 +135,6 @@ public class ReservaResource
      * Error de lógica que se genera cuando no se encuentra la reserva a
      * actualizar.
      */
-     
-    
     @PUT
     @Path("{reservasId: \\d+}")
     public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException {
@@ -143,7 +148,9 @@ public class ReservaResource
         try 
         {
             detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
-        } catch (BusinessLogicException ex) {
+        }
+        catch (BusinessLogicException ex) 
+        {
             Logger.getLogger(ReservaResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO.toString());
@@ -170,49 +177,61 @@ public class ReservaResource
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
         reservaLogic.deleteReserva(reservasId);
-        LOGGER.info("ReservaResource deleteReserva: output: void");
-        
+        LOGGER.info("ReservaResource deleteReserva: output: void");        
     }
     
-     /**
-     * Conexión con las funciones de una reserva. {@link FuncionResource}
+    /**
+     * RELACIONES CON FUNCIONES
+     */
+    
+    /**
+     * Conexión con el servicio de funciones para una reserva.
+     * {@link ReservaResource}
      *
-     * Este método conecta la ruta de /books con las rutas de /funciones que
-     * dependen de la reserva, es una redirección al servicio que maneja el segmento
-     * de la URL que se encarga de las funciones.
+     * Este método conecta la ruta de /reservas con las rutas de /funciones que
+     * dependen de la reserva, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de las funciones de una reserva.
      *
-     * @param reservasId El ID de la reserva con respecto al cual se accede al
-     * servicio.
-     * @return El servicio de funciones para esa reserva en paricular.\
+     * @param reservasId El ID de la funcion con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de funciones para esta reserva en paricular.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la reserva.
      */
-    @GET
     @Path("{reservasId: \\d+}/funciones")
-    public List<FuncionDTO> getFuncionesResource(@PathParam("reservasId") Long reservasId) 
+    public Class<ReservaResource> getReservaFuncionesResource(@PathParam("reservasId") Long reservasId) 
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/funciones no existe.", 404);
+            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        List<FuncionDTO> listaFuncion = listEntityFuncion2DTO(reservaLogic.getFunciones());
-        LOGGER.log(Level.INFO, "BookResource getBooks: output: {0}", listaFuncion.toString());
-        return listaFuncion;
+        return ReservaResource.class;
     }
-    
-    
-    @GET
+ 
+    /**
+     * Conexión con el servicio de sillas para una reserva.
+     * {@link ReservaResource}
+     *
+     * Este método conecta la ruta de /reservas con las rutas de /sillas que
+     * dependen de la reserva, es una redirección al servicio que maneja el
+     * segmento de la URL que se encarga de las sillas de una reserva.
+     *
+     * @param reservasId El ID de la reserva con respecto a la cual se
+     * accede al servicio.
+     * @return El servicio de sillas para esta reserva en paricular.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la reserva.
+     */
     @Path("{reservasId: \\d+}/sillas")
-    public List<SillaDTO> getSillasResource(@PathParam("reservasId") Long reservasId) 
+    public Class<ReservaResource> getReservaSillasResource(@PathParam("reservasId") Long reservasId) 
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/sillas no existe.", 404);
+            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        List<SillaDTO> listaSillas = listEntitySilla2DTO(reservaLogic.getSillas());
-        LOGGER.log(Level.INFO, "BookResource getBooks: output: {0}", listaSillas.toString());
-        return listaSillas;
+        return ReservaResource.class;
     }
+  
     
     /**
      * Convierte una lista de entidades a DTO.
@@ -231,25 +250,7 @@ public class ReservaResource
         }
         return list;
     }
-    
-    /**
-     * Convierte una lista de entidades a DTO.
-     *
-     * Este método convierte una lista de objetos EditorialEntity a una lista de
-     * objetos EditorialDTO (json)
-     *
-     * @param entityList corresponde a la lista de editoriales de tipo Entity
-     * que vamos a convertir a DTO.
-     * @return la lista de editoriales en forma DTO (json)
-     */
-    private List<SillaDTO> listEntitySilla2DTO(List<SillaEntity> entityList) {
-        List<SillaDTO> list = new ArrayList<>();
-        for (SillaEntity entity : entityList) {
-            list.add(new SillaDTO(entity));
-        }
-        return list;
-    }
-    
+ 
     /**
      * Convierte una lista de entidades a DTO.
      *
