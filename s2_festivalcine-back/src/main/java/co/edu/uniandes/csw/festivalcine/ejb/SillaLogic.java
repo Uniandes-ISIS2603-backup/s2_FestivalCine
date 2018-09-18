@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.ejb;
 
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.SillaPersistence;
 import java.util.List;
@@ -36,11 +37,15 @@ public class SillaLogic {
      * @param sillaEntity La entidad que representa la silla a
      * persistir.
      * @return La entidad de la silla luego de persistirla.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
-    public SillaEntity createSilla(SillaEntity sillaEntity){
+    public SillaEntity createSilla(SillaEntity sillaEntity) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la silla");        
-        // Invoca la persistencia para crear la silla
-        
+        //Regla de negocio, la sala a la que se asignada la silla debe estar creada
+        if (sillaEntity.getSala() != null || salaPersistence.find(sillaEntity.getSala().getId()) == null) {
+            throw new BusinessLogicException("La silla debe tener una sala asignada para crearse");
+        }
+        // Invoca la persistencia para crear la sill
         persistence.create(sillaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la silla");
         return sillaEntity;

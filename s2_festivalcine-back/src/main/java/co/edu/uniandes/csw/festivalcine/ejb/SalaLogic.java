@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -40,7 +39,6 @@ public class SalaLogic {
      */
     public SalaEntity createSala(SalaEntity salaEntity){
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
-            
         // Invoca la persistencia para crear la sala
         persistence.create(salaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la sala");

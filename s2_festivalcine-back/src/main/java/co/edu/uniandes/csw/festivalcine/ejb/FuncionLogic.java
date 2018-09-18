@@ -12,7 +12,6 @@ import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.PeliculaPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -43,9 +42,6 @@ public class FuncionLogic {
     @Inject
     private SalaPersistence salaPersistence;
     
-    @Inject
-    private ReservaPersistence reservaPersistence;
-    
         
     /**
      * Crea una función en la persistencia.
@@ -58,6 +54,7 @@ public class FuncionLogic {
     public FuncionEntity createFuncion(FuncionEntity funcionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         
+        //Regla de negocio, la pelicula y sala debe existir
         if (funcionEntity.getPelicula() != null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
             throw new BusinessLogicException("La película es invalida");
         }
