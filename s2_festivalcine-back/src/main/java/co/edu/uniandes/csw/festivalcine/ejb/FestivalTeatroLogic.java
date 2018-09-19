@@ -43,7 +43,7 @@ public class FestivalTeatroLogic
         LOGGER.log(Level.INFO, "Inicia proceso de agregarle un teatro al festival con id = {0}", festivalId);
         FestivalEntity festivalEntity = persistence.find(festivalId);
         TeatroEntity teatroEntity = teatroPersistence.find(teatroId);
-        teatroEntity.setFestival(festivalEntity);
+        teatroEntity.getFestival().add(festivalEntity);
         LOGGER.log(Level.INFO, "Termina proceso de agregarle un teatro al festival con id = {0}", festivalId);
         return teatroEntity;
     }

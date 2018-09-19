@@ -120,18 +120,18 @@ public class TeatroLogicTest
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
     }
     
-    /**
-     * Prueba para crear un Teatro con el mismo nombre de un teatro que ya
-     * existe.
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createTeatroConMismoNombreTest() throws BusinessLogicException {
-        TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);
-        newEntity.setNombre(data.get(0).getNombre());
-        teatroLogic.createTeatro(newEntity);
-    }
+//    /**
+//     * Prueba para crear un Teatro con el mismo nombre de un teatro que ya
+//     * existe.
+//     *
+//     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
+//     */
+//    @Test(expected = BusinessLogicException.class)
+//    public void createTeatroConMismoNombreTest() throws BusinessLogicException {
+//        TeatroEntity newEntity = factory.manufacturePojo(TeatroEntity.class);
+//        newEntity.setNombre(data.get(0).getNombre());
+//        teatroLogic.createTeatro(newEntity);
+//    }
     
      /**
      * Prueba para consultar la lista de teatros.
@@ -193,14 +193,4 @@ public class TeatroLogicTest
         Assert.assertNull(deleted);
     }
 
-    /**
-     * Prueba para eliminar un teatro con funciones asociadas.
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void deleteUsuarioConReservasAsociadasTest() throws BusinessLogicException {
-        TeatroEntity entity = data.get(0);
-        teatroLogic.deleteTeatro(entity.getId());
-    } 
 }
