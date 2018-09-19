@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,21 @@ public class TeatroDTO implements Serializable {
      */
     public TeatroDTO()
     {   
+    }
+    
+    /**
+     * Constructor que recibe un entity
+     * @param festivalEntity 
+     */
+    public TeatroDTO(TeatroEntity newTeatro)
+    {
+        if(newTeatro != null)
+        {
+            this.id = newTeatro.getId();
+            this.direccion = newTeatro.getDireccion();
+            this.nombre = newTeatro.getNombre();
+            this.numSalasFest = newTeatro.getNumSalasFest();
+        }
     }
     
     /**
@@ -99,4 +115,20 @@ public class TeatroDTO implements Serializable {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
     
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public TeatroEntity toEntity()
+    {
+        TeatroEntity teatro = new TeatroEntity();
+        
+        teatro.setNombre(this.nombre);
+        teatro.setDireccion(this.direccion);
+        teatro.setId(this.id);
+        teatro.setNumSalasFest(this.numSalasFest);
+        
+        return teatro;
+    }
 }

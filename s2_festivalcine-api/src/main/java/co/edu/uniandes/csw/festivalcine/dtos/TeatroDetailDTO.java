@@ -5,7 +5,11 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -62,50 +66,73 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class TeatroDetailDTO extends TeatroDTO implements Serializable
 {
   // relación de cero a muchas funciones.
-  //private List<FuncionDTO> funciones;
+  private List<FuncionDTO> funciones;
   
   //relación de cero a muchas salas asignadas.
- // private List<SalaDTO> salasAsignadas;
+  private List<SalaDTO> salasAsignadas;
   
-  public TeatroDetailDTO()
+  public TeatroDetailDTO(TeatroEntity teatroEnt)
   {
       super();
+      funciones = new ArrayList<FuncionDTO>();
+      salasAsignadas = new ArrayList<SalaDTO>();
   }
     /**
      * Devuelve la lista con las funciones del teatro.
      * @return funciones
      */
-   /* public List<FuncionDTO> getFunciones() {
+    public List<FuncionDTO> getFunciones() {
         return funciones;
-    }*/
+    }
   
     /**
      * Devuelve la lista con las salas del teatro asignadas al festival.
      * @param salasAsignadas 
      */
-   /** public List<SalasDTO> getSalasAsignadas() {
+   public List<SalaDTO> getSalasAsignadas() {
         return salasAsignadas;
-    }*/
+    }
 
     /**
      * Modifica la lista con las funciones del teatro.
      * @param funciones 
      */
-   /* public void setFunciones(List<FuncionDTO> funciones) {
+    public void setFunciones(List<FuncionDTO> funciones) {
         this.funciones = funciones;
-    }*/
+    }
 
     /**
      * Modifica la lista con las salas del teatro asignadas a festival.
      * @param salasAsignadas 
      */
-    /*public void setSalasAsignadas(List<SalasDTO> salasAsignadas) {
+    public void setSalasAsignadas(List<SalaDTO> salasAsignadas) {
         this.salasAsignadas = salasAsignadas;
-    }*/
+    }
     
        @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
+    
+        /**
+     * Transformar un DTO a un Entity
+     *
+     * @return El DTO del teatro para transformar a Entity
+     */
+    @Override
+    public TeatroEntity toEntity() 
+    {
+       TeatroEntity teatroEntity = super.toEntity();
+        if (funciones != null) 
+        {
+            List<FuncionEntity> funcionEntity = new ArrayList<>();
+            for (FuncionDTO dtoFuncion : funciones) 
+            {
+                funcionEntity.add(dtoFuncion.toEntity());
+            }
+            teatroEntity.setFunciones(funcionEntity);
+        }
+        return teatroEntity;
     }
   
   

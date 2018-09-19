@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.TeatroPersistence;
@@ -35,7 +36,12 @@ public class TeatroLogic {
      */
     public TeatroEntity createTeatro(TeatroEntity teatroEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del teatro");
-
+        
+        TeatroEntity teatroVerificar = persistence.find(teatroEntity.getId());
+        if(teatroVerificar.getNombre().equals(teatroEntity.getNombre()))
+        {
+            throw new BusinessLogicException("Ya existe un teatro con el nombre \"" + teatroEntity.getNombre() + "\"");
+        }
             
         // Invoca la persistencia para crear el teatro
         persistence.create(teatroEntity);
@@ -63,7 +69,7 @@ public class TeatroLogic {
      * @param teatroId: id del teatro para ser buscado.
      * @return el teatro solicitado por medio de su id.
      */
-    public TeatroEntity getFestival(Long teatroId) {
+    public TeatroEntity getTeatro(Long teatroId) {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar el teatro con id = {0}", teatroId);
         TeatroEntity teatroEntity = persistence.find(teatroId);
         if (teatroEntity == null) {
@@ -81,10 +87,10 @@ public class TeatroLogic {
      * datos.
      * @param teatroEntity: teatro con los cambios para ser actualizado,
      * por ejemplo el nombre
-     * @throws BusinessLogicException 
      * @return el teatro con los cambios actualizados en la base de datos.
      */
-    public TeatroEntity updateFestival(Long teatroId, TeatroEntity teatroEntity)throws BusinessLogicException {
+    public TeatroEntity updateTeatro(Long teatroId, TeatroEntity teatroEntity)
+    {
         
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el teatro con id = {0}", teatroId);
@@ -101,7 +107,10 @@ public class TeatroLogic {
      */
     public void deleteTeatro(Long teatroId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el teatro con id = {0}", teatroId);
-        
+                List<FuncionEntity> funciones = getTeatro(teatroId).getFunciones();
+        if (funciones != null && !funciones.isEmpty()) {
+            throw new BusinessLogicException("No se puede borrar el teatro con id = " + teatroId + " porque tiene funciones asociadas");
+        }
         persistence.delete(teatroId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el teatro con id = {0}", teatroId);
     }    

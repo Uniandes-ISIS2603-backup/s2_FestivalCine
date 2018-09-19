@@ -7,7 +7,9 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.FestivalPersistence;
+import co.edu.uniandes.csw.festivalcine.persistence.TeatroPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +28,12 @@ public class FestivalLogic {
     @Inject
     private FestivalPersistence persistence;
     
+    @Inject
+    private TeatroPersistence teatroPersistence;
+    
+    @Inject
+    private CriticoPersistence criticoPersistence;
+    
     /**
      * Crea un festival en la persistencia.
      *
@@ -36,7 +44,11 @@ public class FestivalLogic {
      */
     public FestivalEntity createFestival(FestivalEntity festivalEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del festival");
-
+        
+        if (persistence.findUserByName(festivalEntity.getNombre()) != null)
+        {
+            throw new BusinessLogicException("Ya existe un usuario con el nombre \"" + festivalEntity.getNombre() + "\"");
+        }
             
         // Invoca la persistencia para crear el festival
         persistence.create(festivalEntity);
@@ -81,11 +93,11 @@ public class FestivalLogic {
      * @param festivalId: id del festival para buscarlo en la base de
      * datos.
      * @param festivalEntity: festival con los cambios para ser actualizado,
-     * por ejemplo el nombre
-     * @throws BusinessLogicException 
+     * por ejemplo el nombre 
      * @return el festival con los cambios actualizados en la base de datos.
      */
-    public FestivalEntity updateFestival(Long festivalId, FestivalEntity festivalEntity)throws BusinessLogicException {
+    public FestivalEntity updateFestival(Long festivalId, FestivalEntity festivalEntity)
+    {
         
 
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar el festival con id = {0}", festivalId);

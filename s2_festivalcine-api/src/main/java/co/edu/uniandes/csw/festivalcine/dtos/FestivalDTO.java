@@ -5,6 +5,8 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.GeneratedValue;
@@ -35,6 +37,24 @@ public class FestivalDTO implements Serializable {
      */
     public FestivalDTO()
     {
+    }
+    
+    /**
+     * Constructor que recibe un entity
+     * @param festivalEntity 
+     */
+    public FestivalDTO(FestivalEntity newFest)
+    {
+        if(newFest != null)
+        {
+            this.id = newFest.getId();
+            this.ciudad = newFest.getCiudad();
+            this.duracion = newFest.getDuracion();
+            this.fechaFin = newFest.getFechaFin();
+            this.fechaInicio = newFest.getFechaInicio();
+            this.patrocinador = newFest.getPatrocinador();
+            this.nombre = newFest.getNombre();
+        }
     }
 
     /**
@@ -151,4 +171,24 @@ public class FestivalDTO implements Serializable {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
     
+        
+    /**
+     * Convertir DTO a Entity
+     *
+     * @return Un Entity con los valores del DTO
+     */
+    public FestivalEntity toEntity()
+    {
+        FestivalEntity festivalEntity = new FestivalEntity();
+        festivalEntity.setId(this.id);
+        festivalEntity.setCiudad(this.ciudad);
+        festivalEntity.setDuracion(this.duracion);
+        festivalEntity.setFechaFin(this.fechaFin);
+        festivalEntity.setFechaInicio(this.fechaInicio);
+        festivalEntity.setNombre(this.nombre);
+        festivalEntity.setPatrocinador(this.patrocinador);
+        
+        return festivalEntity;
+        
+    }
 }

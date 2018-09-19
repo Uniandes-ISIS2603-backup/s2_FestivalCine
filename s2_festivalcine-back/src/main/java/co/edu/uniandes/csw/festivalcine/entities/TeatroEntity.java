@@ -31,8 +31,8 @@ public class TeatroEntity extends BaseEntity implements Serializable{
     private List<SalaEntity> salas = new ArrayList<>(); 
     
     @PodamExclude
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<FestivalEntity> festivales = new ArrayList<FestivalEntity>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    private FestivalEntity festival;
     
     private String nombre;
     
@@ -98,10 +98,6 @@ public class TeatroEntity extends BaseEntity implements Serializable{
         return salas;
     }
 
-    public List<FestivalEntity> getFestivales() {
-        return festivales;
-    }
-    
     
     public void setFunciones(List<FuncionEntity> funciones) {
         this.funciones = funciones;
@@ -111,7 +107,16 @@ public class TeatroEntity extends BaseEntity implements Serializable{
         this.salas = salas;
     }
 
-    public void setFestivales(List<FestivalEntity> festivales) {
-        this.festivales = festivales;
+    
+    public FestivalEntity getFestival()
+    {
+        return festival;
     }
+    
+    public void setFestival(FestivalEntity festEntity)
+    {
+        this.festival = festEntity;
+    }
+    
+    
 }

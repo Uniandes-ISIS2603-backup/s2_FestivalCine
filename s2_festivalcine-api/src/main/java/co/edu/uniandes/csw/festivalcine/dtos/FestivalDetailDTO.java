@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -73,11 +76,14 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
     private List<TeatroDTO> teatros;
     
     //Relación de cero a muchos criticos.
-   // private List<CriticoDTO> criticos;
+    private List<CriticoDTO> criticos;
     
-    public FestivalDetailDTO()
+    public FestivalDetailDTO(FestivalEntity festEntity)
     {
         super();
+        teatros = new ArrayList<TeatroDTO>();
+        criticos = new ArrayList<CriticoDTO>();
+        
     }
 
     /**
@@ -92,9 +98,9 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
      * Devuelve la lista con los criticos del festival.
      * @return 
      */
-   /* public List<CriticoDTO> getCriticos() {
+    public List<CriticoDTO> getCriticos() {
         return criticos;
-    }*/
+    }
     
     /**
      * Modifica la lista de teatros para el festival.
@@ -108,15 +114,34 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
      * Modifica la lista de criticos para el festival.
      * @param criticos 
      */
-    /*public void setCriticos(List<CriticoDTO> criticos) {
+    public void setCriticos(List<CriticoDTO> criticos) {
         this.criticos = criticos;
-    }*/
+    }
     
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
     
-    
+        /**
+     * Transformar un DTO a un Entity
+     *
+     * @return El DTO de la editorial para transformar a Entity
+     */
+    @Override
+    public FestivalEntity toEntity() 
+    {
+       FestivalEntity festEntity = super.toEntity();
+        if (teatros != null) 
+        {
+            List<TeatroEntity> teatroEntity = new ArrayList<>();
+            for (TeatroDTO dtoTeatro : teatros) 
+            {
+                teatroEntity.add(dtoTeatro.toEntity());
+            }
+            festEntity.setTeatros(teatroEntity);
+        }
+        return festEntity;
+    }
     
 }
