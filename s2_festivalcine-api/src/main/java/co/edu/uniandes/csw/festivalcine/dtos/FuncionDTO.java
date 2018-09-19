@@ -15,15 +15,27 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- *
+ * 
  * @author María Juliana Moya
  */
 public class FuncionDTO implements Serializable{
     
     //Atributos -------------------------------------------------------------------------
     private Long id;
+   /*
+    * Hora de inicio de la función
+    */
     private Date horaInicio;
+    
+   /*
+    * Hora de fin de la función
+    */
     private Date horaFin;
+    
+    
+   /*
+    * Precio base de la función
+    */
     private Integer precioBase;
     
     
@@ -231,11 +243,9 @@ public class FuncionDTO implements Serializable{
             funcionEntity.setSala(this.sala.toEntity());
       }
       
-      //FALTA PELICULA
-     // if (this.pelicula != null) {
-     //      funcionEntity.setCritico(this.critico.toEntity());
-      //}
-;
+     if (this.pelicula != null) {
+          funcionEntity.setCritico(this.critico.toEntity());
+     }
       return funcionEntity ;
     }
     

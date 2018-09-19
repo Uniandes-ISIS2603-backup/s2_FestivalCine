@@ -18,8 +18,19 @@ public class SillaDTO implements Serializable{
       //Atributos -------------------------------------------------------------------------
     
     private Long id;
+    /**
+     * Indicia si la silla está disponible o tiene una reserva
+     */
     private Boolean disponible;
+    
+    /**
+     * Indicia si la silla es de tipo general
+     */
     private Boolean tipo;
+    
+    /**
+     * Numero de la silla
+     */
     private Integer numero;
 
     //Constructor ----------------------------------------------------------------------------

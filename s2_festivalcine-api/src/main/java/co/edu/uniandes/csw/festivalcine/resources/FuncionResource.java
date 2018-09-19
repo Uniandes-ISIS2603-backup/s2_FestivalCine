@@ -10,7 +10,6 @@ import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.PeliculaDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.SalaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
-import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import java.util.ArrayList;
@@ -225,6 +224,7 @@ public class FuncionResource {
      * Error de lógica que se genera cuando la función no tiene el crítico.
      */
     @DELETE
+    @Path("{funcionesId: \\d+/criticos}")
     public void removeCritico(@PathParam("funcionesId") Long funcionesId) throws BusinessLogicException {
        LOGGER.log(Level.INFO, "FuncionResource removeCritico: input: {0}", funcionesId);
        funcionLogic.removeCritico(funcionesId);

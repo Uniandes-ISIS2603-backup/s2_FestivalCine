@@ -76,9 +76,7 @@ public class SalaLogic {
     }
 
     /**
-     *
      * Actualizar una sala
-     *
      * @param salasId: id de la sala para buscarla en la base de
      * datos.
      * @param salaEntity: sala con los cambios para ser actualizada,
@@ -94,7 +92,6 @@ public class SalaLogic {
 
     /**
      * Borrar una sala
-     *
      * @param salasId: id de la sala a borrar
      * @throws BusinessLogicException Si la sala a eliminar está asociada a una función
      */

@@ -21,8 +21,21 @@ public class SalaDTO implements Serializable{
     //Atributos -------------------------------------------------------------------------
     
     private Long id;
+    
+    /**
+     * Número de sillas generales en la sala
+     */
     private Integer numSillasGene;
+    
+    /**
+     * Número de sillas preferenciales en la sala
+     */
     private Integer numSillasPref;
+    
+    
+    /**
+     * Número de la sala
+     */
     private Integer numero;
 
     //Constructor ----------------------------------------------------------------------------

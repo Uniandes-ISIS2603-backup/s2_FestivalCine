@@ -54,7 +54,7 @@ public class FuncionLogic {
     public FuncionEntity createFuncion(FuncionEntity funcionEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         
-        //Regla de negocio, la pelicula y sala debe existir
+        //Regla de negocio: la pelicula y la sala asociadas a la función deben existir y estar persistidas
         if (funcionEntity.getPelicula() == null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
             throw new BusinessLogicException("La película es invalida");
         }
@@ -69,9 +69,7 @@ public class FuncionLogic {
     }
 
     /**
-     *
      * Obtener todas las funciones existentes en la base de datos.
-     *
      * @return una lista de funciones
      */
     public List<FuncionEntity> getFunciones() {
@@ -82,7 +80,6 @@ public class FuncionLogic {
     }
     
     /**
-     *
      * Obtener una función por medio de su id.
      *
      * @param funcionesId: id de la función para ser buscada.
@@ -99,9 +96,7 @@ public class FuncionLogic {
     }
 
     /**
-     *
      * Actualizar una función
-     *
      * @param funcionesId: id de la funcion para buscarla en la base de
      * datos.
      * @param funcionEntity: funcion con los cambios para ser actualizada,
@@ -111,7 +106,7 @@ public class FuncionLogic {
      */
     public FuncionEntity updateFuncion(Long funcionesId, FuncionEntity funcionEntity)throws BusinessLogicException {
         
-         //Regla de negocio, la pelicula y sala debe existir
+         //Regla de negocio: la pelicula y la sala asociadas a la función deben existir y estar persistidas
         if (funcionEntity.getPelicula() == null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
             throw new BusinessLogicException("La película es invalida");
         }
@@ -132,6 +127,7 @@ public class FuncionLogic {
      */
     public void deleteFuncion(Long funcionesId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la función con id = {0}", funcionesId);
+        
         //Regla de negocio: no se puede eliminar una función si tiene una reserva
         List<ReservaEntity> reservas = (List<ReservaEntity>) persistence.find(funcionesId).getReservas();
         if (reservas != null && !reservas.isEmpty()) {
@@ -151,6 +147,8 @@ public class FuncionLogic {
     public void removeCritico(Long funcionesId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el crítico de la funcion con id = {0}", funcionesId);
         FuncionEntity funcionEntity = persistence.find(funcionesId);
+        
+        //Regla de negocio: La función no debe tener un crítico este es opcional
         if (funcionEntity.getCritico() == null) {
             throw new BusinessLogicException("La función no tiene crítico");
         }

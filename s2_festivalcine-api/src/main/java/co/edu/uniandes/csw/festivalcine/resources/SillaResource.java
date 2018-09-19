@@ -27,7 +27,7 @@ import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "sillas".
-
+ * @author: María Juliana Moya
  */
 @Path("sillas")
 @Produces("application/json")

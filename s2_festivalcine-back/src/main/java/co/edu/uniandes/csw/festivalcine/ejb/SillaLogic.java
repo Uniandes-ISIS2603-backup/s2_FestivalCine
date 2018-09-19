@@ -40,8 +40,10 @@ public class SillaLogic {
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     public SillaEntity createSilla(SillaEntity sillaEntity) throws BusinessLogicException{
-        LOGGER.log(Level.INFO, "Inicia proceso de creación de la silla");        
-        //Regla de negocio, la silla a la que se asignada la silla debe estar creada
+        LOGGER.log(Level.INFO, "Inicia proceso de creación de la silla"); 
+        
+        //Regla de negocio: la sala a la que se asigna la silla debe estar creada y persistida
+        //Regla de negocio: la silla no se peude creer sin asociarla a una sala. 
         if (sillaEntity.getSala() == null || sillaPersistence.find(sillaEntity.getSala().getId()) == null) {
             throw new BusinessLogicException("La silla debe tener una sala asignada para crearse");
         }
@@ -52,9 +54,7 @@ public class SillaLogic {
     }
 
     /**
-     *
-     * Obtener todas las sillas existentes en la base de datos.
-     *
+     * Obtener todas las sillas existentes en la base de datos
      * @return una lista de sillas
      */
     public List<SillaEntity> getSillas() {
@@ -65,9 +65,7 @@ public class SillaLogic {
     }
     
     /**
-     *
      * Obtener una silla por medio de su id.
-     *
      * @param sillasId: id de la silla para ser buscada.
      * @return la silla solicitada por medio de su id.
      */
@@ -99,7 +97,6 @@ public class SillaLogic {
 
     /**
      * Borrar una silla
-     *
      * @param sillasId: id de la silla a borrar
      */
     public void deleteSilla(Long sillasId) {

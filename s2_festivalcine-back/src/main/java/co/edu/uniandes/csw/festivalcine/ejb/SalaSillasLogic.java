@@ -51,7 +51,7 @@ public class SalaSillasLogic {
         //Regla de negocio: No se puede asignar una silla con el mismo número a la sala
         for (SillaEntity silla: sillasSala){
             if (Objects.equals(silla.getNumero(), sillaEntity.getNumero()))
-                throw new BusinessLogicException("No se puede asignar una siila con el mismo número a la sala");
+                throw new BusinessLogicException("No se puede asignar una silla con el mismo número a la sala");
         }
         
         sillaEntity.setSala(salaEntity);

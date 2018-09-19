@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.festivalcine.test.logic;
 
 import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
@@ -102,13 +103,7 @@ public class SalaLogicTest {
             em.persist(sala);
             data.add(sala);
         }
-        
-        //PREGUNTAR
-        //SalaEntity sala = data.get(2);
-        //FuncionEntity entity = factory.manufacturePojo(FuncionEntity.class);
-        //entity.setSala(sala);
-        //em.persist(entity);
-        //sala.getFuncion().add(entity);
+       
     }
     
     /**

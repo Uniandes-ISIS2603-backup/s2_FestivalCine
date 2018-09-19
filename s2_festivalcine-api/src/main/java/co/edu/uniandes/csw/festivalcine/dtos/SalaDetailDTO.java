@@ -14,7 +14,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- *
+ * 
  * @author María Juliana Moya
  */
 public class SalaDetailDTO extends SalaDTO implements Serializable {

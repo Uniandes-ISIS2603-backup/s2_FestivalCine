@@ -44,7 +44,7 @@ public class SalaSillasResource {
     private SillaLogic sillaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
-     * Asigna una silla a la sala con la informacion que recibe el
+     * Asigna una silla a la sala con la informacion que recibe en
      * la URL. Se devuelve la silla que se asignó a la sala. 
      *
      * @param salasId Identificador de la sala que se esta
