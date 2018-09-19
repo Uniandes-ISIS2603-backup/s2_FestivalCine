@@ -55,10 +55,10 @@ public class FuncionLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         
         //Regla de negocio, la pelicula y sala debe existir
-        if (funcionEntity.getPelicula() != null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
+        if (funcionEntity.getPelicula() == null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
             throw new BusinessLogicException("La película es invalida");
         }
-        if(funcionEntity.getSala() != null || salaPersistence.find(funcionEntity.getSala().getId())== null ){
+        if(funcionEntity.getSala() == null || salaPersistence.find(funcionEntity.getSala().getId())== null ){
             throw new BusinessLogicException("La sala es invalida");
         }
             
@@ -111,10 +111,11 @@ public class FuncionLogic {
      */
     public FuncionEntity updateFuncion(Long funcionesId, FuncionEntity funcionEntity)throws BusinessLogicException {
         
-        if (funcionEntity.getPelicula() != null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
+         //Regla de negocio, la pelicula y sala debe existir
+        if (funcionEntity.getPelicula() == null || peliculaPersistence.findById(funcionEntity.getPelicula().getId()) == null) {
             throw new BusinessLogicException("La película es invalida");
         }
-        if(funcionEntity.getSala() != null || salaPersistence.find(funcionEntity.getSala().getId())== null ){
+        if(funcionEntity.getSala() == null || salaPersistence.find(funcionEntity.getSala().getId())== null ){
             throw new BusinessLogicException("La sala es invalida");
         }
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la función con id = {0}", funcionesId);
@@ -131,7 +132,7 @@ public class FuncionLogic {
      */
     public void deleteFuncion(Long funcionesId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la función con id = {0}", funcionesId);
-        //FALTA DEFINIR REGLA DE NEGOCIO CON RESERVAS
+        //Regla de negocio: no se puede eliminar una función si tiene una reserva
         List<ReservaEntity> reservas = (List<ReservaEntity>) persistence.find(funcionesId).getReservas();
         if (reservas != null && !reservas.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar la funcion con id = " + funcionesId + " porque tiene reservas asociados");

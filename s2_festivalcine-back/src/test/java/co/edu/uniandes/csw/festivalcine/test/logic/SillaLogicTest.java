@@ -5,11 +5,11 @@
  */
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
-import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
+import co.edu.uniandes.csw.festivalcine.persistence.SillaPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -28,16 +28,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Clase que prueba SalaLogic
+ * Clase que prueba sillaLogic
  * @author María Juliana Moya
  */
 @RunWith(Arquillian.class)
-public class SalaLogicTest {
-      
-    private PodamFactory factory = new PodamFactoryImpl();
+public class SillaLogicTest {
+     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private SalaLogic salaLogic;
+    private SillaLogic sillaLogic;
 
     @PersistenceContext
     private EntityManager em;
@@ -45,9 +44,9 @@ public class SalaLogicTest {
     @Inject
     private UserTransaction utx;
     
-    private List<SalaEntity> data = new ArrayList<>();
+    private List<SillaEntity> data = new ArrayList<>();
+    private List<SalaEntity> dataSala = new ArrayList<>();
     
-
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
      * El jar contiene las clases, el descriptor de la base de datos y el
@@ -56,9 +55,9 @@ public class SalaLogicTest {
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(SalaEntity.class.getPackage())
-                .addPackage(SalaLogic.class.getPackage())
-                .addPackage(SalaPersistence.class.getPackage())
+                .addPackage(SillaEntity.class.getPackage())
+                .addPackage(SillaLogic.class.getPackage())
+                .addPackage(SillaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -87,28 +86,29 @@ public class SalaLogicTest {
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
+        em.createQuery("delete from SillaEntity").executeUpdate();
         em.createQuery("delete from SalaEntity").executeUpdate();
-        em.createQuery("delete from FuncionEntity").executeUpdate();
     }
     
     /**
-     * Inserta los datos iniciales para el correcto salaamiento de las
+     * Inserta los datos iniciales para el correcto sillaamiento de las
      * pruebas.
      */
     private void insertData() {
         
-        for (int i = 0; i < 3; i++) {
+         for (int i = 0; i < 3; i++) {
             SalaEntity sala = factory.manufacturePojo(SalaEntity.class);
             em.persist(sala);
-            data.add(sala);
+            dataSala.add(sala);
         }
         
-        //PREGUNTAR
-        //SalaEntity sala = data.get(2);
-        //FuncionEntity entity = factory.manufacturePojo(FuncionEntity.class);
-        //entity.setSala(sala);
-        //em.persist(entity);
-        //sala.getFuncion().add(entity);
+        for (int i = 0; i < 3; i++) {
+            SillaEntity silla = factory.manufacturePojo(SillaEntity.class);
+            silla.setSala(dataSala.get(i));
+            em.persist(silla);
+            data.add(silla);
+        }
+        
     }
     
     /**
@@ -117,26 +117,45 @@ public class SalaLogicTest {
      * @throws BusinessLogicException
      */
     @Test
-    public void createSalaTest() throws BusinessLogicException {
-        SalaEntity newEntity = factory.manufacturePojo(SalaEntity.class);
-        SalaEntity result = salaLogic.createSala(newEntity);
+    public void createSillaTest() throws BusinessLogicException {
+        SillaEntity newEntity = factory.manufacturePojo(SillaEntity.class);
+        newEntity.setSala(dataSala.get(0));
+        SillaEntity result = sillaLogic.createSilla(newEntity);
         Assert.assertNotNull(result);
-        SalaEntity entity = em.find(SalaEntity.class, result.getId());
+        SillaEntity entity = em.find(SillaEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNumero(), entity.getNumero());
     }
     
+        /**
+     * Prueba para crear una silla con una sala invalida
+     *
+     * @throws BusinessLogicException
+     */
+    @Test(expected = BusinessLogicException.class)
+    public void createSillaSalaInvalidaTest() throws BusinessLogicException {
+        SillaEntity newEntity = factory.manufacturePojo(SillaEntity.class);
+        SalaEntity sala = factory.manufacturePojo(SalaEntity.class);
+        newEntity.setSala(sala);
+        SillaEntity result = sillaLogic.createSilla(newEntity);
+        Assert.assertNotNull(result);
+        SillaEntity entity = em.find(SillaEntity.class, result.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getNumero(), entity.getNumero());
+    }
+    
+    
     /**
-     * Prueba para consultar la lista de Salaes.
+     * Prueba para consultar la lista de Sillaes.
      * BusinessLogicException
      */
     @Test
-    public void getSalasTest() throws BusinessLogicException {
-        List<SalaEntity> list = salaLogic.getSalas();
+    public void getSillasTest() throws BusinessLogicException {
+        List<SillaEntity> list = sillaLogic.getSillas();
         Assert.assertEquals(data.size(), list.size());
-        for (SalaEntity entity : list) {
+        for (SillaEntity entity : list) {
             boolean found = false;
-            for (SalaEntity storedEntity : data) {
+            for (SillaEntity storedEntity : data) {
                 if (entity.getId().equals(storedEntity.getId())) {
                     found = true;
                 }
@@ -146,55 +165,45 @@ public class SalaLogicTest {
     }
     
     /**
-     * Prueba para consultar una Sala
+     * Prueba para consultar una Silla
      */
     @Test
-    public void getSalaTest() {
-        SalaEntity entity = data.get(0);
-        SalaEntity resultEntity = salaLogic.getSala(data.get(0).getId());
+    public void getSillaTest() {
+        SillaEntity entity = data.get(0);
+        SillaEntity resultEntity = sillaLogic.getSilla(data.get(0).getId());
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(resultEntity.getNumero(), entity.getNumero());
     }
     
     /**
-     * Prueba para actualizar una Sala.
+     * Prueba para actualizar una Silla.
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test
-    public void updateSalaTest() throws BusinessLogicException {
-        SalaEntity entity = data.get(0);
-        SalaEntity pojoEntity = factory.manufacturePojo(SalaEntity.class);
+    public void updateSillaTest() throws BusinessLogicException {
+        SillaEntity entity = data.get(0);
+        SillaEntity pojoEntity = factory.manufacturePojo(SillaEntity.class);
         pojoEntity.setId(entity.getId());
-        salaLogic.updateSala(pojoEntity.getId(), pojoEntity);
+        sillaLogic.updateSilla(pojoEntity.getId(), pojoEntity);
 
-        SalaEntity resp = em.find(SalaEntity.class, entity.getId());
+        SillaEntity resp = em.find(SillaEntity.class, entity.getId());
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getNumero(), resp.getNumero());
     }
     
     /**
-     * Prueba para eliminar una Sala.
+     * Prueba para eliminar una Silla.
      *
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test
-    public void deleteSalaTest() throws BusinessLogicException {
-        SalaEntity entity = data.get(0);
-        salaLogic.deleteSala(entity.getId());
-        SalaEntity deleted = em.find(SalaEntity.class, entity.getId());
+    public void deleteSillaTest() throws BusinessLogicException {
+        SillaEntity entity = data.get(0);
+        sillaLogic.deleteSilla(entity.getId());
+        SillaEntity deleted = em.find(SillaEntity.class, entity.getId());
         Assert.assertNull(deleted);
     }
     
-    /**
-     * Prueba para eliminar una Sala con reservas
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void deleteSalaConFuncionesTest() throws BusinessLogicException {
-        SalaEntity entity = data.get(0);
-        salaLogic.deleteSala(entity.getId());
-    }
 }

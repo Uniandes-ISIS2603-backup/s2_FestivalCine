@@ -5,11 +5,11 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
-import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,7 +53,7 @@ public class SillaResource {
      * @return JSON {@link SillaDTO} - La silla guardada con el atributo
      * id autogenerado.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
-     * Error de lógica que se genera cuando ya existe la sala.
+     * Error de lógica que se genera cuando ya existe la silla.
      */
     @POST
     public SillaDTO createSilla(SillaDTO silla) throws BusinessLogicException {
@@ -76,8 +76,10 @@ public class SillaResource {
      */
     @GET
     public List<SillaDTO> getSillas() {
-      
-        return null;
+       LOGGER.info("SillaResource getsillas: input: void");
+        List<SillaDTO> listaSillas = listEntity2DetailDTO(sillaLogic.getSillas());
+        LOGGER.log(Level.INFO, "SillaResource getsillas: output: {0}", listaSillas.toString());
+        return listaSillas;
     }
 
     /**
@@ -87,13 +89,19 @@ public class SillaResource {
      * Este debe ser una cadena de dígitos.
      * @return JSON {@link SillaDTO} - La silla buscada
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la sala.
+     * Error de lógica que se genera cuando no se encuentra la silla.
      */
     @GET
     @Path("{sillasId: \\d+}")
     public SillaDTO getSilla(@PathParam("sillasId") Long sillasId) throws WebApplicationException {
-
-        return null;
+       LOGGER.log(Level.INFO, "SillaResource getSilla: input: {0}", sillasId);
+       SillaEntity sillaEntity = sillaLogic.getSilla(sillasId);
+       if (sillaEntity == null) {
+           throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+       }
+       SillaDTO detailDTO = new SillaDTO(sillaEntity);
+       LOGGER.log(Level.INFO, "SillaResource getSilla: output: {0}", detailDTO.toString());
+       return detailDTO;
     }
 
     /**
@@ -111,14 +119,20 @@ public class SillaResource {
     @PUT
     @Path("{sillasId: \\d+}")
     public SillaDTO updateSilla(@PathParam("sillasId") Long sillasId, SillaDTO silla) throws WebApplicationException {
-
-        return silla;
+       LOGGER.log(Level.INFO, "SillaResource updateSilla: input: id:{0} , silla: {1}", new Object[]{sillasId, silla.toString()});
+       silla.setId(sillasId);
+       if (sillaLogic.getSilla(sillasId) == null) {
+           throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+       }
+       SillaDTO detailDTO = new SillaDTO(sillaLogic.updateSilla(sillasId, silla.toEntity()));
+       LOGGER.log(Level.INFO, "SillaResource updateSilla: output: {0}", detailDTO.toString());
+       return silla;
     }
 
     /**
      * Borra la silla con el id asociado recibido en la URL.
      *
-     * @param sillasId Identificador de la esala que se desea borrar.
+     * @param sillasId Identificador de la esilla que se desea borrar.
      * Este debe ser una cadena de dígitos.
      * @throws BusinessLogicException {@link BusinessLogicExceptionMapper} -
      * Error de lógica que se genera cuando no se puede eliminar la silla
@@ -127,21 +141,31 @@ public class SillaResource {
      */
     @DELETE
     @Path("{sillasId: \\d+}")
-    public void deleteSala(@PathParam("sillasId") Long sillasId) throws BusinessLogicException {
+    public void deleteSilla(@PathParam("sillasId") Long sillasId) throws BusinessLogicException {
+        LOGGER.log(Level.INFO, "SillaResource deleteSilla: input: {0}", sillasId);
+        if (sillaLogic.getSilla(sillasId) == null) {
+            throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+        }
+        sillaLogic.deleteSilla(sillasId);
+        LOGGER.info("SillaResource deleteSilla: output: void");
 
     }
     
-    @GET
-    @Path("{sillasId: \\d+}/reservas/")
-    public ReservaDetailDTO getReserva(@PathParam("sillasId") Long sillasId)
-    {
-        LOGGER.log(Level.INFO, "SillaResource getReserva: input: sillasId {0}", new Object[]{sillasId});
-        ReservaDetailDTO detailDTO = new ReservaDetailDTO(sillaLogic.getReserva(sillasId));
-        if(detailDTO == null)
-        {
-            throw new WebApplicationException("El recurso /usuarios/ de la calificacion " +sillasId + " debería existir.", 404);
+        /**
+     * Convierte una lista de entidades a DTO.
+     *
+     * Este método convierte una lista de objetos SillaEntity a una lista de
+     * objetos SillaDTO (json)
+     *
+     * @param sillaList corresponde a la lista de funciones de tipo Entity
+     * que vamos a convertir a DTO.
+     * @return la lista de sillas en forma DTO (json)
+     */
+    private List<SillaDTO> listEntity2DetailDTO(List<SillaEntity> entityList) {
+        List<SillaDTO> list = new ArrayList<>();
+        for (SillaEntity entity : entityList) {
+            list.add(new SillaDTO(entity));
         }
-        LOGGER.log(Level.INFO, "CalificacionResource getUsuario: output: {0}", detailDTO);
-        return detailDTO;
+        return list;
     }
 }

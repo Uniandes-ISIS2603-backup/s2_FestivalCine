@@ -75,7 +75,7 @@ public class SalaResource {
         LOGGER.info("SalaResource getsalas: input: void");
         List<SalaDTO> listaSalas = listEntity2DetailDTO(salaLogic.getSalas());
         LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
-        return null;
+        return listaSalas;
     }
 
     /**
@@ -121,7 +121,7 @@ public class SalaResource {
            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
        }
        SalaDTO detailDTO = new SalaDTO(salaLogic.updateSala(salasId, sala.toEntity()));
-       LOGGER.log(Level.INFO, "SalaResource updateEditorial: output: {0}", detailDTO.toString());
+       LOGGER.log(Level.INFO, "SalaResource updateSala: output: {0}", detailDTO.toString());
        return sala;
     }
 

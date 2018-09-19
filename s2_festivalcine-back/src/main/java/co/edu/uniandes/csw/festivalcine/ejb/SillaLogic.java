@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
 
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
@@ -30,7 +29,7 @@ public class SillaLogic {
     private SillaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
 
      @Inject
-    private SalaPersistence salaPersistence;
+    private SalaPersistence sillaPersistence;
      
     /**
      * Crea una silla en la persistencia.
@@ -42,8 +41,8 @@ public class SillaLogic {
      */
     public SillaEntity createSilla(SillaEntity sillaEntity) throws BusinessLogicException{
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la silla");        
-        //Regla de negocio, la sala a la que se asignada la silla debe estar creada
-        if (sillaEntity.getSala() != null || salaPersistence.find(sillaEntity.getSala().getId()) == null) {
+        //Regla de negocio, la silla a la que se asignada la silla debe estar creada
+        if (sillaEntity.getSala() == null || sillaPersistence.find(sillaEntity.getSala().getId()) == null) {
             throw new BusinessLogicException("La silla debe tener una sala asignada para crearse");
         }
         // Invoca la persistencia para crear la sill
@@ -56,7 +55,7 @@ public class SillaLogic {
      *
      * Obtener todas las sillas existentes en la base de datos.
      *
-     * @return una lista de salas
+     * @return una lista de sillas
      */
     public List<SillaEntity> getSillas() {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las sillas");
@@ -92,9 +91,9 @@ public class SillaLogic {
      * @return la silla con los cambios actualizados en la base de datos.
      */
     public SillaEntity updateSilla(Long sillasId, SillaEntity sillaEntity) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la sala con id = {0}", sillasId);
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la silla con id = {0}", sillasId);
         SillaEntity newEntity = persistence.update(sillaEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar la sala con id = {0}", sillaEntity.getId());
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la silla con id = {0}", sillaEntity.getId());
         return newEntity;
     }
 
@@ -107,13 +106,5 @@ public class SillaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la silla con id = {0}", sillasId);
         persistence.delete(sillasId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la silla con id = {0}", sillasId);
-    }
-    
-    public ReservaEntity getReserva(Long sillasId)
-    {
-       LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva de una silla con id = {0}", sillasId);
-       ReservaEntity newEntity = persistence.find(sillasId).getReserva();
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la silla con id = {0}", sillasId);
-        return newEntity;
     }
 }
