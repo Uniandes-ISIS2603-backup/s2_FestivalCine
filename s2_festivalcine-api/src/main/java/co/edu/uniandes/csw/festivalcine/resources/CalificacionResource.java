@@ -8,7 +8,14 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
+import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -20,6 +27,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 
 /**
  * Clase que implementa el recurso "calificaiones"
@@ -35,6 +43,9 @@ public class CalificacionResource
     @Inject
     private CalificacionLogic calificacionLogic;
     
+    @Inject
+    private UsuarioLogic usuarioLogic;
+    
     private static final Logger LOGGER = Logger.getLogger(CalificacionResource.class.getName());
     
     /**
@@ -49,44 +60,105 @@ public class CalificacionResource
     @POST
     public CalificacionDTO createCalificacion(CalificacionDTO calificacion)
     {
-    //    LOGGER.info("CalificacionResource createCalificacion: input " + calificacion.toString());
-      //  CalificacionEntity calificacionEntity = calificacion.toEntity();
-      //  CalificacionEntity nuevaCalificacionEntity = calificacionLogic.createCalificacion(calificacionEntity);
-        //CalificacionDTO nuevaCalificacionDTO = new CalificacionDTO(nuevaCalificacionEntity);
-        //LOGGER.info("CalificacionResouce createCalificacion: output: " + nuevaCalificacionDTO.toString());
-        //return nuevaCalificacionDTO;
-        return null;
+        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: input: {0} " + calificacion.toString());
+        CalificacionDTO nuevaCalificacionDTO = new CalificacionDTO(calificacionLogic.createCalificacion(calificacion.toEntity()));
+        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: output: {0}", nuevaCalificacionDTO.toString());
+        return nuevaCalificacionDTO;
+    }
+    
+    @GET
+    public List<CalificacionDTO> getCalificaciones()
+    {
+        LOGGER.info("CalificacionResource getCalificaciones: input: void");
+        List<CalificacionDTO> listaCalificaciones = listEntity2DTO(calificacionLogic.getCalificaciones());
+        LOGGER.log(Level.INFO, "CalificacionResource getCalificaciones: ouput: {0}", listaCalificaciones.toString());
+        return listaCalificaciones;
     }
     
     @GET
     @Path("{calificacionesId: \\d+}")
     public CalificacionDTO getCalificacion(@PathParam("calificacionesId") Long calificacionesId)
     {
-        return null;
+        LOGGER.log(Level.INFO, "CalificaciónResource getCalificacion: input: {0}", calificacionesId);
+        CalificacionEntity calificacionEntity = calificacionLogic.getCalificacion(calificacionesId);
+        if(calificacionEntity == null)
+        {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+        }
+        CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionEntity);
+        LOGGER.log(Level.INFO, "CalificacionResource get calificacion: output: {0}", calificacionDTO.toString());
+        return calificacionDTO;
     }
     
     @PUT
     @Path("{calificacionesID: \\d+}")
-    public CalificacionDTO updateCalificacion(@PathParam("calificacionesId") Long calificacionesId, CalificacionDTO calificacion)
+    public CalificacionDTO updateCalificacion(@PathParam("calificacionesId") Long calificacionesId, CalificacionDTO calificacion) throws BusinessLogicException
     {
-        return null;
+        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: input id: {0}, calificacion: {1}", new Object[]{calificacionesId, calificacion.toString()});
+        calificacion.setId(calificacionesId);
+        if(calificacionLogic.getCalificacion(calificacionesId) == null)
+        {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+        }
+        CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionLogic.updateCalificacion(calificacionesId, calificacion.toEntity()));
+       LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: output: {0}", calificacionDTO.toString());
+       return calificacionDTO;
     }
+    
     
     @DELETE
     @Path("{calificacionesID: \\d+}")
     public void deleteCalificacion(@PathParam("calificacionesId") Long calificacionesId)
     {
-        
+        LOGGER.log(Level.INFO, "CalificacionResource deleteCalificacion: input: {0}", calificacionesId);
+        CalificacionEntity entity = calificacionLogic.getCalificacion(calificacionesId);
+        if(entity == null)
+        {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId +" no existe.", 404);
+        }
+        calificacionLogic.deleteCalificacion(calificacionesId);
+        LOGGER.info("CalificacionResource deleteCalificacion: output: void");
     }
     
     //----------------------------------------------------------------------------------------------------------------------------------------------------
     //Funciones
     //----------------------------------------------------------------------------------------------------------------------------------------------------
     
+    @POST
+    @Path("{calificacionesId: \\d+}/usuarios/{usuariosId: \\d+}")
+    public UsuarioDetailDTO addUsuario(@PathParam("calificacionesId") Long calificacionesId, @PathParam("usuariosId") Long usuariosId) throws BusinessLogicException
+    {
+        LOGGER.log(Level.INFO, "CalificacionResource addUsuario: input: calificacionesId {0}, usuariosId {1}", new Object[]{calificacionesId, usuariosId});
+        if(usuarioLogic.getUsuario(usuariosId) == null)
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+        }
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(calificacionLogic.addUsuario(calificacionesId, usuariosId));
+        LOGGER.log(Level.INFO, "CalificacionResource addUsuario: output: {0}", detailDTO);
+        return detailDTO;
+    }
+    
     @GET
     @Path("{calificacionesId: \\d+}/usuarios/")
-    public UsuarioDTO getUsuario(@PathParam("calificacionesId") Long calificacionesId)
+    public UsuarioDetailDTO getUsuario(@PathParam("calificacionesId") Long calificacionesId)
     {
-        return new UsuarioDTO();
+        LOGGER.log(Level.INFO, "CalificacionesResource getUsuario: input: calificacionesId {0}", new Object[]{calificacionesId});
+        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(calificacionLogic.getUsuario(calificacionesId));
+        if(detailDTO == null)
+        {
+            throw new WebApplicationException("El recurso /usuarios/ de la calificacion " + calificacionesId + " debería existir.", 404);
+        }
+        LOGGER.log(Level.INFO, "CalificacionResource getUsuario: output: {0}", detailDTO);
+        return detailDTO;
+    }
+    
+    private List<CalificacionDTO> listEntity2DTO(List<CalificacionEntity> entityList)
+    {
+        List<CalificacionDTO> list = new ArrayList<>();
+        for(CalificacionEntity entity : entityList)
+        {
+            list.add(new CalificacionDTO(entity));
+        }
+        return list;
     }
 }

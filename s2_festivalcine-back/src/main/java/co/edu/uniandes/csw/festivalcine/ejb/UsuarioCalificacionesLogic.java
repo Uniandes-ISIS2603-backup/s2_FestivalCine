@@ -33,6 +33,26 @@ public class UsuarioCalificacionesLogic
     private CalificacionPersistence calificacionPersistence;
     
     /**
+     *
+     * Obtener un usuario por medio de su id.
+     *
+     * @param editorialsId: id de la editorial para ser buscada.
+     * @return la editorial solicitada por medio de su id.
+     */
+    public UsuarioEntity getUsuario(Long usuariosId) 
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar el usuario con id = {0}", usuariosId);
+        // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
+        UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
+        if (usuarioEntity == null) 
+        {
+            LOGGER.log(Level.SEVERE, "La editorial con el id = {0} no existe", usuariosId);
+        }
+        LOGGER.log(Level.INFO, "Termina proceso de consultar el usuario con id = {0}", usuariosId);
+        return usuarioEntity;
+    }
+    
+    /**
      * Agregar una calificacion al usuario
      *
      * @param calificacionesId El id la calificacion a guardar

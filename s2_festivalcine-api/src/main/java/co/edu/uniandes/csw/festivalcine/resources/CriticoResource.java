@@ -10,11 +10,14 @@ import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.CriticoDetailDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.PeliculaDTO;
+import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.CriticoLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.PeliculaLogic;
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
@@ -56,6 +59,9 @@ public class CriticoResource {
     
     @Inject
     private PeliculaLogic peliculaLogic;
+            
+    @Inject
+    private CalificacionLogic calificacionLogic;
     
     private static final Logger LOGGER = Logger.getLogger(CriticoResource.class.getName());
 
@@ -189,7 +195,7 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/funciones/{funcionesId: \\d+}")
     public FuncionDTO addFuncion(@PathParam("criticosId") Long criticosId, @PathParam("funcionesId") Long funcionesId)
     {
-        LOGGER.log(Level.INFO, "CriticoResource add:Funcion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
+        LOGGER.log(Level.INFO, "CriticoResource addFuncion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
         if(funcionLogic.getFuncion(funcionesId) == null)
         {
             throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
@@ -303,11 +309,17 @@ public class CriticoResource {
      */
     @POST
     @Path("{criticosId: \\d+}/peliculas/{peliculasId: \\d+}")
-    public PeliculaDTO addPelicula(@PathParam("criticosId") Long criticoId, @PathParam("peliculasId") Long peliculasId)
+    public PeliculaDTO addPelicula(@PathParam("criticosId") Long criticosId, @PathParam("peliculasId") Long peliculasId)
     {
-        return new PeliculaDTO();
-    }
-    
+        LOGGER.log(Level.INFO, "CriticoResource addPelicula: input: criticosId{0}, peliculasId {1}", new Object[]{criticosId, peliculasId});
+        if(peliculaLogic.findById(peliculasId) == null)
+        {
+            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe.", 404);
+        }
+        PeliculaDTO peliculaDTO = new PeliculaDTO(criticoLogic.addPelicula(criticosId, peliculasId));
+        LOGGER.log(Level.INFO, "CriticoResource addPelicula: output: {0}", peliculaDTO.toString());
+        return peliculaDTO;
+    }    
     /**
      * Muestra las peliculas de un critico con la id recibido en la URL
      * 
@@ -320,7 +332,10 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/peliculas/")
     public List<PeliculaDTO> getPeliculas(@PathParam("criticosId") Long criticosId)
     {
-        return new ArrayList<PeliculaDTO>();
+        LOGGER.log(Level.INFO, "CriticoResource getPeliculas: input: {0}", criticosId);
+        List<PeliculaDTO> lista = peliculasListEntity2DTO(criticoLogic.getPeliculas(criticosId));
+        LOGGER.log(Level.INFO, "CriticoResource getPeliculas: output: {0}", lista.toString());
+        return lista;
     }
     
     /**
@@ -341,7 +356,16 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/peliculas/{peliculasId: \\d+}")
     public PeliculaDTO getPelicula(@PathParam("criticosId") Long criticosId, @PathParam("peliculasId") Long peliculasId)
     {
-        return new PeliculaDTO();
+        LOGGER.log(Level.INFO, "CriticoResource getPelicula: input: criticosId {0}, peliculasId{1}", new Object[] {criticosId, peliculasId});
+        if(peliculaLogic.findById(peliculasId) == null)
+        {
+            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe." ,404);
+        }
+        PeliculaDTO peliculaDTO = new PeliculaDTO(criticoLogic.getPelicula(criticosId, peliculasId));
+        LOGGER.log(Level.INFO, "CriticoResource getPelicula: ouput: {0}", peliculaDTO.toString());
+        return peliculaDTO;
+       
+ 
     }
     
     /**
@@ -357,9 +381,31 @@ public class CriticoResource {
      */
     @DELETE
     @Path("{criticosId: \\d+}/peliculas/{peliculasId: \\d+}")
-    public void deletePelicula(@PathParam("criticosId") Long criticosId, @PathParam("peliculasId") Long pelicualasId)
+    public void deletePelicula(@PathParam("criticosId") Long criticosId, @PathParam("peliculasId") Long peliculasId)
     {
-        
+        LOGGER.log(Level.INFO, "CriticoResource deletePelicula: input: criticosId{0}, peliculasId{1}", new Object[]{criticosId, peliculasId});
+        if(peliculaLogic.findById(peliculasId) == null)
+        {
+            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe.", 404);
+        }
+        criticoLogic.deletePelicula(criticosId, peliculasId);
+        LOGGER.info("CriticoResource deletePelicula: output: void");
+    }
+    
+    /**
+     * Convierte una  lista de PeliculaEtity a una lista de PeliculaDTO.
+     * 
+     * @param entityList List de PeliculaEntity a convertir.
+     * @return Lista de PeliculaDTO convertida.
+     */
+    private List<PeliculaDTO> peliculasListEntity2DTO(List<PeliculaEntity>entityList)
+    {
+        List<PeliculaDTO> list = new ArrayList<>();
+        for(PeliculaEntity entity : entityList)
+        {
+            list.add(new PeliculaDTO(entity));
+        }
+        return list;
     }
     
     //----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -380,9 +426,16 @@ public class CriticoResource {
      */
     @POST
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
-    public CalificacionDTO addCalificacion(@PathParam("criticosId") Long criticoId, @PathParam("calificacionesId") Long calificacionesId)
+    public CalificacionDTO addCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId)
     {
-        return new CalificacionDTO();
+        LOGGER.log(Level.INFO, "CriticoResource add: input: criticosId {0}, peliculasId {1}", new Object[]{criticosId, calificacionesId});
+        if(calificacionLogic.getCalificacion(calificacionesId) == null)
+        {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+        }
+        CalificacionDTO calificacionDTO = new CalificacionDTO(criticoLogic.addCalificacion(criticosId, calificacionesId));
+        LOGGER.log(Level.INFO, "CriticosResource addCalificacion: output: {0}", calificacionDTO.toString());
+        return calificacionDTO;
     }
     
     /**
@@ -397,7 +450,10 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/calificaciones/")
     public List<CalificacionDTO> getCalificaciones(@PathParam("criticosId") Long criticosId)
     {
-        return new ArrayList();
+        LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: input; {0}", criticosId);
+        List<CalificacionDTO> lista = calificacionesListEntity2DTO(criticoLogic.getCalificaciones(criticosId));
+        LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: output: {0}", lista.toString());
+        return lista;
     }
     
     /**
@@ -418,7 +474,15 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
     public CalificacionDTO getCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId)
     {
-        return new CalificacionDTO();
+        LOGGER.log(Level.INFO, "criticoResource getCalificacion: input: criticosId {0}, calificacionesId {1}", new Object[]{criticosId, calificacionesId});
+        if(calificacionLogic.getCalificacion(calificacionesId) == null)
+        {
+            throw new WebApplicationException("El recurso /Ccalificaciones/" + calificacionesId + " noexiste." , 404);
+        }
+        CalificacionDTO calificacionDTO = new CalificacionDTO(criticoLogic.getCalificacion(criticosId, calificacionesId));
+        LOGGER.log(Level.INFO, "CriticoResource getCalificacion: output: {0}", calificacionDTO.toString());
+        return calificacionDTO;
+    
     }
     
     /**
@@ -436,7 +500,23 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
     public void deleteCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId")Long calificacionesId)
     {
-        
+        LOGGER.log(Level.INFO, "CriticoResource deleteCalificacion:input_ criticosId {0}, calificacionesId {1}", new Object[]{criticosId, calificacionesId});
+        if(calificacionLogic.getCalificacion(calificacionesId) == null)
+        {
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " n existe",404);
+        }
+        criticoLogic.deleteCalificacion(criticosId, calificacionesId);
+        LOGGER.info("CriticosResource deleteCalificacion: ouput: void");
+    }
+    
+    private List<CalificacionDTO> calificacionesListEntity2DTO(List<CalificacionEntity> entityList)
+    {
+        List<CalificacionDTO> list = new ArrayList();
+        for(CalificacionEntity entity : entityList)
+        {
+            list.add(new CalificacionDTO(entity));
+        }
+        return list;
     }
     
     /**

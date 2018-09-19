@@ -5,12 +5,15 @@
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
 
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.CalificacionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
+import co.edu.uniandes.csw.festivalcine.persistence.PeliculaPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +22,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
+ * @author Andres Felipe Rodriguez Murillo
  */
 @Stateless
 public class CriticoLogic {
@@ -30,10 +33,13 @@ public class CriticoLogic {
     private CriticoPersistence persistence;
     
     @Inject
-    private CriticoPersistence criticoPersistence;
+    private FuncionPersistence funcionPersistence;
     
     @Inject
-    private FuncionPersistence funcionPersistence;
+    private PeliculaPersistence peliculaPersistence;
+    
+    @Inject
+    private CalificacionPersistence calificacionPersistence;
     
     /**
      * Crea un nuevo critico con la información que se recibe en el cuerpo de la
@@ -43,14 +49,14 @@ public class CriticoLogic {
      * @param entity {@link CriticoDTO}  - El critico que se desea guardar.
      * @return JSON {@link CriticoDTO} - EL critico guardado con el atributo id
      * autogenerado.
-     * @throws BusinessLogicException 
+     * @throws BusinessLogicException Si el critico con la misma identificación ya existe
      */
     public CriticoEntity createCritico(CriticoEntity entity) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del critico");
         if(persistence.findByIdentificacion(entity.darIdentificacion()) != null)
         {
-            throw new BusinessLogicException("Ya existe un critico con el nombre \"" + entity.darIdentificacion() + "\"");
+            throw new BusinessLogicException("Ya existe un critico con la identificacion \"" + entity.darIdentificacion() + "\"");
         }
         persistence.create(entity);
         LOGGER.log(Level.INFO, "Termina proceso de creacion del critico");
@@ -58,7 +64,7 @@ public class CriticoLogic {
     }
     
     /**
-     * Busca un critico por id
+     * Obtiene una colección de instancias de CriticoEntity
      * 
      * @return Lista de entidades de tipo critico. 
      */
@@ -122,9 +128,6 @@ public class CriticoLogic {
         if (funciones != null && !funciones.isEmpty()) {
             throw new BusinessLogicException("No se puede borrar el critico con id = " + criticosId + " porque tiene funciones asociadas");
         }
-        if (peliculas != null && !peliculas.isEmpty()) {
-            throw new BusinessLogicException("No se puede borrar el critico con id = " + criticosId + " porque tiene peliculas asociadas");
-        }
         persistence.delete(criticosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el critico con id = {0}", criticosId);
     }
@@ -150,7 +153,7 @@ public class CriticoLogic {
     public FuncionEntity addFuncion(Long criticosId, Long funcionesId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de asociarle una función al critico con id = {0}", criticosId);
-        CriticoEntity criticoEntity = criticoPersistence.find(criticosId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
         funcionEntity.setCritico(criticoEntity);
         LOGGER.log(Level.INFO, "Termina proceso de asociarle una funcion al critico con id =  {0}", criticosId);
@@ -168,7 +171,7 @@ public class CriticoLogic {
     public List<FuncionEntity> getFunciones(Long criticosId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las dunciones del critico con id = {0}", criticosId);
-        return criticoPersistence.find(criticosId).darFunciones();
+        return persistence.find(criticosId).darFunciones();
     }
     
     /**
@@ -181,11 +184,11 @@ public class CriticoLogic {
      */
     public FuncionEntity getFuncion(Long criticosId, Long funcionesId) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {0} del critico con id = " + criticosId, funcionesId);
-        List<FuncionEntity> funciones = criticoPersistence.find(criticosId).darFunciones();
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {1} del critico con id = {0}" + criticosId, funcionesId);
+        List<FuncionEntity> funciones = persistence.find(criticosId).darFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
         int index = funciones.indexOf(funcionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion con id = {0} del criticocon id = " + criticosId, funcionesId);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion con id = {1} del criticocon id = {0}" + criticosId, funcionesId);
         if(index >=0)
         {
             return funciones.get(index);
@@ -196,10 +199,88 @@ public class CriticoLogic {
     public void removeFuncion(Long criticosId, Long funcionesId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una funcion del critico con id = {0}", criticosId);
-        CriticoEntity criticoEntity = criticoPersistence.find(criticosId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
         funcionEntity.setCritico(null);
         LOGGER.log(Level.INFO, "Termina proceso de borrar ua funcion del critico con id = {0}", criticosId);
+    }
+    
+    public PeliculaEntity addPelicula(Long criticosId, Long peliculasId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociarle una pelicula al libro con id ={0}", criticosId);
+        PeliculaEntity peliculaEntity = peliculaPersistence.findById(peliculasId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
+        criticoEntity.darPeliculas().add(peliculaEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de asociarle una pelicula al critico con id = {0}", criticosId);
+        return peliculaPersistence.findById(peliculasId);
+    }
+    
+    public List<PeliculaEntity> getPeliculas(Long criticosId)
+    {
+        LOGGER.log(Level.INFO,"Inicia proceso de consultar todas ,as peliculas del critico con id = {0}", criticosId);
+        return persistence.find(criticosId).darPeliculas();
+    }
+    
+    public PeliculaEntity getPelicula(Long criticosId, Long peliculasId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar una pelicula del critico con id = {0}", criticosId);
+        List<PeliculaEntity> peliculas =persistence.find(criticosId).darPeliculas();
+        PeliculaEntity peliculaEntity = peliculaPersistence.findById(peliculasId);
+        int index = peliculas.indexOf(peliculaEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar una pelicula del critico con id = {0}", criticosId);
+        if(index >= 0)
+        {
+            return peliculas.get(index);
+        }
+        return null;
+    }
+    
+    public void deletePelicula(Long criticosId, Long peliculasId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una pelicula del critico con id = {0}", criticosId);
+        PeliculaEntity peliculaEntity = peliculaPersistence.findById(peliculasId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
+        criticoEntity.darPeliculas().remove(peliculasId);
+        LOGGER.log(Level.INFO, "Termina proceso de borrar una pelicula del critico con id = {0}", criticosId);
+    }
+    
+    public CalificacionEntity addCalificacion(Long criticosId, Long calificacionesId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de asociarle una calificacion cal critico con id = {0}", criticosId);
+        CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
+        criticoEntity.darCalificaciones().add(calificacionEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de asociarle una calificacion al critico con id = {0}", criticosId);
+        return calificacionPersistence.find(calificacionesId);
+    }
+    
+    public List<CalificacionEntity> getCalificaciones(Long criticosId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las calificaciones del critico con id = {0},", criticosId);
+        return persistence.find(criticosId).darCalificaciones();
+    }
+    
+    public CalificacionEntity getCalificacion(Long criticosId, Long calificacionesId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar una calificacion del libro con id = {0}", criticosId);
+        List<CalificacionEntity> calificaciones = persistence.find(criticosId).darCalificaciones();
+        CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
+        int index = calificaciones.indexOf(calificacionEntity);
+        LOGGER.log(Level.INFO, "termina proceso de consultar la calificacion del critico con id = {0}", criticosId);
+        if(index >= 0)
+                {
+                    return calificaciones.get(index);
+                }
+        return null;
+    }
+    
+    public void deleteCalificacion(Long criticosId, Long calificacionesId)
+    {
+        LOGGER.log(Level.INFO, "Inicia proceso de borrar una calificacion del critico con id = {0}", criticosId);
+        CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
+        CriticoEntity criticoEntity = persistence.find(criticosId);
+        criticoEntity.darCalificaciones().remove(calificacionEntity);
+        LOGGER.log(Level.INFO, "termina proceso de borrar una calificacion del critico con id = {0}", criticosId);
     }
     
 }

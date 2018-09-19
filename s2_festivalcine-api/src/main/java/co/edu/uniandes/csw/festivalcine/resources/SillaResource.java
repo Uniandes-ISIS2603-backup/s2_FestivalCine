@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
+import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
@@ -130,7 +131,17 @@ public class SillaResource {
 
     }
     
-    
-    
-    
+    @GET
+    @Path("{sillasId: \\d+}/reservas/")
+    public ReservaDetailDTO getReserva(@PathParam("sillasId") Long sillasId)
+    {
+        LOGGER.log(Level.INFO, "SillaResource getReserva: input: sillasId {0}", new Object[]{sillasId});
+        ReservaDetailDTO detailDTO = new ReservaDetailDTO(sillaLogic.getReserva(sillasId));
+        if(detailDTO == null)
+        {
+            throw new WebApplicationException("El recurso /usuarios/ de la calificacion " +sillasId + " debería existir.", 404);
+        }
+        LOGGER.log(Level.INFO, "CalificacionResource getUsuario: output: {0}", detailDTO);
+        return detailDTO;
+    }
 }

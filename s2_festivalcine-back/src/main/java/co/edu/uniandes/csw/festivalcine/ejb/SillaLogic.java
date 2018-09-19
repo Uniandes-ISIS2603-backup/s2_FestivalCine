@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
 
+import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
@@ -106,5 +107,13 @@ public class SillaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la silla con id = {0}", sillasId);
         persistence.delete(sillasId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar la silla con id = {0}", sillasId);
+    }
+    
+    public ReservaEntity getReserva(Long sillasId)
+    {
+       LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva de una silla con id = {0}", sillasId);
+       ReservaEntity newEntity = persistence.find(sillasId).getReserva();
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la silla con id = {0}", sillasId);
+        return newEntity;
     }
 }

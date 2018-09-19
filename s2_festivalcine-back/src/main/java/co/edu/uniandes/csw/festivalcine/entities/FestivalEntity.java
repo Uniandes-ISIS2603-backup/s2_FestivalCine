@@ -39,11 +39,11 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
     
     @PodamExclude
     @ManyToMany(mappedBy = "festivales", fetch = FetchType.LAZY)
-    private Collection<CriticoEntity> criticos = new ArrayList<>();
+    private List<CriticoEntity> criticos = new ArrayList<>();
 
     @PodamExclude
     @ManyToMany(mappedBy = "festivales")
-    private Collection<TeatroEntity> teatros = new ArrayList<>();    
+    private List<TeatroEntity> teatros = new ArrayList<>();    
 
        
     private String nombre;
@@ -144,28 +144,28 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
      * Retorna la lista de criticos del festival.
      * @return criticos
      */
-    public Collection<CriticoEntity> getCriticos() {
+    public List<CriticoEntity> getCriticos() {
         return criticos;
     }
     /**
      * Modifica los criticos del festival.
      * @param criticos nuevos criticos.
      */
-    public void setCriticos(Collection<CriticoEntity> criticos) {
+    public void setCriticos(List<CriticoEntity> criticos) {
         this.criticos = criticos;
     }
     /**
      * Retorna la lista de teatros del festival.
      * @return teatros
      */
-    public Collection<TeatroEntity> getTeatros() {
+    public List<TeatroEntity> getTeatros() {
         return teatros;
     }
     /**
      * Modifica los teatros del festival.
      * @param teatros nuevos teatros.
      */
-    public void setTeatros(Collection<TeatroEntity> teatros) {
+    public void setTeatros(List<TeatroEntity> teatros) {
         this.teatros = teatros;
     }
 
