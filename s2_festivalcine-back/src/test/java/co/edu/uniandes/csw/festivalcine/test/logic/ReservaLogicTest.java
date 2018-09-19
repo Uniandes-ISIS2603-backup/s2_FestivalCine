@@ -30,7 +30,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
 public class ReservaLogicTest 
@@ -134,45 +134,7 @@ public class ReservaLogicTest
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
-    
-    /**
-     * Prueba para crear una reserva con Id inválido
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createReservaTestConIdInvalido() throws BusinessLogicException {
-        ReservaEntity newEntity = factory.manufacturePojo(ReservaEntity.class);
-        newEntity.setUsuario(usuarioData.get(0));
-        newEntity.setId((long)-922337203);
-        reservaLogic.createReserva(newEntity);
-    }
-    
-    /**
-     * Prueba para crear una reserva con Id inválido
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createReservaTestConIdInvalido2() throws BusinessLogicException {
-        ReservaEntity newEntity = factory.manufacturePojo(ReservaEntity.class);
-        newEntity.setUsuario(usuarioData.get(0));
-        newEntity.setId(null);
-        reservaLogic.createReserva(newEntity);
-    }
-    
-     /**
-     * Prueba para crear una reserva con Id inválido
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void createReservaTestConIdInexistente() throws BusinessLogicException {
-        ReservaEntity newEntity = factory.manufacturePojo(ReservaEntity.class);
-        newEntity.setUsuario(usuarioData.get(0));
-        newEntity.setId(data.get(0).getId());
-        reservaLogic.createReserva(newEntity);
-    }    
+      
     /**
      * Prueba para consultar la lista de Reservas.
      */
@@ -223,33 +185,6 @@ public class ReservaLogicTest
         Assert.assertEquals(pojoEntity.getAbono(), resp.getAbono());
         Assert.assertEquals(pojoEntity.getPrecioTotal(), resp.getPrecioTotal());
         Assert.assertEquals(pojoEntity.getDescuento(), resp.getDescuento());
-    }
-    
-    /**
-     * Prueba para actualizar un Reserva con Id inválido.
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void updateReservaConIdInvalidoTest() throws BusinessLogicException {
-        ReservaEntity entity = data.get(0);
-        ReservaEntity pojoEntity = factory.manufacturePojo(ReservaEntity.class);
-        pojoEntity.setId(Long.MIN_VALUE);
-        reservaLogic.updateReserva(pojoEntity.getId(), pojoEntity);
-    }
-
-    /**
-     * Prueba para actualizar una Reserva con Id inválido.
-     *
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test(expected = BusinessLogicException.class)
-    public void updateReservaConIdInvalidoTest2() throws BusinessLogicException 
-    {
-        ReservaEntity entity = data.get(0);
-        ReservaEntity pojoEntity = factory.manufacturePojo(ReservaEntity.class);
-        pojoEntity.setId(null);
-        reservaLogic.updateReserva(pojoEntity.getId(), pojoEntity);
     }
     
     /**

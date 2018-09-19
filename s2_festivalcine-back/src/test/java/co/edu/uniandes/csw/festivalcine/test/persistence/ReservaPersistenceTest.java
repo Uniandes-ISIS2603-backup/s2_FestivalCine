@@ -30,7 +30,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
 public class ReservaPersistenceTest 
@@ -121,6 +121,9 @@ public class ReservaPersistenceTest
         
     }
     
+    /**
+     * Prueba para crear reserva
+     */
      @Test
      public void createReservaTest()
      {
@@ -135,6 +138,9 @@ public class ReservaPersistenceTest
         Assert.assertEquals(newEntity.getId(), entity.getId());
      }
      
+     /**
+      * Prueba para encontrar todas las reservas
+      */
      @Test
      public void findAllReservasTest()
      {
@@ -153,6 +159,9 @@ public class ReservaPersistenceTest
         }
      }
      
+     /**
+      * Prueba para encontrar una reserva
+      */
      @Test
      public void findReservaTest()
      {
@@ -162,6 +171,9 @@ public class ReservaPersistenceTest
         Assert.assertEquals(entity.getId(), newEntity.getId());
      }
      
+     /**
+      * Prueba para hacer update de una reserva
+      */
      @Test
      public void updateReservaTest()
      {
@@ -178,6 +190,9 @@ public class ReservaPersistenceTest
         Assert.assertEquals(newEntity.getId(), resp.getId());
      }
      
+     /**
+      * Prueba para borrar una reserva
+      */
       @Test
       public void deleteReservaTest()
       {

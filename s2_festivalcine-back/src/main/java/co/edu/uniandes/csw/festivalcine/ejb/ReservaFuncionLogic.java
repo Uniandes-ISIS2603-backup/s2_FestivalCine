@@ -18,12 +18,12 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
- */
-@Stateless
+ * @author PAULA VELANDIA
+*/ 
+ @Stateless
 public class ReservaFuncionLogic 
 {
-     private static final Logger LOGGER = Logger.getLogger(ReservaLogic.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ReservaLogic.class.getName());
 
     @Inject
     private ReservaPersistence persistence;
@@ -119,6 +119,7 @@ public class ReservaFuncionLogic
         ReservaEntity reservaEntity = persistence.findReserva(reservasId);
         FuncionEntity funcionEntity = funcionPersistence.find(funcionId);
         funcionEntity.getReservas().remove(reservaEntity);
+        reservaEntity.getFunciones().remove(funcionEntity);
         
         LOGGER.log(Level.INFO, "Termina proceso de borrar una función de la reserva con id = {0}", reservasId);
     }

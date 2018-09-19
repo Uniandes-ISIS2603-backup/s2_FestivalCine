@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @Path("reservas/{reservasId: \\d+}/usuario")
 @Consumes(MediaType.APPLICATION_JSON)

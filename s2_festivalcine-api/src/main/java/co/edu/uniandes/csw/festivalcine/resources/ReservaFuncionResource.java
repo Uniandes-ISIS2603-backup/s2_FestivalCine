@@ -32,6 +32,10 @@ import javax.ws.rs.core.MediaType;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+/**
+ *
+ * @author PAULA VELANDIA
+ */
 public class ReservaFuncionResource 
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaSillasResource.class.getName());

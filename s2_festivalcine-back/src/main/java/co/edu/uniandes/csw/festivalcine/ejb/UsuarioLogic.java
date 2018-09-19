@@ -20,7 +20,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @Stateless
 public class UsuarioLogic 

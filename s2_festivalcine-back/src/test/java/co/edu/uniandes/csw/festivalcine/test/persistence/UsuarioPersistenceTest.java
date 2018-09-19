@@ -31,7 +31,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
 public class UsuarioPersistenceTest {
@@ -121,6 +121,9 @@ public class UsuarioPersistenceTest {
     {
     }
     
+    /**
+     * Prueba para crear un usuario
+     */
     @Test
     public void createUsuarioTest()
     {
@@ -135,6 +138,9 @@ public class UsuarioPersistenceTest {
         Assert.assertEquals(newEntity.getId(), entity.getId());
     }
     
+    /**
+     * Prueba para encontrar todos los usuarios
+     */
      @Test
     public void findAllUsuariosTest()
     {
@@ -153,6 +159,9 @@ public class UsuarioPersistenceTest {
         }
     }
     
+    /**
+     * Prueba para encontrar un usuario
+     */
     @Test
     public void findUsuarioTest()
     {
@@ -162,6 +171,9 @@ public class UsuarioPersistenceTest {
         Assert.assertEquals(entity.getId(), newEntity.getId());
     }
     
+    /**
+     * Prueba para hacer update de un usuario
+     */
     @Test
     public void updateUsuarioTest()
     {
@@ -178,6 +190,9 @@ public class UsuarioPersistenceTest {
         Assert.assertEquals(newEntity.getId(), resp.getId());
     }
     
+    /**
+     * Prueba para borrar
+     */
     @Test
     public void deleteTest()
     {
@@ -187,6 +202,9 @@ public class UsuarioPersistenceTest {
         Assert.assertNull(deleted);
     }
     
+    /**
+     * Prueba para encontrar un usuario
+     */
      //@Test
      public void findUserByNameTest()
      {

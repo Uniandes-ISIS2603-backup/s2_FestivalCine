@@ -22,7 +22,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
+ * @author paula velandia
  */
 @Stateless
 public class ReservaLogic 
@@ -56,12 +56,6 @@ public class ReservaLogic
     public ReservaEntity createReserva(ReservaEntity reservaEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la reserva");
-        // Verifica la regla de negocio que dice que no puede haber dos editoriales con el mismo nombre
-        if (reservaEntity.getId() == null || persistence.findReserva(reservaEntity.getId()) != null || reservaEntity.getId() < 0)
-        {
-            throw new BusinessLogicException("Ya existe una reserv con el id \"" + reservaEntity.getId() + "\"");
-        }
-
         persistence.create(reservaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la reserva");
         return reservaEntity;
@@ -113,7 +107,7 @@ public class ReservaLogic
      */
     public ReservaEntity updateReserva(Long reservasId, ReservaEntity reservaEntity) throws BusinessLogicException
     {
-        if(reservasId == null || reservasId < 0)
+        if(reservasId == null)
         {
             throw new BusinessLogicException("Ya existe una reserva con el id \"" + reservaEntity.getId() + "\"");
         }
