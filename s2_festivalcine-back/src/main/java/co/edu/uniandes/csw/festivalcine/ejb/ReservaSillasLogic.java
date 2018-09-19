@@ -18,7 +18,7 @@ import javax.inject.Inject;
 
 /**
  *
- * @author estudiante
+ * @author paula velandia
  */
 @Stateless
 public class ReservaSillasLogic 
@@ -52,7 +52,7 @@ public class ReservaSillasLogic
     /**
      * Asocia una Silla existente a una Reserva
      *
-     * @param reservasId Identificador de la instancia de Reserva
+     * @param reservaId Identificador de la instancia de Reserva
      * @param sillaId Identificador de la instancia de Silla
      * @return Instancia de SillaEntity que fue asociada a Reserva
      */
@@ -65,6 +65,10 @@ public class ReservaSillasLogic
         SillaEntity sillaEntity = sillaPersistence.find(sillaId);
         
         sillaEntity.setReserva(reservaEntity);
+        
+        List sillasNuevas = reservaEntity.getSillas();
+        sillasNuevas.add(sillaEntity);
+        reservaEntity.setSillas(sillasNuevas);
         
         LOGGER.log(Level.INFO, "Termina proceso de asociarle una silla a la reserva con id = {0}", reservaId);
         

@@ -30,7 +30,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
 public class ReservaSillaLogicTest 
@@ -127,8 +127,11 @@ public class ReservaSillaLogicTest
         ReservaEntity entity = data.get(0);
         SillaEntity sillaEntity = sillasData.get(1);
         SillaEntity response = reservaSillasLogic.addSilla(sillaEntity.getId(), entity.getId());
+        
         Assert.assertNotNull(response);
         Assert.assertEquals(sillaEntity.getId(), response.getId());
+        Assert.assertEquals(sillaEntity.getDisponible(), response.getDisponible());
+        Assert.assertEquals(sillaEntity.getNumero(), response.getNumero());
     }
     
       /**

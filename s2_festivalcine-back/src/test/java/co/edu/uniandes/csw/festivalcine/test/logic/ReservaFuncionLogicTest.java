@@ -36,7 +36,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
 public class ReservaFuncionLogicTest {

@@ -26,6 +26,11 @@ public class UsuarioPersistence
     @PersistenceContext(unitName = "TarantinoPU")
     protected EntityManager em;
     
+    /**
+     * Metodo que crea un usuario a partir de una entidad
+     * @param usuarioEntity
+     * @return 
+     */
     public UsuarioEntity createUsuario(UsuarioEntity usuarioEntity)
     {
         LOGGER.log(Level.INFO, "Creando un usuario nuevo");
@@ -34,6 +39,10 @@ public class UsuarioPersistence
         return usuarioEntity;
     }
     
+    /**
+     * Método que encuentra todos los usuarios de la aplicacion
+     * @return 
+     */
     public List<UsuarioEntity> findAllUsuarios() 
     {
         LOGGER.log(Level.INFO, "Consultando todas los usuarios");
@@ -41,12 +50,22 @@ public class UsuarioPersistence
         return query.getResultList();
     }
     
+    /**
+     * Metodo que encuentra un usuario
+     * @param usuariosId
+     * @return 
+     */
      public UsuarioEntity findUsuario(Long usuariosId) 
      {
         LOGGER.log(Level.INFO, "Consultando usuario con id={0}", usuariosId);
         return em.find(UsuarioEntity.class, usuariosId);
     }
-     
+    
+     /**
+      * Metodo que actualiza un usuario
+      * @param usuarioEntity
+      * @return 
+      */
     public UsuarioEntity updateUsuario(UsuarioEntity usuarioEntity) 
     {
         LOGGER.log(Level.INFO, "Actualizando usuario con id = {0}", usuarioEntity.getId());
@@ -54,6 +73,10 @@ public class UsuarioPersistence
         return em.merge(usuarioEntity);
     }
     
+    /**
+     * Metodo que elimina un usuario
+     * @param usuariosId 
+     */
      public void deleteUsuario(Long usuariosId) 
      {
         LOGGER.log(Level.INFO, "Borrando el usuario con id = {0}", usuariosId);
@@ -61,7 +84,12 @@ public class UsuarioPersistence
         em.remove(entity);
         LOGGER.log(Level.INFO, "Saliendo de borrar el usuario con id = {0}", usuariosId);
     }
-     
+    
+     /**
+      * Metodo que encuentra un usuario por su nombre
+      * @param name
+      * @return 
+      */
      public UsuarioEntity findUserByName(String name) 
      {
         LOGGER.log(Level.INFO, "Consultando usuario por nombre ", name);

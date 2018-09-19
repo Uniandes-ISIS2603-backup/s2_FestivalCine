@@ -5,10 +5,8 @@
  */
 package co.edu.uniandes.csw.festivalcine.persistence;
 
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +27,11 @@ public class ReservaPersistence
     @PersistenceContext(unitName = "TarantinoPU")
     protected EntityManager em;
     
+    /**
+     * Método que crea una reserva
+     * @param reservaEntity
+     * @return 
+     */
      public ReservaEntity create(ReservaEntity reservaEntity)
     {
         LOGGER.log(Level.INFO, "Creando una reserva nueva");
@@ -37,6 +40,10 @@ public class ReservaPersistence
         return reservaEntity;
     }
      
+     /**
+      * Método que encuentra todas las reservas
+      * @return 
+      */
      public List<ReservaEntity> findAllReservas() 
     {
         LOGGER.log(Level.INFO, "Consultando todas las reservas");
@@ -44,6 +51,11 @@ public class ReservaPersistence
         return query.getResultList();
     }
      
+     /**
+      * Metodo que encuentra una reserva
+      * @param reservasId
+      * @return 
+      */
      public ReservaEntity findReserva(Long reservasId) 
      {
          if(reservasId == null)
@@ -55,6 +67,11 @@ public class ReservaPersistence
         
     }
      
+     /**
+      * Metodo que actualiza una reserva
+      * @param reservaEntity
+      * @return 
+      */
     public ReservaEntity updateReserva(ReservaEntity reservaEntity) 
     {
         LOGGER.log(Level.INFO, "Actualizando reserva con id = {0}", reservaEntity.getId());
@@ -62,6 +79,10 @@ public class ReservaPersistence
         return em.merge(reservaEntity);
     }
     
+    /**
+     * Metodo que elimina una reserva
+     * @param reservasId 
+     */
     public void deleteReserva(Long reservasId) 
     {
         LOGGER.log(Level.INFO, "Borrando la reserva con id = {0}", reservasId);
