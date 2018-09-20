@@ -1,824 +1,900 @@
 {
-	"id": "17971481-bae3-4b59-90fc-fe482f73a941",
-	"name": "FestivalCine_Pruebas",
-	"allTests": [],
-	"timestamp": "2018-09-11T00:26:30.699Z",
-	"collection_id": "77f1a726-899e-498b-af86-9f73744ddeb0",
-	"folder_id": 0,
-	"target_type": "collection",
-	"environment_id": "0",
-	"data": [],
-	"delay": 0,
-	"count": 1,
-	"collection": {
-		"id": "77f1a726-899e-498b-af86-9f73744ddeb0",
+	"info": {
+		"_postman_id": "77f1a726-899e-498b-af86-9f73744ddeb0",
 		"name": "FestivalCine_Pruebas",
-		"description": null,
-		"auth": null,
-		"events": null,
-		"variables": null,
-		"order": [],
-		"folders_order": [
-			"8aaa1e5c-f53a-4d16-b4b2-651fcc2f0d73",
-			"93a7000e-f9ec-446b-bf33-65d74ce571bd"
-		],
-		"owner": "0",
-		"permissions": {},
-		"favorite": false,
-		"shared": false,
-		"type": "collection",
-		"depth": 0
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"folder": null,
-	"environment": null,
-	"globals": null,
-	"results": [
+	"item": [
 		{
-			"name": "POST critico",
-			"id": "9a7d8621-d0d9-4f52-8396-40de65a1de06",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			"name": "CriticosPuebas",
+			"item": [
+				{
+					"name": "Critico",
+					"item": [
+						{
+							"name": "Create critico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4b18d06d-f328-4c17-8a3a-7d54591d2add",
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"new_id_a\",data.id);",
+											"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
+											"console.log(data.id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\t{\t\n\t\t\"nombres\":\"kelly Katerine\",\n\t\t\"apellidos\":\"Peñaranda Rivera\",\n\t\t\"identificacion\":\"1001012007\",\n\t\t\"celular\":\"315787878\",\n\t\t\"email\":\"kk.penaranda@uniandes.edu.co\",\n\t\t\"tipoPersona\":2,\n\t\t\"nickName\":\"kk.penaranda\",\n\t\t\"password\":\"kelly123123\",\n\t\t\"puntaje\":0,\n\t\t\"credencial\":\"123312245\"\n\t}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										""
+									]
+								},
+								"description": "Se hace el post para crear un critico"
+							},
+							"response": []
+						},
+						{
+							"name": "Create critico Copy 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4b18d06d-f328-4c17-8a3a-7d54591d2add",
+										"type": "text/javascript",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setGlobalVariable(\"new_id_a\",data.id);",
+											"tests[\"No genera error en el Post\"] = responseCode.code === 200;",
+											"console.log(data.id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\t{\t\n\t\t\"nombres\":\"kelly Katerine\",\n\t\t\"apellidos\":\"Peñaranda Rivera\",\n\t\t\"identificacion\":\"1001012009\",\n\t\t\"celular\":\"315787878\",\n\t\t\"email\":\"kk.penaranda@uniandes.edu.co\",\n\t\t\"tipoPersona\":2,\n\t\t\"nickName\":\"kk.penaranda\",\n\t\t\"password\":\"kelly123123\",\n\t\t\"puntaje\":0,\n\t\t\"credencial\":\"123312245\"\n\t}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										""
+									]
+								},
+								"description": "Se hace el post para crear un critico"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener todos los criticos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6c9abbc5-799c-498e-8974-fb08cbd71053",
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"No genera error en el Gell All\"] = responseCode.code === 200;",
+											"tests[\"authors count\"] = data.length >= 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										""
+									]
+								},
+								"description": "Retorna los criticos en la aplicaciones"
+							},
+							"response": []
+						},
+						{
+							"name": "Objetener un critico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7c93599f-5c89-4a6d-b8b9-e973ebd2d125",
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"No genera error en el Get\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\t\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/{{new_id_a}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"{{new_id_a}}"
+									]
+								},
+								"description": "Retorna un critico con id especifica"
+							},
+							"response": []
+						},
+						{
+							"name": "Objetener un critico que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c04daee0-694f-433d-9e4c-9319d87f6c29",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"No se deberia obtener un autor con un id que no existe\"] = responseCode.code === 404;",
+											"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /authors/0 no existe.\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\t\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"0"
+									]
+								},
+								"description": "Retorna un critico con id especifica"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar un critico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "55737923-cf2d-496c-8345-ac0b81dcd33d",
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\t\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/{{new_id_a}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"{{new_id_a}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Editar un critico que no existe",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b0e0f962-cfbf-46b4-baaf-6c8afae34729",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"No se deberia actualizar un autor con id que no existe\"] = responseCode.code === 404;",
+											"tests[\"Mensaje correcto de error\"] = responseBody.has(\"El recurso /authors/0 no existe.\");"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\t\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE critico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d61be41f-5d61-4b33-af8b-b09b65972abe",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/{{new_id_a}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"{{new_id_a}}"
+									]
+								},
+								"description": "Elimina el critico con el id especifico"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Peliculas",
+					"item": [
+						{
+							"name": "Crea una pelicula",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"nombre\":\"Prueba\",\n\t\"director\":\"Tarantino\",\n\t\"creditos\":\"ejemplo\",\n\t\"pais\":\"Argentina\",\n\t\"duracion\":60,\n\t\"puntaje\":4.5\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/peliculas/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"peliculas",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Añadir pelicula a critico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c0404c4f-f540-475d-8c98-99f40760411c",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"No genera error en el Post\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"1",
+										"peliculas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Dar peliculas de un critico especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3774d736-b3bf-44d3-9d43-a8261447f5f4",
+										"type": "text/javascript",
+										"exec": [
+											"var data= JSON.parse(responseBody);",
+											"tests[\"No genera error en el Get\"] = responseCode.code === 200;",
+											"tests[\"books count - author\"] = data.length >= 1;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\t\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"1",
+										"peliculas",
+										""
+									]
+								},
+								"description": "Retorna la lista de peliculas de un critico con id especifico"
+							},
+							"response": []
+						},
+						{
+							"name": "GET pelicula de un critico en especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "28e9212a-e19b-458d-80ae-e4c2aa2c1d7c",
+										"type": "text/javascript",
+										"exec": [
+											"console.log(responseBody);",
+											"var data = JSON.parse(responseBody);",
+											"tests[\"No genera error en el Get\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/{{new_id_a}}/peliculas/{{new_id_b}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"{{new_id_a}}",
+										"peliculas",
+										"{{new_id_b}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE elimina peicula esficifico de critico especifico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"peliculas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Funciones",
+					"item": [
+						{
+							"name": "GET funciones de un critico en especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"funciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE elimina funcion especifica de critico especifico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"funciones",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET funcion especifica critico especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"funciones",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST añadir funcion critico",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/1/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"funciones",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Calificaciones",
+					"item": [
+						{
+							"name": "POST añadir calificacion a critico especifico",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"calificaciones",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET calificaciones de un critico en especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"calificaciones",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET calificacion especifica de un critico en especifico",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"calificaciones",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE calificacion especifica de un critico",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"criticos",
+										"10",
+										"calificaciones",
+										"10",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"1449"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "1449",
-			"totalRequestTime": "1449",
-			"iterationResults": {}
+			]
 		},
 		{
-			"name": "GET critico especifico",
-			"id": "c761f3c7-c6f7-47d7-99a9-7b14a4c03506",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			"name": "CalificacionPruebas",
+			"item": [
+				{
+					"name": "Calificacion",
+					"item": [
+						{
+							"name": "POST calificaciones",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"puntaje\":4.6 , \n\t\"comentario\":\"esto es un ejemplo, entonces no importa lo que diga\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"calificaciones",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET calificacion especifico",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"calificaciones",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE calificacion",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"calificaciones",
+										"10"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "GET usuario calificaciones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/1/usuarios/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"s2_festivalcine-api",
+										"api",
+										"calificaciones",
+										"1",
+										"usuarios",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"21"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "21",
-			"totalRequestTime": "21",
-			"iterationResults": {}
-		},
-		{
-			"name": "PUT actualizar critico",
-			"id": "864984f5-c0dd-4d4e-9413-06de8b985f8b",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"24"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "24",
-			"totalRequestTime": "24",
-			"iterationResults": {}
-		},
-		{
-			"name": "DELETE critico",
-			"id": "02371b3c-07f7-4e39-9be4-00d3712c4031",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"19"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "19",
-			"totalRequestTime": "19",
-			"iterationResults": {}
-		},
-		{
-			"name": "POST añadir pelicula a critico",
-			"id": "77df7f4f-1d65-43f0-9bf1-e67ec2eb1e1e",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/10",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"31"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "31",
-			"totalRequestTime": "31",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET peliculas de un critico especifico",
-			"id": "678653e0-1925-4208-ad8e-ff81cac8f2df",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/1",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"25"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "25",
-			"totalRequestTime": "25",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET pelicula de un critico en especifico",
-			"id": "92ed5e52-87bd-4761-97c2-29b9a5ddb554",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"131"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "131",
-			"totalRequestTime": "131",
-			"iterationResults": {}
-		},
-		{
-			"name": "DELETE elimina peicula esficifico de critico especifico",
-			"id": "66ce1628-b8e1-456d-a1c1-9f3f481eb980",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/1",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"15"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "15",
-			"totalRequestTime": "15",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET funciones de un critico en especifico",
-			"id": "e59b673d-c2fe-4273-bf26-e3b98c4e6545",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"72"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "72",
-			"totalRequestTime": "72",
-			"iterationResults": {}
-		},
-		{
-			"name": "DELETE elimina funcion especifica de critico especifico",
-			"id": "e4e4113c-ad11-41cb-ade8-ba6f7ea1eff7",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"13"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "13",
-			"totalRequestTime": "13",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET funcion especifica critico especifico",
-			"id": "74a8be99-d3f8-4c52-9c61-454a5c524a96",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"14"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "14",
-			"totalRequestTime": "14",
-			"iterationResults": {}
-		},
-		{
-			"name": "POST añadir funcion critico",
-			"id": "6a2f6bb5-9346-454e-985a-7008f988fe31",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/1/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"12"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "12",
-			"totalRequestTime": "12",
-			"iterationResults": {}
-		},
-		{
-			"name": "POST añadir calificacion a critico especifico",
-			"id": "2c4aebc2-17b8-4291-b198-149a6a73a289",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"19"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "19",
-			"totalRequestTime": "19",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET calificaciones de un critico en especifico",
-			"id": "211b31d5-9329-4318-93dc-626616208753",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"34"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "34",
-			"totalRequestTime": "34",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET calificacion especifica de un critico en especifico",
-			"id": "b890f687-315a-4946-9149-caf63af40bdb",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"14"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "14",
-			"totalRequestTime": "14",
-			"iterationResults": {}
-		},
-		{
-			"name": "DELETE calificacion especifica de un critico",
-			"id": "bce822ab-e4da-420d-bb7a-f445cd95747e",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"16"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "16",
-			"totalRequestTime": "16",
-			"iterationResults": {}
-		},
-		{
-			"name": "POST calificaciones",
-			"id": "6f7147f2-ebf4-46d1-9216-a779ef74d308",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"39"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "39",
-			"totalRequestTime": "39",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET calificacion especifico",
-			"id": "993579e3-663b-4cd8-8906-8d56aa63f060",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"10"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "10",
-			"totalRequestTime": "10",
-			"iterationResults": {}
-		},
-		{
-			"name": "DELETE calificacion",
-			"id": "3618b923-b38f-488c-984a-ea06a4473e57",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"12"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "12",
-			"totalRequestTime": "12",
-			"iterationResults": {}
-		},
-		{
-			"name": "GET usuario calificaciones",
-			"id": "d03eeb72-ccc5-4bd5-8345-deb632672d3c",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/1/usuarios/",
-			"totalTime": 0,
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {},
-			"times": [
-				"20"
-			],
-			"allTests": [
-				{}
-			],
-			"time": "20",
-			"totalRequestTime": "20",
-			"iterationResults": {}
+			]
 		}
-	],
-	"totalPass": 0,
-	"totalFail": 0,
-	"totalTime": 1990,
-	"lifecycle": "done",
-	"requests": [
-		{
-			"name": "POST critico",
-			"id": "9a7d8621-d0d9-4f52-8396-40de65a1de06",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET critico especifico",
-			"id": "c761f3c7-c6f7-47d7-99a9-7b14a4c03506",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "PUT actualizar critico",
-			"id": "864984f5-c0dd-4d4e-9413-06de8b985f8b",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "DELETE critico",
-			"id": "02371b3c-07f7-4e39-9be4-00d3712c4031",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "POST añadir pelicula a critico",
-			"id": "77df7f4f-1d65-43f0-9bf1-e67ec2eb1e1e",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/10",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET peliculas de un critico especifico",
-			"id": "678653e0-1925-4208-ad8e-ff81cac8f2df",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/1",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET pelicula de un critico en especifico",
-			"id": "92ed5e52-87bd-4761-97c2-29b9a5ddb554",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/1/peliculas/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "DELETE elimina peicula esficifico de critico especifico",
-			"id": "66ce1628-b8e1-456d-a1c1-9f3f481eb980",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/peliculas/1",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET funciones de un critico en especifico",
-			"id": "e59b673d-c2fe-4273-bf26-e3b98c4e6545",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "DELETE elimina funcion especifica de critico especifico",
-			"id": "e4e4113c-ad11-41cb-ade8-ba6f7ea1eff7",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET funcion especifica critico especifico",
-			"id": "74a8be99-d3f8-4c52-9c61-454a5c524a96",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "POST añadir funcion critico",
-			"id": "6a2f6bb5-9346-454e-985a-7008f988fe31",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/funciones/1/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "POST añadir calificacion a critico especifico",
-			"id": "2c4aebc2-17b8-4291-b198-149a6a73a289",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET calificaciones de un critico en especifico",
-			"id": "211b31d5-9329-4318-93dc-626616208753",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET calificacion especifica de un critico en especifico",
-			"id": "b890f687-315a-4946-9149-caf63af40bdb",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "DELETE calificacion especifica de un critico",
-			"id": "bce822ab-e4da-420d-bb7a-f445cd95747e",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/criticos/10/calificaciones/10/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "POST calificaciones",
-			"id": "6f7147f2-ebf4-46d1-9216-a779ef74d308",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET calificacion especifico",
-			"id": "993579e3-663b-4cd8-8906-8d56aa63f060",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "DELETE calificacion",
-			"id": "3618b923-b38f-488c-984a-ea06a4473e57",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/10",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 204,
-				"name": "No Content",
-				"detail": {
-					"name": "No Content",
-					"detail": "The server successfully processed the request, but is not returning any content."
-				}
-			},
-			"testPassFailCounts": {}
-		},
-		{
-			"name": "GET usuario calificaciones",
-			"id": "d03eeb72-ccc5-4bd5-8345-deb632672d3c",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/calificaciones/1/usuarios/",
-			"time": "2018-09-11T00:26:30.699Z",
-			"responseCode": {
-				"code": 200,
-				"name": "OK",
-				"detail": {
-					"name": "OK",
-					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
-				}
-			},
-			"testPassFailCounts": {}
-		}
-	],
-	"synced": false
+	]
 }

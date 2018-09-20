@@ -58,7 +58,7 @@ public class FestivalCriticoResource
      */
     @POST
     @Path("{criticoId: \\d+}")
-    public CriticoDTO addCritico(@PathParam("festivalId") Long festivalId, @PathParam("criticoId") Long criticoId)
+    public CriticoDTO addCritico(@PathParam("festivalId") Long festivalId, @PathParam("criticoId") Long criticoId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "FestivalResource addCritico: input: festivalId: {0} , criticoId: {1}", new Object[]{festivalId, criticoId});
         if (criticoLogic.getCritico(criticoId) == null) {

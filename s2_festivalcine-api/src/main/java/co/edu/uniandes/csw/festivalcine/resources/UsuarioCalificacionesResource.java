@@ -75,7 +75,7 @@ public class UsuarioCalificacionesResource
      */
     @POST
     @Path("{calificacionId: \\d+}")
-    public CalificacionDTO addCalificacion(@PathParam("usuariosId") Long usuariosId, @PathParam("calificacionesId") Long calificacionId) 
+    public CalificacionDTO addCalificacion(@PathParam("usuariosId") Long usuariosId, @PathParam("calificacionesId") Long calificacionId) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "UsuarioResource addCalificacion: input: usuariosID: {0} , calificacionsId: {1}", new Object[]{usuariosId, calificacionId});
         if (calificacionLogic.getCalificacion(calificacionId) == null) 

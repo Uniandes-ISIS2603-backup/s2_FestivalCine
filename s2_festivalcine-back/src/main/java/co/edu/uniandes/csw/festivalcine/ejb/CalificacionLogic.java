@@ -60,24 +60,25 @@ public class CalificacionLogic
         return calificaciones;
     }
     
-    public CalificacionEntity getCalificacion(Long calificacionesId)
+    public CalificacionEntity getCalificacion(Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la calificacion con id = {0}", calificacionesId);
         CalificacionEntity calificacionEntity = persistence.find(calificacionesId);
         if(calificacionEntity == null)
         {
-            LOGGER.log(Level.INFO, "La calificacion con el id = {0} no existe", calificacionesId);
+            throw new BusinessLogicException("La calificacion no existe");
         }
         LOGGER.log(Level.INFO, "Termina proceso de consultar la calificacion con id = {0}", calificacionesId);
         return calificacionEntity;
     }
     
-    public CalificacionEntity updateCalificacion(Long calificacionesId, CalificacionEntity calificacionEntity) throws BusinessLogicException
+    public CalificacionEntity updateCalificacion(CalificacionEntity calificacionEntity) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la calificacion con id = {0}", calificacionesId);
-        if((calificacionEntity.getUsuario().getId()) == null)
+        
+        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la calificacion con id = {0}", calificacionEntity.getId());
+        if(validateCalificacion(calificacionEntity.getId()))
         {
-            throw new BusinessLogicException("El usuario es inválido");
+            throw new BusinessLogicException("La calificacion es inválido");
         }
         CalificacionEntity newEntity = persistence.update(calificacionEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la calificacion con el id = {0}", calificacionEntity.getId());
@@ -94,12 +95,17 @@ public class CalificacionLogic
     public UsuarioEntity addUsuario(Long calificacionesId, Long usuariosId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de asociarle el usuario a la calificacion con id = {0}", calificacionesId);
+        UsuarioEntity usuarioEntity = usuarioPersistence.findUsuario(usuariosId);
+        if(usuarioEntity == null)
+        {
+            persistence.delete(calificacionesId);
+            throw new BusinessLogicException("El usuario no existe");
+        }
         CalificacionEntity calificacionEntity = persistence.find(calificacionesId);
         if(calificacionEntity.getUsuario() != null)
         {
             throw new BusinessLogicException("La calificacion ya tiene un usuario asignado");
         }
-        UsuarioEntity usuarioEntity = usuarioPersistence.findUsuario(usuariosId);
         List<CalificacionEntity> lista = usuarioEntity.getCalificaciones();
         lista.add(calificacionEntity);
         usuarioEntity.setCalificaciones(lista);
@@ -112,5 +118,17 @@ public class CalificacionLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar el usuario del critico con id = {0}" + calificacionesId);
         UsuarioEntity usuarioEntity = persistence.find(calificacionesId).getUsuario();
         return usuarioEntity;
+    }
+    
+    public boolean validateCalificacion(Long calificacionesId)
+    {
+        boolean result = false;
+        if(calificacionesId == null)
+            result = true;
+        else if(calificacionesId <= 0)
+            result = true;
+        else if(persistence.find(calificacionesId) == null)
+            result = true;
+        return result;
     }
 }

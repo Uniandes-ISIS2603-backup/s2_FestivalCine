@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 
 import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
@@ -77,7 +76,7 @@ public class CalificacionResource
     
     @GET
     @Path("{calificacionesId: \\d+}")
-    public CalificacionDTO getCalificacion(@PathParam("calificacionesId") Long calificacionesId)
+    public CalificacionDTO getCalificacion(@PathParam("calificacionesId") Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CalificaciónResource getCalificacion: input: {0}", calificacionesId);
         CalificacionEntity calificacionEntity = calificacionLogic.getCalificacion(calificacionesId);
@@ -100,7 +99,7 @@ public class CalificacionResource
         {
             throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
         }
-        CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionLogic.updateCalificacion(calificacionesId, calificacion.toEntity()));
+        CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionLogic.updateCalificacion(calificacion.toEntity()));
        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: output: {0}", calificacionDTO.toString());
        return calificacionDTO;
     }
@@ -108,7 +107,7 @@ public class CalificacionResource
     
     @DELETE
     @Path("{calificacionesID: \\d+}")
-    public void deleteCalificacion(@PathParam("calificacionesId") Long calificacionesId)
+    public void deleteCalificacion(@PathParam("calificacionesId") Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CalificacionResource deleteCalificacion: input: {0}", calificacionesId);
         CalificacionEntity entity = calificacionLogic.getCalificacion(calificacionesId);
