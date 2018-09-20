@@ -92,5 +92,34 @@ public List<TeatroEntity> findAll() {
 
         em.remove(teatroEntity);
     }
+    
+            
+    /**
+     * Encuentra un teatro por su nombre
+     * @param name nombre del teatro
+     * @return la entity del teatro encontrado
+     */ 
+    public TeatroEntity findUserByName(String name) 
+     {
+        LOGGER.log(Level.INFO, "Consultando teatro por nombre ", name);
+        TypedQuery query = em.createQuery("Select e From TeatroEntity e where e.nombre = :nombre", TeatroEntity.class); 
+        query = query.setParameter("nombre", name);
+        List<TeatroEntity> sameName = query.getResultList();
+        TeatroEntity result;
+        if (sameName == null) 
+        {
+            result = null;
+        } 
+        else if (sameName.isEmpty()) 
+        {
+            result = null;
+        } 
+        else 
+        {
+            result = sameName.get(0);
+        }
+        LOGGER.log(Level.INFO, "Saliendo de consultar teatro por nombre ", name);
+        return result;
+    }
 
 }

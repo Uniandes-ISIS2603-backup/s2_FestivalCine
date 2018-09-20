@@ -37,8 +37,7 @@ public class TeatroLogic {
     public TeatroEntity createTeatro(TeatroEntity teatroEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del teatro");
         
-        TeatroEntity teatroVerificar = persistence.find(teatroEntity.getId());
-        if(teatroVerificar.getNombre().equals(teatroEntity.getNombre()))
+         if (persistence.findUserByName(teatroEntity.getNombre()) != null)
         {
             throw new BusinessLogicException("Ya existe un teatro con el nombre \"" + teatroEntity.getNombre() + "\"");
         }

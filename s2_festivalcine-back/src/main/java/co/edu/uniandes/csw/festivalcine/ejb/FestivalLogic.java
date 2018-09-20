@@ -47,7 +47,7 @@ public class FestivalLogic {
         
         if (persistence.findUserByName(festivalEntity.getNombre()) != null)
         {
-            throw new BusinessLogicException("Ya existe un usuario con el nombre \"" + festivalEntity.getNombre() + "\"");
+            throw new BusinessLogicException("Ya existe un festival con el nombre \"" + festivalEntity.getNombre() + "\"");
         }
             
         // Invoca la persistencia para crear el festival
