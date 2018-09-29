@@ -40,22 +40,6 @@ public class SalaEntity extends BaseEntity implements Serializable {
     @ManyToOne(fetch =FetchType.LAZY)
     private TeatroEntity teatro;
     
-
-    public Integer getNumSillasGene() {
-        return numSillasGene;
-    }
-
-    public void setNumSillasGene(Integer numSillasGene) {
-        this.numSillasGene = numSillasGene;
-    }
-
-    public Integer getNumSillasPref() {
-        return numSillasPref;
-    }
-
-    public void setNumSillasPref(Integer numSillasPref) {
-        this.numSillasPref = numSillasPref;
-    }
     
     public Integer getNumero() {
         return numero;
