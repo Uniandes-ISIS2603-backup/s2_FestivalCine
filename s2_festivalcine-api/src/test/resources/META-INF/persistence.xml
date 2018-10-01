@@ -4,8 +4,19 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <!--Toca entity por entity, exclude-unlisted-clases = false no funciona-->
     <class>co.edu.uniandes.csw.bookstore.entities.EditorialEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.BandaAnuncioEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.CriticoEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.FestivalEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.FuncionEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.ReservaEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.SalaEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.SillaEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.TeatroEntity</class>
+    <class>co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
- <shared-cache-mode>NONE</shared-cache-mode>
+    <shared-cache-mode>NONE</shared-cache-mode>
     <properties>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
       <property name="eclipselink.target-database" value="Derby"/>
