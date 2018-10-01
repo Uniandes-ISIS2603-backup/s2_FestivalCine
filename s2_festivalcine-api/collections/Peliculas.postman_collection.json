@@ -8,9 +8,9 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/peliculas",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas",
 				"method": "GET",
 				"header": [
 					{
@@ -28,9 +28,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/peliculas/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
 				"method": "GET",
 				"header": [
 					{
@@ -48,9 +48,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/peliculas/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
 				"method": "POST",
 				"header": [
 					{
@@ -68,9 +68,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/peliculas/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
 				"method": "PUT",
 				"header": [
 					{
@@ -88,9 +88,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/peliculas/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
 				"method": "DELETE",
 				"header": [
 					{

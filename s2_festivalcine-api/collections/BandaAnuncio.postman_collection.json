@@ -8,9 +8,9 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -22,9 +22,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -36,9 +36,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -50,9 +50,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -64,9 +64,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
 				"method": "PUT",
 				"header": [
 					{
@@ -84,9 +84,9 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
 			"request": {
-				"url": "http://localhost:8080/s2_festivalcine-api/api/bandaAnuncio/1",
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
 				"method": "DELETE",
 				"header": [
 					{

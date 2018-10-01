@@ -42,9 +42,9 @@
 	"globals": null,
 	"results": [
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "56f90657-f1ec-4b56-9ea6-01f4c1b52e39",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -66,9 +66,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "c0f40f75-b5f0-4e2d-b005-99fa965ed645",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -90,9 +90,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "be7d5bae-6e1c-4c36-afcc-015e6d11dd10",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 400,
@@ -114,9 +114,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"id": "dba3ec82-c997-45e5-b7cd-45b905f04f94",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -138,9 +138,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"id": "5560726c-3e4c-4015-ba94-a12c99edaefb",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -162,9 +162,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "bd38d9da-6f9c-4fa5-ad4e-907974503953",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309227",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309227",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 400,
@@ -186,9 +186,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "76cf68a1-8461-4b6b-851c-5b92af46a876",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/1014309",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -210,9 +210,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "4216df30-f4ee-40d1-a385-b78f20c12915",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -234,9 +234,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "ed92872c-d456-4422-ba0e-9e211fcb1a31",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 200,
@@ -258,9 +258,9 @@
 			"iterationResults": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservasId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservasId",
 			"id": "f6fcb22b-40fc-4708-bb33-a79ceb20f9df",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/1014309",
 			"totalTime": 0,
 			"responseCode": {
 				"code": 204,
@@ -288,9 +288,9 @@
 	"lifecycle": "done",
 	"requests": [
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "56f90657-f1ec-4b56-9ea6-01f4c1b52e39",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -303,9 +303,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "c0f40f75-b5f0-4e2d-b005-99fa965ed645",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -318,9 +318,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"id": "be7d5bae-6e1c-4c36-afcc-015e6d11dd10",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 400,
@@ -333,9 +333,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"id": "dba3ec82-c997-45e5-b7cd-45b905f04f94",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -348,9 +348,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"id": "5560726c-3e4c-4015-ba94-a12c99edaefb",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -363,9 +363,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "bd38d9da-6f9c-4fa5-ad4e-907974503953",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309227",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309227",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 400,
@@ -378,9 +378,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "76cf68a1-8461-4b6b-851c-5b92af46a876",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/1014309",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -393,9 +393,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "4216df30-f4ee-40d1-a385-b78f20c12915",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -408,9 +408,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/usuarios/usuariosId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/usuariosId",
 			"id": "ed92872c-d456-4422-ba0e-9e211fcb1a31",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/usuarios/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/1014309",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 200,
@@ -423,9 +423,9 @@
 			"testPassFailCounts": {}
 		},
 		{
-			"name": "http://localhost:8080/s2_festivalcine-api/api/reservasId",
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservasId",
 			"id": "f6fcb22b-40fc-4708-bb33-a79ceb20f9df",
-			"url": "http://localhost:8080/s2_festivalcine-api/api/reservas/1014309",
+			"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/1014309",
 			"time": "2018-08-31T22:48:04.866Z",
 			"responseCode": {
 				"code": 204,
