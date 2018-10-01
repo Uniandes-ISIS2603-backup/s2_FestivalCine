@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -116,7 +115,6 @@ public class SalaResource {
     @Path("{salasId: \\d+}")
     public SalaDTO updateSala(@PathParam("salasId") Long salasId, SalaDTO sala) throws WebApplicationException {
        LOGGER.log(Level.INFO, "SalaResource updateSala: input: id:{0} , sala: {1}", new Object[]{salasId, sala.toString()});
-       sala.setId(salasId);
        if (salaLogic.getSala(salasId) == null) {
            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
        }

@@ -26,10 +26,11 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class FuncionEntity extends BaseEntity implements Serializable {
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaInicio;
     
-    @Temporal(TemporalType.DATE)
+    
+    @Temporal(TemporalType.TIMESTAMP)
     private Date horaFin;
     
     private Integer precioBase;
