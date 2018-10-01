@@ -3,7 +3,6 @@
   <persistence-unit name="FestivalCinePU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <!--Toca entity por entity, exclude-unlisted-clases = false no funciona-->
-    <class>co.edu.uniandes.csw.bookstore.entities.EditorialEntity</class>
     <class>co.edu.uniandes.csw.festivalcine.entities.BandaAnuncioEntity</class>
     <class>co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity</class>
     <class>co.edu.uniandes.csw.festivalcine.entities.CriticoEntity</class>
