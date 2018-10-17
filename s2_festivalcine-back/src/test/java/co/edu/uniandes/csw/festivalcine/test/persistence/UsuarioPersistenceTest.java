@@ -5,10 +5,7 @@ package co.edu.uniandes.csw.festivalcine.test.persistence;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +19,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
@@ -206,14 +201,14 @@ public class UsuarioPersistenceTest {
      * Prueba para encontrar un usuario
      */
      //@Test
-     public void findUserByNameTest()
+     public void findUserByEmailTest()
      {
         UsuarioEntity entity = data.get(0);
-        UsuarioEntity newEntity = usuarioPersistence.findUserByName(entity.getNombres());
+        UsuarioEntity newEntity = usuarioPersistence.findUserByCorreo(entity.getEmail());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getNombres(), newEntity.getNombres());
+        Assert.assertEquals(entity.getEmail(), newEntity.getEmail());
 
-        newEntity = usuarioPersistence.findUserByName(null);
+        newEntity = usuarioPersistence.findUserByCorreo(null);
         Assert.assertNull(newEntity);
      }
 

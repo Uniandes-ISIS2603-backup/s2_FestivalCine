@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -62,7 +61,7 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     
     @PodamExclude
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
-    private List<CalificacionEntity> calificaciones = new ArrayList();
+    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
 
     /**
      * Metodo que obtiene todas las reservas

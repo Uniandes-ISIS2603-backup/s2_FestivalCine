@@ -86,30 +86,30 @@ public class UsuarioPersistence
     }
     
      /**
-      * Metodo que encuentra un usuario por su nombre
-      * @param name
+      * Metodo que encuentra un usuario por su correo
+      * @param email
       * @return 
       */
-     public UsuarioEntity findUserByName(String name) 
+     public UsuarioEntity findUserByCorreo(String email) 
      {
-        LOGGER.log(Level.INFO, "Consultando usuario por nombre ", name);
-        TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.nombres = :nombres", UsuarioEntity.class); 
-        query = query.setParameter("nombres", name);
-        List<UsuarioEntity> sameName = query.getResultList();
+        LOGGER.log(Level.INFO, "Consultando usuario por correo", email);
+        TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.email= :email", UsuarioEntity.class); 
+        query = query.setParameter("email", email);
+        List<UsuarioEntity> sameEmail = query.getResultList();
         UsuarioEntity result;
-        if (sameName == null) 
+        if (sameEmail == null) 
         {
             result = null;
         } 
-        else if (sameName.isEmpty()) 
+        else if (sameEmail.isEmpty()) 
         {
             result = null;
         } 
         else 
         {
-            result = sameName.get(0);
+            result = sameEmail.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar usuario por nombre ", name);
+        LOGGER.log(Level.INFO, "Saliendo de consultar usuario por email", email);
         return result;
     }
 }
