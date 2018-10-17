@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -34,22 +35,47 @@ public class ReservaSillasResource
      private static final Logger LOGGER = Logger.getLogger(ReservaSillasResource.class.getName());
      
      @Inject
-     private ReservaSillasLogic reservaSillaLogic;
+     private ReservaSillasLogic reservaSillasLogic;
      
       @Inject
     private SillaLogic sillaLogic;
-      
-       /**
+     
+    /**
+     * Guarda una silla dentro de una reserva con la informacion que recibe el
+     * la URL. Se devuelve la silla que se guarda en la reserva.
+     *
+     * @param reservasId Identificador de la reserva que se esta
+     * actualizando. Este debe ser una cadena de dígitos.
+     * @param sillasId Identificador de la silla que se desea guardar. Este debe
+     * ser una cadena de dígitos.
+     * @return JSON {@link SillaDTO} - La silla guardada en la reserva.
+     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
+     * Error de lógica que se genera cuando no se encuentra la silla.
+     */
+    @POST
+    @Path("{sillasId: \\d+}")
+    public SillaDTO addSilla(@PathParam("reservasId") Long reservasId, @PathParam("sillasId") Long sillasId) {
+        LOGGER.log(Level.INFO, "ReservaSillasResource addSilla: input: reservasID: {0} , sillasId: {1}", new Object[]{reservasId, sillasId});
+        if (sillaLogic.getSilla(sillasId) == null)
+        {
+            throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+        }
+        SillaDTO sillaDTO = new SillaDTO(reservaSillasLogic.addSilla(reservasId, sillasId));
+        LOGGER.log(Level.INFO, "ReservaSillasResource addSilla: output: {0}", sillaDTO.toString());
+        return sillaDTO;
+    }
+
+     /**
      * 
      * @param reservasId
      * @return 
      */
     @GET
     @Path("{reservasId: \\d+}/sillas")
-    public List<SillaDTO> getSillasResource(@PathParam("reservasId") Long reservasId) 
+    public List<SillaDTO> getSillas(@PathParam("reservasId") Long reservasId) 
     {
-        List<SillaDTO> listaSillas = listEntitySilla2DTO(reservaSillaLogic.getSillas());
-        LOGGER.log(Level.INFO, "BookResource getBooks: output: {0}", listaSillas.toString());
+        List<SillaDTO> listaSillas = listEntitySilla2DTO(reservaSillasLogic.getSillas());
+        LOGGER.log(Level.INFO, "SillaResource getSillas: output: {0}", listaSillas.toString());
         return listaSillas;
     }
     
@@ -72,10 +98,11 @@ public class ReservaSillasResource
     public SillaDTO getSilla(@PathParam("reservasId") Long reservasId, @PathParam("sillasId") Long sillasId) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "ReservaResource getSilla: input: reservasID: {0} , sillasId: {1}", new Object[]{reservasId, sillasId});
-        if (sillaLogic.getSilla(sillasId) == null) {
+        if (sillaLogic.getSilla(sillasId) == null) 
+        {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + "/sillas/" + sillasId + " no existe.", 404);
         }
-        SillaDTO sillaDTO = new SillaDTO(reservaSillaLogic.getSilla(reservasId, sillasId));
+        SillaDTO sillaDTO = new SillaDTO(reservaSillasLogic.getSilla(reservasId, sillasId));
         LOGGER.log(Level.INFO, "ReservaResource getSilla: output: {0}", sillaDTO.toString());
         return sillaDTO;
     }

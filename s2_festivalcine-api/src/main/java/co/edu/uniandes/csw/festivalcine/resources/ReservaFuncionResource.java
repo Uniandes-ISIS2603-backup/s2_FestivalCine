@@ -59,7 +59,7 @@ public class ReservaFuncionResource
      * Error de lógica que se genera cuando no se encuentra la funcion .
      */
     @POST
-    @Path("{reservasId: \\d+}")
+    @Path("{funcionesId: \\d+}")
     public FuncionDTO addFuncion(@PathParam("reservasId") Long reservasId, @PathParam("funcionesId") Long funcionesId) {
         LOGGER.log(Level.INFO, "ReservasResource addReserva: input: reservasID: {0} , funcionesId: {1}", new Object[]{reservasId, funcionesId});
         if (funcionLogic.getFuncion(funcionesId) == null) {

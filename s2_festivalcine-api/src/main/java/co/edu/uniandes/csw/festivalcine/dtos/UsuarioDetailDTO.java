@@ -5,11 +5,14 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
@@ -41,8 +44,8 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
     public UsuarioDetailDTO(UsuarioEntity usuarioEntity)
     {
         super();
-        reservas = new ArrayList<ReservaDTO>();
-        calificaciones = new ArrayList<CalificacionDTO>();
+        reservas = new ArrayList<>();
+        calificaciones = new ArrayList<>();
     }
     
     /**
@@ -99,11 +102,21 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
             }
             usuarioEntity.setReservas(reservasEntity);
         }
+         if (calificaciones != null) 
+        {
+            List<CalificacionEntity> calificacionesEntity = new ArrayList<>();
+            for (CalificacionDTO dtoCalificacion : calificaciones) 
+            {
+                calificacionesEntity.add(dtoCalificacion.toEntity());
+            }
+            usuarioEntity.setCalificaciones(calificacionesEntity);
+        }
         return usuarioEntity;
     }
     
-    /**
-     * Eliminé el método toString
-     * @return 
-     */
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
 }

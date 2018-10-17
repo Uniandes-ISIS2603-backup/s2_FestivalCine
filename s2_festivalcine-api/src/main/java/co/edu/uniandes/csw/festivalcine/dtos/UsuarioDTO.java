@@ -247,8 +247,10 @@ public class UsuarioDTO implements Serializable
         return usuarioEntity;
     }
     
-    /**
-     * ELIMINÉ EL MÉTODO TO STRING
-     */
+    @Override
+    public String toString()
+    {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    }
     
 }

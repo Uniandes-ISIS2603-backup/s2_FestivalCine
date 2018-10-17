@@ -5,14 +5,10 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
-import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +51,7 @@ public class UsuarioResource
     /**
      * Inyectar lógica de reserva
      */
-     @Inject
-    private ReservaLogic reservaLogic;
+   
 
     /**
      * Crea un nuevo usuario con la informacion que se recibe en el cuerpo de la
@@ -71,7 +66,7 @@ public class UsuarioResource
     @POST
     public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException 
     {
-         LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario.toString());
         UsuarioEntity usuarioEntity = usuario.toEntity();
         UsuarioEntity nuevoUsuarioEntity = usuarioLogic.createUsuario(usuarioEntity);
         UsuarioDTO nuevoUsuarioDTO = new UsuarioDTO(nuevoUsuarioEntity);
@@ -166,7 +161,7 @@ public class UsuarioResource
         LOGGER.info("UsuarioResource deleteUsuario: output: void");
     }
     
-        /**
+      /**
      * Método que retorna las reservas de un usuario
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro
@@ -182,7 +177,7 @@ public class UsuarioResource
         return UsuarioReservasResource.class;
     }
     
-        /**
+      /**
      * Método que retorna las calificaciones de un usuario
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro

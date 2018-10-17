@@ -11,6 +11,7 @@ import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioCalificacionesLogic;
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import java.util.ArrayList;
@@ -38,30 +39,12 @@ public class UsuarioCalificacionesResource
     private static final Logger LOGGER = Logger.getLogger(UsuarioReservasResource.class.getName());
 
     @Inject
-    private UsuarioCalificacionesLogic usuarioCalificacionesLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
+    private UsuarioCalificacionesLogic usuarioCalificacionesLogic; 
 
     @Inject
     private CalificacionLogic calificacionLogic;
     
      /**
-     * Método que retorna las calificaciones de un usuario
-     * @param usuariosId
-     * @return lista de las calificaciones correspondientes al usuario ingresado por parametro
-     */
-    @GET
-    @Path("{usuariosId: \\d+}/calificaciones")
-    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId) 
-    {
-        if (usuarioCalificacionesLogic.getUsuario(usuariosId) == null) 
-        {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
-        }
-        UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioCalificacionesLogic.getUsuario(usuariosId));
-        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO.toString());
-        return detailDTO.getCalificaciones();
-    }
-    
-    /**
      * Guarda una calificacion dentro de un usuario con la informacion que recibe el
      * la URL. Se devuelve la calificacion que se guarda en el usuario.
      *
@@ -77,14 +60,29 @@ public class UsuarioCalificacionesResource
     @Path("{calificacionId: \\d+}")
     public CalificacionDTO addCalificacion(@PathParam("usuariosId") Long usuariosId, @PathParam("calificacionesId") Long calificacionId) 
     {
-        LOGGER.log(Level.INFO, "UsuarioResource addCalificacion: input: usuariosID: {0} , calificacionsId: {1}", new Object[]{usuariosId, calificacionId});
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource addCalificacion: input: usuariosID: {0} , calificacionsId: {1}", new Object[]{usuariosId, calificacionId});
         if (calificacionLogic.getCalificacion(calificacionId) == null) 
         {
             throw new WebApplicationException("El recurso /calificaciones/" + calificacionId + " no existe.", 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(usuarioCalificacionesLogic.addCalificacion(calificacionId, usuariosId));
-        LOGGER.log(Level.INFO, "Usuario addCalificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource addCalificacion: output: {0}", calificacionDTO.toString());
         return calificacionDTO;
+    }
+    
+     /**
+     * Método que retorna las calificaciones de un usuario
+     * @param usuariosId
+     * @return lista de las calificaciones correspondientes al usuario ingresado por parametro
+     */
+    @GET
+    @Path("{usuariosId: \\d+}/calificaciones")
+    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId) 
+    {
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: input: {0}", usuariosId);
+        List<CalificacionDTO> listaDTOs = calificacionesListEntity2DTO(usuarioCalificacionesLogic.getCalificaciones(usuariosId));
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: output: {0}", listaDTOs.toString());
+        return listaDTOs;    
     }
     
      /**
@@ -115,33 +113,19 @@ public class UsuarioCalificacionesResource
         return calificacionDTO;
     }
     
-//    /**
-//     * Convierte una lista de ReservaEntity a una lista de ReservaDetailDTO.
-//     *
-//     * @param entityList Lista de ReservaEntity a convertir.
-//     * @return Lista de ReservaDTO convertida.
-//     */
-//    private List<ReservaDetailDTO> calificacionesListEntity2DTO(List<CalificacionEntity> entityList) 
-//    {
-//        List<CalificacionDetailDTO> list = new ArrayList();
-//        for (CalificacionEntity entity : entityList) 
-//        {
-//            list.add(new ReservaDetailDTO(entity));
-//        }
-//        return list;
-//    }
+    /**
+    * Convierte una lista de ReservaEntity a una lista de ReservaDetailDTO.
+    * @param entityList Lista de ReservaEntity a convertir.
+     * @return Lista de ReservaDTO convertida.
+     */
+    private List<CalificacionDTO> calificacionesListEntity2DTO(List<CalificacionEntity> entityList) 
+    {
+        List<CalificacionDTO> list = new ArrayList();
+        for (CalificacionEntity entity : entityList) 
+        {
+            list.add(new CalificacionDTO(entity));
+        }
+        return list;
+    }
     
-///**
-//     * Convierte una lista de BookEntity a una lista de BookDetailDTO.
-//     *
-//     * @param entityList Lista de BookEntity a convertir.
-//     * @return Lista de BookDTO convertida.
-//     */
-//    private List<CalificacionDetailDTO> booksListEntity2DTO(List<BookEntity> entityList) {
-//        List<BookDetailDTO> list = new ArrayList();
-//        for (BookEntity entity : entityList) {
-//            list.add(new BookDetailDTO(entity));
-//        }
-//        return list;
-//    }
 }

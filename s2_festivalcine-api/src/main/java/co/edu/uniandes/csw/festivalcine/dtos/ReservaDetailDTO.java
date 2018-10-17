@@ -5,9 +5,6 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
@@ -30,6 +27,8 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      * Lista de tipo FuncionDTO, contiene las funciones asociadas con la reserva
      */
     private List<FuncionDTO> funciones;
+    
+    private UsuarioDTO usuario;
   
     //Constructor ----------------------------------------------------------------------------
     
@@ -51,7 +50,7 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
         {
             if(reservaEntity.getSillas() != null)
             {
-                sillas = new ArrayList<SillaDTO>();
+                sillas = new ArrayList<>();
                 for(SillaEntity entitySilla : reservaEntity.getSillas())
                 {
                     sillas.add(new SillaDTO(entitySilla));
@@ -60,7 +59,7 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
             
             if(reservaEntity.getFunciones() != null)
             {
-                funciones = new ArrayList<FuncionDTO>();
+                funciones = new ArrayList<>();
                 for(FuncionEntity entityFuncion : reservaEntity.getFunciones())
                 {
                     funciones.add(new FuncionDTO(entityFuncion));
@@ -96,6 +95,16 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
             reservaEntity.setFunciones(funcionEntity);
         }
         return reservaEntity;
+    }
+    
+    public UsuarioDTO getUsuario()
+    {
+        return usuario;
+    }
+    
+    public void setUsuario(UsuarioDTO pUsuario)
+    {
+        usuario = pUsuario;
     }
     
     /**

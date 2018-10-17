@@ -105,14 +105,9 @@ public class ReservaLogic
      * por ejemplo el nombre.
      * @return la editorial con los cambios actualizados en la base de datos.
      */
-    public ReservaEntity updateReserva(Long reservasId, ReservaEntity reservaEntity) throws BusinessLogicException
+    public ReservaEntity updateReserva(Long reservasId, ReservaEntity reservaEntity)
     {
-        if(reservasId == null)
-        {
-            throw new BusinessLogicException("Ya existe una reserva con el id \"" + reservaEntity.getId() + "\"");
-        }
         LOGGER.log(Level.INFO, "Inicia proceso de actualizar la reserva con id = {0}", reservasId);
-        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
         ReservaEntity newEntity = persistence.updateReserva(reservaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de actualizar la reserva con id = {0}", reservaEntity.getId());
         return newEntity;

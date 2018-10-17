@@ -5,8 +5,6 @@
  */
 package co.edu.uniandes.csw.festivalcine.resources;
 
-import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.mappers.BusinessLogicExceptionMapper;
@@ -30,13 +28,8 @@ import javax.ws.rs.WebApplicationException;
 
 import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
-import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
-import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
-import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
-import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+
 
 /**
  *
@@ -51,17 +44,9 @@ public class ReservaResource
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaResource.class.getName());
     
-     @Inject
+    @Inject
     private ReservaLogic reservaLogic; 
      
-     @Inject
-    private UsuarioLogic usuarioLogic;
-     
-      @Inject
-    private FuncionLogic funcionLogic;
-      
-      @Inject
-    private SillaLogic sillaLogic;
   /**
      * Crea una nueva reserva con la informacion que se recibe en el cuerpo de
      * la petición y se regresa un objeto identico con un id auto-generado por
@@ -96,13 +81,12 @@ public class ReservaResource
     {
         LOGGER.info("ReservaResource getReservas: input: void");
         List<ReservaDetailDTO> listaReservas = listEntity2DetailDTO(reservaLogic.getReservas());
-        LOGGER.log(Level.INFO, "BookResource getBooks: output: {0}", listaReservas.toString());
+        LOGGER.log(Level.INFO, "ReservaResource getReservas: output: {0}", listaReservas.toString());
         return listaReservas;
     }
 
     /**
      * Busca la reserva con el id asociado recibido en la URL y la devuelve.
-     *
      * @param reservasId Identificador de la reserva que se esta buscando.
      * Este debe ser una cadena de dígitos.
      * @return JSON {@link ReservaDTO} - La reserva buscada
@@ -111,8 +95,8 @@ public class ReservaResource
      */
     @GET
     @Path("{reservasId: \\d+}")
-    public ReservaDetailDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException {
-       
+    public ReservaDetailDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException 
+    {   
        LOGGER.log(Level.INFO, "ReservaResource getReserva: input: {0}", reservasId);
         ReservaEntity reservaEntity = reservaLogic.getReserva(reservasId);
         if (reservaEntity == null) {
@@ -137,22 +121,16 @@ public class ReservaResource
      */
     @PUT
     @Path("{reservasId: \\d+}")
-    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException {
-       LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva.toString()});
+    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException 
+    {
+        LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva.toString()});
         reserva.setId(reservasId);
         ReservaDetailDTO detailDTO = null;
         if (reservaLogic.getReserva(reservasId) == null) 
         {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        try 
-        {
-            detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
-        }
-        catch (BusinessLogicException ex) 
-        {
-            Logger.getLogger(ReservaResource.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
         LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO.toString());
         return detailDTO;
     }
@@ -179,11 +157,7 @@ public class ReservaResource
         reservaLogic.deleteReserva(reservasId);
         LOGGER.info("ReservaResource deleteReserva: output: void");        
     }
-    
-    /**
-     * RELACIONES CON FUNCIONES
-     */
-    
+   
     /**
      * Conexión con el servicio de funciones para una reserva.
      * {@link ReservaResource}
@@ -199,13 +173,13 @@ public class ReservaResource
      * Error de lógica que se genera cuando no se encuentra la reserva.
      */
     @Path("{reservasId: \\d+}/funciones")
-    public Class<ReservaResource> getReservaFuncionesResource(@PathParam("reservasId") Long reservasId) 
+    public Class<ReservaFuncionResource> getReservaFuncionesResource(@PathParam("reservasId") Long reservasId) 
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        return ReservaResource.class;
+        return ReservaFuncionResource.class;
     }
  
     /**
@@ -223,13 +197,13 @@ public class ReservaResource
      * Error de lógica que se genera cuando no se encuentra la reserva.
      */
     @Path("{reservasId: \\d+}/sillas")
-    public Class<ReservaResource> getReservaSillasResource(@PathParam("reservasId") Long reservasId) 
+    public Class<ReservaSillasResource> getReservaSillasResource(@PathParam("reservasId") Long reservasId) 
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
-        return ReservaResource.class;
+        return ReservaSillasResource.class;
     }
   
     
@@ -243,28 +217,11 @@ public class ReservaResource
      * que vamos a convertir a DTO.
      * @return la lista de editoriales en forma DTO (json)
      */
-    private List<ReservaDetailDTO> listEntity2DetailDTO(List<ReservaEntity> entityList) {
+    private List<ReservaDetailDTO> listEntity2DetailDTO(List<ReservaEntity> entityList)
+    {
         List<ReservaDetailDTO> list = new ArrayList<>();
         for (ReservaEntity entity : entityList) {
             list.add(new ReservaDetailDTO(entity));
-        }
-        return list;
-    }
- 
-    /**
-     * Convierte una lista de entidades a DTO.
-     *
-     * Este método convierte una lista de objetos EditorialEntity a una lista de
-     * objetos EditorialDTO (json)
-     *
-     * @param entityList corresponde a la lista de editoriales de tipo Entity
-     * que vamos a convertir a DTO.
-     * @return la lista de editoriales en forma DTO (json)
-     */
-    private List<FuncionDTO> listEntityFuncion2DTO(List<FuncionEntity> entityList) {
-        List<FuncionDTO> list = new ArrayList<>();
-        for (FuncionEntity entity : entityList) {
-            list.add(new FuncionDTO(entity));
         }
         return list;
     }

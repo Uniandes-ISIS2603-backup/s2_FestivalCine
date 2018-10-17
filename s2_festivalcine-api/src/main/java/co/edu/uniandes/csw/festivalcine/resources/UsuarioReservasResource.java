@@ -40,8 +40,6 @@ public class UsuarioReservasResource
 
     @Inject
     private ReservaLogic reservaLogic;
-    
-    
 
     /**
      * Guarda una reserva dentro de un usuario con la informacion que recibe el
@@ -60,12 +58,30 @@ public class UsuarioReservasResource
     public ReservaDTO addReserva(@PathParam("usuariosId") Long usuariosId, @PathParam("reservasId") Long reservasId) 
     {
         LOGGER.log(Level.INFO, "UsuarioResource addReserva: input: usuariosID: {0} , reservasId: {1}", new Object[]{usuariosId, reservasId});
-        if (reservaLogic.getReserva(reservasId) == null) {
+        if (reservaLogic.getReserva(reservasId) == null) 
+        {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
         ReservaDTO reservaDTO = new ReservaDTO(usuarioReservasLogic.addReserva(reservasId, usuariosId));
         LOGGER.log(Level.INFO, "Usuario addReserva: output: {0}", reservaDTO.toString());
         return reservaDTO;
+    }
+    
+    /**
+     * Busca y devuelve todos los reservas que existen en el usuario.
+     *
+     * @param usuariosId Identificador del usuario que se esta buscando.
+     * Este debe ser una cadena de dígitos.
+     * @return JSONArray {@link ReservaDetailDTO} - Las reservas del usuario.
+     * Si no hay ninguno retorna una lista vacía.
+     */
+    @GET
+    public List<ReservaDetailDTO> getReservas(@PathParam("usuariosId") Long usuariosId) 
+    {
+        LOGGER.log(Level.INFO, "UsuarioReservasResource getReservas: input: {0}", usuariosId);
+        List<ReservaDetailDTO> listaDetailDTOs = reservasListEntity2DTO(usuarioReservasLogic.getReservas(usuariosId));
+        LOGGER.log(Level.INFO, "UsuarioReservasResource getReservas: output: {0}", listaDetailDTOs.toString());
+        return listaDetailDTOs;
     }
     
      /**
@@ -109,21 +125,6 @@ public class UsuarioReservasResource
         for (ReservaEntity entity : entityList) 
         {
             list.add(new ReservaDetailDTO(entity));
-        }
-        return list;
-    }
-    
-    /**
-     * Convierte una lista de ReservaDetailDTO a una lista de ReservaEntity.
-     *
-     * @param dtos Lista de ReservaDetailDTO a convertir.
-     * @return Lista de ReservaEntity convertida.
-     */
-    private List<ReservaEntity> reservasListDTO2Entity(List<ReservaDetailDTO> dtos) 
-    {
-        List<ReservaEntity> list = new ArrayList<>();
-        for (ReservaDetailDTO dto : dtos) {
-            list.add(dto.toEntity());
         }
         return list;
     }

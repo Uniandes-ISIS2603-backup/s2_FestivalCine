@@ -65,6 +65,8 @@ public class ReservaSillasLogic
         SillaEntity sillaEntity = sillaPersistence.find(sillaId);
         
         sillaEntity.setReserva(reservaEntity);
+        sillaPersistence.update(sillaEntity);
+                
         
         List sillasNuevas = reservaEntity.getSillas();
         sillasNuevas.add(sillaEntity);
