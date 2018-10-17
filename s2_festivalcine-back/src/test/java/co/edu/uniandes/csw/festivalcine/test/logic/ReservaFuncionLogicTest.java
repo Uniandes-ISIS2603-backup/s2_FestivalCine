@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionesLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
@@ -43,7 +43,7 @@ public class ReservaFuncionLogicTest {
     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private ReservaFuncionLogic reservaFuncionLogic;
+    private ReservaFuncionesLogic reservaFuncionLogic;
     
      @Inject
     private FuncionLogic funcionLogic;
@@ -72,7 +72,7 @@ public class ReservaFuncionLogicTest {
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(ReservaEntity.class.getPackage())
                 .addPackage(FuncionEntity.class.getPackage())
-                .addPackage(ReservaFuncionLogic.class.getPackage())
+                .addPackage(ReservaFuncionesLogic.class.getPackage())
                 .addPackage(ReservaPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");

@@ -92,7 +92,7 @@ public class ReservaSillasLogic
      /**
      * Retorna una silla asociado a una reserva
      *
-     * @param reservaId El id de la reserva a buscar.
+     * @param reservasId El id de la reserva a buscar.
      * @param sillasId El id de la sillaa buscar
      * @return La silla encontrado dentro de la reserva.
      * @throws BusinessLogicException Si la silla no se encuentra en la
@@ -102,7 +102,6 @@ public class ReservaSillasLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la silla con id = {0} de la reserva con id = " + reservasId, sillasId);
         List<SillaEntity> sillas = persistence.findReserva(reservasId).getSillas();
         SillaEntity sillaEntity = sillaPersistence.find(sillasId);
-        
         int index = sillas.indexOf(sillaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de consultar la silla con id = {0} de la reserva con id = " + reservasId, sillasId);
         if (index >= 0) 
@@ -111,31 +110,4 @@ public class ReservaSillasLogic
         }
         throw new BusinessLogicException("La silla no está asociado a la reserva");
     }
-    
-    /**
-     * Remplazar sillas de una reserva
-     *
-     * @param sillas Lista de sillas que serán las de la reserva.
-     * @param reservasId El id de la reserva que se quiere actualizar.
-     * @return La lista de sillas actualizada.
-     */
-    public List<SillaEntity> replaceSillas(Long reservasId, List<SillaEntity> sillas)
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la reserva con id = {0}", reservasId);
-        ReservaEntity reservaEntity = persistence.findReserva(reservasId);
-        List<SillaEntity> sillaList = sillaPersistence.findAll();
-        for (SillaEntity silla : sillaList) 
-        {
-            if (sillas.contains(silla)) 
-            {
-                silla.setReserva(reservaEntity);
-            }
-            else if (silla.getReserva() != null && silla.getReserva().equals(reservaEntity)) 
-            {
-                silla.setReserva(null);
-            }
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar la reserva con id = {0}", reservasId);
-        return sillas;
-    } 
 }

@@ -9,7 +9,6 @@ import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.CalificacionPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
@@ -31,26 +30,7 @@ public class UsuarioCalificacionesLogic
     
     @Inject
     private CalificacionPersistence calificacionPersistence;
-    
-    /**
-     *
-     * Obtener un usuario por medio de su id.
-     *
-     * @param editorialsId: id de la editorial para ser buscada.
-     * @return la editorial solicitada por medio de su id.
-     */
-    public UsuarioEntity getUsuario(Long usuariosId) 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar el usuario con id = {0}", usuariosId);
-        // Note que, por medio de la inyección de dependencias se llama al método "find(id)" que se encuentra en la persistencia.
-        UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
-        if (usuarioEntity == null) 
-        {
-            LOGGER.log(Level.SEVERE, "La editorial con el id = {0} no existe", usuariosId);
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar el usuario con id = {0}", usuariosId);
-        return usuarioEntity;
-    }
+   
     
     /**
      * Agregar una calificacion al usuario
@@ -66,7 +46,7 @@ public class UsuarioCalificacionesLogic
         UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
         CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
         calificacionEntity.setUsuario(usuarioEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de agregarle una reserva al usuario con id = {0}", usuariosId);
+        LOGGER.log(Level.INFO, "Termina proceso de agregarle una calificacion al usuario con id = {0}", usuariosId);
         return calificacionEntity;
     }
     
@@ -95,20 +75,11 @@ public class UsuarioCalificacionesLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, calificacionesId);
         List<CalificacionEntity> calificaciones = persistence.findUsuario(usuariosId).getCalificaciones();
         CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
-        
-        int index = -1;
-        
-        if(calificaciones.indexOf(calificacionEntity) >= 0)
-        {
-            index = calificaciones.indexOf(calificacionEntity);
-        }
+         int index = calificaciones.indexOf(calificacionEntity);
         LOGGER.log(Level.INFO, "Termina proceso de consultar la calificacion con id = {0} del usuario con id = " + usuariosId, calificacionesId);
-        
-        if (index >= 0) 
-        {
+        if (index >= 0) {
             return calificaciones.get(index);
         }
-        
-        throw new BusinessLogicException("La calificacion no está asociada a un usuario");
+        throw new BusinessLogicException("La calificacion no esta asociada al usuario");
     }
 }

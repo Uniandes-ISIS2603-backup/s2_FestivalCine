@@ -21,7 +21,7 @@ import javax.inject.Inject;
  * @author PAULA VELANDIA
 */ 
  @Stateless
-public class ReservaFuncionLogic 
+public class ReservaFuncionesLogic 
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaLogic.class.getName());
 
@@ -52,8 +52,8 @@ public class ReservaFuncionLogic
     /**
      * Asocia una Funcion existente a una Reserva
      *
-     * @param reservasId Identificador de la instancia de Reserva
-     * @param funcionesId Identificador de la instancia de Funcion
+     * @param reservaId Identificador de la instancia de Reserva
+     * @param funcionId Identificador de la instancia de Funcion
      * @return Instancia de FunciinEntity que fue asociada a Reserva
      */
     public FuncionEntity addFuncion(Long reservaId, Long funcionId) 
@@ -101,11 +101,7 @@ public class ReservaFuncionLogic
         }
         throw new BusinessLogicException("La función no está asociada a la reserva");
     }
-    
-    /**
-     * No se realizó el método replace funcion porque funcion no conoce sus reservas
-     */
-    
+
     /**
      * Desasocia una funcion existente de una reserva existente
      *

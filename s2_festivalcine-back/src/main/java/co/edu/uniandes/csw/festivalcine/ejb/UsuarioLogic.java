@@ -5,7 +5,6 @@
  */
 package co.edu.uniandes.csw.festivalcine.ejb;
 
-import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
@@ -29,13 +28,7 @@ public class UsuarioLogic
 
     @Inject
     private UsuarioPersistence persistence;
-    
-    @Inject
-    private ReservaPersistence reservaPersistence;
-    
-    @Inject
-    private CalificacionPersistence calificacionPersistence;
-   
+ 
     /**
      * Crea un usuario en la persistencia.
      *
@@ -47,9 +40,9 @@ public class UsuarioLogic
     public UsuarioEntity createUsuario(UsuarioEntity usuarioEntity) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación del usuario");
        
-        if (persistence.findUserByName(usuarioEntity.getNombres()) != null)
+        if (persistence.findUserByCorreo(usuarioEntity.getEmail()) != null)
         {
-            throw new BusinessLogicException("Ya existe un usuario con el nombre \"" + usuarioEntity.getNombres() + "\"");
+            throw new BusinessLogicException("Ya existe un usuario con el email\"" + usuarioEntity.getEmail() + "\"");
         }
         usuarioEntity = persistence.createUsuario(usuarioEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación del usuario");
@@ -85,7 +78,7 @@ public class UsuarioLogic
         UsuarioEntity usuarioEntity = persistence.findUsuario(usuariosId);
         if (usuarioEntity == null) 
         {
-            LOGGER.log(Level.SEVERE, "La editorial con el id = {0} no existe", usuariosId);
+            LOGGER.log(Level.SEVERE, "El usuario con el id = {0} no existe", usuariosId);
         }
         LOGGER.log(Level.INFO, "Termina proceso de consultar el usuario con id = {0}", usuariosId);
         return usuarioEntity;

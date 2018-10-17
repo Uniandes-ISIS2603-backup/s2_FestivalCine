@@ -8,12 +8,8 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.SillaPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,21 +26,8 @@ public class ReservaLogic
     private static final Logger LOGGER = Logger.getLogger(ReservaLogic.class.getName());
 
     @Inject
-    private ReservaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
-    
-    @Inject
-    private UsuarioPersistence usuarioPersistence;
-    
-    @Inject
-    private FuncionPersistence funcionPersistence;
-    
-    @Inject
-    private SillaPersistence sillaPersistence;
-    
-    private List<SillaEntity> sillas;
-    
-     private List<FuncionEntity> funciones;
-    
+    private ReservaPersistence persistence; 
+  
     /**
      * Crea una reserva en la persistencia.
      *
@@ -97,11 +80,11 @@ public class ReservaLogic
     
        /**
      *
-     * Actualizar una editorial.
+     * Actualizar una reserva.
      *
-     * @param editorialsId: id de la editorial para buscarla en la base de
+     * @param reservasId: id de la editorial para buscarla en la base de
      * datos.
-     * @param editorialEntity: editorial con los cambios para ser actualizada,
+     * @param reservaEntity: editorial con los cambios para ser actualizada,
      * por ejemplo el nombre.
      * @return la editorial con los cambios actualizados en la base de datos.
      */

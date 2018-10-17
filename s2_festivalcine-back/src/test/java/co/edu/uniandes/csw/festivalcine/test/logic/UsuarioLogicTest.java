@@ -137,9 +137,9 @@ public class UsuarioLogicTest
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test(expected = BusinessLogicException.class)
-    public void createUsuarioConMismoNombreTest() throws BusinessLogicException {
+    public void createUsuarioConMismoEmailTest() throws BusinessLogicException {
         UsuarioEntity newEntity = factory.manufacturePojo(UsuarioEntity.class);
-        newEntity.setNombres(data.get(0).getNombres());
+        newEntity.setEmail(data.get(0).getEmail());
         usuarioLogic.createUsuario(newEntity);
     }
     
