@@ -91,7 +91,13 @@ public class FuncionDTO implements Serializable{
            } else {
                 this.sala = null;
            }
-           //FALTA PELICULA
+           
+           if (funcionEntity.getPelicula() != null) {
+                this.pelicula = new PeliculaDTO(funcionEntity.getPelicula());
+           } else {
+                this.pelicula = null;
+           }
+           
        }
     }
    

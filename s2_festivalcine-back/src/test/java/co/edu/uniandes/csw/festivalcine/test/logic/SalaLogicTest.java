@@ -103,6 +103,13 @@ public class SalaLogicTest {
             em.persist(sala);
             data.add(sala);
         }
+        FuncionEntity funcion = factory.manufacturePojo(FuncionEntity.class);
+        funcion.setSala(data.get(0));
+        em.persist(funcion);
+        data.get(0).getFuncion().add(funcion);
+
+        
+        
        
     }
     
@@ -183,7 +190,7 @@ public class SalaLogicTest {
     }
     
     /**
-     * Prueba para eliminar una Sala con reservas
+     * Prueba para eliminar una Sala con función
      *
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
@@ -191,5 +198,5 @@ public class SalaLogicTest {
     public void deleteSalaConFuncionesTest() throws BusinessLogicException {
         SalaEntity entity = data.get(0);
         salaLogic.deleteSala(entity.getId());
-    }
+   }
 }

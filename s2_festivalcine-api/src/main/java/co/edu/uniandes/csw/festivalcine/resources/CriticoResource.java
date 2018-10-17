@@ -19,8 +19,6 @@ import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.FuncionPersistence;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -111,7 +109,7 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}")
-    public CriticoDetailDTO getCritico(@PathParam("criticosId") Long criticosId) 
+    public CriticoDetailDTO getCritico(@PathParam("criticosId") Long criticosId) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO,"CriticoResource getCritico: input: {0}", criticosId);
         CriticoEntity criticoEntity = criticoLogic.getCritico(criticosId);
@@ -146,7 +144,7 @@ public class CriticoResource {
         {
             throw new WebApplicationException("El recurso /criticos/" + criticosId + " no existe.", 404);      
         }
-        CriticoDetailDTO detailDTO = new CriticoDetailDTO(criticoLogic.updateCritico(criticosId, critico.toEntity()));
+        CriticoDetailDTO detailDTO = new CriticoDetailDTO(criticoLogic.updateCritico(critico.toEntity()));
         LOGGER.log(Level.INFO, "CriticoResource updateCritico: output: {0}", detailDTO.toString());
         return detailDTO;
     }
@@ -193,7 +191,7 @@ public class CriticoResource {
      */
     @POST
     @Path("{criticosId: \\d+}/funciones/{funcionesId: \\d+}")
-    public FuncionDTO addFuncion(@PathParam("criticosId") Long criticosId, @PathParam("funcionesId") Long funcionesId)
+    public FuncionDTO addFuncion(@PathParam("criticosId") Long criticosId, @PathParam("funcionesId") Long funcionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CriticoResource addFuncion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
         if(funcionLogic.getFuncion(funcionesId) == null)
@@ -426,7 +424,7 @@ public class CriticoResource {
      */
     @POST
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
-    public CalificacionDTO addCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId)
+    public CalificacionDTO addCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CriticoResource add: input: criticosId {0}, peliculasId {1}", new Object[]{criticosId, calificacionesId});
         if(calificacionLogic.getCalificacion(calificacionesId) == null)
@@ -472,7 +470,7 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
-    public CalificacionDTO getCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId)
+    public CalificacionDTO getCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId") Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "criticoResource getCalificacion: input: criticosId {0}, calificacionesId {1}", new Object[]{criticosId, calificacionesId});
         if(calificacionLogic.getCalificacion(calificacionesId) == null)
@@ -498,7 +496,7 @@ public class CriticoResource {
      */
     @DELETE
     @Path("{criticosId: \\d+}/calificaciones/{calificacionesId: \\d+}")
-    public void deleteCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId")Long calificacionesId)
+    public void deleteCalificacion(@PathParam("criticosId") Long criticosId, @PathParam("calificacionesId")Long calificacionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CriticoResource deleteCalificacion:input_ criticosId {0}, calificacionesId {1}", new Object[]{criticosId, calificacionesId});
         if(calificacionLogic.getCalificacion(calificacionesId) == null)

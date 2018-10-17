@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BandaAnuncio",
+		"_postman_id": "b6acafa7-0341-fafe-2039-e91981dac254",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{id:1,duracion:31}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{id:1,duracion:31}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{id:1,duracion:31}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{id:1,duracion:31}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"1\",\"duracion\":\"25\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"1\",\"duracion\":\"25\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

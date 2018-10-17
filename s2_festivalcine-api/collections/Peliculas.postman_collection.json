@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Peliculas",
+		"_postman_id": "f0936229-4641-2a69-89be-9b2120f5db7b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"1\",\"duracion\":\"25\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"1\",\"duracion\":\"25\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"deadpool\",\"director\":\"yo\",\"creditos\":\"a mi gato\",\"pais\":\"Springfield\",\"duracion\":\"40\",\"puntaje\":4}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"deadpool 2\",\"director\":\"yo\",\"creditos\":\"a mi gato\",\"pais\":\"Springfield\",\"duracion\":\"40\",\"puntaje\":4}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/bandaAnuncio",
+			"request": {
+				"url": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nombre\":\"deadpool 2\",\"director\":\"yo\",\"creditos\":\"a mi gato\",\"pais\":\"Springfield\",\"duracion\":\"40\",\"puntaje\":4}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

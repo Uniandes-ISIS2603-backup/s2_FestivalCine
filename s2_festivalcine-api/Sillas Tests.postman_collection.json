@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "2b332eeb-c4ac-475e-abc6-55e798b20da1",
-		"name": "Funciones Tests",
+		"_postman_id": "ba60f8f5-b283-48bb-ba40-4b3ccbbb77c3",
+		"name": "Sillas Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Crear una nueva función",
+			"name": "Crear una nueva silla",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -17,10 +17,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n \t\"id\":\"100\",\r\n \t\"horaInicio\" : \"2011-07-14 19:00:00\",\r\n \t\"horaFin\" : \"2011-07-14 20:00:00\",\r\n \t\"precioBase\" : \"5000\"\r\n \t\r\n }"
+					"raw": " {\r\n \t\"id\":\"10\",\r\n \t\"disponible\" : \"true\",\r\n \t\"tipo\" : \"true\",\r\n \t\"numero\" : \"1\"\r\n }"
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones",
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -29,7 +29,7 @@
 					"path": [
 						"s2_festivalcine-api",
 						"api",
-						"funciones"
+						"sillas"
 					]
 				},
 				"description": "Crea una nueva función. \r\n"
@@ -37,13 +37,13 @@
 			"response": []
 		},
 		{
-			"name": "Obtener todas las funciones",
+			"name": "Obtener todas las sillas",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones",
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -52,20 +52,20 @@
 					"path": [
 						"s2_festivalcine-api",
 						"api",
-						"funciones"
+						"sillas"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Obtener una función",
+			"name": "Obtener una silla",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/100",
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas/10",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -74,21 +74,21 @@
 					"path": [
 						"s2_festivalcine-api",
 						"api",
-						"funciones",
-						"100"
+						"sillas",
+						"10"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Borrar una función",
+			"name": "Borrar una silla",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/100",
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas/10",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -97,15 +97,15 @@
 					"path": [
 						"s2_festivalcine-api",
 						"api",
-						"funciones",
-						"100"
+						"sillas",
+						"10"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Editar una función",
+			"name": "Editar una silla",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -116,10 +116,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n \t\"id\":\"100\",\r\n \t\"horaInicio\" : \"2011-07-14 19:00:00\",\r\n \t\"horaFin\" : \"2011-07-14 20:00:00\",\r\n \t\"precioBase\" : \"10000\"\r\n \t\r\n }"
+					"raw": " {\r\n \t\"id\":\"10\",\r\n \t\"disponible\" : \"false\",\r\n \t\"tipo\" : \"true\",\r\n \t\"numero\" : \"1\"\r\n }"
 				},
 				"url": {
-					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/100",
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas/10",
 					"protocol": "http",
 					"host": [
 						"{{ip}}"
@@ -128,8 +128,8 @@
 					"path": [
 						"s2_festivalcine-api",
 						"api",
-						"funciones",
-						"100"
+						"sillas",
+						"10"
 					]
 				}
 			},

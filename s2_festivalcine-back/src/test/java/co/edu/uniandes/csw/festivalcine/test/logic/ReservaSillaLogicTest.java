@@ -126,7 +126,7 @@ public class ReservaSillaLogicTest
     {
         ReservaEntity entity = data.get(0);
         SillaEntity sillaEntity = sillasData.get(1);
-        SillaEntity response = reservaSillasLogic.addSilla(sillaEntity.getId(), entity.getId());
+        SillaEntity response = reservaSillasLogic.addSilla(entity.getId(), sillaEntity.getId());
         
         Assert.assertNotNull(response);
         Assert.assertEquals(sillaEntity.getId(), response.getId());

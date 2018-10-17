@@ -42,7 +42,7 @@ public class FuncionResource {
 
     @Inject
     FuncionLogic funcionLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
-
+    
     /**
      * Crea una nueva funcion con la informacion que se recibe en el cuerpo de
      * la petición y se regresa un objeto identico con un id auto-generado por

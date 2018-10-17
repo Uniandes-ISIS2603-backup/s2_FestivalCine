@@ -6,11 +6,13 @@
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.CalificacionPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 /**
  *
- * @author estudiante
+ * @author Andres Felipe Rodriguez Murillo
  */
 @RunWith(Arquillian.class)
 public class CalificacionLogictest 
@@ -40,6 +42,9 @@ public class CalificacionLogictest
     
     @Inject
     private CalificacionLogic calificacionLogic;
+    
+    @Inject
+    private UsuarioLogic usuarioLogic;
     
     @PersistenceContext
     private EntityManager em;
@@ -61,7 +66,7 @@ public class CalificacionLogictest
         return ShrinkWrap.create(JavaArchive.class)
                 .addPackage(CalificacionEntity.class.getPackage())
                 .addPackage(CalificacionLogic.class.getPackage())
-                .addPackage(ReservaPersistence.class.getPackage())
+                .addPackage(CalificacionPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -101,13 +106,14 @@ public class CalificacionLogictest
     private void insertData() 
     {
         UsuarioEntity usuario = factory.manufacturePojo(UsuarioEntity.class);
+        em.persist(usuario);
         for(int i = 0; i < 3; i++)
         {
             CalificacionEntity entity = factory.manufacturePojo(CalificacionEntity.class);
             entity.setUsuario(usuario);
             em.persist(entity);
             data.add(entity);
-        }
+        }        
     }
     
     @Test
@@ -122,31 +128,73 @@ public class CalificacionLogictest
     }
     
     @Test(expected = BusinessLogicException.class)
-    public void crateCalificacionIdInvalidoTest()
+    public void createCalificacionConUsuarioInexistenteTest() throws BusinessLogicException
     {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
-        newEntity.setUsuario(usuarioData);
-        newEntity.setId((long)-922337203);
-        calificacionLogic.createCalificacion(newEntity);
+        newEntity = calificacionLogic.createCalificacion(newEntity);
+        calificacionLogic.addUsuario(newEntity.getId(), Long.MIN_VALUE);
     }
     
     @Test(expected = BusinessLogicException.class)
-    public void createCalificacionIdInvalida2Test()
+    public void deleteCalificacionDespuesUsuarioInexisteneTest() throws BusinessLogicException
     {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
-        newEntity.setUsuario(usuarioData);
-        newEntity.setId(null);
-        calificacionLogic.createCalificacion(newEntity);
+        newEntity = calificacionLogic.createCalificacion(newEntity);
+        try
+        {
+        calificacionLogic.addUsuario(newEntity.getId(), Long.MIN_VALUE);
+        }catch (Exception e){}
+        calificacionLogic.getCalificacion(newEntity.getId());
+    }
+    
+    @Test
+    public void updateCalificacionTest() throws BusinessLogicException
+    {
+        CalificacionEntity original = factory.manufacturePojo(CalificacionEntity.class);
+        calificacionLogic.createCalificacion(original);
+        original.setComentario("123");
+        original.setPuntaje(Long.MAX_VALUE);
+        calificacionLogic.updateCalificacion(original);
+        CalificacionEntity result = calificacionLogic.getCalificacion(original.getId());
+        Assert.assertEquals(original.getComentario(), result.getComentario());
+        Assert.assertEquals(original.getPuntaje(), result.getPuntaje());
     }
     
     @Test(expected = BusinessLogicException.class)
-    public void createCalificacionTestConUsuarioInexistente()
+    public void updateCalificacionIdNegativoTest() throws BusinessLogicException
+    {
+        CalificacionEntity original = factory.manufacturePojo(CalificacionEntity.class);
+        calificacionLogic.createCalificacion(original);
+        original.setId(Long.MIN_VALUE);
+        calificacionLogic.updateCalificacion(original);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void updateCalificacionIdNuloTest() throws BusinessLogicException
+    {
+        CalificacionEntity original = factory.manufacturePojo(CalificacionEntity.class);
+        calificacionLogic.createCalificacion(original);
+        original.setId(null);
+        calificacionLogic.updateCalificacion(original);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void updateCalificacionIdInexistenteTest() throws BusinessLogicException
+    {
+        CalificacionEntity original = factory.manufacturePojo(CalificacionEntity.class);
+        calificacionLogic.createCalificacion(original);
+        original.setId(Long.MAX_VALUE);
+        calificacionLogic.updateCalificacion(original);
+    }
+    
+    @Test(expected = BusinessLogicException.class)
+    public void deleteCalificacionTest() throws BusinessLogicException
     {
         CalificacionEntity newEntity = factory.manufacturePojo(CalificacionEntity.class);
-        UsuarioEntity usuarioEntity = new UsuarioEntity();
-        usuarioEntity.setId(Long.MAX_VALUE);
-        newEntity.setUsuario(null);
         calificacionLogic.createCalificacion(newEntity);
+        calificacionLogic.deleteCalificacion(newEntity.getId());
+            calificacionLogic.getCalificacion(newEntity.getId());
+        
     }
     
     @Test
@@ -169,7 +217,7 @@ public class CalificacionLogictest
     }
     
     @Test
-    public void getCalificacion()
+    public void getCalificacionst() throws BusinessLogicException
     {
         CalificacionEntity entity = data.get(0);
         CalificacionEntity resultEntity = calificacionLogic.getCalificacion(entity.getId());

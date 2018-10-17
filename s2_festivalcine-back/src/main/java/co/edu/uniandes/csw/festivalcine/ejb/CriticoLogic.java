@@ -82,13 +82,13 @@ public class CriticoLogic {
      * @param criticosId El id del critico a buscar
      * @return El critico encontrado, null si no lo encuentra.
      */
-    public CriticoEntity getCritico(Long criticosId)
+    public CriticoEntity getCritico(Long criticosId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar el critico con id = {0}", criticosId);
         CriticoEntity criticoEntity = persistence.find(criticosId);
         if(criticoEntity == null)
         {
-            LOGGER.log(Level.SEVERE, "El critico con el id = {0} no existe", criticosId);
+            throw new BusinessLogicException("no existe el critico cin id = {0}" + criticosId);
         }
         LOGGER.log(Level.INFO, "Termina proceso de consultar el critico con id = {0}", criticosId);
         return criticoEntity;
@@ -102,9 +102,9 @@ public class CriticoLogic {
      * @return La entidad del critico luego de actualizarla
      * @throws BusinessLogicException  Si la identificacion de la actualiacion es inválida.
      */
-    public CriticoEntity updateCritico(Long criticosId, CriticoEntity criticoEntity) throws BusinessLogicException
+    public CriticoEntity updateCritico(CriticoEntity criticoEntity) throws BusinessLogicException
     {
-       LOGGER.log(Level.INFO, "Inicia proceso de actualizar el critico con id = {0}", criticosId);
+       LOGGER.log(Level.INFO, "Inicia proceso de actualizar el critico con id = {0}", criticoEntity.getId());
        if(!validateIdentificacion(criticoEntity.darIdentificacion()))
        {
            throw new BusinessLogicException("La identificacion es inválido");
@@ -125,9 +125,6 @@ public class CriticoLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el critico con id = {0}", criticosId);
         List<FuncionEntity> funciones = getCritico(criticosId).darFunciones();
         List<PeliculaEntity> peliculas = getCritico(criticosId).darPeliculas();
-        if (funciones != null && !funciones.isEmpty()) {
-            throw new BusinessLogicException("No se puede borrar el critico con id = " + criticosId + " porque tiene funciones asociadas");
-        }
         persistence.delete(criticosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el critico con id = {0}", criticosId);
     }
@@ -150,11 +147,15 @@ public class CriticoLogic {
      * @param funcionesId Identificador de la isntancia Funcion
      * @return Instancia de FuncionEntity que due asociada al Critico
      */
-    public FuncionEntity addFuncion(Long criticosId, Long funcionesId)
+    public FuncionEntity addFuncion(Long criticosId, Long funcionesId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de asociarle una función al critico con id = {0}", criticosId);
         CriticoEntity criticoEntity = persistence.find(criticosId);
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
+        if(funcionEntity == null)
+        {
+            throw new BusinessLogicException("El recurso /funciones/" + funcionesId + " no existe.");
+        }
         funcionEntity.setCritico(criticoEntity);
         LOGGER.log(Level.INFO, "Termina proceso de asociarle una funcion al critico con id =  {0}", criticosId);
         return funcionPersistence.find(funcionesId);

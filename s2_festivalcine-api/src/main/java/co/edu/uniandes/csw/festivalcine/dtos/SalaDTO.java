@@ -23,17 +23,6 @@ public class SalaDTO implements Serializable{
     private Long id;
     
     /**
-     * Número de sillas generales en la sala
-     */
-    private Integer numSillasGene;
-    
-    /**
-     * Número de sillas preferenciales en la sala
-     */
-    private Integer numSillasPref;
-    
-    
-    /**
      * Número de la sala
      */
     private Integer numero;
@@ -55,8 +44,7 @@ public class SalaDTO implements Serializable{
         if(salaEntity != null)
         {
             this.id = salaEntity.getId();
-            this.numSillasGene = salaEntity.getNumSillasGene();
-            this.numSillasPref= salaEntity.getNumSillasPref();
+            this.numero = salaEntity.getNumero();
         }
     
     }
@@ -70,53 +58,6 @@ public class SalaDTO implements Serializable{
     public Long getId()
     {
         return id;
-    }
-    
-    /**
-     * Devuelve la cantidad de sillas generales
-     * @return Integer
-     */
-    public Integer getSilasGeneral()
-    {
-        return numSillasGene;
-    }
-    
-        
-    /**
-     * Devuelve la cantidad de sillas preferenciales
-     * @return Integer
-     */
-    public Integer getSilasPreferencial()
-    {
-        return numSillasPref;
-    }
-    
-    
-    /**
-     * Modifica el ID de la sala
-     * @param id el id nuevo
-     */
-    public void setId(Long id)
-    {
-        this.id = id;
-    }
-    
-    /**
-     * Modifica la cantidad de sillas preferenciales 
-     * @param numSillasGene
-     */
-    public void setSillasGenerales(Integer numSillasGene)
-    {
-        this.numSillasGene =numSillasGene;
-    }
-    
-    /**
-     * Modifica la cantidad de sillas preferenciales 
-     * @param numSillasPref
-     */
-    public void setSillasPreferenciales(Integer numSillasPref)
-    {
-        this.numSillasPref =numSillasPref;
     }
     
     public Integer getNumero() {
@@ -135,8 +76,7 @@ public class SalaDTO implements Serializable{
     {
         SalaEntity salaEntity = new SalaEntity();
         salaEntity.setId(this.id);
-        salaEntity.setNumSillasGene(this.numSillasGene);
-        salaEntity.setNumSillasPref(this.numSillasPref);
+        salaEntity.setNumero(this.numero);
         return salaEntity ;
     }
     

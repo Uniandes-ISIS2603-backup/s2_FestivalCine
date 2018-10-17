@@ -79,25 +79,25 @@ public class CriticoEntity extends BaseEntity implements Serializable
     */
     @PodamExclude
     @OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
-    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
     
     /**
      * Lista de funciones del critico
      */
     @PodamExclude
     @OneToMany(mappedBy = "critico", fetch = FetchType.LAZY)
-    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
+    private List<FuncionEntity> funciones = new ArrayList<>();
     
     /**
      * Lista de peliculas del critico
      */
     @PodamExclude
     @ManyToMany(mappedBy = "criticos",fetch = FetchType.LAZY)
-    private List<PeliculaEntity> peliculas = new ArrayList<PeliculaEntity>();
+    private List<PeliculaEntity> peliculas = new ArrayList<>();
     
     @PodamExclude
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<FestivalEntity> festivales = new ArrayList<FestivalEntity>();
+    @ManyToMany()
+    private List<FestivalEntity> festivales = new ArrayList<>();
 
     
     /**
