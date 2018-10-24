@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,7 +8,6 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import java.util.ArrayList;

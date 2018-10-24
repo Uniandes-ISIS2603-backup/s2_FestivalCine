@@ -6,13 +6,9 @@
 package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.dtos.CalificacionDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.UsuarioDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioCalificacionesLogic;
 import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +46,7 @@ public class UsuarioCalificacionesResource
      *
      * @param usuariosId Identificador del usuarui que se esta
      * actualizando. Este debe ser una cadena de dígitos.
-     * @param calificacionesId Identificador de la calificacion que se desea guardar. Este debe
+     * @param calificacionId Identificador de la calificacion que se desea guardar. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link CalificacionDTO} - La calificacion guardado en el usuario.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -

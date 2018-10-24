@@ -28,7 +28,7 @@ import javax.ws.rs.WebApplicationException;
 
 import co.edu.uniandes.csw.festivalcine.dtos.ReservaDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+
 
 
 /**
