@@ -12,7 +12,7 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionesLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class ReservaFuncionResource
     private static final Logger LOGGER = Logger.getLogger(ReservaSillasResource.class.getName());
      
      @Inject
-     private ReservaFuncionesLogic reservaFuncionLogic;
+     private ReservaFuncionLogic reservaFuncionLogic;
      
       @Inject
     private FuncionLogic funcionLogic;

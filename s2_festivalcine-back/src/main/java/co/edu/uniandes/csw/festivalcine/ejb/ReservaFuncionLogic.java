@@ -21,7 +21,7 @@ import javax.inject.Inject;
  * @author PAULA VELANDIA
 */ 
  @Stateless
-public class ReservaFuncionesLogic 
+public class ReservaFuncionLogic 
 {
     private static final Logger LOGGER = Logger.getLogger(ReservaLogic.class.getName());
 
