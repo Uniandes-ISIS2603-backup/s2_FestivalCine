@@ -27,11 +27,9 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class FuncionEntity extends BaseEntity implements Serializable {
     
     @Temporal(TemporalType.TIMESTAMP)
-    private Date horaInicio;
+    private Date fecha;
     
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date horaFin;
+    private Integer hora;
     
     private Integer precioBase;
     
@@ -57,20 +55,20 @@ public class FuncionEntity extends BaseEntity implements Serializable {
 
 
 
-    public Date getHoraInicio() {
-        return horaInicio;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
-    public Date getHoraFin() {
-        return horaFin;
+    public Integer getHora() {
+        return hora;
     }
 
-    public void setHoraFin(Date horaFin) {
-        this.horaFin = horaFin;
+    public void setHora(Integer hora) {
+        this.hora = hora;
     }
 
     public Integer getPrecioBase() {

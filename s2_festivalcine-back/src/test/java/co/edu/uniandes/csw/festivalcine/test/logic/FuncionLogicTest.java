@@ -162,8 +162,8 @@ public class FuncionLogicTest {
         FuncionEntity entity = em.find(FuncionEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getPrecioBase(), entity.getPrecioBase());
-        Assert.assertEquals(newEntity.getHoraInicio(), entity.getHoraInicio());
-        Assert.assertEquals(newEntity.getHoraFin(), entity.getHoraFin());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(newEntity.getHora(), entity.getHora());
     }
     /**
      * Prueba para crear una funcion con Pelicula inválida
@@ -222,8 +222,8 @@ public class FuncionLogicTest {
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(resultEntity.getPrecioBase(), entity.getPrecioBase());
-        Assert.assertEquals(resultEntity.getHoraInicio(), entity.getHoraInicio());
-        Assert.assertEquals(resultEntity.getHoraFin(), entity.getHoraFin());
+        Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(resultEntity.getHora(), entity.getHora());
 
     }
     
@@ -244,8 +244,8 @@ public class FuncionLogicTest {
 
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getPrecioBase(), resp.getPrecioBase());
-        Assert.assertEquals(pojoEntity.getHoraInicio(), resp.getHoraInicio());
-        Assert.assertEquals(pojoEntity.getHoraFin(), resp.getHoraFin());
+        Assert.assertEquals(pojoEntity.getFecha(), resp.getFecha());
+        Assert.assertEquals(pojoEntity.getHora(), resp.getHora());
     }
     
     

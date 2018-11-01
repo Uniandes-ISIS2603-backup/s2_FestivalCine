@@ -23,14 +23,14 @@ public class FuncionDTO implements Serializable{
     //Atributos -------------------------------------------------------------------------
     private Long id;
    /*
-    * Hora de inicio de la función
+    * Fecha de la función
     */
-    private Date horaInicio;
+    private Date fecha;
     
    /*
-    * Hora de fin de la función
+    * Hora de la función
     */
-    private Date horaFin;
+    private Integer hora;
     
     
    /*
@@ -77,8 +77,8 @@ public class FuncionDTO implements Serializable{
         if(funcionEntity != null)
         {
            this.id = funcionEntity.getId();
-           this.horaInicio = funcionEntity.getHoraInicio();
-           this.horaFin = funcionEntity.getHoraFin();
+           this.fecha = funcionEntity.getFecha();
+           this.hora = funcionEntity.getHora();
            this.precioBase = funcionEntity.getPrecioBase();
            if (funcionEntity.getCritico() != null) {
                 this.critico = new CriticoDTO(funcionEntity.getCritico());
@@ -114,21 +114,21 @@ public class FuncionDTO implements Serializable{
     }
     
     /**
-     * Devuelve la hora de inicio de la función
+     * Devuelve la fecha de la función
      * @return Date 
      */
-    public Date getHoraInicio()
+    public Date getFecha()
     {
-        return horaInicio;
+        return fecha;
     }
     
     /**
-     * Devuelve la hora de fin de la función
+     * Devuelve la hora de la función
      * @return Date 
      */
-    public Date getHoraFin()
+    public Integer getHora()
     {
-        return horaFin;
+        return hora;
     }
     
      /**
@@ -177,21 +177,21 @@ public class FuncionDTO implements Serializable{
     }
     
     /**
-     * Modifica la hora de inicio de la función
-     * @param horaInicio
+     * Modifica la fecha de la función
+     * @param fecha
      */
-    public void setHoraInicio(Date horaInicio)
+    public void setFecha(Date fecha)
     {
-        this.horaInicio= horaInicio;
+        this.fecha= fecha;
     }
     
         /**
-     * Modifica la hora fin de la función
-     * @param horaFin
+     * Modifica la hora de la función
+     * @param hora
      */
-    public void setHoraFin(Date horaFin)
+    public void setHora(Integer hora)
     {
-        this.horaFin= horaFin;
+        this.hora= hora;
     }
     
      /**
@@ -238,8 +238,8 @@ public class FuncionDTO implements Serializable{
    {
       FuncionEntity funcionEntity = new FuncionEntity();
       funcionEntity.setId(this.id);
-      funcionEntity.setHoraInicio(this.horaInicio);
-      funcionEntity.setHoraFin(this.horaFin);
+      funcionEntity.setFecha(this.fecha);
+      funcionEntity.setHora(this.hora);
       funcionEntity.setPrecioBase(this.precioBase);
               
       if (this.critico != null) {
