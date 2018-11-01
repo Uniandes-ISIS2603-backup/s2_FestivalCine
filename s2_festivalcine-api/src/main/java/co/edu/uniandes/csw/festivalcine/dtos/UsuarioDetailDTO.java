@@ -43,7 +43,7 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
      */
     public UsuarioDetailDTO(UsuarioEntity usuarioEntity)
     {
-        super();
+        super(usuarioEntity);
         reservas = new ArrayList<>();
         calificaciones = new ArrayList<>();
     }
