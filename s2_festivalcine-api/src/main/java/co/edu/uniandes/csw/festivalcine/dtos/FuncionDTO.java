@@ -5,12 +5,11 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
-
-
 import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -22,7 +21,8 @@ public class FuncionDTO implements Serializable{
     
     //Atributos -------------------------------------------------------------------------
     private Long id;
-   /*
+   
+    /*
     * Fecha de la función
     */
     private Date fecha;
@@ -80,6 +80,7 @@ public class FuncionDTO implements Serializable{
            this.fecha = funcionEntity.getFecha();
            this.hora = funcionEntity.getHora();
            this.precioBase = funcionEntity.getPrecioBase();
+           
            if (funcionEntity.getCritico() != null) {
                 this.critico = new CriticoDTO(funcionEntity.getCritico());
            } else {
