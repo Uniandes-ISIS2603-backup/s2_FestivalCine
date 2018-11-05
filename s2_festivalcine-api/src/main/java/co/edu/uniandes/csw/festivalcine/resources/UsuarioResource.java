@@ -166,7 +166,6 @@ public class UsuarioResource
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro
      */
-    @GET
     @Path("{usuariosId: \\d+}/reservas")
     public Class<UsuarioReservasResource> getUsuarioReservasResource(@PathParam("usuariosId") Long usuariosId) 
     {
@@ -182,7 +181,6 @@ public class UsuarioResource
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro
      */
-    @GET
     @Path("{usuariosId: \\d+}/calificaciones")
     public Class<UsuarioCalificacionesResource> getUsuarioCalificacionesResource(@PathParam("usuariosId") Long usuariosId) 
     {

@@ -36,6 +36,16 @@ public class ReservaDTO implements Serializable
      */
     private Integer precioTotal;
     
+    private UsuarioDTO usuario;
+
+    public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
+    }
+    
     
     /**
      * Constructor de la clase
@@ -128,6 +138,11 @@ public class ReservaDTO implements Serializable
             this.abono = reservaEntity.getAbono();
             this.descuento = reservaEntity.getDescuento();
             this.precioTotal = reservaEntity.getPrecioTotal();
+            if (reservaEntity.getUsuario() != null) {
+                this.usuario = new UsuarioDTO(reservaEntity.getUsuario());
+            } else {
+                this.usuario = null;
+            }
         }
     }
     
@@ -142,6 +157,9 @@ public class ReservaDTO implements Serializable
         reservaEntity.setAbono(this.getAbono());
         reservaEntity.setDescuento(this.getDescuento());
         reservaEntity.setPrecioTotal(this.getPrecioTotal());
+        if (this.usuario != null) {
+            reservaEntity.setUsuario(this.usuario.toEntity());
+        }
         return reservaEntity;
     }
 
