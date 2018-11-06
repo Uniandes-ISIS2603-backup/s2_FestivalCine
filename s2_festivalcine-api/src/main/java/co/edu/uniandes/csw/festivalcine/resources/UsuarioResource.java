@@ -127,7 +127,7 @@ public class UsuarioResource
      */
     @GET
     @Path("{usuariosId: \\d+}")
-    public UsuarioDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException 
+    public UsuarioDetailDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException 
     {
         LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", usuariosId);
         UsuarioEntity usuarioEntity = usuarioLogic.getUsuario(usuariosId);
