@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -35,7 +36,7 @@ import javax.ws.rs.WebApplicationException;
 public class SalaResource {
     private static final Logger LOGGER = Logger.getLogger(SalaResource.class.getName());
 
-    
+    @Inject
     SalaLogic salaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
     /**
