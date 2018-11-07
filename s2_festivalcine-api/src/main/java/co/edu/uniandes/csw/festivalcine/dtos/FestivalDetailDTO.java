@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
 
+import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
@@ -78,12 +79,24 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
     //Relación de cero a muchos criticos.
     private List<CriticoDTO> criticos;
     
+    public FestivalDetailDTO()
+    {
+        
+    }
+    
     public FestivalDetailDTO(FestivalEntity festEntity)
     {
-        super();
+        super(festEntity);
         teatros = new ArrayList<TeatroDTO>();
+        for (TeatroEntity entityTeatro : festEntity.getTeatros()) 
+        {
+            teatros.add(new TeatroDTO(entityTeatro));
+        }
         criticos = new ArrayList<CriticoDTO>();
-        
+         for (CriticoEntity entityCritico : festEntity.getCriticos()) 
+        {
+            criticos.add(new CriticoDTO(entityCritico));
+        }       
     }
 
     /**
@@ -140,6 +153,15 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
                 teatroEntity.add(dtoTeatro.toEntity());
             }
             festEntity.setTeatros(teatroEntity);
+        }
+        if (criticos != null) 
+        {
+            List<CriticoEntity> criticoEntity = new ArrayList<>();
+            for (CriticoDTO dtoCritico : criticos) 
+            {
+                criticoEntity.add(dtoCritico.toEntity());
+            }
+            festEntity.setCriticos(criticoEntity);
         }
         return festEntity;
     }

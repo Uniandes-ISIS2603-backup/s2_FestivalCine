@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.dtos;
 
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -71,11 +72,31 @@ public class TeatroDetailDTO extends TeatroDTO implements Serializable
   //relación de cero a muchas salas asignadas.
   private List<SalaDTO> salasAsignadas;
   
+  /**
+   * Metoodo constructor vacio
+   */
+  public TeatroDetailDTO()
+  {
+      
+  }
+  
+  /**
+   * 
+   * @param teatroEnt 
+   */
   public TeatroDetailDTO(TeatroEntity teatroEnt)
   {
-      super();
-      funciones = new ArrayList<FuncionDTO>();
-      salasAsignadas = new ArrayList<SalaDTO>();
+      super(teatroEnt);
+      funciones = new ArrayList<>();
+        for (FuncionEntity entityFuncion : teatroEnt.getFunciones()) 
+        {
+            funciones.add(new FuncionDTO(entityFuncion));
+        }
+      salasAsignadas = new ArrayList<>();
+        for (SalaEntity entitySala : teatroEnt.getSalas()) 
+        {
+            salasAsignadas.add(new SalaDTO(entitySala));
+        }
   }
     /**
      * Devuelve la lista con las funciones del teatro.
@@ -131,6 +152,15 @@ public class TeatroDetailDTO extends TeatroDTO implements Serializable
                 funcionEntity.add(dtoFuncion.toEntity());
             }
             teatroEntity.setFunciones(funcionEntity);
+        }
+                if (salasAsignadas != null) 
+        {
+            List<SalaEntity> salaEntity = new ArrayList<>();
+            for (SalaDTO dtoSala : salasAsignadas) 
+            {
+                salaEntity.add(dtoSala.toEntity());
+            }
+            teatroEntity.setSalas(salaEntity);
         }
         return teatroEntity;
     }

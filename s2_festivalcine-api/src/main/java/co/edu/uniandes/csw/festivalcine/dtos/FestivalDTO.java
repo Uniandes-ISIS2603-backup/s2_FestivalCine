@@ -41,7 +41,7 @@ public class FestivalDTO implements Serializable {
     
     /**
      * Constructor que recibe un entity
-     * @param festivalEntity 
+     * @param newFest 
      */
     public FestivalDTO(FestivalEntity newFest)
     {
@@ -191,4 +191,6 @@ public class FestivalDTO implements Serializable {
         return festivalEntity;
         
     }
+    
+    
 }
