@@ -1,288 +1,100 @@
-insert into calificacionentity (id, puntaje, comentario) values (1, 0.9, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
-insert into calificacionentity (id, puntaje, comentario) values (2, 2.5, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
-
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (3, 2.3, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (4, 3.2, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
-
-Phasellus in felis. Donec semper sapien a libero. Nam dui.');
-insert into calificacionentity (id, puntaje, comentario) values (5, 4.0, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (6, 3.7, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (7, 1.7, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
-insert into calificacionentity (id, puntaje, comentario) values (8, 0.1, 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (9, 4.7, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
-insert into calificacionentity (id, puntaje, comentario) values (10, 0.2, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
-insert into calificacionentity (id, puntaje, comentario) values (11, 1.1, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (12, 2.9, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (13, 0.3, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (14, 4.6, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.');
-insert into calificacionentity (id, puntaje, comentario) values (15, 2.1, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
-insert into calificacionentity (id, puntaje, comentario) values (16, 1.6, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into calificacionentity (id, puntaje, comentario) values (17, 2.7, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (18, 4.7, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (19, 2.2, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (20, 2.8, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (21, 0.3, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.');
-insert into calificacionentity (id, puntaje, comentario) values (22, 3.0, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (23, 3.7, 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into calificacionentity (id, puntaje, comentario) values (24, 2.8, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
-
-Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
-Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (25, 4.3, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (26, 2.3, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (27, 4.4, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
-insert into calificacionentity (id, puntaje, comentario) values (28, 1.7, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (29, 4.0, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (30, 2.5, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
-insert into calificacionentity (id, puntaje, comentario) values (31, 2.6, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into calificacionentity (id, puntaje, comentario) values (32, 4.6, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (33, 0.8, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (34, 1.2, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into calificacionentity (id, puntaje, comentario) values (35, 2.5, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (36, 4.3, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (37, 0.4, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
-
-Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (38, 2.0, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (39, 4.4, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (40, 4.2, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (41, 2.3, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
-insert into calificacionentity (id, puntaje, comentario) values (42, 1.9, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (43, 3.5, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (44, 1.4, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (45, 2.6, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (46, 0.7, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (47, 3.3, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (48, 2.8, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
-
-Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
-insert into calificacionentity (id, puntaje, comentario) values (49, 2.0, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (50, 2.0, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (51, 4.2, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
-insert into calificacionentity (id, puntaje, comentario) values (52, 1.8, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (53, 3.9, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
-
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (54, 0.0, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (55, 2.3, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (56, 1.3, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (57, 4.9, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (58, 4.6, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (59, 0.5, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
-
-Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
-insert into calificacionentity (id, puntaje, comentario) values (60, 0.9, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
-
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into calificacionentity (id, puntaje, comentario) values (61, 1.0, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
-insert into calificacionentity (id, puntaje, comentario) values (62, 0.4, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
-
-Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (63, 0.9, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (64, 4.2, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
-insert into calificacionentity (id, puntaje, comentario) values (65, 2.8, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (66, 3.9, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (67, 3.2, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
-
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
-insert into calificacionentity (id, puntaje, comentario) values (68, 0.4, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into calificacionentity (id, puntaje, comentario) values (69, 3.6, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
-insert into calificacionentity (id, puntaje, comentario) values (70, 1.0, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.');
-insert into calificacionentity (id, puntaje, comentario) values (71, 4.2, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into calificacionentity (id, puntaje, comentario) values (72, 1.8, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into calificacionentity (id, puntaje, comentario) values (73, 2.5, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
-
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (74, 2.9, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (75, 0.6, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (76, 3.9, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
-insert into calificacionentity (id, puntaje, comentario) values (77, 1.8, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
-
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (78, 4.9, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
-insert into calificacionentity (id, puntaje, comentario) values (79, 2.8, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
-insert into calificacionentity (id, puntaje, comentario) values (80, 0.5, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
-
-Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
-
-In congue. Etiam justo. Etiam pretium iaculis justo.');
-insert into calificacionentity (id, puntaje, comentario) values (81, 4.4, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
-
-Phasellus in felis. Donec semper sapien a libero. Nam dui.');
-insert into calificacionentity (id, puntaje, comentario) values (82, 1.1, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (83, 1.2, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (84, 4.8, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
-insert into calificacionentity (id, puntaje, comentario) values (85, 4.4, 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
-
-Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
-
-Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
-insert into calificacionentity (id, puntaje, comentario) values (86, 3.0, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
-
-Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
-insert into calificacionentity (id, puntaje, comentario) values (87, 1.8, 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (88, 3.0, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
-
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
-
-Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (89, 2.7, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (90, 3.5, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (91, 4.6, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
-
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (92, 0.1, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (93, 1.1, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
-
-Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
-insert into calificacionentity (id, puntaje, comentario) values (94, 0.3, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.');
-insert into calificacionentity (id, puntaje, comentario) values (95, 3.7, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
-
-Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (96, 4.6, 'In congue. Etiam justo. Etiam pretium iaculis justo.
-
-In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
-
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (97, 0.1, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
-
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
-insert into calificacionentity (id, puntaje, comentario) values (98, 4.5, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
-insert into calificacionentity (id, puntaje, comentario) values (99, 2.7, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (100, 2.4, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
-
-Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (1, 'BCM Cosmetique SAS', 3.7, 100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (2, 'Major Pharmaceuticals', 3.6, 200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (3, 'Safeway', 4.6, 300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (4, 'Rebel Distributors Corp', 1.8, 400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (5, 'King Bio Inc.', 2.6, 500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (6, 'Lake Erie Medical & Surgical Supply DBA Quality Care Products LLC', 1.6, 600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (7, 'Major Pharmaceuticals', 3.9, 700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (8, 'Allergy Laboratories, Inc.', 4.9, 800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (9, 'Mylan Pharmaceuticals Inc.', 4.0, 900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (10, 'Natureplex LLC', 2.3, 1000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (11, 'Roxane Laboratories, Inc.', 3.1, 1100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (12, 'Publix Super Markets', 4.4, 1200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (13, 'Baxter Healthcare Corporation', 4.2, 1300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (14, 'UCB, Inc.', 4.7, 1400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (15, 'Qualitest Pharmaceutical, Inc.', 2.9, 1500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (16, 'Aurobindo Pharma Limited', 3.9, 1600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (17, 'Coty US LLC', 4.5, 1700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (18, 'Watson Laboratories, Inc.', 3.2, 1800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (19, 'REMEDYREPACK INC.', 3.0, 1900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (20, 'Ventura Corporation LTD', 2.7, 2000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (21, 'Exelan Pharmaceuticals, Inc.', 3.6, 2100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (22, 'Chain Drug Consortium, LLC', 4.2, 2200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (23, 'Organon Pharmaceuticals USA', 2.2, 2300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (24, 'PD-Rx Pharmaceuticals, Inc.', 1.0, 2400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (25, 'Nicobrand LTD', 4.3, 2500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (26, 'Janssen Pharmaceuticals, Inc.', 2.1, 2600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (27, 'Nelco Laboratories, Inc.', 1.9, 2700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (28, 'Physicians Total Care, Inc.', 1.6, 2800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (29, 'Vansen Pharma Inc.', 1.7, 2900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (30, 'McKesson', 1.1, 3000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (31, 'Nelco Laboratories, Inc.', 1.8, 3100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (32, 'Hospira, Inc.', 1.4, 3200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (33, 'Nelco Laboratories, Inc.', 2.4, 3300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (34, 'Walgreen Co', 3.0, 3400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (35, 'Rebel Distributors Corp', 1.5, 3500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (36, 'AvKARE, Inc.', 3.0, 3600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (37, 'ALK-Abello, Inc.', 1.3, 3700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (38, 'Major Pharmaceuticals', 1.0, 3800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (39, 'Nelco Laboratories, Inc.', 2.7, 3900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (40, 'Topco Associates LLC', 1.9, 4000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (41, 'Professional Disposables International, Inc.', 3.8, 4100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (42, 'Ferndale Laboratories, Inc.', 2.0, 4200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (43, 'Lake Erie Medical DBA Quality Care Products LLC', 4.5, 4300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (44, 'HyVee Inc', 1.4, 4400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (45, 'Zydus Pharmaceuticals (USA) Inc.', 1.5, 4500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (46, 'Meditrend, Inc. DBA Progena Professional Formulations', 3.7, 4600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (47, 'Johnson & Johnson Consumer Products Company, Division of Johnson & Johnson Consumer Companies, Inc.', 3.2, 4700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (48, 'Lannett Company, Inc.', 4.4, 4800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (49, 'Apotex Corp.', 3.6, 4900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (50, 'Nelco Laboratories, Inc.', 3.5, 5000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (51, 'Colgate Oral Pharmaceuticals, Inc.', 3.3, 5100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (52, 'Jerome Stevens Pharmaceuticals, Inc.', 2.2, 5200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (53, 'Volume Distributors, Inc.', 4.8, 5300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (54, 'Meijer Distribution Inc', 1.1, 5400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (55, 'HOMEOLAB USA INC', 4.2, 5500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (56, 'Clinical Solutions Wholesale', 4.1, 5600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (57, 'Purdue Products LP', 2.1, 5700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (58, 'Antigen Laboratories, Inc.', 2.1, 5800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (59, 'Cardinal Health', 3.9, 5900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (60, 'Walgreens', 1.0, 6000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (61, 'Sun Pharma Global FZE', 1.4, 6100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (62, 'Lake Erie Medical DBA Quality Care Products LLC', 4.2, 6200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (63, 'Coria Laboratories, LTD', 1.3, 6300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (64, 'Roerig', 3.7, 6400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (65, 'Walgreen Company', 1.7, 6500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (66, 'Jafra Cosmetics International Inc', 2.0, 6600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (67, 'Clinical Solutions Wholesale', 3.5, 6700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (68, 'Nephron Pharmaceuticals Corporation', 1.1, 6800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (69, 'Cardinal Health', 3.9, 6900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (70, 'Apotheca Company', 1.1, 7000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (71, 'AMWAY CORP.', 1.5, 7100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (72, 'Mylan Pharmaceuticals Inc.', 2.6, 7200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (73, 'Medline Industries, Inc.', 3.5, 7300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (74, 'Med-Health Pharma, LLC', 1.7, 7400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (75, 'ALK-Abello, Inc.', 2.2, 7500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (76, 'The Mentholatum Company', 1.5, 7600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (77, 'General Distributing Company', 1.3, 7700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (78, 'Kramer Novis', 2.5, 7800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (79, 'Procter and Gamble Manufacturing Company', 5.0, 7900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (80, 'Contract Pharmacy Services-PA', 1.2, 8000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (81, 'NorthStar Rx LLC', 3.5, 8100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (82, 'Amerisource Bergen', 2.2, 8200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (83, 'REMEDYREPACK INC.', 3.1, 8300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (84, 'LIVE BETTER (The Great Atlantic & Pacific Tea Company)', 1.6, 8400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (85, 'AMOREPACIFIC', 1.6, 8500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (86, 'Carlsbad Technology, Inc.', 1.1, 8600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (87, 'McKesson', 2.4, 8700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (88, 'REMEDYREPACK INC.', 4.8, 8800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (89, 'McKesson Packaging Services a business unit of McKesson Corporation', 4.0, 8900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (90, 'REMEDYREPACK INC.', 1.5, 9000);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (91, 'Qualitest Pharmaceuticals', 1.1, 9100);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (92, 'Geri-Care Pharmaceuticals, Corp', 1.6, 9200);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (93, 'Newton Laboratories, Inc.', 1.2, 9300);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (94, 'Certus Medical, Inc.', 1.3, 9400);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (95, 'Shopko Stores Operating Co., LLC', 4.0, 9500);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (96, 'McKesson Contract Packaging', 2.3, 9600);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (97, 'REMEDYREPACK INC.', 4.5, 9700);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (98, 'Ferring Pharmaceuticals Inc.', 1.2, 9800);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (99, 'Novartis Consumer Health, Inc.', 2.8, 9900);
+insert into calificacionentity (id, comentario, puntaje, usuario_id) values (100, 'State of Florida DOH Central Pharmacy', 1.1, 10000);
