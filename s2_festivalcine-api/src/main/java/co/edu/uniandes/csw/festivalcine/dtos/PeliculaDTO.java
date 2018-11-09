@@ -12,7 +12,7 @@ import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
  * @author cc.cardenas
  */
 public class PeliculaDTO {
-    private long id;
+    private Long id;
      private String nombre;
     private String director;
     private String creditos;
@@ -26,6 +26,7 @@ public class PeliculaDTO {
     }
     
     public PeliculaDTO(PeliculaEntity pelicula){
+        this.id = pelicula.getId();
         this.nombre= pelicula.getNombre();
         this.director= pelicula.getDirector();
         this.creditos= pelicula.getCreditos();
@@ -36,11 +37,11 @@ public class PeliculaDTO {
                
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
