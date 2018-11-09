@@ -10,6 +10,7 @@ import co.edu.uniandes.csw.festivalcine.dtos.PeliculaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.PeliculaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -43,7 +44,7 @@ public class PeliculaResource {
     @Inject 
     private PeliculaLogic peliculaLogic;
     
-    
+    private static final Logger LOGGER = Logger.getLogger(PeliculaResource.class.getName());
     
       /**
      * Convierte una lista de BandaAnuncioEntity a una lista de BandaAnuncioDTO.
@@ -56,6 +57,7 @@ public class PeliculaResource {
         List<PeliculaDTO> list = new ArrayList<>();
         for (PeliculaEntity entity : entityList) {
             list.add(new PeliculaDTO(entity));
+           LOGGER.log(Level.INFO,"pelicula id devuelto----------------------------------"+entity.getId());  
         }
         return list;
     }
@@ -97,17 +99,12 @@ public class PeliculaResource {
      * 
      */
     @POST
-    public PeliculaDTO createEstudiante(PeliculaDTO dto) {
-       PeliculaDTO r = null;
-               try {
-                   r=  new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
-          // r  PeliculaDTO(peliculaLogic.createEstudiante(dto.toEntity()));
-        } catch (BusinessLogicException ex) {
-           if(r==null){
-               throw new WebApplicationException("La pelicula no se pudo crear", 404);
-           }
-        }
-               return r;
+    public PeliculaDTO createEstudiante(PeliculaDTO dto) throws BusinessLogicException {
+      LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}" + dto.toString());
+        PeliculaDTO nuevoPeliculaDTO = new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
+        LOGGER.log(Level.INFO,"ID ES--------------------------"+dto.getId());
+        LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO.toString());
+        return nuevoPeliculaDTO;
     }
 
 
