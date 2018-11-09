@@ -23,9 +23,7 @@ import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 public class SalaEntity extends BaseEntity implements Serializable {
-
-    private Integer numSillasGene;
-    private Integer numSillasPref;
+    
     private Integer numero;
     
     @PodamExclude
