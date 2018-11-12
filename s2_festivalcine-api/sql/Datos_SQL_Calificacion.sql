@@ -1,4 +1,3 @@
-DELETE FROM CALIFICACIONENTITY;
 insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (100, 1.9, 'Pseudoleistes virescens', 139, 100, null);
 insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (101, 3.8, 'Libellula quadrimaculata', null, 101, 130);
 insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (102, 2.1, 'Branta canadensis', null, 102, 196);
