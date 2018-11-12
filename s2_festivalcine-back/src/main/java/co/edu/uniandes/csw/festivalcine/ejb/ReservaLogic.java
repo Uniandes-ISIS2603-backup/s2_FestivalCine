@@ -8,8 +8,10 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
+import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +29,9 @@ public class ReservaLogic
 
     @Inject
     private ReservaPersistence persistence; 
+    
+    @Inject
+    private UsuarioPersistence persistenceUser;
   
     /**
      * Crea una reserva en la persistencia.
@@ -39,6 +44,8 @@ public class ReservaLogic
     public ReservaEntity createReserva(ReservaEntity reservaEntity) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la reserva");
+        UsuarioEntity usuario = persistenceUser.findUsuario(reservaEntity.getUsuario().getId());
+        reservaEntity.setUsuario(usuario);
         persistence.create(reservaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de creación de la reserva");
         return reservaEntity;

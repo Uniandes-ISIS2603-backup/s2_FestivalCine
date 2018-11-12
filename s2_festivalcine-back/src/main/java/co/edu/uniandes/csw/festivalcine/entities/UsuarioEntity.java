@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -56,11 +57,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     private String password;
     
     @PodamExclude
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<ReservaEntity> reservas= new ArrayList<ReservaEntity>();
     
     @PodamExclude
-    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
 
     /**

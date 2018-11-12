@@ -1,3 +1,4 @@
+DELETE FROM CALIFICACIONENTITY;
 insert into calificacionentity (id, comentario, puntaje, usuario_id) values (1, 'BCM Cosmetique SAS', 3.7, 100);
 insert into calificacionentity (id, comentario, puntaje, usuario_id) values (2, 'Major Pharmaceuticals', 3.6, 200);
 insert into calificacionentity (id, comentario, puntaje, usuario_id) values (3, 'Safeway', 4.6, 300);
