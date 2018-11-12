@@ -28,7 +28,7 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      */
     private List<FuncionDTO> funciones;
     
-    private UsuarioDTO usuario;
+    //private UsuarioDTO usuario;
   
     //Constructor ----------------------------------------------------------------------------
     
@@ -97,14 +97,14 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
         return reservaEntity;
     }
     
-    public UsuarioDTO getUsuario()
+    //public UsuarioDTO getUsuario()
     {
-        return usuario;
+       // return usuario;
     }
     
-    public void setUsuario(UsuarioDTO pUsuario)
+    //public void setUsuario(UsuarioDTO pUsuario)
     {
-        usuario = pUsuario;
+       // usuario = pUsuario;
     }
     
     /**
