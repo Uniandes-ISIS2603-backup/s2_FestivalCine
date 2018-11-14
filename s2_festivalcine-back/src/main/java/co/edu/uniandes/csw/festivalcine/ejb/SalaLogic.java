@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
+import co.edu.uniandes.csw.festivalcine.persistence.TeatroPersistence;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +31,8 @@ public class SalaLogic {
     @Inject
     private SalaPersistence persistence; // Variable para acceder a la persistencia de la aplicación. Es una inyección de dependencias.
     
+    @Inject
+    private TeatroPersistence teatroPersistence;
     /**
      * Crea una sala en la persistencia.
      *
@@ -37,10 +40,15 @@ public class SalaLogic {
      * persistir.
      * @return La entidad de la sala luego de persistirla.
      */
-    public SalaEntity createSala(SalaEntity salaEntity){
+    public SalaEntity createSala(SalaEntity salaEntity)throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         // Invoca la persistencia para crear la sala
         persistence.create(salaEntity);
+        
+        //Regla de negocio: el teatro asociadas a la sala debe existir y estar persistidas
+        if (salaEntity.getTeatro() == null || teatroPersistence.find(salaEntity.getTeatro().getId()) == null) {
+            throw new BusinessLogicException("El teatro es invalido");
+        }
         LOGGER.log(Level.INFO, "Termina proceso de creación de la sala");
         return salaEntity;
     }

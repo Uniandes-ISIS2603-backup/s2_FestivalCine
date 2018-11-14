@@ -28,6 +28,15 @@ public class SalaDTO implements Serializable{
      */
     private Integer numero;
 
+   /*
+    * Relación a un teatro
+    * dado que esta tiene cardinalidad 1.
+    */
+
+    private TeatroDTO teatro;
+
+
+    
     //Constructor ----------------------------------------------------------------------------
     
     /**
@@ -46,6 +55,12 @@ public class SalaDTO implements Serializable{
         {
             this.id = salaEntity.getId();
             this.numero = salaEntity.getNumero();
+            
+            if (salaEntity.getTeatro() != null) {
+                this.teatro = new TeatroDTO(salaEntity.getTeatro());
+           } else {
+                this.teatro = null;
+           }
         }
     
     }
@@ -72,6 +87,14 @@ public class SalaDTO implements Serializable{
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
+    
+    public TeatroDTO getTeatro() {
+        return teatro;
+    }
+
+    public void setTeatro(TeatroDTO teatro) {
+        this.teatro = teatro;
+    }
      
     /**
      * Convertir DTO a Entity
@@ -82,6 +105,9 @@ public class SalaDTO implements Serializable{
         SalaEntity salaEntity = new SalaEntity();
         salaEntity.setId(this.id);
         salaEntity.setNumero(this.numero);
+         if (this.teatro != null) {
+            salaEntity.setTeatro(this.teatro.toEntity());
+      }
         return salaEntity ;
     }
     

@@ -1,8 +1,8 @@
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (1001, '2019-02-25 23:55:35', 7, 10078, 1, 133, 1, 1);
 
-insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (101, '2019-07-15 13:46:24', 4, 16134, 190, 132, 121, 178);
-insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (102, '2019-05-19 07:14:24', 15, 17641, 153, 195, 124, 116);
-insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (103, '2019-10-28 07:14:28', 24, 12685, 189, 197, 186, 149);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (101, '2019-07-15 13:46:24', 4, 16134, 2, 132, 121, 178);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (102, '2019-05-19 07:14:24', 15, 17641, 3, 195, 124, 116);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (103, '2019-10-28 07:14:28', 24, 12685, 4, 197, 186, 149);
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (104, '2019-03-24 08:43:01', 1, 13758, 105, 119, 138, 119);
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (105, '2019-08-01 06:31:43', 7, 6879, 132, 102, 168, 171);
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (106, '2019-08-08 12:48:07', 1, 9762, 109, 133, 120, 188);
