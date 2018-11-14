@@ -1,4 +1,5 @@
-insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (100, '2019-02-25 23:55:35', 7, 10078, 102, 189, 173, 184);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (1001, '2019-02-25 23:55:35', 7, 10078, 1, 133, 1, 1);
+
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (101, '2019-07-15 13:46:24', 4, 16134, 190, 132, 121, 178);
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (102, '2019-05-19 07:14:24', 15, 17641, 153, 195, 124, 116);
 insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (103, '2019-10-28 07:14:28', 24, 12685, 189, 197, 186, 149);
