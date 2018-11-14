@@ -7,6 +7,7 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.dtos.SalaDTO;
+import co.edu.uniandes.csw.festivalcine.dtos.SalaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import java.util.ArrayList;
@@ -71,9 +72,9 @@ public class SalaResource {
      * la aplicación. Si no hay ninguna retorna una lista vacía.
      */
     @GET
-    public List<SalaDTO> getsalas() {
+    public List<SalaDetailDTO> getsalas() {
         LOGGER.info("SalaResource getsalas: input: void");
-        List<SalaDTO> listaSalas = listEntity2DetailDTO(salaLogic.getSalas());
+        List<SalaDetailDTO> listaSalas = listEntity2DetailDTO(salaLogic.getSalas());
         LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
         return listaSalas;
     }
@@ -89,13 +90,13 @@ public class SalaResource {
      */
     @GET
     @Path("{salasId: \\d+}")
-    public SalaDTO getSala(@PathParam("salasId") Long salasId) throws WebApplicationException {
+    public SalaDetailDTO getSala(@PathParam("salasId") Long salasId) throws WebApplicationException {
        LOGGER.log(Level.INFO, "SalaResource getSala: input: {0}", salasId);
        SalaEntity salaEntity = salaLogic.getSala(salasId);
        if (salaEntity == null) {
            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
        }
-       SalaDTO detailDTO = new SalaDTO(salaEntity);
+       SalaDetailDTO detailDTO = new SalaDetailDTO(salaEntity);
        LOGGER.log(Level.INFO, "SalaResource getSala: output: {0}", detailDTO.toString());
        return detailDTO;
     }
@@ -155,10 +156,10 @@ public class SalaResource {
      * que vamos a convertir a DTO.
      * @return la lista de salas en forma DTO (json)
      */
-    private List<SalaDTO> listEntity2DetailDTO(List<SalaEntity> entityList) {
-        List<SalaDTO> list = new ArrayList<>();
+    private List<SalaDetailDTO> listEntity2DetailDTO(List<SalaEntity> entityList) {
+        List<SalaDetailDTO> list = new ArrayList<>();
         for (SalaEntity entity : entityList) {
-            list.add(new SalaDTO(entity));
+            list.add(new SalaDetailDTO(entity));
         }
         return list;
     }

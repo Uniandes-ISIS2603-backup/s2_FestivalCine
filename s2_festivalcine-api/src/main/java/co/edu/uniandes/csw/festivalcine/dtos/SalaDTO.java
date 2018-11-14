@@ -21,6 +21,7 @@ public class SalaDTO implements Serializable{
     //Atributos -------------------------------------------------------------------------
     
     private Long id;
+
     
     /**
      * Número de la sala
@@ -58,6 +59,10 @@ public class SalaDTO implements Serializable{
     public Long getId()
     {
         return id;
+    }
+    
+   public void setId(Long id) {
+        this.id = id;
     }
     
     public Integer getNumero() {
