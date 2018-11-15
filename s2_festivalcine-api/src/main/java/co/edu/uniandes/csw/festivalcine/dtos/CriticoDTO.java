@@ -164,7 +164,7 @@ public class CriticoDTO implements Serializable
      * Devuelve la credencial del critico
      * @return String con la credencial
      */
-    public String getcredencial()
+    public String getCredencial()
     {
         return credencial;
     }

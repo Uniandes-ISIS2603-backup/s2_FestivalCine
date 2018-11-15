@@ -88,15 +88,26 @@ public class TeatroDetailDTO extends TeatroDTO implements Serializable
   {
       super(teatroEnt);
       funciones = new ArrayList<>();
+      salasAsignadas = new ArrayList<>();
+      
+      if(teatroEnt != null)
+      {
         for (FuncionEntity entityFuncion : teatroEnt.getFunciones()) 
         {
-            funciones.add(new FuncionDTO(entityFuncion));
+            if(entityFuncion != null)
+            {
+                 funciones.add(new FuncionDTO(entityFuncion));
+            }
         }
-      salasAsignadas = new ArrayList<>();
+      
         for (SalaEntity entitySala : teatroEnt.getSalas()) 
         {
-            salasAsignadas.add(new SalaDTO(entitySala));
+            if(entitySala != null)
+            {
+                salasAsignadas.add(new SalaDTO(entitySala));
+            }
         }
+      }
   }
     /**
      * Devuelve la lista con las funciones del teatro.

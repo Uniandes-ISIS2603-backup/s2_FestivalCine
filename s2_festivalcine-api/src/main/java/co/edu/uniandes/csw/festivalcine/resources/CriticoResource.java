@@ -213,10 +213,14 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/funciones/")
-    public List<FuncionDTO> getfunciones(@PathParam("criticoId") Long criticosId)
+    public List<FuncionDTO> getfunciones(@PathParam("criticoId") Long criticosId) throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "CriticoResource getFunciones: input {0}", criticosId);
         List<FuncionDTO> lista = funcionesListEntity2DTO(criticoLogic.getFunciones(criticosId));
+        if(lista == null)
+        {
+            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/funciones no existe.", 404);
+        }
         LOGGER.log(Level.INFO, "CriticoResource getFunciones: input: {0}", lista.toString());
         return lista;
     }
@@ -328,10 +332,14 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/peliculas/")
-    public List<PeliculaDTO> getPeliculas(@PathParam("criticosId") Long criticosId)
+    public List<PeliculaDTO> getPeliculas(@PathParam("criticosId") Long criticosId) throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "CriticoResource getPeliculas: input: {0}", criticosId);
         List<PeliculaDTO> lista = peliculasListEntity2DTO(criticoLogic.getPeliculas(criticosId));
+        if(lista == null)
+        {
+            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/peliculas no existe.", 404);
+        }
         LOGGER.log(Level.INFO, "CriticoResource getPeliculas: output: {0}", lista.toString());
         return lista;
     }
@@ -446,10 +454,14 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/calificaciones/")
-    public List<CalificacionDTO> getCalificaciones(@PathParam("criticosId") Long criticosId)
+    public List<CalificacionDTO> getCalificaciones(@PathParam("criticosId") Long criticosId) throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: input; {0}", criticosId);
         List<CalificacionDTO> lista = calificacionesListEntity2DTO(criticoLogic.getCalificaciones(criticosId));
+        if(lista == null)
+        {
+            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/calificaciones no existe.", 404);
+        }
         LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: output: {0}", lista.toString());
         return lista;
     }

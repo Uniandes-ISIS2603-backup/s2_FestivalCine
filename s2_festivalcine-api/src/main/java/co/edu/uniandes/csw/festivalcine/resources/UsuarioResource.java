@@ -161,7 +161,7 @@ public class UsuarioResource
         LOGGER.info("UsuarioResource deleteUsuario: output: void");
     }
     
-      /**
+     /**
      * Método que retorna las reservas de un usuario
      * @param usuariosId
      * @return lista de las reservas correspondientes al usuario ingresado por parametro

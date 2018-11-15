@@ -25,15 +25,18 @@ public class PeliculaDTO {
         
     }
     
-    public PeliculaDTO(PeliculaEntity pelicula){
-        this.id = pelicula.getId();
-        this.nombre= pelicula.getNombre();
-        this.director= pelicula.getDirector();
-        this.creditos= pelicula.getCreditos();
-        this.pais=pelicula.getPais();
-        this.duracion=pelicula.getDuracion();
-        this.puntaje=pelicula.getPuntaje();
-        
+    public PeliculaDTO(PeliculaEntity pelicula)
+    {
+        if(pelicula != null)
+        {
+            this.id = pelicula.getId();
+            this.nombre= pelicula.getNombre();
+            this.director= pelicula.getDirector();
+            this.creditos= pelicula.getCreditos();
+            this.pais=pelicula.getPais();
+            this.duracion=pelicula.getDuracion();
+            this.puntaje=pelicula.getPuntaje();
+        }
                
     }
 

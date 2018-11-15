@@ -227,6 +227,10 @@ public class FuncionResource {
     @Path("{funcionesId: \\d+/criticos}")
     public void removeCritico(@PathParam("funcionesId") Long funcionesId) throws BusinessLogicException {
        LOGGER.log(Level.INFO, "FuncionResource removeCritico: input: {0}", funcionesId);
+       if(funcionLogic.getFuncion(funcionesId) == null)
+       {
+           throw new BusinessLogicException("No existe la función que desea borrar");
+       }
        funcionLogic.removeCritico(funcionesId);
        LOGGER.info("FuncionResource removeCritico: output: void");
     }

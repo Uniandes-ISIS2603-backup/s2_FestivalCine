@@ -45,14 +45,25 @@ public class UsuarioDetailDTO extends UsuarioDTO implements Serializable
     {
         super(usuarioEntity);
         reservas = new ArrayList<>();
-        for (ReservaEntity entityreserva : usuarioEntity.getReservas()) 
-        {
-            reservas.add(new ReservaDTO(entityreserva));
-        }
         calificaciones = new ArrayList<>();
-        for (CalificacionEntity entitycalificacion : usuarioEntity.getCalificaciones()) 
-        {
-            calificaciones.add(new CalificacionDTO(entitycalificacion));
+        
+        if(usuarioEntity != null)
+        {    
+            for (ReservaEntity entityreserva : usuarioEntity.getReservas()) 
+            {
+                if(entityreserva != null)
+                {
+                    reservas.add(new ReservaDTO(entityreserva));
+                }
+            }
+
+            for (CalificacionEntity entitycalificacion : usuarioEntity.getCalificaciones()) 
+            {
+                if(entitycalificacion != null)
+                {
+                    calificaciones.add(new CalificacionDTO(entitycalificacion));
+                }
+            }
         }
     }
     

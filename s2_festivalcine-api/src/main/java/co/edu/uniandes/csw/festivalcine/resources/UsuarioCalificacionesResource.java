@@ -73,10 +73,14 @@ public class UsuarioCalificacionesResource
      */
     @GET
     @Path("{usuariosId: \\d+}/calificaciones")
-    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId) 
+    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: input: {0}", usuariosId);
         List<CalificacionDTO> listaDTOs = calificacionesListEntity2DTO(usuarioCalificacionesLogic.getCalificaciones(usuariosId));
+        if(listaDTOs == null)
+        {
+            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + "/calificaciones no existe.", 404);
+        }
         LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: output: {0}", listaDTOs.toString());
         return listaDTOs;    
     }

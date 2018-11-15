@@ -145,7 +145,21 @@ public class SalaResource {
         salaLogic.deleteSala(salasId);
         LOGGER.info("SalaResource deleteSala: output: void");
     }
-
+    
+    /**
+     * Método que retorna las sillas de una sala
+     * @param salasId
+     * @return lista de las sillas correspondientes a la sala ingresada por parametro
+     */
+    @Path("{salasId: \\d+}/sillas")
+    public Class<SalaSillasResource> getSalaSillasResource(@PathParam("salasId") Long salasId) 
+    {
+        if (salaLogic.getSala(salasId) == null) 
+        {
+            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+        }
+        return SalaSillasResource.class;
+    }
     /**
      * Convierte una lista de entidades a DTO.
      *
