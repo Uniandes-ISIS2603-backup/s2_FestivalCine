@@ -7,14 +7,13 @@ package co.edu.uniandes.csw.festivalcine.persistence;
 
 //IMPORTS
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.Date;
-import java.util.logging.Level;
 /**
  *
  * @author Cristian
@@ -61,8 +60,11 @@ public class PeliculaPersistence {
         query = query.setParameter("name",name);
         
         List<PeliculaEntity> sameName = query.getResultList();
-        if(sameName.isEmpty()){
-            return null;
+        if(sameName.isEmpty())
+        {
+            List<PeliculaEntity> listavacia;
+            listavacia = new ArrayList();
+            return listavacia;
         }else{return sameName;
         
         }
@@ -74,7 +76,9 @@ public class PeliculaPersistence {
         
         List<PeliculaEntity> sameName = query.getResultList();
         if(sameName.isEmpty()){
-            return null;
+           List<PeliculaEntity> listavacia;
+            listavacia = new ArrayList();
+            return listavacia;
         }else{return sameName;
         
         }
@@ -85,7 +89,9 @@ public class PeliculaPersistence {
         
         List<PeliculaEntity> samePais = query.getResultList();
         if(samePais.isEmpty()){
-            return null;
+           List<PeliculaEntity> listavacia;
+            listavacia = new ArrayList();
+            return listavacia;
         }else{return samePais;
         
         }
@@ -109,7 +115,9 @@ public class PeliculaPersistence {
         
         List<PeliculaEntity> samePuntaje = query.getResultList();
         if(samePuntaje.isEmpty()){
-            return null;
+           List<PeliculaEntity> listavacia;
+            listavacia = new ArrayList();
+            return listavacia;
         }else{return samePuntaje;
         
         }
