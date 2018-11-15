@@ -47,8 +47,12 @@ import javax.ws.rs.WebApplicationException;
  * 
  * @author Andres Felipe Rodriguez Murillo - 201716905
  */
-public class CriticoResource {
-    
+public class CriticoResource 
+{
+    String elRecursoCriticos = "El recurso /criticos/";
+    String elRecursoFunciones = "El recurso /funciones/";
+    String elRecursoPeliculas = "El recurso /peliculas/";
+    String noexiste = "no existe";
     @Inject
     private CriticoLogic criticoLogic;
     
@@ -94,7 +98,7 @@ public class CriticoResource {
     {
         LOGGER.info("CriticoResource getCriticos: input: void");
         List<CriticoDetailDTO> listaCriticos = listEntity2DetailDTO(criticoLogic.getCriticos());
-        LOGGER.log(Level.INFO, "CriticoResource getCriticos: output: {0}", listaCriticos.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getCriticos: output: {0}", listaCriticos);
         return listaCriticos;
     }
     
@@ -104,6 +108,7 @@ public class CriticoResource {
      * @param criticosId Identificador del critico que se esta buscando. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link CriticoDetailDTO} - El autor buscado
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} - 
      * Error de lógica que se genera cuendo no se encuentra el critico.
      */
@@ -115,10 +120,10 @@ public class CriticoResource {
         CriticoEntity criticoEntity = criticoLogic.getCritico(criticosId);
         if(criticoEntity == null)
         {
-            throw new WebApplicationException("El recurso /criticos/" + criticosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoCriticos + criticosId + noexiste, 404);
         }
         CriticoDetailDTO criticoDetailDTO = new CriticoDetailDTO(criticoEntity);
-        LOGGER.log(Level.INFO, "CriticoResource getCritico: output: {0}", criticoDetailDTO.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getCritico: output: {0}", criticoDetailDTO);
         return criticoDetailDTO;
     }
     
@@ -130,6 +135,7 @@ public class CriticoResource {
      * debe ser una cadena de digitos.
      * @param critico {@link CriticoDetailDTO} El critico que se desea guardar.
      * @return JSON {@link CriticoDetailDTO} - El critico guardado.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el critico a
      * actualizar.
@@ -138,14 +144,14 @@ public class CriticoResource {
     @Path("{criticosId: \\d+}")
     public CriticoDetailDTO updateCritico(@PathParam("criticosId") Long criticosId, CriticoDetailDTO critico) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "CriticoResource updateCritico: input: id: {0} , critico: {1}", new Object[]{criticosId, critico.toString()});
+        LOGGER.log(Level.INFO, "CriticoResource updateCritico: input: id: {0} , critico: {1}", new Object[]{criticosId, critico});
         critico.setId(criticosId);
         if(criticoLogic.getCritico(criticosId) == null)
         {
             throw new WebApplicationException("El recurso /criticos/" + criticosId + " no existe.", 404);      
         }
         CriticoDetailDTO detailDTO = new CriticoDetailDTO(criticoLogic.updateCritico(critico.toEntity()));
-        LOGGER.log(Level.INFO, "CriticoResource updateCritico: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "CriticoResource updateCritico: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -154,20 +160,19 @@ public class CriticoResource {
      * 
      * @param criticosId Identificador del critico que se desea borra. Este debe
      * ser una cadena de dígitos.
-     * @throws co.edu.uniandes.csw.festivalcine.exceotion.BusinessLogicException
-     * si el critico tiene funciones asociadas.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper}
      * Error de lógica que se genera cuando no se encuentra el critico a borrar.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @DELETE
     @Path("{criticosId: \\d+}")
-    public void deleteCritico(@PathParam("criticosId") Long criticosId) throws BusinessLogicException
+    public void deleteCritico(@PathParam("criticosId") Long criticosId) throws WebApplicationException, BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CriticoResource deleteCritico: input: {0}", criticosId);
         CriticoEntity entity = criticoLogic.getCritico(criticosId);
         if(entity == null)
         {
-            throw new WebApplicationException("El recurso /critico/" + criticosId  +" no existe.", 404);
+            throw new WebApplicationException("El recurso /critico/" + criticosId  + noexiste, 404);
         }
         criticoLogic.deleteCritico(criticosId);
         LOGGER.info("CriticoResource deleteCritico: output: void");
@@ -186,6 +191,7 @@ public class CriticoResource {
      * @param funcionesId Identificador de la función que se va a asignar al 
      * critico. Este debe ser una cadena de digitos.
      * @return JSON {@link FuncionDTO} - La funcion agregada.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la funcion.
      */
@@ -196,7 +202,7 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource addFuncion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
         if(funcionLogic.getFuncion(funcionesId) == null)
         {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones + funcionesId + noexiste, 404);
         }
         FuncionDTO funcionDTO = new FuncionDTO(criticoLogic.addFuncion(criticosId, funcionesId));
         LOGGER.log(Level.INFO, "CriticoResource addBook: output: {0}", funcionDTO);
@@ -221,7 +227,7 @@ public class CriticoResource {
         {
             throw new WebApplicationException("El recurso /criticos/" + criticosId + "/funciones no existe.", 404);
         }
-        LOGGER.log(Level.INFO, "CriticoResource getFunciones: input: {0}", lista.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getFunciones: input: {0}", lista);
         return lista;
     }
  
@@ -246,7 +252,7 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource getFuncion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
         if(funcionLogic.getFuncion(funcionesId) == null)
         {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones + funcionesId + noexiste, 404);
         }
         FuncionDTO funcionDTO = new FuncionDTO(criticoLogic.getFuncion(criticosId, funcionesId));
         LOGGER.log(Level.INFO, "CriticoResource getFuncion: output: {0}", funcionDTO);
@@ -261,6 +267,7 @@ public class CriticoResource {
      * función. Este debe ser una cadena de digitos.
      * @param funcionesId Identificacion de la funcion que se desea eliminar. Este
      * debe ser una cadena de digitos.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la función.
      */
@@ -271,7 +278,7 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource deleteFuncion: input: criticosId {0} , funcionesId {1}", new Object[]{criticosId, funcionesId});
         if(criticoLogic.getFuncion(criticosId ,funcionesId) == null)
         {
-            throw new WebApplicationException("El recurso /funciones/" +funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones +funcionesId + noexiste, 404);
         }
         criticoLogic.removeFuncion(criticosId, funcionesId);
         LOGGER.info("CriticoResource deleteFuncion: output: void");
@@ -301,7 +308,7 @@ public class CriticoResource {
      * Relaciona una pelicula con la id recibida en la URL con el critico con la id
      * recibida en la URL
      * 
-     * @param criticoId Identificación del critico al que se le desea agregar la
+     * @param criticosId Identificación del critico al que se le desea agregar la
      * pelicula. Este debe ser una cadena de digitos.
      * @param peliculasId Identificación de la pelicula que se le dese agregar al
      * critico. Este debe ser una cadena de dígitos.
@@ -316,7 +323,7 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource addPelicula: input: criticosId{0}, peliculasId {1}", new Object[]{criticosId, peliculasId});
         if(peliculaLogic.findById(peliculasId) == null)
         {
-            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoPeliculas + peliculasId + noexiste, 404);
         }
         PeliculaDTO peliculaDTO = new PeliculaDTO(criticoLogic.addPelicula(criticosId, peliculasId));
         LOGGER.log(Level.INFO, "CriticoResource addPelicula: output: {0}", peliculaDTO.toString());
@@ -332,15 +339,15 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/peliculas/")
-    public List<PeliculaDTO> getPeliculas(@PathParam("criticosId") Long criticosId) throws WebApplicationException
+    public List<PeliculaDTO> getPeliculas(@PathParam("criticosId") Long criticosId) 
     {
         LOGGER.log(Level.INFO, "CriticoResource getPeliculas: input: {0}", criticosId);
         List<PeliculaDTO> lista = peliculasListEntity2DTO(criticoLogic.getPeliculas(criticosId));
         if(lista == null)
         {
-            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/peliculas no existe.", 404);
+            throw new WebApplicationException(elRecursoCriticos + criticosId + "/peliculas" + noexiste, 404);
         }
-        LOGGER.log(Level.INFO, "CriticoResource getPeliculas: output: {0}", lista.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getPeliculas: output: {0}", lista);
         return lista;
     }
     
@@ -353,8 +360,6 @@ public class CriticoResource {
      * @param peliculasId Identificacion de la pelicula que se desea buscar. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link PeliculaDTO} Pelicula encontrada.
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     * si la pelicula no está asociado al critico.
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la pelicula.
      */
@@ -365,10 +370,10 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource getPelicula: input: criticosId {0}, peliculasId{1}", new Object[] {criticosId, peliculasId});
         if(peliculaLogic.findById(peliculasId) == null)
         {
-            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe." ,404);
+            throw new WebApplicationException(elRecursoPeliculas + peliculasId + noexiste ,404);
         }
         PeliculaDTO peliculaDTO = new PeliculaDTO(criticoLogic.getPelicula(criticosId, peliculasId));
-        LOGGER.log(Level.INFO, "CriticoResource getPelicula: ouput: {0}", peliculaDTO.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getPelicula: ouput: {0}", peliculaDTO);
         return peliculaDTO;
        
  
@@ -392,7 +397,7 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource deletePelicula: input: criticosId{0}, peliculasId{1}", new Object[]{criticosId, peliculasId});
         if(peliculaLogic.findById(peliculasId) == null)
         {
-            throw new WebApplicationException("El recurso /peliculas/" + peliculasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoPeliculas + peliculasId + noexiste, 404);
         }
         criticoLogic.deletePelicula(criticosId, peliculasId);
         LOGGER.info("CriticoResource deletePelicula: output: void");
@@ -422,7 +427,7 @@ public class CriticoResource {
      * Relaciona una calificacion con la id recibida en la URL al critico con 
      * la id recibida en la URL
      * 
-     * @param criticoId Identificación del critico al que se le desea agregar la
+     * @param criticosId Identificación del critico al que se le desea agregar la
      * calificacion. Este debe ser una cadena de digitos.
      * @param calificacionesId Identificación de la calificacion que se le dese 
      * agregar al critico. Este debe ser una cadena de dígitos.
@@ -437,10 +442,10 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "CriticoResource add: input: criticosId {0}, peliculasId {1}", new Object[]{criticosId, calificacionesId});
         if(calificacionLogic.getCalificacion(calificacionesId) == null)
         {
-            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + noexiste, 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(criticoLogic.addCalificacion(criticosId, calificacionesId));
-        LOGGER.log(Level.INFO, "CriticosResource addCalificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "CriticosResource addCalificacion: output: {0}", calificacionDTO);
         return calificacionDTO;
     }
     
@@ -454,15 +459,15 @@ public class CriticoResource {
      */
     @GET
     @Path("{criticosId: \\d+}/calificaciones/")
-    public List<CalificacionDTO> getCalificaciones(@PathParam("criticosId") Long criticosId) throws WebApplicationException
+    public List<CalificacionDTO> getCalificaciones(@PathParam("criticosId") Long criticosId)
     {
         LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: input; {0}", criticosId);
         List<CalificacionDTO> lista = calificacionesListEntity2DTO(criticoLogic.getCalificaciones(criticosId));
         if(lista == null)
         {
-            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/calificaciones no existe.", 404);
+            throw new WebApplicationException(elRecursoCriticos + criticosId + "/calificaciones no existe.", 404);
         }
-        LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: output: {0}", lista.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: output: {0}", lista);
         return lista;
     }
     
@@ -487,10 +492,10 @@ public class CriticoResource {
         LOGGER.log(Level.INFO, "criticoResource getCalificacion: input: criticosId {0}, calificacionesId {1}", new Object[]{criticosId, calificacionesId});
         if(calificacionLogic.getCalificacion(calificacionesId) == null)
         {
-            throw new WebApplicationException("El recurso /Ccalificaciones/" + calificacionesId + " noexiste." , 404);
+            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + noexiste , 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(criticoLogic.getCalificacion(criticosId, calificacionesId));
-        LOGGER.log(Level.INFO, "CriticoResource getCalificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "CriticoResource getCalificacion: output: {0}", calificacionDTO);
         return calificacionDTO;
     
     }
