@@ -84,7 +84,7 @@ public class FuncionResource {
     public List<FuncionDTO> getFunciones() {
         LOGGER.info("FuncionResource getFunciones: input: void");
         List<FuncionDTO> listaFunciones = listEntity2DetailDTO(funcionLogic.getFunciones());
-        LOGGER.log(Level.INFO, "FuncionResource getFunciones: output: {0}", listaFunciones.toString());
+        LOGGER.log(Level.INFO, "FuncionResource getFunciones: output: {0}", listaFunciones);
         return listaFunciones;
     }
 
@@ -98,7 +98,7 @@ public class FuncionResource {
      */
     @GET
     @Path("{funcionesId: \\d+}")
-    public FuncionDTO getFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    public FuncionDTO getFuncion(@PathParam("funcionesId") Long funcionesId){
         LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
         if (funcionEntity == null) {
@@ -124,7 +124,7 @@ public class FuncionResource {
      */
     @PUT
     @Path("{funcionesId: \\d+}")
-    public FuncionDTO updateFuncion(@PathParam("funcionesId") Long funcionesId, FuncionDTO funcion) throws WebApplicationException,BusinessLogicException {
+    public FuncionDTO updateFuncion(@PathParam("funcionesId") Long funcionesId, FuncionDTO funcion) throws BusinessLogicException {
        LOGGER.log(Level.INFO, "FuncionResource updateFuncion: input: id:{0} , funcion: {1}", new Object[]{funcionesId, funcion});
        funcion.setId(funcionesId);
        if (funcionLogic.getFuncion(funcionesId) == null) {
@@ -167,7 +167,7 @@ public class FuncionResource {
      */
     @GET
     @Path("{funcionesId: \\d+}/peliculas")
-    public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) {
  
         LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
@@ -189,7 +189,7 @@ public class FuncionResource {
      */
     @GET
     @Path("{funcionesId: \\d+}/criticos")
-    public CriticoDetailDTO getCriticoFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    public CriticoDetailDTO getCriticoFuncion(@PathParam("funcionesId") Long funcionesId){
    
         LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
@@ -211,7 +211,7 @@ public class FuncionResource {
      */
     @GET
     @Path("{funcionesId: \\d+}/salas")
-    public SalaDetailDTO getSalaFuncion(@PathParam("funcionesId") Long funcionesId) throws WebApplicationException {
+    public SalaDetailDTO getSalaFuncion(@PathParam("funcionesId") Long funcionesId) {
       
         LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
