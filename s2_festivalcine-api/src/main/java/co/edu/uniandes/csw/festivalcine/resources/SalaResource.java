@@ -36,7 +36,10 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class SalaResource {
     private static final Logger LOGGER = Logger.getLogger(SalaResource.class.getName());
-
+    
+    String elRecursoSalas = "El recurso /salas/";
+    String noexiste = "noexiste";
+    
     @Inject
     SalaLogic salaLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
@@ -54,14 +57,14 @@ public class SalaResource {
      */
     @POST
     public SalaDTO createSala(SalaDTO sala) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "SalaResource createSala: input: {0}", sala.toString());
+        LOGGER.log(Level.INFO, "SalaResource createSala: input: {0}", sala);
        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         SalaEntity salaEntity = sala.toEntity();
         // Invoca la lógica para crear la editorial nueva
         SalaEntity nuevoSalaEntity = salaLogic.createSala(salaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         SalaDTO nuevaSalaDTO = new SalaDTO(nuevoSalaEntity);
-        LOGGER.log(Level.INFO, "SalaResource createSala: output: {0}", nuevaSalaDTO.toString());
+        LOGGER.log(Level.INFO, "SalaResource createSala: output: {0}", nuevaSalaDTO);
         return nuevaSalaDTO;
     }
 
@@ -75,7 +78,7 @@ public class SalaResource {
     public List<SalaDetailDTO> getsalas() {
         LOGGER.info("SalaResource getsalas: input: void");
         List<SalaDetailDTO> listaSalas = listEntity2DetailDTO(salaLogic.getSalas());
-        LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas.toString());
+        LOGGER.log(Level.INFO, "SalaResource getsalas: output: {0}", listaSalas);
         return listaSalas;
     }
 
@@ -90,14 +93,15 @@ public class SalaResource {
      */
     @GET
     @Path("{salasId: \\d+}")
-    public SalaDetailDTO getSala(@PathParam("salasId") Long salasId) throws WebApplicationException {
+    public SalaDetailDTO getSala(@PathParam("salasId") Long salasId)
+    {
        LOGGER.log(Level.INFO, "SalaResource getSala: input: {0}", salasId);
        SalaEntity salaEntity = salaLogic.getSala(salasId);
        if (salaEntity == null) {
-           throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+           throw new WebApplicationException(elRecursoSalas + salasId + noexiste, 404);
        }
        SalaDetailDTO detailDTO = new SalaDetailDTO(salaEntity);
-       LOGGER.log(Level.INFO, "SalaResource getSala: output: {0}", detailDTO.toString());
+       LOGGER.log(Level.INFO, "SalaResource getSala: output: {0}", detailDTO);
        return detailDTO;
     }
 
@@ -115,13 +119,13 @@ public class SalaResource {
      */
     @PUT
     @Path("{salasId: \\d+}")
-    public SalaDTO updateSala(@PathParam("salasId") Long salasId, SalaDTO sala) throws WebApplicationException {
-       LOGGER.log(Level.INFO, "SalaResource updateSala: input: id:{0} , sala: {1}", new Object[]{salasId, sala.toString()});
+    public SalaDTO updateSala(@PathParam("salasId") Long salasId, SalaDTO sala) {
+       LOGGER.log(Level.INFO, "SalaResource updateSala: input: id:{0} , sala: {1}", new Object[]{salasId, sala});
        if (salaLogic.getSala(salasId) == null) {
-           throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+           throw new WebApplicationException(elRecursoSalas + salasId + noexiste, 404);
        }
        SalaDTO detailDTO = new SalaDTO(salaLogic.updateSala(salasId, sala.toEntity()));
-       LOGGER.log(Level.INFO, "SalaResource updateSala: output: {0}", detailDTO.toString());
+       LOGGER.log(Level.INFO, "SalaResource updateSala: output: {0}", detailDTO);
        return sala;
     }
 
@@ -140,7 +144,7 @@ public class SalaResource {
     public void deleteSala(@PathParam("salasId") Long salasId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "SalaResource deleteSala: input: {0}", salasId);
         if (salaLogic.getSala(salasId) == null) {
-            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoSalas + salasId + noexiste, 404);
         }
         salaLogic.deleteSala(salasId);
         LOGGER.info("SalaResource deleteSala: output: void");
@@ -156,7 +160,7 @@ public class SalaResource {
     {
         if (salaLogic.getSala(salasId) == null) 
         {
-            throw new WebApplicationException("El recurso /salas/" + salasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoSalas + salasId + noexiste, 404);
         }
         return SalaSillasResource.class;
     }
