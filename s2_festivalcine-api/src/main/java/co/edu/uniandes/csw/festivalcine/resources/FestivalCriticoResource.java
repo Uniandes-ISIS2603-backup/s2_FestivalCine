@@ -66,7 +66,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDTO criticoDTO = new CriticoDTO(festivalCriticoLogic.addCritico(criticoId, festivalId));
-        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO);
+        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO.toString());
         return criticoDTO;
     }
     
@@ -94,7 +94,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /festivales/" + festivalId + "/criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDetailDTO criticoDetailDTO = new CriticoDetailDTO(festivalCriticoLogic.getCritico(festivalId, criticoId));
-        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO);
+        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO.toString());
         return criticoDetailDTO;
     }
     
