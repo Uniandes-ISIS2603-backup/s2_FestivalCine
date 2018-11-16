@@ -58,11 +58,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     
     @PodamExclude
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<ReservaEntity> reservas= new ArrayList<ReservaEntity>();
+    private List<ReservaEntity> reservas= new ArrayList<>();
     
     @PodamExclude
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    private List<CalificacionEntity> calificaciones = new ArrayList<CalificacionEntity>();
+    private List<CalificacionEntity> calificaciones = new ArrayList<>();
 
     /**
      * Metodo que obtiene todas las reservas

@@ -51,7 +51,7 @@ public class FuncionEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @ManyToMany(mappedBy = "funciones", fetch = FetchType.LAZY)
-    private Collection<ReservaEntity> reservas = new ArrayList<ReservaEntity>();    
+    private Collection<ReservaEntity> reservas = new ArrayList<>();    
 
 
 
