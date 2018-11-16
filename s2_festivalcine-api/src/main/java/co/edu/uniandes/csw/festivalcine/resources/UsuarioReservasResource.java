@@ -63,7 +63,7 @@ public class UsuarioReservasResource
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
         ReservaDTO reservaDTO = new ReservaDTO(usuarioReservasLogic.addReserva(reservasId, usuariosId));
-        LOGGER.log(Level.INFO, "Usuario addReserva: output: {0}", reservaDTO.toString());
+        LOGGER.log(Level.INFO, "Usuario addReserva: output: {0}", reservaDTO);
         return reservaDTO;
     }
     
@@ -80,7 +80,7 @@ public class UsuarioReservasResource
     {
         LOGGER.log(Level.INFO, "UsuarioReservasResource getReservas: input: {0}", usuariosId);
         List<ReservaDetailDTO> listaDetailDTOs = reservasListEntity2DTO(usuarioReservasLogic.getReservas(usuariosId));
-        LOGGER.log(Level.INFO, "UsuarioReservasResource getReservas: output: {0}", listaDetailDTOs.toString());
+        LOGGER.log(Level.INFO, "UsuarioReservasResource getReservas: output: {0}", listaDetailDTOs);
         return listaDetailDTOs;
     }
     
@@ -108,7 +108,7 @@ public class UsuarioReservasResource
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + "/reservas/" + reservasId + " no existe.", 404);
         }
         ReservaDetailDTO reservaDetailDTO = new ReservaDetailDTO(usuarioReservasLogic.getReserva(usuariosId, reservasId));
-        LOGGER.log(Level.INFO, "EditorialBooksResource getBook: output: {0}", reservaDetailDTO.toString());
+        LOGGER.log(Level.INFO, "EditorialBooksResource getBook: output: {0}", reservaDetailDTO);
         return reservaDetailDTO;
     }
     
