@@ -27,15 +27,13 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      * Lista de tipo FuncionDTO, contiene las funciones asociadas con la reserva
      */
     private List<FuncionDTO> funciones;
-    
-  
+
     //Constructor ----------------------------------------------------------------------------
     
     /**
      * Constructor por defecto
      */
-    public ReservaDetailDTO()
-    {
+    public ReservaDetailDTO(){
     }
     
     /**
@@ -136,4 +134,15 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
     {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

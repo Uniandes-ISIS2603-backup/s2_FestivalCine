@@ -50,8 +50,7 @@ public class ReservaDTO implements Serializable
     /**
      * Constructor de la clase
      */
-    public ReservaDTO()
-    {
+    public ReservaDTO(){
     }
     
     /**
