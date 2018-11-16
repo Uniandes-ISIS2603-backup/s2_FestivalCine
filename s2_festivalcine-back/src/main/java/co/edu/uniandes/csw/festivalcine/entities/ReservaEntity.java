@@ -8,7 +8,6 @@ package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -31,11 +30,11 @@ public class ReservaEntity extends BaseEntity implements Serializable
     
     @PodamExclude
     @ManyToMany
-    private List<FuncionEntity> funciones = new ArrayList<FuncionEntity>();
+    private List<FuncionEntity> funciones = new ArrayList<>();
 
     @PodamExclude
     @OneToMany(mappedBy = "reserva", fetch = FetchType.LAZY)
-    private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    private List<SillaEntity> sillas = new ArrayList<>();
     
     @PodamExclude
     @ManyToOne
