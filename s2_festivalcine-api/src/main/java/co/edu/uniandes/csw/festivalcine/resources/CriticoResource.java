@@ -148,7 +148,7 @@ public class CriticoResource
         critico.setId(criticosId);
         if(criticoLogic.getCritico(criticosId) == null)
         {
-            throw new WebApplicationException("El recurso /criticos/" + criticosId + " no existe.", 404);      
+            throw new WebApplicationException(elRecursoCriticos + criticosId + noexiste, 404);      
         }
         CriticoDetailDTO detailDTO = new CriticoDetailDTO(criticoLogic.updateCritico(critico.toEntity()));
         LOGGER.log(Level.INFO, "CriticoResource updateCritico: output: {0}", detailDTO);
@@ -172,7 +172,7 @@ public class CriticoResource
         CriticoEntity entity = criticoLogic.getCritico(criticosId);
         if(entity == null)
         {
-            throw new WebApplicationException("El recurso /critico/" + criticosId  + noexiste, 404);
+            throw new WebApplicationException(elRecursoCriticos + criticosId + noexiste, 404);
         }
         criticoLogic.deleteCritico(criticosId);
         LOGGER.info("CriticoResource deleteCritico: output: void");
@@ -225,7 +225,7 @@ public class CriticoResource
         List<FuncionDTO> lista = funcionesListEntity2DTO(criticoLogic.getFunciones(criticosId));
         if(lista == null)
         {
-            throw new WebApplicationException("El recurso /criticos/" + criticosId + "/funciones no existe.", 404);
+            throw new WebApplicationException(elRecursoCriticos + criticosId + "/funciones no existe.", 404);
         }
         LOGGER.log(Level.INFO, "CriticoResource getFunciones: input: {0}", lista);
         return lista;
