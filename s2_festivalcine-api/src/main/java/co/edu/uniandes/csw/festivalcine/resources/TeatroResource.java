@@ -36,7 +36,10 @@ import javax.ws.rs.WebApplicationException;
 //@RequestScoped
 
 public class TeatroResource 
+        
 {
+    String elRecursoTeatros = "El recurso /teatros/";
+    String noexiste = "no existe";
     private static final Logger LOGGER = Logger.getLogger(FestivalResource.class.getName());
     
     /**
@@ -53,15 +56,16 @@ public class TeatroResource
      * @param teatro - EL teatro que se desea guardar.
      * @return JSON  - El teatro guardado con el atributo id
      * autogenerado.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @POST
     public TeatroDTO createTeatro(TeatroDTO teatro) throws BusinessLogicException
     {
-                 LOGGER.log(Level.INFO, "TeatroResource createTeatro: input: {0}", teatro.toString());
+        LOGGER.log(Level.INFO, "TeatroResource createTeatro: input: {0}", teatro);
         TeatroEntity teatroEntity = teatro.toEntity();
         TeatroEntity nuevoTeatroEntity = teatroLogic.createTeatro(teatroEntity);
         TeatroDTO nuevoTeatro = new TeatroDTO(nuevoTeatroEntity);
-        LOGGER.log(Level.INFO, "TeatroResource createTeatro: output: {0}", nuevoTeatro.toString());
+        LOGGER.log(Level.INFO, "TeatroResource createTeatro: output: {0}", nuevoTeatro);
         return nuevoTeatro;
     }
     
@@ -75,7 +79,7 @@ public class TeatroResource
     public List<TeatroDetailDTO> getTeatros() {
         LOGGER.info("TeatroResource getTeatros: input: void");
         List<TeatroDetailDTO> listTeatros = listEntity2DetailDTO(teatroLogic.getTeatros());
-        LOGGER.log(Level.INFO, "FestivalResource getFestivales: output: {0}", listTeatros.toString());
+        LOGGER.log(Level.INFO, "FestivalResource getFestivales: output: {0}", listTeatros);
         return listTeatros;
     }
     
@@ -90,16 +94,16 @@ public class TeatroResource
      */
     @GET
     @Path("{id: \\d+}")
-    public TeatroDetailDTO getTeatro(@PathParam("id") Long id) throws WebApplicationException
+    public TeatroDetailDTO getTeatro(@PathParam("id") Long id)
     {
         LOGGER.log(Level.INFO, "TeatroResource getTeatro: input: {0}", id);
        TeatroEntity teatroEntity = teatroLogic.getTeatro(id);
         if (teatroEntity == null) 
         {
-            throw new WebApplicationException("El recurso /teatros/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoTeatros + id + noexiste, 404);
         }
         TeatroDetailDTO detailDTO = new TeatroDetailDTO(teatroEntity);
-        LOGGER.log(Level.INFO, "TeatroResource getTeatro: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "TeatroResource getTeatro: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -117,16 +121,16 @@ public class TeatroResource
      */
     @PUT
     @Path("{id: \\d+}")
-    public TeatroDTO updateTeatro(@PathParam("id") Long id, TeatroDTO teatro) throws WebApplicationException
+    public TeatroDTO updateTeatro(@PathParam("id") Long id, TeatroDTO teatro)
     {
-              LOGGER.log(Level.INFO, "TeatroResource updateTeatro: input: id:{0} , teatro: {1}", new Object[]{id, teatro.toString()});
+              LOGGER.log(Level.INFO, "TeatroResource updateTeatro: input: id:{0} , teatro: {1}", new Object[]{id, teatro});
         teatro.setId(id);
         if (teatroLogic.getTeatro(id) == null) 
         {
             throw new WebApplicationException("El recurso /teatros/" + id + " no existe.", 404);
         }
        TeatroDetailDTO detailDTO = new TeatroDetailDTO(teatroLogic.updateTeatro(id, teatro.toEntity()));
-        LOGGER.log(Level.INFO, "TeatroResource updateTeatro: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "TeatroResource updateTeatro: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -135,7 +139,7 @@ public class TeatroResource
     public void deleteTeatro(@PathParam("id") Long id) throws BusinessLogicException
     {
         if (teatroLogic.getTeatro(id) == null) {
-        throw new WebApplicationException("El recurso /teatros/" + id + " no existe.", 404);
+        throw new WebApplicationException(elRecursoTeatros + id + noexiste, 404);
         }
         teatroLogic.deleteTeatro(id);
         LOGGER.info("TeatroResource deleteTeatro: output: void");
@@ -172,7 +176,7 @@ public class TeatroResource
     {
         if (teatroLogic.getTeatro(id) == null) 
         {
-            throw new WebApplicationException("El recurso /teatros/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoTeatros + id + noexiste, 404);
         }
         return TeatroFuncionResource.class;
     }
@@ -189,7 +193,7 @@ public class TeatroResource
     {
         if (teatroLogic.getTeatro(id) == null) 
         {
-            throw new WebApplicationException("El recurso /teatros/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoTeatros + id + noexiste, 404);
         }
         return TeatroSalaResource.class;
     }
