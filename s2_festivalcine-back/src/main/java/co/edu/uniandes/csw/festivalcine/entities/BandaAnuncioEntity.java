@@ -5,9 +5,10 @@
  */
 package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-
 import javax.persistence.OneToOne;
 import uk.co.jemos.podam.common.*;
 /**
