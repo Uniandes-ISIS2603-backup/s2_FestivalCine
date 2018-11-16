@@ -7,7 +7,6 @@ package co.edu.uniandes.csw.festivalcine.resources;
 
 import co.edu.uniandes.csw.festivalcine.dtos.FestivalDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.FestivalDetailDTO;
-import co.edu.uniandes.csw.festivalcine.dtos.TeatroDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
@@ -40,7 +39,9 @@ import javax.ws.rs.WebApplicationException;
 @Produces("application/json")
 @RequestScoped
 public class FestivalResource {
-
+    
+    String elRecursoFestivales = "El recurso /festivales/";
+    String noexiste = "no existe";
     private static final Logger LOGGER = Logger.getLogger(FestivalResource.class.getName());
 
     /**
@@ -57,16 +58,17 @@ public class FestivalResource {
      * @param festival - EL festival que se desea guardar.
      * @return JSON  - El festival guardado con el atributo id
      * autogenerado.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @POST
     public FestivalDTO createFestival(FestivalDTO festival) throws BusinessLogicException
     {
        
-        LOGGER.log(Level.INFO, "FestivalResource createFestival: input: {0}", festival.toString());
+        LOGGER.log(Level.INFO, "FestivalResource createFestival: input: {0}", festival);
         FestivalEntity festivalEntity = festival.toEntity();
         FestivalEntity nuevoFestivalEntity = festivalLogic.createFestival(festivalEntity);
         FestivalDTO nuevoTeatro = new FestivalDTO(nuevoFestivalEntity);
-        LOGGER.log(Level.INFO, "TeatroResource createTeatro: output: {0}", nuevoTeatro.toString());
+        LOGGER.log(Level.INFO, "TeatroResource createTeatro: output: {0}", nuevoTeatro);
         return nuevoTeatro;
     }
 
@@ -80,7 +82,7 @@ public class FestivalResource {
     public List<FestivalDetailDTO> getFestivals() {
         LOGGER.info("FestivalResource getFestivales: input: void");
         List<FestivalDetailDTO> listFestivales = listEntity2DetailDTO(festivalLogic.getFestivales());
-        LOGGER.log(Level.INFO, "FestivalResource getFestivales: output: {0}", listFestivales.toString());
+        LOGGER.log(Level.INFO, "FestivalResource getFestivales: output: {0}", listFestivales);
         return listFestivales;
     }
 
@@ -95,16 +97,16 @@ public class FestivalResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public FestivalDetailDTO getFestival(@PathParam("id") Long id) throws WebApplicationException 
+    public FestivalDetailDTO getFestival(@PathParam("id") Long id) 
     {
         LOGGER.log(Level.INFO, "FestivalResource getTeatro: input: {0}", id);
        FestivalEntity teatroEntity = festivalLogic.getFestival(id);
         if (teatroEntity == null) 
         {
-            throw new WebApplicationException("El recurso /festivales/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFestivales + id + noexiste, 404);
         }
         FestivalDetailDTO detailDTO = new FestivalDetailDTO(teatroEntity);
-        LOGGER.log(Level.INFO, "FestivalResource getFestival: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "FestivalResource getFestival: output: {0}", detailDTO);
         return detailDTO;
     }
 
@@ -122,16 +124,16 @@ public class FestivalResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public FestivalDTO updateFestival(@PathParam("id") Long id, FestivalDTO festival) throws WebApplicationException
+    public FestivalDTO updateFestival(@PathParam("id") Long id, FestivalDTO festival)
     {
-        LOGGER.log(Level.INFO, "FestivalResource updateFestival: input: id:{0} , festival: {1}", new Object[]{id, festival.toString()});
+        LOGGER.log(Level.INFO, "FestivalResource updateFestival: input: id:{0} , festival: {1}", new Object[]{id, festival});
         festival.setId(id);
         if (festivalLogic.getFestival(id) == null) 
         {
-            throw new WebApplicationException("El recurso /festivales/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFestivales + id + noexiste, 404);
         }
         FestivalDetailDTO detailDTO = new FestivalDetailDTO(festivalLogic.updateFestival(id, festival.toEntity()));
-        LOGGER.log(Level.INFO, "FestivalResource updateFestival: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "FestivalResource updateFestival: output: {0}", detailDTO);
         return detailDTO;
     }
     
@@ -140,7 +142,7 @@ public class FestivalResource {
     public void deleteFestival(@PathParam("id") Long id) throws BusinessLogicException
     {
        if (festivalLogic.getFestival(id) == null) {
-        throw new WebApplicationException("El recurso /festivales/" + id + " no existe.", 404);
+        throw new WebApplicationException(elRecursoFestivales + id + noexiste, 404);
         }
         festivalLogic.deleteFestival(id);
         LOGGER.info("FestivalResource deleteFestival: output: void");
@@ -176,7 +178,7 @@ public class FestivalResource {
     {
         if (festivalLogic.getFestival(id) == null) 
         {
-            throw new WebApplicationException("El recurso /festivales/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFestivales + id + noexiste, 404);
         }
         return FestivalTeatroResource.class;
     }
@@ -192,7 +194,7 @@ public class FestivalResource {
     {
         if (festivalLogic.getFestival(id) == null) 
         {
-            throw new WebApplicationException("El recurso /festivales/" + id + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFestivales + id + noexiste, 404);
         }
         return FestivalCriticoResource.class;
     }
