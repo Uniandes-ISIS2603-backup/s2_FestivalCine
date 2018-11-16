@@ -27,6 +27,8 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      * Lista de tipo FuncionDTO, contiene las funciones asociadas con la reserva
      */
     private List<FuncionDTO> funciones;
+    
+    //private UsuarioDTO usuario;
   
     //Constructor ----------------------------------------------------------------------------
     
@@ -94,7 +96,17 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
         }
         return reservaEntity;
     }
-
+    
+    //public UsuarioDTO getUsuario()
+    {
+       // return usuario;
+    }
+    
+    //public void setUsuario(UsuarioDTO pUsuario)
+    {
+       // usuario = pUsuario;
+    }
+    
     /**
      * Metodo get sillas
      * @return 
