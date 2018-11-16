@@ -37,6 +37,8 @@ import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 @RequestScoped
 public class UsuarioResource 
 {
+    String elRecursoUsuarios = "El recurso /usuarios/";
+    String noexiste = "no existe";
     /**
      * Atributo Logger
      */
@@ -66,11 +68,11 @@ public class UsuarioResource
     @POST
     public UsuarioDTO createUsuario(UsuarioDTO usuario) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: input: {0}", usuario);
         UsuarioEntity usuarioEntity = usuario.toEntity();
         UsuarioEntity nuevoUsuarioEntity = usuarioLogic.createUsuario(usuarioEntity);
         UsuarioDTO nuevoUsuarioDTO = new UsuarioDTO(nuevoUsuarioEntity);
-        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: output: {0}", nuevoUsuarioDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource createUsuario: output: {0}", nuevoUsuarioDTO);
         return nuevoUsuarioDTO;
     }
 
@@ -88,16 +90,16 @@ public class UsuarioResource
      */
     @PUT
     @Path("{usuariosId: \\d+}")
-    public UsuarioDTO updateUsuario(@PathParam("usuariosId") Long usuariosId, UsuarioDTO usuario) throws WebApplicationException 
+    public UsuarioDTO updateUsuario(@PathParam("usuariosId") Long usuariosId, UsuarioDTO usuario)  
     {
-        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: input: id:{0} , usuario: {1}", new Object[]{usuariosId, usuario.toString()});
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: input: id:{0} , usuario: {1}", new Object[]{usuariosId, usuario});
         usuario.setId(usuariosId);
         if (usuarioLogic.getUsuario(usuariosId) == null) 
         {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoUsuarios + usuariosId + noexiste, 404);
         }
         UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioLogic.updateUsuario(usuariosId, usuario.toEntity()));
-        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource updateUsuario: output: {0}", detailDTO);
         return detailDTO;
     }
 
@@ -112,7 +114,7 @@ public class UsuarioResource
     {
         LOGGER.info("UsuarioResource getUsuarios: input: void");
         List<UsuarioDetailDTO> listaUsuarios = listEntity2DetailDTO(usuarioLogic.getUsuarios());
-        LOGGER.log(Level.INFO, "UsuarioResource getUsuarios: output: {0}", listaUsuarios.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuarios: output: {0}", listaUsuarios);
         return listaUsuarios;
     }
 
@@ -127,16 +129,16 @@ public class UsuarioResource
      */
     @GET
     @Path("{usuariosId: \\d+}")
-    public UsuarioDetailDTO getUsuario(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException 
+    public UsuarioDetailDTO getUsuario(@PathParam("usuariosId") Long usuariosId)
     {
         LOGGER.log(Level.INFO, "UsuarioResource getUsuario: input: {0}", usuariosId);
         UsuarioEntity usuarioEntity = usuarioLogic.getUsuario(usuariosId);
         if (usuarioEntity == null) 
         {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoUsuarios + usuariosId + noexiste, 404);
         }
         UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(usuarioEntity);
-        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource getUsuario: output: {0}", detailDTO);
         return detailDTO;
     }
 
@@ -155,7 +157,7 @@ public class UsuarioResource
     {
         LOGGER.log(Level.INFO, "UsuarioResource deleteUsuario: input: {0}", usuariosId);
         if (usuarioLogic.getUsuario(usuariosId) == null) {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoUsuarios + usuariosId + noexiste, 404);
         }
         usuarioLogic.deleteUsuario(usuariosId);
         LOGGER.info("UsuarioResource deleteUsuario: output: void");
@@ -171,7 +173,7 @@ public class UsuarioResource
     {
         if (usuarioLogic.getUsuario(usuariosId) == null) 
         {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoUsuarios + usuariosId + noexiste, 404);
         }
         return UsuarioReservasResource.class;
     }
@@ -186,7 +188,7 @@ public class UsuarioResource
     {
         if (usuarioLogic.getUsuario(usuariosId) == null) 
         {
-            throw new WebApplicationException("El recurso /usuarios/" + usuariosId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoUsuarios + usuariosId + noexiste, 404);
         }
         return UsuarioCalificacionesResource.class;
     }
