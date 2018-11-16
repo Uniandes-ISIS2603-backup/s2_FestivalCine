@@ -29,13 +29,13 @@ public class CriticoDTO implements Serializable
     
     private String email;
     
-    private int tipoPersona;
+    private Integer tipoPersona;
     
     private String nickName;
     
     private String password;
     
-    private double puntaje;
+    private Double puntaje;
     
     private String credencial;
     

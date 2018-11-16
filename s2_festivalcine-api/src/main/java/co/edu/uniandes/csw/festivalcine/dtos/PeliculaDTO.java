@@ -6,19 +6,20 @@
 package co.edu.uniandes.csw.festivalcine.dtos;
 
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
+import java.io.Serializable;
 
 /**
  *
  * @author cc.cardenas
  */
-public class PeliculaDTO {
+public class PeliculaDTO implements Serializable{
     private Long id;
      private String nombre;
     private String director;
     private String creditos;
     private String pais;
-    private int duracion;
-    private double puntaje;
+    private Integer duracion;
+    private Double puntaje;
     
     
     public PeliculaDTO(){

@@ -20,10 +20,12 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author Mario Andrade
  */
 public class FestivalDTO implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    
+    /**
+     * Constructor vacio
+     */
+    public FestivalDTO(){
+    }
     private Long id;
     private String nombre;
     private String patrocinador;
@@ -31,13 +33,7 @@ public class FestivalDTO implements Serializable {
     private Date fechaInicio;
     private Date fechaFin;
     private String ciudad;
-    
-    /**
-     * Constructor vacio
-     */
-    public FestivalDTO()
-    {
-    }
+
     
     /**
      * Constructor que recibe un entity

@@ -91,7 +91,7 @@ public class SillaDTO implements Serializable{
      * Devuelve si la silla es tipo general
      * @return Booelan
      */
-    public Boolean getGeneral()
+    public Boolean getTipo()
     {
         return tipo;
     }

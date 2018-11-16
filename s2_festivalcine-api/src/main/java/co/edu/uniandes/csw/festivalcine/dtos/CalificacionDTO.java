@@ -18,7 +18,7 @@ public class CalificacionDTO implements Serializable
 {
     private Long id;
     
-    private double puntaje;
+    private Double puntaje;
     
     private String comentario;
     

@@ -19,23 +19,20 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  */
 public class TeatroDTO implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+        
+    /**
+     * Constructor vacio
+     */
+    public TeatroDTO(){   
+    }
+    
+    
     private Long id;
-
-
     private String nombre;
     private String direccion;
     private Integer numSalasFest;
     
-    
-    /**
-     * Constructor vacio
-     */
-    public TeatroDTO()
-    {   
-    }
+
     
     /**
      * Constructor que recibe un entity
