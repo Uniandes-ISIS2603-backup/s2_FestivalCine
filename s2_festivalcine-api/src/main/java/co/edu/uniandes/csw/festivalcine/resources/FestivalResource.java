@@ -95,7 +95,7 @@ public class FestivalResource {
      */
     @GET
     @Path("{id: \\d+}")
-    public FestivalDTO getFestival(@PathParam("id") Long id) throws WebApplicationException 
+    public FestivalDetailDTO getFestival(@PathParam("id") Long id) throws WebApplicationException 
     {
         LOGGER.log(Level.INFO, "FestivalResource getTeatro: input: {0}", id);
        FestivalEntity teatroEntity = festivalLogic.getFestival(id);

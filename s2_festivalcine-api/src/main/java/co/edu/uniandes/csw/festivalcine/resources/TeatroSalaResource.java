@@ -85,14 +85,14 @@ public class TeatroSalaResource
      */
     @GET
     @Path("{salaId: \\d+}")
-    public SalaDTO getSala(@PathParam("teatroId") Long teatroId, @PathParam("salaId") Long salaId) throws BusinessLogicException 
+    public SalaDetailDTO getSala(@PathParam("teatroId") Long teatroId, @PathParam("salaId") Long salaId) throws BusinessLogicException 
     {
         LOGGER.log(Level.INFO, "SalaResource getFuncion: input: teatroId: {0} , funcionId: {1}", new Object[]{teatroId, salaId});
         if (salaLogic.getSala(salaId) == null) 
         {
             throw new WebApplicationException("El recurso /teatros/" + teatroId + "/salas/" + salaId + " no existe.", 404);
         }
-        SalaDTO salaDetailDTO = new SalaDTO(teatroSalaLogic.getSala(teatroId, salaId));
+        SalaDetailDTO salaDetailDTO = new SalaDetailDTO(teatroSalaLogic.getSala(teatroId, salaId));
         LOGGER.log(Level.INFO, "TeatroSalaResource getSala: output: {0}", salaDetailDTO.toString());
         return salaDetailDTO;
     }

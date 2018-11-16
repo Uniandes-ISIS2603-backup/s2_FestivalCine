@@ -90,7 +90,7 @@ public class TeatroResource
      */
     @GET
     @Path("{id: \\d+}")
-    public TeatroDTO getTeatro(@PathParam("id") Long id) throws WebApplicationException
+    public TeatroDetailDTO getTeatro(@PathParam("id") Long id) throws WebApplicationException
     {
         LOGGER.log(Level.INFO, "TeatroResource getTeatro: input: {0}", id);
        TeatroEntity teatroEntity = teatroLogic.getTeatro(id);
