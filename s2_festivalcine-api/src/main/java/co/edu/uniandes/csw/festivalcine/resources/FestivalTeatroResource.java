@@ -69,7 +69,7 @@ public class FestivalTeatroResource
             throw new WebApplicationException("El recurso /teatros/" + teatroId + " no existe.", 404);
         }
         TeatroDTO teatroDTO = new TeatroDTO(festivalTeatroLogic.addTeatro(teatroId, festivalId));
-        LOGGER.log(Level.INFO, "Festival addTeatro: output: {0}", teatroDTO.toString());
+        LOGGER.log(Level.INFO, "Festival addTeatro: output: {0}", teatroDTO);
         return teatroDTO;
     }
     
@@ -97,38 +97,7 @@ public class FestivalTeatroResource
             throw new WebApplicationException("El recurso /festivales/" + festivalId + "/teatros/" + teatroId + " no existe.", 404);
         }
         TeatroDetailDTO teatroDetailDTO = new TeatroDetailDTO(festivalTeatroLogic.getTeatro(festivalId, teatroId));
-        LOGGER.log(Level.INFO, "FestivalTeatroResource getTeatro: output: {0}", teatroDetailDTO.toString());
+        LOGGER.log(Level.INFO, "FestivalTeatroResource getTeatro: output: {0}", teatroDetailDTO);
         return teatroDetailDTO;
-    }
-    
-        /**
-     * Convierte una lista de TEatroEntity a una lista deTeatroDetailDTO.
-     *
-     * @param entityList Lista de TeatroEntity a convertir.
-     * @return Lista de FuncionDTO convertida.
-     */
-    private List<TeatroDetailDTO> teatrosListEntity2DTO(List<TeatroEntity> entityList) 
-    {
-       List<TeatroDetailDTO> list = new ArrayList();
-        for (TeatroEntity entity : entityList) 
-        {
-            list.add(new TeatroDetailDTO(entity));
-        }
-        return list;
-    }
-    
-    /**
-     * Convierte una lista de TeatroDetailDTO a una lista de TeatroEntity.
-     *
-     * @param dtos Lista de TeatroDetailDTO a convertir.
-     * @return Lista de TeatroEntity convertida.
-     */
-    private List<TeatroEntity> teatrosListDTO2Entity(List<TeatroDetailDTO> dtos) 
-    {
-        List<TeatroEntity> list = new ArrayList<>();
-        for (TeatroDetailDTO dto : dtos) {
-            list.add(dto.toEntity());
-        }
-        return list;
-    }
+    }  
 }
