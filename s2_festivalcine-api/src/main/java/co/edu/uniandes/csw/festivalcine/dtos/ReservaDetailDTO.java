@@ -28,14 +28,13 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      */
     private List<FuncionDTO> funciones;
     
-  
+    //private UsuarioDTO usuario;
     //Constructor ----------------------------------------------------------------------------
     
     /**
      * Constructor por defecto
      */
-    public ReservaDetailDTO()
-    {
+    public ReservaDetailDTO(){
     }
     
     /**
