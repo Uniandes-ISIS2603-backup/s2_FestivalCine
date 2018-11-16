@@ -7,6 +7,8 @@ package co.edu.uniandes.csw.festivalcine.dtos;
 
 import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +30,12 @@ public class CriticoDetailDTO extends CriticoDTO implements Serializable
     /**
      * Lista de tipo FuncionDTO, contiene las funciones asociadas con el critico
      */
-    private List funciones;
+    private List<FuncionDTO> funciones;
     
     /**
      * Lista de tipo PeliculaDto, contien las peliculas asociadas con el critico
      */
-    private List peliculas;
+    private List<PeliculaDTO> peliculas;
     
     //Constructor ----------------------------------------------------------------------------
     
@@ -49,34 +51,30 @@ public class CriticoDetailDTO extends CriticoDTO implements Serializable
     public CriticoDetailDTO(CriticoEntity criticoEntity)
     {
         super(criticoEntity);
-        if(criticoEntity != null)
+        if(criticoEntity != null && criticoEntity.darCalificaciones() != null)
         {
-            if(criticoEntity.darCalificaciones() != null)
-            {
-                calificaciones = new ArrayList<CalificacionDTO>();
-                for(CalificacionEntity entityCalificacion : criticoEntity.darCalificaciones())
-                {
-                    calificaciones.add(new CalificacionDTO(entityCalificacion));
-                }
+            calificaciones = new ArrayList<>();
+            for(CalificacionEntity entityCalificacion : criticoEntity.darCalificaciones())
+           {
+                calificaciones.add(new CalificacionDTO(entityCalificacion));
             }
+        if(criticoEntity.darFunciones() != null)
+        {
+           funciones = new ArrayList<>();
+           for(FuncionEntity entityFuncion : criticoEntity.darFunciones())
+            {
+               funciones.add(new FuncionDTO(entityFuncion));
+           }
+       }
             
-            //if(criticoEntity.darFunciones() != null)
-            //{
-             //   funciones = new ArrayList<FuncionDTO>();
-             //   for(FuncionDTO entityFuncion : criticoEntity.darFunciones())
-             //   {
-             //       funciones.add(new FuncionDTO(entityFuncion));
-             //   }
-            //}
-            
-            //if(criticoEntity.darPeliculas() != null)
-            //{
-               //peliculas = new ArrayList<PeliculaDTO>();
-                //for(PeliculaDTO entityPelicula : criticoEntity.darPeliculas())
-                //{
-                  //  peliculas.add(new PeliculaDTO(entityPelicula));
-                //} 
-           // }
+        if(criticoEntity.darPeliculas() != null)
+        {
+           peliculas = new ArrayList<>();
+           for(PeliculaEntity entityPelicula : criticoEntity.darPeliculas())
+            {
+               peliculas.add(new PeliculaDTO(entityPelicula));
+             } 
+        }
         }
     }
     
@@ -97,24 +95,24 @@ public class CriticoDetailDTO extends CriticoDTO implements Serializable
             }
             criticoEntity.setCalificaciones(calificacionEntity);
         }
-        //if(funciones != null)
-        //{
-          //  List<FuncionEntity> funcionEntity = new ArrayList();
-          //  for(FuncionDTO dtoFuncion : funciones)
-          //  {
-           //     funcionEntity.add(dtoFuncion.toEntity());
-          // }
-          //  criticoEntity.setFunciones(funcionEntity);
-        //}
-        //if(peliculas != null)
-        //{
-          //  List<PeliculaEntity> peliculaEntity = new ArrayList<>();
-           // for(PelicualDTO dtoPelicula : peliculas)
-            //{
-              //  peliculaEntity.add(dtoPelicula.toEntity());
-            //}
-            //criticoEntity.setPeliculas(peliculaEntity);
-        //}
+        if(funciones != null)
+        {
+            List<FuncionEntity> funcionEntity = new ArrayList();
+            for(FuncionDTO dtoFuncion : funciones)
+            {
+                funcionEntity.add(dtoFuncion.toEntity());
+         }
+           criticoEntity.setFunciones(funcionEntity);
+        }
+        if(peliculas != null)
+        {
+            List<PeliculaEntity> peliculaEntity = new ArrayList<>();
+           for(PeliculaDTO dtoPelicula : peliculas)
+            {
+                peliculaEntity.add(dtoPelicula.toEntity());
+            }
+            criticoEntity.setPeliculas(peliculaEntity);
+        }
         return criticoEntity;
     }
     
