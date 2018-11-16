@@ -96,8 +96,7 @@ public class CriticoLogic {
     
     /**
      * Actualiza un critico por id
-     * 
-     * @param criticosId El id del critico a actualizar
+
      * @param criticoEntity La entidad critico con los cambios deseados
      * @return La entidad del critico luego de actualizarla
      * @throws BusinessLogicException  Si la identificacion de la actualiacion es inválida.
@@ -123,8 +122,6 @@ public class CriticoLogic {
     public void deleteCritico(Long criticosId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el critico con id = {0}", criticosId);
-        List<FuncionEntity> funciones = getCritico(criticosId).darFunciones();
-        List<PeliculaEntity> peliculas = getCritico(criticosId).darPeliculas();
         persistence.delete(criticosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el critico con id = {0}", criticosId);
     }
@@ -200,7 +197,7 @@ public class CriticoLogic {
     public void removeFuncion(Long criticosId, Long funcionesId)
     {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una funcion del critico con id = {0}", criticosId);
-        CriticoEntity criticoEntity = persistence.find(criticosId);
+  
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
         funcionEntity.setCritico(null);
         LOGGER.log(Level.INFO, "Termina proceso de borrar ua funcion del critico con id = {0}", criticosId);
@@ -241,7 +238,7 @@ public class CriticoLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar una pelicula del critico con id = {0}", criticosId);
         PeliculaEntity peliculaEntity = peliculaPersistence.findById(peliculasId);
         CriticoEntity criticoEntity = persistence.find(criticosId);
-        criticoEntity.darPeliculas().remove(peliculasId);
+        criticoEntity.darPeliculas().remove(peliculaEntity);
         LOGGER.log(Level.INFO, "Termina proceso de borrar una pelicula del critico con id = {0}", criticosId);
     }
     
