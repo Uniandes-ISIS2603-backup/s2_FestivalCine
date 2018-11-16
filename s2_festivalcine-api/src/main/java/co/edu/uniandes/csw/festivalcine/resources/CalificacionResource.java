@@ -39,6 +39,9 @@ import javax.ws.rs.WebApplicationException;
 @RequestScoped
 public class CalificacionResource 
 {
+    String elRecursoCalificaciones = "El recurso /calificaciones/";
+    String noexiste = "no existe";
+    
     @Inject
     private CalificacionLogic calificacionLogic;
     
@@ -61,7 +64,7 @@ public class CalificacionResource
     {
         LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: input: {0} " + calificacion.toString());
         CalificacionDTO nuevaCalificacionDTO = new CalificacionDTO(calificacionLogic.createCalificacion(calificacion.toEntity()));
-        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: output: {0}", nuevaCalificacionDTO.toString());
+        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: output: {0}", nuevaCalificacionDTO);
         return nuevaCalificacionDTO;
     }
     
@@ -70,7 +73,7 @@ public class CalificacionResource
     {
         LOGGER.info("CalificacionResource getCalificaciones: input: void");
         List<CalificacionDTO> listaCalificaciones = listEntity2DTO(calificacionLogic.getCalificaciones());
-        LOGGER.log(Level.INFO, "CalificacionResource getCalificaciones: ouput: {0}", listaCalificaciones.toString());
+        LOGGER.log(Level.INFO, "CalificacionResource getCalificaciones: ouput: {0}", listaCalificaciones);
         return listaCalificaciones;
     }
     
@@ -82,10 +85,10 @@ public class CalificacionResource
         CalificacionEntity calificacionEntity = calificacionLogic.getCalificacion(calificacionesId);
         if(calificacionEntity == null)
         {
-            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoCalificaciones + calificacionesId + noexiste, 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionEntity);
-        LOGGER.log(Level.INFO, "CalificacionResource get calificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "CalificacionResource get calificacion: output: {0}", calificacionDTO);
         return calificacionDTO;
     }
     
@@ -93,14 +96,14 @@ public class CalificacionResource
     @Path("{calificacionesID: \\d+}")
     public CalificacionDTO updateCalificacion(@PathParam("calificacionesId") Long calificacionesId, CalificacionDTO calificacion) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: input id: {0}, calificacion: {1}", new Object[]{calificacionesId, calificacion.toString()});
+        LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: input id: {0}, calificacion: {1}", new Object[]{calificacionesId, calificacion});
         calificacion.setId(calificacionesId);
         if(calificacionLogic.getCalificacion(calificacionesId) == null)
         {
-            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoCalificaciones + calificacionesId + noexiste, 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(calificacionLogic.updateCalificacion(calificacion.toEntity()));
-       LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: output: {0}", calificacionDTO.toString());
+       LOGGER.log(Level.INFO, "CalificacionResource updateCalificacion: output: {0}", calificacionDTO);
        return calificacionDTO;
     }
     
@@ -113,7 +116,7 @@ public class CalificacionResource
         CalificacionEntity entity = calificacionLogic.getCalificacion(calificacionesId);
         if(entity == null)
         {
-            throw new WebApplicationException("El recurso /calificaciones/" + calificacionesId +" no existe.", 404);
+            throw new WebApplicationException(elRecursoCalificaciones + calificacionesId + noexiste, 404);
         }
         calificacionLogic.deleteCalificacion(calificacionesId);
         LOGGER.info("CalificacionResource deleteCalificacion: output: void");
