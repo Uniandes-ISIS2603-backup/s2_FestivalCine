@@ -42,7 +42,10 @@ import co.edu.uniandes.csw.festivalcine.dtos.ReservaDetailDTO;
 @RequestScoped
 public class ReservaResource 
 {
+    String elRecursoReservas = "El recurso /reservas/";
+    String noexiste = "no existe";
     private static final Logger LOGGER = Logger.getLogger(ReservaResource.class.getName());
+    
     
     @Inject
     private ReservaLogic reservaLogic; 
@@ -62,11 +65,9 @@ public class ReservaResource
     @POST
     public ReservaDTO createReserva(ReservaDTO reserva) throws BusinessLogicException
     { 
-        LOGGER.log(Level.INFO, "ReservaResource createReserva: input: {0}", reserva.toString());
-        ReservaEntity reservaEntity = reserva.toEntity();
-        ReservaEntity nuevoReservaEntity = reservaLogic.createReserva(reservaEntity);
+        LOGGER.log(Level.INFO, "ReservaResource createReserva: input: {0}", reserva);
         ReservaDTO nuevaReservaDTO = new ReservaDTO(reservaLogic.createReserva(reserva.toEntity()));
-        LOGGER.log(Level.INFO, "ReservaResource createReserva: output: {0}", nuevaReservaDTO.toString());
+        LOGGER.log(Level.INFO, "ReservaResource createReserva: output: {0}", nuevaReservaDTO);
         return nuevaReservaDTO;
     }
     
@@ -81,7 +82,7 @@ public class ReservaResource
     {
         LOGGER.info("ReservaResource getReservas: input: void");
         List<ReservaDetailDTO> listaReservas = listEntity2DetailDTO(reservaLogic.getReservas());
-        LOGGER.log(Level.INFO, "ReservaResource getReservas: output: {0}", listaReservas.toString());
+        LOGGER.log(Level.INFO, "ReservaResource getReservas: output: {0}", listaReservas);
         return listaReservas;
     }
 
@@ -95,15 +96,15 @@ public class ReservaResource
      */
     @GET
     @Path("{reservasId: \\d+}")
-    public ReservaDetailDTO getReserva(@PathParam("reservasId") Long reservasId) throws WebApplicationException 
+    public ReservaDetailDTO getReserva(@PathParam("reservasId") Long reservasId)
     {   
        LOGGER.log(Level.INFO, "ReservaResource getReserva: input: {0}", reservasId);
         ReservaEntity reservaEntity = reservaLogic.getReserva(reservasId);
         if (reservaEntity == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
         ReservaDetailDTO reservaDetailDTO = new ReservaDetailDTO(reservaEntity);
-        LOGGER.log(Level.INFO, "ReservaResource getReserva: output: {0}", reservaDetailDTO.toString());
+        LOGGER.log(Level.INFO, "ReservaResource getReserva: output: {0}", reservaDetailDTO);
         return reservaDetailDTO;
     }
 
@@ -121,17 +122,17 @@ public class ReservaResource
      */
     @PUT
     @Path("{reservasId: \\d+}")
-    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva) throws WebApplicationException 
+    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva)
     {
-        LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva.toString()});
+        LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva});
         reserva.setId(reservasId);
         ReservaDetailDTO detailDTO = null;
         if (reservaLogic.getReserva(reservasId) == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
         detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
-        LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO.toString());
+        LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO);
         return detailDTO;
     }
 
@@ -152,7 +153,7 @@ public class ReservaResource
         ReservaEntity entity = reservaLogic.getReserva(reservasId);
         if (entity == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
         reservaLogic.deleteReserva(reservasId);
         LOGGER.info("ReservaResource deleteReserva: output: void");        
@@ -177,7 +178,7 @@ public class ReservaResource
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
         return ReservaFuncionResource.class;
     }
@@ -201,7 +202,7 @@ public class ReservaResource
     {
         if (reservaLogic.getReserva(reservasId) == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
         return ReservaSillasResource.class;
     }

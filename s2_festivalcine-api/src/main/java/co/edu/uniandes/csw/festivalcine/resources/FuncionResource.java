@@ -167,10 +167,10 @@ public class FuncionResource {
     @Path("{funcionesId: \\d+}/peliculas")
     public PeliculaDTO getPeliculaFuncion(@PathParam("funcionesId") Long funcionesId) {
    
-        LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+        LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
         if (funcionEntity == null) {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones + funcionesId + noexiste, 404);
         }
        PeliculaDTO detailDTO = new PeliculaDTO(funcionEntity.getPelicula());
        LOGGER.log(Level.INFO, "FuncionResource getPeliculaFuncion: output: {0}", detailDTO);
@@ -189,10 +189,10 @@ public class FuncionResource {
     @Path("{funcionesId: \\d+}/criticos")
     public CriticoDTO getCriticoFuncion(@PathParam("funcionesId") Long funcionesId) {
    
-        LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+        LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
         if (funcionEntity == null) {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones + funcionesId + noexiste, 404);
         }
        CriticoDTO detailDTO = new CriticoDTO(funcionEntity.getCritico());
        LOGGER.log(Level.INFO, "FuncionResource getCriticoFuncion: output: {0}", detailDTO);
@@ -211,10 +211,10 @@ public class FuncionResource {
     @Path("{funcionesId: \\d+}/salas")
     public SalaDTO getSalaFuncion(@PathParam("funcionesId") Long funcionesId) {
       
-        LOGGER.log(Level.INFO, "FuncionResource getFuncion: input: {0}", funcionesId);
+        LOGGER.log(Level.INFO, funcionResourceInput, funcionesId);
         FuncionEntity funcionEntity = funcionLogic.getFuncion(funcionesId);
         if (funcionEntity == null) {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoFunciones + funcionesId + noexiste, 404);
         }
        SalaDTO detailDTO = new SalaDTO(funcionEntity.getSala());
        LOGGER.log(Level.INFO, "FuncionResource getSalaFuncion: output: {0}", detailDTO);
