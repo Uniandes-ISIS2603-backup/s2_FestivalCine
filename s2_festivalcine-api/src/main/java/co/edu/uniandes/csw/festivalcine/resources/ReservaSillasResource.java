@@ -75,9 +75,9 @@ public class ReservaSillasResource
     public List<SillaDTO> getSillas(@PathParam("reservasId") Long reservasId) throws WebApplicationException
     {
         List<SillaDTO> listaSillas = listEntitySilla2DTO(reservaSillasLogic.getSillas());
-        if(listaSillas != null)
+        if (listaSillas == null) 
         {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/sillas no existe.", 404);
+            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/sillas/  no existe.", 404);
         }
         LOGGER.log(Level.INFO, "SillaResource getSillas: output: {0}", listaSillas.toString());
         return listaSillas;
@@ -132,3 +132,4 @@ public class ReservaSillasResource
 
    
 }
+
