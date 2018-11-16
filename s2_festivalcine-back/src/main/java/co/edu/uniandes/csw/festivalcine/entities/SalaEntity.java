@@ -28,7 +28,7 @@ public class SalaEntity extends BaseEntity implements Serializable {
     
     @PodamExclude
     @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<SillaEntity> sillas = new ArrayList<SillaEntity>();
+    private List<SillaEntity> sillas = new ArrayList<>();
     
     @PodamExclude
     @OneToMany(mappedBy = "sala", fetch = FetchType.LAZY)

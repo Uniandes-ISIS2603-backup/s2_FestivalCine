@@ -53,6 +53,7 @@ public class FestivalCriticoResource
      * @param criticoId Identificador de l teatro que se desea guardar. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link CriticoDTO} - El critico guardado en el festival.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra el critico.
      */
@@ -65,7 +66,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDTO criticoDTO = new CriticoDTO(festivalCriticoLogic.addCritico(criticoId, festivalId));
-        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO.toString());
+        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO);
         return criticoDTO;
     }
     
@@ -93,40 +94,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /festivales/" + festivalId + "/criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDetailDTO criticoDetailDTO = new CriticoDetailDTO(festivalCriticoLogic.getCritico(festivalId, criticoId));
-        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO.toString());
+        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO);
         return criticoDetailDTO;
     }
-    
-        /**
-     * Convierte una lista de CriticoEntity a una lista de CriticoDetailDTO.
-     *
-     * @param entityListCriticoDTO convertida.
-     */
-    private List<CriticoDetailDTO> criticosListEntity2DTO(List<CriticoEntity> entityList) 
-    {
-        List<CriticoDetailDTO> list = new ArrayList();
-        for (CriticoEntity entity : entityList) 
-        {
-            list.add(new CriticoDetailDTO(entity));
-        }
-        return list;
-    }
-    
-    /**
-     * Convierte una lista de CriticoDetailDTO a una lista de CriticoEntity.
-     *
-     * @param dtos Lista de CriticoDetailDTO a convertir.
-     * @return Lista de CriticoEntity convertida.
-     */
-    private List<CriticoEntity> teatrosListDTO2Entity(List<CriticoDetailDTO> dtos) 
-    {
-        List<CriticoEntity> list = new ArrayList<>();
-        for (CriticoDetailDTO dto : dtos) {
-            list.add(dto.toEntity());
-        }
-        return list;
-    }
-    
-    
-   
 }

@@ -5,11 +5,10 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
-import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

@@ -97,16 +97,6 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
         return reservaEntity;
     }
     
-    //public UsuarioDTO getUsuario()
-    {
-       // return usuario;
-    }
-    
-    //public void setUsuario(UsuarioDTO pUsuario)
-    {
-       // usuario = pUsuario;
-    }
-    
     /**
      * Metodo get sillas
      * @return 
@@ -140,6 +130,16 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      */
     public void setFunciones(List funciones) {
         this.funciones = funciones;
+    }
+    
+    //public UsuarioDTO getUsuario()
+    {
+       // return usuario;
+    }
+    
+    //public void setUsuario(UsuarioDTO pUsuario)
+    {
+       // usuario = pUsuario;
     }
     
     @Override

@@ -37,6 +37,9 @@ import javax.ws.rs.WebApplicationException;
 
 
 public class SillaResource {
+    
+    String elRecursoSillas = "El recurso /sillas/";
+    String noexiste = "no existe";
     private static final Logger LOGGER = Logger.getLogger(SillaResource.class.getName());
     
 
@@ -57,14 +60,14 @@ public class SillaResource {
      */
     @POST
     public SillaDTO createSilla(SillaDTO silla) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "SillaResource createSilla: input: {0}", silla.toString());
+        LOGGER.log(Level.INFO, "SillaResource createSilla: input: {0}", silla);
        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         SillaEntity sillaEntity = silla.toEntity();
         // Invoca la lógica para crear la editorial nuev
         SillaEntity nuevoSillaEntity = sillaLogic.createSilla(sillaEntity);
         // Como debe retornar un DTO (json) se invoca el constructor del DTO con argumento el entity nuevo
         SillaDTO nuevaSillaDTO = new SillaDTO(nuevoSillaEntity);
-        LOGGER.log(Level.INFO, "SillaResource createSilla: output: {0}", nuevaSillaDTO.toString());
+        LOGGER.log(Level.INFO, "SillaResource createSilla: output: {0}", nuevaSillaDTO);
         return nuevaSillaDTO;
     }
 
@@ -78,7 +81,7 @@ public class SillaResource {
     public List<SillaDTO> getSillas() {
        LOGGER.info("SillaResource getsillas: input: void");
         List<SillaDTO> listaSillas = listEntity2DetailDTO(sillaLogic.getSillas());
-        LOGGER.log(Level.INFO, "SillaResource getsillas: output: {0}", listaSillas.toString());
+        LOGGER.log(Level.INFO, "SillaResource getsillas: output: {0}", listaSillas);
         return listaSillas;
     }
 
@@ -93,14 +96,14 @@ public class SillaResource {
      */
     @GET
     @Path("{sillasId: \\d+}")
-    public SillaDTO getSilla(@PathParam("sillasId") Long sillasId) throws WebApplicationException {
+    public SillaDTO getSilla(@PathParam("sillasId") Long sillasId) {
        LOGGER.log(Level.INFO, "SillaResource getSilla: input: {0}", sillasId);
        SillaEntity sillaEntity = sillaLogic.getSilla(sillasId);
        if (sillaEntity == null) {
-           throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+           throw new WebApplicationException(elRecursoSillas + sillasId + noexiste, 404);
        }
        SillaDTO detailDTO = new SillaDTO(sillaEntity);
-       LOGGER.log(Level.INFO, "SillaResource getSilla: output: {0}", detailDTO.toString());
+       LOGGER.log(Level.INFO, "SillaResource getSilla: output: {0}", detailDTO);
        return detailDTO;
     }
 
@@ -118,14 +121,14 @@ public class SillaResource {
      */
     @PUT
     @Path("{sillasId: \\d+}")
-    public SillaDTO updateSilla(@PathParam("sillasId") Long sillasId, SillaDTO silla) throws WebApplicationException {
-       LOGGER.log(Level.INFO, "SillaResource updateSilla: input: id:{0} , silla: {1}", new Object[]{sillasId, silla.toString()});
+    public SillaDTO updateSilla(@PathParam("sillasId") Long sillasId, SillaDTO silla)  {
+       LOGGER.log(Level.INFO, "SillaResource updateSilla: input: id:{0} , silla: {1}", new Object[]{sillasId, silla});
        silla.setId(sillasId);
        if (sillaLogic.getSilla(sillasId) == null) {
-           throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+           throw new WebApplicationException(elRecursoSillas + sillasId + noexiste, 404);
        }
        SillaDTO detailDTO = new SillaDTO(sillaLogic.updateSilla(sillasId, silla.toEntity()));
-       LOGGER.log(Level.INFO, "SillaResource updateSilla: output: {0}", detailDTO.toString());
+       LOGGER.log(Level.INFO, "SillaResource updateSilla: output: {0}", detailDTO);
        return silla;
     }
 
@@ -144,7 +147,7 @@ public class SillaResource {
     public void deleteSilla(@PathParam("sillasId") Long sillasId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "SillaResource deleteSilla: input: {0}", sillasId);
         if (sillaLogic.getSilla(sillasId) == null) {
-            throw new WebApplicationException("El recurso /sillas/" + sillasId + " no existe.", 404);
+            throw new WebApplicationException(elRecursoSillas + sillasId + noexiste, 404);
         }
         sillaLogic.deleteSilla(sillasId);
         LOGGER.info("SillaResource deleteSilla: output: void");

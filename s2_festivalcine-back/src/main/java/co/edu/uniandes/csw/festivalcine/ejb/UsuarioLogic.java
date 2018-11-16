@@ -8,8 +8,6 @@ package co.edu.uniandes.csw.festivalcine.ejb;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import co.edu.uniandes.csw.festivalcine.persistence.CalificacionPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.List;
 import java.util.logging.Level;
