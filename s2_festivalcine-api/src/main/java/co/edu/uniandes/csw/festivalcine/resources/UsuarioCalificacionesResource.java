@@ -49,6 +49,7 @@ public class UsuarioCalificacionesResource
      * @param calificacionId Identificador de la calificacion que se desea guardar. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link CalificacionDTO} - La calificacion guardado en el usuario.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la calificacion.
      */
@@ -62,7 +63,7 @@ public class UsuarioCalificacionesResource
             throw new WebApplicationException("El recurso /calificaciones/" + calificacionId + " no existe.", 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(usuarioCalificacionesLogic.addCalificacion(calificacionId, usuariosId));
-        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource addCalificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource addCalificacion: output: {0}", calificacionDTO);
         return calificacionDTO;
     }
     
@@ -73,7 +74,7 @@ public class UsuarioCalificacionesResource
      */
     @GET
     @Path("{usuariosId: \\d+}/calificaciones")
-    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId) throws WebApplicationException
+    public List<CalificacionDTO> getCalificaciones(@PathParam("usuariosId") Long usuariosId)
     {
         LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: input: {0}", usuariosId);
         List<CalificacionDTO> listaDTOs = calificacionesListEntity2DTO(usuarioCalificacionesLogic.getCalificaciones(usuariosId));
@@ -81,7 +82,7 @@ public class UsuarioCalificacionesResource
         {
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + "/calificaciones no existe.", 404);
         }
-        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: output: {0}", listaDTOs.toString());
+        LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: output: {0}", listaDTOs);
         return listaDTOs;    
     }
     
@@ -109,7 +110,7 @@ public class UsuarioCalificacionesResource
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + "/calificaciones/" + calificacionId + " no existe.", 404);
         }
         CalificacionDTO calificacionDTO = new CalificacionDTO(usuarioCalificacionesLogic.getCalificacion(usuariosId, calificacionId));
-        LOGGER.log(Level.INFO, "UsuarioResource getCalificacion: output: {0}", calificacionDTO.toString());
+        LOGGER.log(Level.INFO, "UsuarioResource getCalificacion: output: {0}", calificacionDTO);
         return calificacionDTO;
     }
     
