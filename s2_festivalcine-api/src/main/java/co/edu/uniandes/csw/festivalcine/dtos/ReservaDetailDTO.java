@@ -27,8 +27,7 @@ public class ReservaDetailDTO extends ReservaDTO implements Serializable
      * Lista de tipo FuncionDTO, contiene las funciones asociadas con la reserva
      */
     private List<FuncionDTO> funciones;
-    
-    //private UsuarioDTO usuario;
+
     //Constructor ----------------------------------------------------------------------------
     
     /**
