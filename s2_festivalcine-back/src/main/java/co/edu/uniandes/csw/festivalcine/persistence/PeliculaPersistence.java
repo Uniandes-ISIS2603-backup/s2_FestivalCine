@@ -103,7 +103,9 @@ public class PeliculaPersistence {
         
         List<PeliculaEntity> sameDuracion = query.getResultList();
         if(sameDuracion.isEmpty()){
-            return null;
+            List<PeliculaEntity> listavacia;
+            listavacia = new ArrayList();
+            return listavacia;
         }else{return sameDuracion;
         
         }
