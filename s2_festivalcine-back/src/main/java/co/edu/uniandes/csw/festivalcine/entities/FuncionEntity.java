@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -119,5 +120,19 @@ public class FuncionEntity extends BaseEntity implements Serializable {
 
     public void setReservas(Collection<ReservaEntity> reservas) {
         this.reservas = reservas;
+    }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+      return !super.equals(obj);    
+    }
+
+    @Override
+    public int hashCode() 
+    {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
     }
 }

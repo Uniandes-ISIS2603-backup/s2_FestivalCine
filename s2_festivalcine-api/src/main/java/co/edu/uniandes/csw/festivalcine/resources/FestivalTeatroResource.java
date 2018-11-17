@@ -13,12 +13,12 @@ import co.edu.uniandes.csw.festivalcine.dtos.TeatroDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalTeatroLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.TeatroLogic;
 
-import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
+
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.festivalcine.mappers.WebApplicationExceptionMapper;
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
