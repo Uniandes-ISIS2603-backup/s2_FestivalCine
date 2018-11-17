@@ -81,7 +81,7 @@ public class CriticoResource
     @POST
     public CriticoDTO createCritico(CriticoDTO critico) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO,"CriticoResource createCritico: input: {0}" + critico.toString());
+        LOGGER.log(Level.INFO,"CriticoResource createCritico: input: {0}",  critico.toString());
         CriticoDTO nuevoCriticoDTO = new CriticoDTO(criticoLogic.createCritico(critico.toEntity()));
         LOGGER.log(Level.INFO, "CriticoResource createCritico: output: {0}", nuevoCriticoDTO);
         return nuevoCriticoDTO;
