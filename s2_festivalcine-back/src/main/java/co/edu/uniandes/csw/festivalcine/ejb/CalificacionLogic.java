@@ -115,20 +115,17 @@ public class CalificacionLogic
     
     public UsuarioEntity getUsuario(Long calificacionesId)
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar el usuario del critico con id = {0}" + calificacionesId);
-        UsuarioEntity usuarioEntity = persistence.find(calificacionesId).getUsuario();
-        return usuarioEntity;
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar el usuario del critico con id = {0}", calificacionesId);
+        return persistence.find(calificacionesId).getUsuario();
+
     }
     
     public boolean validateCalificacion(Long calificacionesId)
     {
-        boolean result = false;
-        if(calificacionesId == null)
-            result = true;
-        else if(calificacionesId <= 0)
-            result = true;
-        else if(persistence.find(calificacionesId) == null)
-            result = true;
-        return result;
+        if(calificacionesId == null || calificacionesId <= 0 || persistence.find(calificacionesId) == null )
+        {
+         return true;
+        }
+        return false;
     }
 }

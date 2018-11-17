@@ -15,13 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import static javax.ws.rs.HttpMethod.POST;
+
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -57,7 +57,7 @@ public class PeliculaResource {
         List<PeliculaDTO> list = new ArrayList<>();
         for (PeliculaEntity entity : entityList) {
             list.add(new PeliculaDTO(entity));
-           LOGGER.log(Level.INFO,"pelicula id devuelto----------------------------------"+entity.getId());  
+           LOGGER.log(Level.INFO,"pelicula id devuelto----------------------------------",entity.getId());  
         }
         return list;
     }
@@ -96,13 +96,14 @@ public class PeliculaResource {
      *
      * @param dto Objeto de la PeliculaDetailDTO con los datos nuevos
      * @return Objeto de la PeliculaDetailDTOcon los datos nuevos y su ID
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * 
      */
     @POST
     public PeliculaDTO createEstudiante(PeliculaDTO dto) throws BusinessLogicException {
-      LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}" + dto.toString());
+      LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}",  dto);
         PeliculaDTO nuevoPeliculaDTO = new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
-        LOGGER.log(Level.INFO,"ID ES--------------------------"+dto.getId());
+        LOGGER.log(Level.INFO,"ID ES--------------------------", dto.getId());
         LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO.toString());
         return nuevoPeliculaDTO;
     }
@@ -112,8 +113,10 @@ public class PeliculaResource {
      * Actualiza la información de una instancia de la Pelicula
      *
      * @param id Identificador de la instancia de la Pelicula a modificar
+     * @param dto
    
      * @return Instancia de la PeliculaDetailDTO con los datos actualizados
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * 
      */
     @PUT
@@ -133,11 +136,12 @@ public class PeliculaResource {
      * Elimina una instancia de la Pelicula de la base de datos
      *
      * @param id Identificador de la instancia a eliminar
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * 
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deletePelicula(@PathParam("id") Long id) throws WebApplicationException, BusinessLogicException {
+    public void deletePelicula(@PathParam("id") Long id) throws BusinessLogicException {
         PeliculaEntity entity = peliculaLogic.findById(id);
         if (entity == null) {
             throw new WebApplicationException("La pelicula no existe", 404);
