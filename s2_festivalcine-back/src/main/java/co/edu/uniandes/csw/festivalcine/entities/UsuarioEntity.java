@@ -207,4 +207,19 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     public List<CalificacionEntity> getCalificaciones() {
         return calificaciones;
     }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+        if (! super.equals(obj)) 
+        {
+            return false;
+        }
+        UsuarioEntity fobj = (UsuarioEntity) obj;
+        if (id.equals(fobj.getId())) 
+        {  
+           return true;
+        }
+    return false;
+  }
 }

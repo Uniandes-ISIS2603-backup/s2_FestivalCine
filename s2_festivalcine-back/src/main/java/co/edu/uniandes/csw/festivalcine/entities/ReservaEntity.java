@@ -144,7 +144,7 @@ public class ReservaEntity extends BaseEntity implements Serializable
         {
             return false;
         }
-        CriticoEntity fobj = (CriticoEntity) obj;
+        ReservaEntity fobj = (ReservaEntity) obj;
         if (id.equals(fobj.getId())) 
         {  
            return true;
