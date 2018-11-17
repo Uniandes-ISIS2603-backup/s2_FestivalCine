@@ -87,8 +87,8 @@ public class FestivalDetailDTO extends FestivalDTO implements Serializable
     public FestivalDetailDTO(FestivalEntity festEntity)
     {
         super(festEntity);
-        teatros = new ArrayList<TeatroDTO>();
-        criticos = new ArrayList<CriticoDTO>();
+        teatros = new ArrayList<>();
+        criticos = new ArrayList<>();
         if(festEntity != null)
         {
             for (TeatroEntity entityTeatro : festEntity.getTeatros()) 
