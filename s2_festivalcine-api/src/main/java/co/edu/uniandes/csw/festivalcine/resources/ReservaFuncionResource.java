@@ -38,6 +38,7 @@ import javax.ws.rs.core.MediaType;
  */
 public class ReservaFuncionResource 
 {
+    String noexiste = "no existe";
     private static final Logger LOGGER = Logger.getLogger(ReservaSillasResource.class.getName());
      
      @Inject
@@ -63,10 +64,10 @@ public class ReservaFuncionResource
     public FuncionDTO addFuncion(@PathParam("reservasId") Long reservasId, @PathParam("funcionesId") Long funcionesId) {
         LOGGER.log(Level.INFO, "ReservasResource addReserva: input: reservasID: {0} , funcionesId: {1}", new Object[]{reservasId, funcionesId});
         if (funcionLogic.getFuncion(funcionesId) == null) {
-            throw new WebApplicationException("El recurso /funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /funciones/" + funcionesId + noexiste, 404);
         }
         FuncionDTO funcionDTO = new FuncionDTO(reservaFuncionLogic.addFuncion(funcionesId, reservasId));
-        LOGGER.log(Level.INFO, "UsuariosResource addFuncion: output: {0}", funcionDTO.toString());
+        LOGGER.log(Level.INFO, "UsuariosResource addFuncion: output: {0}", funcionDTO);
         return funcionDTO;
     }
     
@@ -82,7 +83,7 @@ public class ReservaFuncionResource
     {
         LOGGER.log(Level.INFO, "ReservaFuncionResource getFunciones: input: {0}", reservasId);
         List<FuncionDTO> lista = funcionesListEntity2DTO(reservaFuncionLogic.getFunciones(reservasId));
-        LOGGER.log(Level.INFO, "ReservaFuncionResource getFunciones: output: {0}", lista.toString());
+        LOGGER.log(Level.INFO, "ReservaFuncionResource getFunciones: output: {0}", lista);
         return lista;
     }
     
@@ -91,7 +92,7 @@ public class ReservaFuncionResource
      *
      * @param reservasId Identificador de la reserva que se esta buscando.
      * Este debe ser una cadena de dígitos.
-     * @param funcionsId Identificador de la funcion que se esta buscando. Este debe
+     * @param funcionesId Identificador de la funcion que se esta buscando. Este debe
      * ser una cadena de dígitos.
      * @return JSON {@link FuncionDetailDTO} - La reserva buscado
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
@@ -106,10 +107,10 @@ public class ReservaFuncionResource
     {
         LOGGER.log(Level.INFO, "ReservaResource getFuncion: input: reservasID: {0} , funcionesId: {1}", new Object[]{reservasId, funcionesId});
         if (funcionLogic.getFuncion(funcionesId) == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/funciones/" + funcionesId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /reservas/" + reservasId + "/funciones/" + funcionesId + noexiste, 404);
         }
         FuncionDTO funcionDTO = new FuncionDTO(reservaFuncionLogic.getFuncion(reservasId, funcionesId));
-        LOGGER.log(Level.INFO, "ReservaResource getFuncion: output: {0}", funcionDTO.toString());
+        LOGGER.log(Level.INFO, "ReservaResource getFuncion: output: {0}", funcionDTO);
         return funcionDTO;
     }
     
@@ -127,7 +128,7 @@ public class ReservaFuncionResource
         LOGGER.log(Level.INFO, "ReservaFuncionResource deleteFuncion: input: reservasId {0} , funcionId {1}", new Object[]{reservasId, funcionId});
         if (funcionLogic.getFuncion(funcionId) == null) 
         {
-            throw new WebApplicationException("El recurso /funciones/" + funcionId + " no existe.", 404);
+            throw new WebApplicationException("El recurso /funciones/" + funcionId + noexiste, 404);
         }
         reservaFuncionLogic.removeFuncion(reservasId, funcionId);
         LOGGER.info("ReservaFuncionResource deleteFuncion: output: void");
