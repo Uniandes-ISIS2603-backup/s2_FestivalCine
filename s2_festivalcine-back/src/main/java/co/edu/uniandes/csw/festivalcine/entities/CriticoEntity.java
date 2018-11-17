@@ -291,5 +291,20 @@ public class CriticoEntity extends BaseEntity implements Serializable
     {
         this.festivales = festivales;
     }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+        if (! super.equals(obj)) 
+        {
+            return false;
+        }
+        CriticoEntity fobj = (CriticoEntity) obj;
+        if (id.equals(fobj.getId())) 
+        {  
+           return true;
+        }
+    return false;
+  }
 }
 
