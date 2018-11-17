@@ -303,7 +303,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
     public int hashCode() 
     {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.identificacion);
+        hash = 79 * hash + Objects.hashCode(this.id);
         return hash;
     }
 }

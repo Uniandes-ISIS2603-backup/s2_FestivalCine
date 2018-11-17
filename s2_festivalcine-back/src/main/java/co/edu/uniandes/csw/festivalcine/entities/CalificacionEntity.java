@@ -6,6 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -62,5 +63,19 @@ public class CalificacionEntity extends BaseEntity implements Serializable
     public void setUsuario(UsuarioEntity usuario)
     {
         this.usuario = usuario;
+    }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+      return !super.equals(obj);    
+    }
+
+    @Override
+    public int hashCode() 
+    {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
     }
 }
