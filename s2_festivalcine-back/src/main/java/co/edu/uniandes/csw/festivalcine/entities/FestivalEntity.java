@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import uk.co.jemos.podam.common.PodamExclude;
 
@@ -166,6 +167,19 @@ public class FestivalEntity  extends BaseEntity implements Serializable {
     public void setTeatros(List<TeatroEntity> teatros) {
         this.teatros = teatros;
     }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+      return !super.equals(obj);    
+    }
 
+    @Override
+    public int hashCode() 
+    {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
     
 }

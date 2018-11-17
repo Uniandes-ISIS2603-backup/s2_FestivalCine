@@ -9,12 +9,11 @@ import co.edu.uniandes.csw.festivalcine.dtos.CriticoDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.CriticoDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.CriticoLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalCriticoLogic;
-import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
+
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.festivalcine.mappers.WebApplicationExceptionMapper;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -66,7 +65,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDTO criticoDTO = new CriticoDTO(festivalCriticoLogic.addCritico(criticoId, festivalId));
-        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO.toString());
+        LOGGER.log(Level.INFO, "Festival addCritico: output: {0}", criticoDTO);
         return criticoDTO;
     }
     
@@ -94,7 +93,7 @@ public class FestivalCriticoResource
             throw new WebApplicationException("El recurso /festivales/" + festivalId + "/criticos/" + criticoId + " no existe.", 404);
         }
         CriticoDetailDTO criticoDetailDTO = new CriticoDetailDTO(festivalCriticoLogic.getCritico(festivalId, criticoId));
-        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO.toString());
+        LOGGER.log(Level.INFO, "FestivalCriticoResource getCritico: output: {0}", criticoDetailDTO);
         return criticoDetailDTO;
     }
     
