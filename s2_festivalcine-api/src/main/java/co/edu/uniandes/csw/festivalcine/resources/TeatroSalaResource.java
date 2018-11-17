@@ -65,7 +65,7 @@ public class TeatroSalaResource
             throw new WebApplicationException("El recurso /salas/" + salaId + " no existe.", 404);
         }
         SalaDTO salaDTO = new SalaDTO(teatroSalaLogic.addSala(salaId, teatroId));
-        LOGGER.log(Level.INFO, "Teatro addSala: output: {0}", salaDTO.toString());
+        LOGGER.log(Level.INFO, "Teatro addSala: output: {0}", salaDTO);
         return salaDTO;
     }
     
@@ -93,38 +93,38 @@ public class TeatroSalaResource
             throw new WebApplicationException("El recurso /teatros/" + teatroId + "/salas/" + salaId + " no existe.", 404);
         }
         SalaDetailDTO salaDetailDTO = new SalaDetailDTO(teatroSalaLogic.getSala(teatroId, salaId));
-        LOGGER.log(Level.INFO, "TeatroSalaResource getSala: output: {0}", salaDetailDTO.toString());
+        LOGGER.log(Level.INFO, "TeatroSalaResource getSala: output: {0}", salaDetailDTO);
         return salaDetailDTO;
     }
     
-        /**
-     * Convierte una lista de SalaEntity a una lista de SalaDetailDTO.
-     *
-     * @param entityList Lista de SalaEntity a convertir.
-     * @return Lista de SalaDTO convertida.
-     */
-    private List<SalaDTO> salasListEntity2DTO(List<SalaEntity> entityList) 
-    {
-       List<SalaDTO> list = new ArrayList();
-        for (SalaEntity entity : entityList) 
-        {
-            list.add(new SalaDTO(entity));
-        }
-        return list;
-    }
     
-    /**
-     * Convierte una lista de SalaDetailDTO a una lista de SalaEntity.
-     *
-     * @param dtos Lista de SalaDetailDTO a convertir.
-     * @return Lista de SalaEntity convertida.
-     */
-    private List<SalaEntity> salasListDTO2Entity(List<SalaDTO> dtos) 
-    {
-        List<SalaEntity> list = new ArrayList<>();
-        for (SalaDTO dto : dtos) {
-            list.add(dto.toEntity());
-        }
-        return list;
-    }        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

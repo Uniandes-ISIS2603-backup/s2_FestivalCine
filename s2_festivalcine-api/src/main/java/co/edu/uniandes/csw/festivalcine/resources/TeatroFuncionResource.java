@@ -64,7 +64,7 @@ public class TeatroFuncionResource
             throw new WebApplicationException("El recurso /funciones/" + funcionId + " no existe.", 404);
         }
         FuncionDTO funcionDTO = new FuncionDTO(teatroFuncionLogic.addFuncion(funcionId, teatroId));
-        LOGGER.log(Level.INFO, "Teatro addFuncion: output: {0}", funcionDTO.toString());
+        LOGGER.log(Level.INFO, "Teatro addFuncion: output: {0}", funcionDTO);
         return funcionDTO;
     }
     
@@ -92,38 +92,37 @@ public class TeatroFuncionResource
             throw new WebApplicationException("El recurso /teatros/" + teatroId + "/funciones/" + funcionID + " no existe.", 404);
         }
         FuncionDTO funcionDetailDTO = new FuncionDTO(teatroFuncionLogic.getFuncion(teatroId, funcionID));
-        LOGGER.log(Level.INFO, "TeatroFuncionResource getFuncion: output: {0}", funcionDetailDTO.toString());
+        LOGGER.log(Level.INFO, "TeatroFuncionResource getFuncion: output: {0}", funcionDetailDTO);
         return funcionDetailDTO;
     }
     
-        /**
-     * Convierte una lista de FuncionEntity a una lista de FuncionDetailDTO.
-     *
-     * @param entityList Lista de FuncionEntity a convertir.
-     * @return Lista de FuncionDTO convertida.
-     */
-    private List<FuncionDTO> funcionesListEntity2DTO(List<FuncionEntity> entityList) 
-    {
-       List<FuncionDTO> list = new ArrayList();
-        for (FuncionEntity entity : entityList) 
-        {
-            list.add(new FuncionDTO(entity));
-        }
-        return list;
-    }
     
-    /**
-     * Convierte una lista de FuncionDetailDTO a una lista de FuncionEntity.
-     *
-     * @param dtos Lista de FuncionDetailDTO a convertir.
-     * @return Lista de FuncionEntity convertida.
-     */
-    private List<FuncionEntity> funcionesListDTO2Entity(List<FuncionDTO> dtos) 
-    {
-        List<FuncionEntity> list = new ArrayList<>();
-        for (FuncionDTO dto : dtos) {
-            list.add(dto.toEntity());
-        }
-        return list;
-    }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
