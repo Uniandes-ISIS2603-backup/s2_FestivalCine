@@ -56,8 +56,7 @@ public class PeliculaResource {
     private List<PeliculaDTO> listEntity2DTO(List<PeliculaEntity> entityList) {
         List<PeliculaDTO> list = new ArrayList<>();
         for (PeliculaEntity entity : entityList) {
-            list.add(new PeliculaDTO(entity));
-           LOGGER.log(Level.INFO,"pelicula id devuelto----------------------------------",entity.getId());  
+            list.add(new PeliculaDTO(entity)); 
         }
         return list;
     }
@@ -103,8 +102,7 @@ public class PeliculaResource {
     public PeliculaDTO createEstudiante(PeliculaDTO dto) throws BusinessLogicException {
       LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}",  dto);
         PeliculaDTO nuevoPeliculaDTO = new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
-        LOGGER.log(Level.INFO,"ID ES--------------------------", dto.getId());
-        LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO.toString());
+        LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO);
         return nuevoPeliculaDTO;
     }
 
@@ -116,12 +114,11 @@ public class PeliculaResource {
      * @param dto
    
      * @return Instancia de la PeliculaDetailDTO con los datos actualizados
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * 
      */
     @PUT
     @Path("{id: \\d+}")
-    public PeliculaDTO updateEstudiante(@PathParam("id") Long id, PeliculaDTO dto) throws BusinessLogicException {
+    public PeliculaDTO updateEstudiante(@PathParam("id") Long id, PeliculaDTO dto) {
        PeliculaEntity entity = dto.toEntity();
         entity.setId(id);
        PeliculaEntity oldEntity = peliculaLogic.findById(id);
