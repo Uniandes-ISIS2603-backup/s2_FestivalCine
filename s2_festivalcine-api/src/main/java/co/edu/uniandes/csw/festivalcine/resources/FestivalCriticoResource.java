@@ -98,33 +98,34 @@ public class FestivalCriticoResource
         return criticoDetailDTO;
     }
     
-        /**
-     * Convierte una lista de CriticoEntity a una lista de CriticoDetailDTO.
-     *
-     * @param entityListCriticoDTO convertida.
-     */
-    private List<CriticoDetailDTO> criticosListEntity2DTO(List<CriticoEntity> entityList) 
-    {
-        List<CriticoDetailDTO> list = new ArrayList();
-        for (CriticoEntity entity : entityList) 
-        {
-            list.add(new CriticoDetailDTO(entity));
-        }
-        return list;
-    }
     
-    /**
-     * Convierte una lista de CriticoDetailDTO a una lista de CriticoEntity.
-     *
-     * @param dtos Lista de CriticoDetailDTO a convertir.
-     * @return Lista de CriticoEntity convertida.
-     */
-    private List<CriticoEntity> teatrosListDTO2Entity(List<CriticoDetailDTO> dtos) 
-    {
-        List<CriticoEntity> list = new ArrayList<>();
-        for (CriticoDetailDTO dto : dtos) {
-            list.add(dto.toEntity());
-        }
-        return list;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
