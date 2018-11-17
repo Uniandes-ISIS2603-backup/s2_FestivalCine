@@ -81,7 +81,7 @@ public class CriticoResource
     @POST
     public CriticoDTO createCritico(CriticoDTO critico) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO,"CriticoResource createCritico: input: {0}",  critico.toString());
+        LOGGER.log(Level.INFO,"CriticoResource createCritico: input: {0}",  critico);
         CriticoDTO nuevoCriticoDTO = new CriticoDTO(criticoLogic.createCritico(critico.toEntity()));
         LOGGER.log(Level.INFO, "CriticoResource createCritico: output: {0}", nuevoCriticoDTO);
         return nuevoCriticoDTO;
@@ -166,7 +166,7 @@ public class CriticoResource
      */
     @DELETE
     @Path("{criticosId: \\d+}")
-    public void deleteCritico(@PathParam("criticosId") Long criticosId) throws WebApplicationException, BusinessLogicException
+    public void deleteCritico(@PathParam("criticosId") Long criticosId) throws BusinessLogicException
     {
         LOGGER.log(Level.INFO, "CriticoResource deleteCritico: input: {0}", criticosId);
         CriticoEntity entity = criticoLogic.getCritico(criticosId);
@@ -219,7 +219,7 @@ public class CriticoResource
      */
     @GET
     @Path("{criticosId: \\d+}/funciones/")
-    public List<FuncionDTO> getfunciones(@PathParam("criticoId") Long criticosId) throws WebApplicationException
+    public List<FuncionDTO> getfunciones(@PathParam("criticoId") Long criticosId)
     {
         LOGGER.log(Level.INFO, "CriticoResource getFunciones: input {0}", criticosId);
         List<FuncionDTO> lista = funcionesListEntity2DTO(criticoLogic.getFunciones(criticosId));
@@ -432,6 +432,7 @@ public class CriticoResource
      * @param calificacionesId Identificación de la calificacion que se le dese 
      * agregar al critico. Este debe ser una cadena de dígitos.
      * @return JSON {@link CalificacionDTO} Calificacion relacionada
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la calificacion.
      */
@@ -508,6 +509,7 @@ public class CriticoResource
      * calificación. Este debe ser una cadena de cígitos.
      * @param calificacionesId Identificacion de la calificacion que se desea eliminar
      * Este debe ser una cadena de dígitos.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
      * Error de lógica que se genera cuando no se encuentra la calificacion.
      */

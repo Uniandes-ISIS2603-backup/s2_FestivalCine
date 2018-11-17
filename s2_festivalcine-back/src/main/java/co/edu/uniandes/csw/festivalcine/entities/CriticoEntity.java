@@ -296,12 +296,8 @@ public class CriticoEntity extends BaseEntity implements Serializable
     @Override
     public boolean equals(Object obj) 
     {
-        if (! super.equals(obj)) 
-        {
-            return false;
-        }
-        return true;
-  }
+      return !super.equals(obj);    
+    }
 
     @Override
     public int hashCode() 
