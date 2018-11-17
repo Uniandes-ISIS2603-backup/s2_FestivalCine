@@ -10,6 +10,7 @@ package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -299,12 +300,15 @@ public class CriticoEntity extends BaseEntity implements Serializable
         {
             return false;
         }
-        CriticoEntity fobj = (CriticoEntity) obj;
-        if (id.equals(fobj.getId())) 
-        {  
-           return true;
-        }
-    return false;
+        return true;
   }
+
+    @Override
+    public int hashCode() 
+    {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.identificacion);
+        return hash;
+    }
 }
 
