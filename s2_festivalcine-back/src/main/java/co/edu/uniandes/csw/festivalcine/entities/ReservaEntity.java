@@ -136,4 +136,19 @@ public class ReservaEntity extends BaseEntity implements Serializable
     public void setPrecioTotal(Integer precioTotal) {
         this.precioTotal = precioTotal;
     }
+    
+    @Override
+    public boolean equals(Object obj) 
+    {
+        if (! super.equals(obj)) 
+        {
+            return false;
+        }
+        CriticoEntity fobj = (CriticoEntity) obj;
+        if (id.equals(fobj.getId())) 
+        {  
+           return true;
+        }
+    return false;
+  }
 }
