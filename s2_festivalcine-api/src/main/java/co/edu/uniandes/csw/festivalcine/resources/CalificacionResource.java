@@ -146,7 +146,7 @@ public class CalificacionResource
     {
         LOGGER.log(Level.INFO, "CalificacionesResource getUsuario: input: calificacionesId {0}", new Object[]{calificacionesId});
         UsuarioDetailDTO detailDTO = new UsuarioDetailDTO(calificacionLogic.getUsuario(calificacionesId));
-        if(detailDTO == null)
+        if(calificacionLogic.getUsuario(calificacionesId) == null)
         {
             throw new WebApplicationException("El recurso /usuarios/ de la calificacion " + calificacionesId + " debería existir.", 404);
         }
