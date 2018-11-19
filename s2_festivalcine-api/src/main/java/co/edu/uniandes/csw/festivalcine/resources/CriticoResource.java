@@ -223,7 +223,7 @@ public class CriticoResource
     {
         LOGGER.log(Level.INFO, "CriticoResource getFunciones: input {0}", criticosId);
         List<FuncionDTO> lista = funcionesListEntity2DTO(criticoLogic.getFunciones(criticosId));
-        if(lista == null)
+        if(criticoLogic.getFunciones(criticosId) == null)
         {
             throw new WebApplicationException(elRecursoCriticos + criticosId + "/funciones no existe.", 404);
         }
@@ -343,7 +343,7 @@ public class CriticoResource
     {
         LOGGER.log(Level.INFO, "CriticoResource getPeliculas: input: {0}", criticosId);
         List<PeliculaDTO> lista = peliculasListEntity2DTO(criticoLogic.getPeliculas(criticosId));
-        if(lista == null)
+        if(criticoLogic.getPeliculas(criticosId) == null)
         {
             throw new WebApplicationException(elRecursoCriticos + criticosId + "/peliculas" + noexiste, 404);
         }
@@ -464,7 +464,7 @@ public class CriticoResource
     {
         LOGGER.log(Level.INFO, "CriticoResource getCalificaciones: input; {0}", criticosId);
         List<CalificacionDTO> lista = calificacionesListEntity2DTO(criticoLogic.getCalificaciones(criticosId));
-        if(lista == null)
+        if(criticoLogic.getCalificaciones(criticosId) == null)
         {
             throw new WebApplicationException(elRecursoCriticos + criticosId + "/calificaciones no existe.", 404);
         }
