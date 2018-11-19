@@ -78,7 +78,7 @@ public class UsuarioCalificacionesResource
     {
         LOGGER.log(Level.INFO, "UsuarioCalificacionesResource getCalificaciones: input: {0}", usuariosId);
         List<CalificacionDTO> listaDTOs = calificacionesListEntity2DTO(usuarioCalificacionesLogic.getCalificaciones(usuariosId));
-        if(listaDTOs == null)
+        if(usuarioCalificacionesLogic.getCalificaciones(usuariosId) == null)
         {
             throw new WebApplicationException("El recurso /usuarios/" + usuariosId + "/calificaciones no existe.", 404);
         }
