@@ -250,7 +250,7 @@ public class FuncionDTO implements Serializable{
       }
       
      if (this.pelicula != null) {
-          funcionEntity.setCritico(this.critico.toEntity());
+          funcionEntity.setPelicula(this.pelicula.toEntity());
      }
       return funcionEntity ;
     }
