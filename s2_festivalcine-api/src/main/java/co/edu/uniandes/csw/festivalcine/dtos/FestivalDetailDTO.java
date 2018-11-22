@@ -4,7 +4,7 @@
  * and open the template in the editor.  
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
-  
+      
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
