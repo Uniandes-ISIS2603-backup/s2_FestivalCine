@@ -5,7 +5,7 @@
  */
 package co.edu.uniandes.csw.festivalcine.persistence;
 
-import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
+
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import java.util.List;
 import java.util.logging.Level;
