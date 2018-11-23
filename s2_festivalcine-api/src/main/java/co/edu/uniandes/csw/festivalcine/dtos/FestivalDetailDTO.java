@@ -8,7 +8,7 @@ package co.edu.uniandes.csw.festivalcine.dtos;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
-import java.io.Serializable;
+import java.io.Serializable; 
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
