@@ -128,6 +128,10 @@ public class UsuarioLogicTest
         UsuarioEntity entity = em.find(UsuarioEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombres(), entity.getNombres());
+        Assert.assertEquals(entity.getApellidos(), entity.getApellidos());
+        Assert.assertEquals(entity.getIdentificacion(), entity.getIdentificacion());
+        Assert.assertEquals(entity.getTipoPersona(), entity.getTipoPersona());
+        Assert.assertEquals(entity.getPassword(), entity.getPassword());
     }
     
     /**
@@ -137,7 +141,8 @@ public class UsuarioLogicTest
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test(expected = BusinessLogicException.class)
-    public void createUsuarioConMismoEmailTest() throws BusinessLogicException {
+    public void createUsuarioConMismoEmailTest() throws BusinessLogicException 
+    {
         UsuarioEntity newEntity = factory.manufacturePojo(UsuarioEntity.class);
         newEntity.setEmail(data.get(0).getEmail());
         usuarioLogic.createUsuario(newEntity);
@@ -174,6 +179,10 @@ public class UsuarioLogicTest
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getNombres(), resultEntity.getNombres());
+        Assert.assertEquals(entity.getApellidos(), resultEntity.getApellidos());
+        Assert.assertEquals(entity.getIdentificacion(), resultEntity.getIdentificacion());
+        Assert.assertEquals(entity.getTipoPersona(), resultEntity.getTipoPersona());
+        Assert.assertEquals(entity.getPassword(), resultEntity.getPassword());
     }
     
     /**
@@ -188,6 +197,10 @@ public class UsuarioLogicTest
         UsuarioEntity resp = em.find(UsuarioEntity.class, entity.getId());
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getNombres(), resp.getNombres());
+        Assert.assertEquals(pojoEntity.getApellidos(), resp.getApellidos());
+        Assert.assertEquals(pojoEntity.getIdentificacion(), resp.getIdentificacion());
+        Assert.assertEquals(pojoEntity.getTipoPersona(), resp.getTipoPersona());
+        Assert.assertEquals(pojoEntity.getPassword(), resp.getPassword());
     }
 
     /**

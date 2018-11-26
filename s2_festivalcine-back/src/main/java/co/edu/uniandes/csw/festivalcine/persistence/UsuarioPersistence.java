@@ -92,7 +92,6 @@ public class UsuarioPersistence
       */
      public UsuarioEntity findUserByCorreo(String email) 
      {
-        LOGGER.log(Level.INFO, "Consultando usuario por correo", email);
         TypedQuery query = em.createQuery("Select e From UsuarioEntity e where e.email= :email", UsuarioEntity.class); 
         query = query.setParameter("email", email);
         List<UsuarioEntity> sameEmail = query.getResultList();
@@ -109,7 +108,11 @@ public class UsuarioPersistence
         {
             result = sameEmail.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar usuario por email", email);
         return result;
     }
+     
+     
+     
+     
+     
 }

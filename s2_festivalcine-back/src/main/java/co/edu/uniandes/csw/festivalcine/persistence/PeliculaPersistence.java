@@ -55,6 +55,7 @@ public class PeliculaPersistence {
         TypedQuery query = em.createQuery("select u from PeliculaEntity u", PeliculaEntity.class);
         return query.getResultList();
     }
+    
    public List<PeliculaEntity> findByName(String name){
         TypedQuery query = em.createQuery("select u From PeliculaEntity e where e.nombre = :name", PeliculaEntity.class);
         query = query.setParameter("name",name);
@@ -80,33 +81,6 @@ public class PeliculaPersistence {
             listavacia = new ArrayList();
             return listavacia;
         }else{return sameName;
-        
-        }
-   }
-   public List <PeliculaEntity> findByPais(String pais){
-        TypedQuery query = em.createQuery("select e From PeliculaEntity e where e.pais = :pais", PeliculaEntity.class);
-        query = query.setParameter("pais",pais);
-        
-        List<PeliculaEntity> samePais = query.getResultList();
-        if(samePais.isEmpty()){
-           List<PeliculaEntity> listavacia;
-            listavacia = new ArrayList();
-            return listavacia;
-        }else{return samePais;
-        
-        }
-   }
-   
-    public List<PeliculaEntity> findByDuracion(int duracion){
-        TypedQuery query = em.createQuery("select u From PeliculaEntity e where e.duracion = :duracion", PeliculaEntity.class);
-        query = query.setParameter("duracion",duracion);
-        
-        List<PeliculaEntity> sameDuracion = query.getResultList();
-        if(sameDuracion.isEmpty()){
-            List<PeliculaEntity> listavacia;
-            listavacia = new ArrayList();
-            return listavacia;
-        }else{return sameDuracion;
         
         }
    }

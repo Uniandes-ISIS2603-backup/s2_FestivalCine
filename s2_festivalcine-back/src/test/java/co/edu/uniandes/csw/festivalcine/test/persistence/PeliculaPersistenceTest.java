@@ -173,5 +173,40 @@ public class PeliculaPersistenceTest {
 
         Assert.assertEquals(newEntity.getNombre(), resp.getNombre());
     }
+    
+     @Test
+     public void findPeliculaByDirectorTest()
+     {
+        PeliculaEntity entity = data.get(0);
+        List<PeliculaEntity> newEntity = persistence.findByDirector(entity.getDirector());
+        Assert.assertNotNull(newEntity);
+        for(int i = 0; i < newEntity.size(); i++)
+        {
+            Assert.assertEquals(entity.getDirector(), newEntity.get(i).getDirector());
+        }
+     }
+     
+     @Test
+     public void findPeliculaByNameTest()
+     {
+        PeliculaEntity entity = data.get(0);
+        List<PeliculaEntity> newEntity = persistence.findByName(entity.getNombre());
+        Assert.assertNotNull(newEntity);
+        for(int i = 0; i < newEntity.size(); i++)
+        {
+            Assert.assertEquals(entity.getNombre(), newEntity.get(i).getNombre());
+        }
+     }
+     
+     @Test
+     public void findPeliculaByIdTest()
+     {
+        PeliculaEntity entity = data.get(0);
+        PeliculaEntity newEntity = persistence.findById(entity.getId());
+        Assert.assertNotNull(newEntity);
+        
+            Assert.assertEquals(entity.getNombre(), newEntity.getNombre());
+        
+     }
 
 }

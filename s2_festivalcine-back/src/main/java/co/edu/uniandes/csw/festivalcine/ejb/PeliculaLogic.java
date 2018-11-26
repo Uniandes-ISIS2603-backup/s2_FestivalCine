@@ -77,16 +77,7 @@ public class PeliculaLogic {
         
         return peliculasBuscadas;
     }
-   
-   public List<PeliculaEntity> findByDuracion( int duracion){
-        List<PeliculaEntity> peliculasBuscadas= persistence.findByDuracion(duracion);
-        
-        if (peliculasBuscadas.isEmpty()){
-            throw new WebApplicationException("No existe la pelicula con la duracion"+ duracion, 404);
-        }
-        
-        return peliculasBuscadas;
-    }
+
    
    public List<PeliculaEntity> findByPuntaje( double puntaje){
         List<PeliculaEntity> peliculasBuscadas= persistence.findByPuntaje(puntaje);
@@ -97,16 +88,7 @@ public class PeliculaLogic {
         
         return peliculasBuscadas;
     }
-   
-   public List<PeliculaEntity> findByPais( String pais){
-        List<PeliculaEntity> peliculasBuscadas= persistence.findByPais(pais);
-        
-        if (peliculasBuscadas.isEmpty()){
-            throw new WebApplicationException("No existe la pelicula con el pais"+ pais, 404);
-        }
-        
-        return peliculasBuscadas;
-    }
+
    
    
    public PeliculaEntity update(PeliculaEntity pelicula){
@@ -124,4 +106,16 @@ public class PeliculaLogic {
          LOGGER.log(Level.INFO, "Inicia proceso de borrar una pelicula con id={0}", id);
          persistence.delete(id);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

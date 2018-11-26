@@ -200,7 +200,7 @@ public class UsuarioPersistenceTest {
     /**
      * Prueba para encontrar un usuario
      */
-     //@Test
+     @Test
      public void findUserByEmailTest()
      {
         UsuarioEntity entity = data.get(0);

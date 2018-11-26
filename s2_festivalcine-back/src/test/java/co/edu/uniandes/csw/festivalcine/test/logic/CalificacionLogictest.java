@@ -8,12 +8,12 @@ package co.edu.uniandes.csw.festivalcine.test.logic;
 import co.edu.uniandes.csw.festivalcine.ejb.CalificacionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
-import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+
+
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.CalificacionPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
