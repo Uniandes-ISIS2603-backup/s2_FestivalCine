@@ -56,7 +56,7 @@ public class ReservaUsuarioResource
     @PUT
     public ReservaDetailDTO replaceUsuario(@PathParam("reservasId") Long reservasId, UsuarioDTO usuario) 
     {
-        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: input: reservasId{0} , Usuario:{1}", new Object[]{reservasId, usuario.toString()});
+        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: input: reservasId{0} , Usuario:{1}", new Object[]{reservasId, usuario});
         if (reservaLogic.getReserva(reservasId) == null) {
             throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
         }
@@ -64,7 +64,7 @@ public class ReservaUsuarioResource
             throw new WebApplicationException("El recurso /usuarios/" + usuario.getId() + " no existe.", 404);
         }
         ReservaDetailDTO reservaDetailDTO = new ReservaDetailDTO(reservaUsuarioLogic.replaceUsuario(reservasId, usuario.getId()));
-        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: output: {0}", reservaDetailDTO.toString());
+        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: output: {0}", reservaDetailDTO);
         return reservaDetailDTO;
     }   
 }

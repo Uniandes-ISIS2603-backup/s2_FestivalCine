@@ -99,7 +99,7 @@ public class PeliculaResource {
      * 
      */
     @POST
-    public PeliculaDTO createEstudiante(PeliculaDTO dto) throws BusinessLogicException {
+    public PeliculaDTO createEstudiante(PeliculaDTO dto){
       LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}",  dto);
         PeliculaDTO nuevoPeliculaDTO = new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
         LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO);
@@ -138,7 +138,7 @@ public class PeliculaResource {
      */
     @DELETE
     @Path("{id: \\d+}")
-    public void deletePelicula(@PathParam("id") Long id) throws BusinessLogicException {
+    public void deletePelicula(@PathParam("id") Long id){
         PeliculaEntity entity = peliculaLogic.findById(id);
         if (entity == null) {
             throw new WebApplicationException("La pelicula no existe", 404);

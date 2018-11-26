@@ -47,7 +47,7 @@ public class BandaAnuncioResource {
 
    
     @POST
-    public BandaAnuncioDTO createBanda(BandaAnuncioDTO banda) throws BusinessLogicException {
+    public BandaAnuncioDTO createBanda(BandaAnuncioDTO banda){
         
        // Convierte el DTO (json) en un objeto Entity para ser manejado por la lógica.
         BandaAnuncioEntity  bandaE = banda.toEntity();
@@ -90,7 +90,7 @@ public class BandaAnuncioResource {
    
     @PUT
     @Path("{id: \\d+}")
-    public BandaAnuncioDTO updateBanda(@PathParam("id") Long id, BandaAnuncioDTO banda) throws BusinessLogicException 
+    public BandaAnuncioDTO updateBanda(@PathParam("id") Long id, BandaAnuncioDTO banda)  
     {
         BandaAnuncioEntity entity = banda.toEntity();
         entity.setId(id);
@@ -104,7 +104,7 @@ public class BandaAnuncioResource {
 
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteBanda(@PathParam("id") Long id) throws BusinessLogicException 
+    public void deleteBanda(@PathParam("id") Long id) 
     {
         BandaAnuncioEntity entity = bandaLogic.findById(id);
         if (entity == null) 

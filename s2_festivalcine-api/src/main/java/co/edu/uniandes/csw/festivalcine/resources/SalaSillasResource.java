@@ -79,7 +79,7 @@ public class SalaSillasResource {
     public List<SillaDTO> getSillas(@PathParam("salasId") Long salasId) {
         LOGGER.log(Level.INFO, "SalaSIllasResource getSillas: input: {0}", salasId);
         List<SillaDTO> listaSillasDTOs = sillaListEntity2DTO(salaSillasLogic.getSillas(salasId));
-        LOGGER.log(Level.INFO, "SalaSillasResource getSillas: output: {0}", listaSillasDTOs.toString());
+        LOGGER.log(Level.INFO, "SalaSillasResource getSillas: output: {0}", listaSillasDTOs);
         return listaSillasDTOs;
     }
 
@@ -105,7 +105,7 @@ public class SalaSillasResource {
             throw new WebApplicationException("El recurso /salas/" + salasId + "/sillas/" + sillasId + " no existe.", 404);
         }
         SillaDTO sillaDTO = new SillaDTO(salaSillasLogic.getSilla(salasId, sillasId));
-        LOGGER.log(Level.INFO, "SalaSillasResource getSilla: output: {0}", sillaDTO.toString());
+        LOGGER.log(Level.INFO, "SalaSillasResource getSilla: output: {0}", sillaDTO);
         return sillaDTO;
     }
     

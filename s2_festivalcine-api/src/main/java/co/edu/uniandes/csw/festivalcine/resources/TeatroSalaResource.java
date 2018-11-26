@@ -9,12 +9,12 @@ import co.edu.uniandes.csw.festivalcine.dtos.SalaDTO;
 import co.edu.uniandes.csw.festivalcine.dtos.SalaDetailDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.TeatroSalaLogic;
-import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.festivalcine.mappers.WebApplicationExceptionMapper;
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;

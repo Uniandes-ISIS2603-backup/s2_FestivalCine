@@ -8,12 +8,12 @@ package co.edu.uniandes.csw.festivalcine.resources;
 import co.edu.uniandes.csw.festivalcine.dtos.FuncionDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.TeatroFuncionLogic;
-import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.mappers.BusinessLogicExceptionMapper;
 import co.edu.uniandes.csw.festivalcine.mappers.WebApplicationExceptionMapper;
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
