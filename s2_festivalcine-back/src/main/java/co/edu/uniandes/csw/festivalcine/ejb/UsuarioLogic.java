@@ -66,7 +66,7 @@ public class UsuarioLogic
      *
      * Obtener un usuario por medio de su id.
      *
-     * @param editorialsId: id de la editorial para ser buscada.
+     * 
      * @return la editorial solicitada por medio de su id.
      */
     public UsuarioEntity getUsuario(Long usuariosId) 
