@@ -38,9 +38,8 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
     @OneToMany (mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CalificacionEntity> calificaciones;
     
-     @PodamExclude
-    @OneToOne(mappedBy = "pelicula", fetch = FetchType.LAZY)
-    private BandaAnuncioEntity banda;
+    
+    
       
     @PodamExclude
     @ManyToMany(fetch = FetchType.LAZY)
@@ -58,9 +57,8 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
         return calificaciones;
     }
     
-    public BandaAnuncioEntity getBanda() {
-        return banda;
-    }
+ 
+    
     
     public List<CriticoEntity> getCriticos()
     {
@@ -72,9 +70,7 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
         return funciones;
     }
 
-    public void setBanda(BandaAnuncioEntity banda) {
-        this.banda = banda;
-    }
+    
     
     public void setCriticos(List<CriticoEntity> criticos)
     {
@@ -147,5 +143,8 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
         hash = 79 * hash + Objects.hashCode(this.id);
         return hash;
     }
+    
+    
+    
     
 }

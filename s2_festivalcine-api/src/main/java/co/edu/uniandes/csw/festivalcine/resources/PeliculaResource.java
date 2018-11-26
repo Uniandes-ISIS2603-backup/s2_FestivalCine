@@ -9,7 +9,7 @@ package co.edu.uniandes.csw.festivalcine.resources;
 import co.edu.uniandes.csw.festivalcine.dtos.PeliculaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.PeliculaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
-import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,11 +95,11 @@ public class PeliculaResource {
      *
      * @param dto Objeto de la PeliculaDetailDTO con los datos nuevos
      * @return Objeto de la PeliculaDetailDTOcon los datos nuevos y su ID
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
+     * 
      * 
      */
     @POST
-    public PeliculaDTO createEstudiante(PeliculaDTO dto){
+    public PeliculaDTO createPelicula(PeliculaDTO dto){
       LOGGER.log(Level.INFO,"PeliculaResource createPelicula: input: {0}",  dto);
         PeliculaDTO nuevoPeliculaDTO = new PeliculaDTO(peliculaLogic.createPelicula(dto.toEntity()));
         LOGGER.log(Level.INFO, "PeliculaResource createPelicula: output: {0}", nuevoPeliculaDTO);
@@ -118,7 +118,7 @@ public class PeliculaResource {
      */
     @PUT
     @Path("{id: \\d+}")
-    public PeliculaDTO updateEstudiante(@PathParam("id") Long id, PeliculaDTO dto) {
+    public PeliculaDTO updatePelicula(@PathParam("id") Long id, PeliculaDTO dto) {
        PeliculaEntity entity = dto.toEntity();
         entity.setId(id);
        PeliculaEntity oldEntity = peliculaLogic.findById(id);
@@ -133,7 +133,7 @@ public class PeliculaResource {
      * Elimina una instancia de la Pelicula de la base de datos
      *
      * @param id Identificador de la instancia a eliminar
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
+     * 
      * 
      */
     @DELETE

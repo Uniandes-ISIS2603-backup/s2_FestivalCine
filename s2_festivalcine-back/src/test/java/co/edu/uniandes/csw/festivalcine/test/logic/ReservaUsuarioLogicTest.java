@@ -129,19 +129,6 @@ public class ReservaUsuarioLogicTest
     /**
      * PRUEBAS DE LA RELACIÓN CON USUARIO
      */
-    
-    /**
-     * Prueba para remplazar las instancias de Reservas asociadas a una instancia
-     * de Usuario.
-     */
-    @Test
-    public void replaceUsuarioTest() 
-    {
-        ReservaEntity entity = data.get(0);
-        reservaUsuarioLogic.replaceUsuario(entity.getId(), usuarioData.get(1).getId());
-        entity = reservaLogic.getReserva(entity.getId());
-        Assert.assertEquals(entity.getUsuario(), usuarioData.get(1));
-    }
 
     /**
      * Prueba para desasociar una Reserva existente de un Usuario existente
