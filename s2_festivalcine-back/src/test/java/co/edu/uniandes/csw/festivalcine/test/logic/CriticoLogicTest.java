@@ -19,6 +19,8 @@ import co.edu.uniandes.csw.festivalcine.persistence.CriticoPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -43,6 +45,8 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 @RunWith(Arquillian.class)
 public class CriticoLogicTest 
 {
+    
+    private static final Logger LOGGER = Logger.getLogger(CalificacionLogic.class.getName());
     private PodamFactory factory = new PodamFactoryImpl();
     
     @Inject
@@ -142,6 +146,9 @@ public class CriticoLogicTest
             em.persist(critico);
             data.add(critico);
         }
+
+        LOGGER.log(Level.INFO, data.size() + "");
+        
     }
     
     @Test
@@ -201,6 +208,8 @@ public class CriticoLogicTest
    @Test
     public void getCriticoTest() throws BusinessLogicException
     {
+        
+        LOGGER.log(Level.INFO, data.get(0).darNombres());
         CriticoEntity entity = data.get(0);
         CriticoEntity resultEntity = criticoLogic.getCritico(entity.getId());
         Assert.assertNotNull(resultEntity);
@@ -234,10 +243,11 @@ public class CriticoLogicTest
     public void getFuncionesTest()
     {
         List<FuncionEntity> funcionEntity = criticoLogic.getFunciones(data.get(0).getId());
+        
         Assert.assertEquals(funciones.size(), funcionEntity.size());
         for(int i = 0; i < data.size(); i++)
         {
-            Assert.assertTrue(funcionEntity.contains(data.get(0)));
+            Assert.assertTrue(funcionEntity.contains(data.get(i)));
         }
     }
     

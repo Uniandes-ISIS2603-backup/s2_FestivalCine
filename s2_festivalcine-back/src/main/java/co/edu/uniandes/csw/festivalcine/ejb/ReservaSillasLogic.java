@@ -102,12 +102,14 @@ public class ReservaSillasLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la silla con id = {0} de la reserva con id = " + reservasId, sillasId);
         List<SillaEntity> sillas = persistence.findReserva(reservasId).getSillas();
         SillaEntity sillaEntity = sillaPersistence.find(sillasId);
-        int index = sillas.indexOf(sillaEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la silla con id = {0} de la reserva con id = " + reservasId, sillasId);
-        if (index >= 0) 
+        for(int i = 0; i < sillas.size(); i++)
         {
-            return sillas.get(index);
-        }
-        throw new BusinessLogicException("La silla no está asociado a la reserva");
+            if(sillas.get(i).getId().equals(sillaEntity.getId()))
+            {
+                return sillas.get(i);
+            }
+        }   
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la silla");      
+        throw new BusinessLogicException("La silla no esta asociada a la reserva");
     }
 }

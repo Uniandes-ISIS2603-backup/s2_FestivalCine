@@ -83,11 +83,14 @@ public class SalaSillasLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la silla con id = {0} de la sala con id = " + salasId, sillasId);
         List<SillaEntity> sillas = salaPersistence.find(salasId).getSillas();
         SillaEntity sillaEntity = sillaPersistence.find(sillasId);
-        int index = sillas.indexOf(sillaEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la silla con id = {0} de la sala con id = " + salasId, sillasId);
-        if (index >= 0) {
-            return sillas.get(index);
-        }
-        throw new BusinessLogicException("La silla no está asignada a la sala");
+        for(int i = 0; i < sillas.size(); i++)
+        {
+            if(sillas.get(i).getId().equals(sillaEntity.getId()))
+            {
+                return sillas.get(i);
+            }
+        }   
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la reserva con id = {0} del usuario con id = ");      
+        throw new BusinessLogicException("La silla no esta asociada a la reserva");
     }
 }

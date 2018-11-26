@@ -122,10 +122,9 @@ public class FuncionEntity extends BaseEntity implements Serializable {
         this.reservas = reservas;
     }
     
-    @Override
-    public boolean equals(Object obj) 
+    public boolean equals(FuncionEntity obj) 
     {
-      return !super.equals(obj);    
+      return !super.id.equals(obj.id);    
     }
 
     @Override
