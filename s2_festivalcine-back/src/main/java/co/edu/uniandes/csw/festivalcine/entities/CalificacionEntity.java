@@ -65,4 +65,33 @@ public class CalificacionEntity extends BaseEntity implements Serializable
         this.usuario = usuario;
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
