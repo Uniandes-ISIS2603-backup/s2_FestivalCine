@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -65,7 +65,21 @@ public class CalificacionEntity extends BaseEntity implements Serializable
         this.usuario = usuario;
     }
 
-    
+    public PeliculaEntity getPelicula() {
+        return pelicula;
+    }
+
+    public void setPelicula(PeliculaEntity pelicula) {
+        this.pelicula = pelicula;
+    }
+
+    public CriticoEntity getCritico() {
+        return critico;
+    }
+
+    public void setCritico(CriticoEntity critico) {
+        this.critico = critico;
+    }
     
     
     

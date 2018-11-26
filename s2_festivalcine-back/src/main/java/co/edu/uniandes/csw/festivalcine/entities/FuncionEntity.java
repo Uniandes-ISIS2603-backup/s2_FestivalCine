@@ -122,18 +122,18 @@ public class FuncionEntity extends BaseEntity implements Serializable {
         this.reservas = reservas;
     }
     
-    @Override
-    public boolean equals(Object obj) 
-    {
-      FuncionEntity obje = (FuncionEntity) obj;
-      return !super.id.equals(obje.id);    
-    }
-
-    @Override
-    public int hashCode() 
-    {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

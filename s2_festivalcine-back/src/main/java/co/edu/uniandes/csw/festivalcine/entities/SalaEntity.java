@@ -71,16 +71,16 @@ public class SalaEntity extends BaseEntity implements Serializable {
         return teatro;
     }
     
-    public boolean equals(SalaEntity obj) 
-    {
-      return !super.id.equals(obj.id);    
-    }
-
-    @Override
-    public int hashCode() 
-    {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
