@@ -35,13 +35,14 @@ public class SalaDetailDTO extends SalaDTO implements Serializable {
      */
     public SalaDetailDTO(SalaEntity salaEntity) {
         super(salaEntity);
-        if (salaEntity != null) {
-            if (salaEntity.getSillas() != null) {
+        if (salaEntity != null && salaEntity.getSillas() != null) 
+         {
                 sillas= new ArrayList<>();
-                for (SillaEntity entitySilla : salaEntity.getSillas()) {
+                for (SillaEntity entitySilla : salaEntity.getSillas()) 
+                {
                   sillas.add(new SillaDTO(entitySilla));
                }
-            }
+            
         }
     }
 

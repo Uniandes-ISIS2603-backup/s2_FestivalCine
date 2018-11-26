@@ -31,7 +31,7 @@ public class BandaAnuncioLogic {
        return entity;
     }
     
-   public BandaAnuncioEntity update(BandaAnuncioEntity banda) throws  WebApplicationException{
+   public BandaAnuncioEntity update(BandaAnuncioEntity banda){
          BandaAnuncioEntity  bandaAntigua = persistence.findById(banda.getId());
         
    
@@ -43,7 +43,7 @@ public class BandaAnuncioLogic {
         return persistence.update(bandaAntigua);
     }
     
-    public BandaAnuncioEntity findById(Long id)throws WebApplicationException{
+    public BandaAnuncioEntity findById(Long id){
         BandaAnuncioEntity bandaBuscada = persistence.findById(id);
         
         //Valida si existe la banda con el id especificado
@@ -62,7 +62,7 @@ public class BandaAnuncioLogic {
         return bandas;
     }
     
-    public void delete(Long id) throws WebApplicationException{
+    public void delete(Long id){
          LOGGER.log(Level.INFO, "Inicia proceso de borrar Usuario con id={0}", id);
          persistence.delete(id);
     }

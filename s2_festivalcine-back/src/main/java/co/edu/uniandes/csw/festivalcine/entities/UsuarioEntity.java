@@ -8,6 +8,7 @@ package co.edu.uniandes.csw.festivalcine.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -208,6 +209,19 @@ public class UsuarioEntity extends BaseEntity implements Serializable
         return calificaciones;
     }
     
+    @Override
+    public boolean equals(Object obj) 
+    {
+      return !super.equals(obj);    
+    }
+
+    @Override
+    public int hashCode() 
+    {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
    
     
     
