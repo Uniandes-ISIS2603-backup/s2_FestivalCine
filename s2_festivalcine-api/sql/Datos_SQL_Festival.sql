@@ -1,6 +1,5 @@
 
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (100, 'Donald', 'Quire', 60, '01/28/2018', '12/21/2017');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (101, 'Pleasure', 'Skiba', 7, '07/25/2018', '10/26/2018');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (101, 'Pleasure', 'Skiba', 7, '07/07/2018', '10/10/2018');
 insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (102, 'Ruskin', 'Photospace', 55, '03/13/2018', '02/21/2018');
 insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (103, 'Hovde', 'Skyvu', 54, '06/15/2018', '01/07/2018');
 insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (104, 'Fremont', 'Avavee', 46, '12/18/2017', '01/20/2018');

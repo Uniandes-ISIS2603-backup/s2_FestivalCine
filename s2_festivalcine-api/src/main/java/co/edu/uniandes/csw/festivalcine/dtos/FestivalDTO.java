@@ -10,8 +10,8 @@ import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import java.io.Serializable;
 import java.util.Date;
 
-
-
+import co.edu.uniandes.csw.festivalcine.adapters.DateAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -31,7 +31,9 @@ public class FestivalDTO implements Serializable {
     private String nombre;
     private String patrocinador;
     private Integer duracion;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date fechaInicio;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date fechaFin;
     private String ciudad;
 
