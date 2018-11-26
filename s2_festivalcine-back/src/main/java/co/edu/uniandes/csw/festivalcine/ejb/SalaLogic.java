@@ -107,7 +107,7 @@ public class SalaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la sala con id = {0}", salasId);
  
         List<FuncionEntity> funciones = persistence.find(salasId).getFuncion();
-        if (funciones != null || !funciones.isEmpty()) 
+        if (funciones != null && !funciones.isEmpty()) 
         {
             throw new BusinessLogicException("No se puede borrar la sala con id = " + salasId + " porque tiene funciones asociados");
         }
