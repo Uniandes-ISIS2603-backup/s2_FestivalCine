@@ -14,7 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import uk.co.jemos.podam.common.PodamExclude;
 
 
@@ -33,6 +33,8 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
     private String pais;
     private Integer duracion;
     private Double puntaje;
+    private String trailer;
+    private String poster;
     
     @PodamExclude
     @OneToMany (mappedBy = "pelicula", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -128,6 +130,22 @@ public class PeliculaEntity extends BaseEntity implements Serializable{
 
     public void setPuntaje(Double puntaje) {
         this.puntaje = puntaje;
+    }
+    
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
     
     @Override

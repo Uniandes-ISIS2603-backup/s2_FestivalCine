@@ -11,7 +11,7 @@ import co.edu.uniandes.csw.festivalcine.ejb.PeliculaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.PeliculaPersistence;
-import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;

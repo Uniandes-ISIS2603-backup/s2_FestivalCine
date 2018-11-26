@@ -14,12 +14,17 @@ import java.io.Serializable;
  */
 public class PeliculaDTO implements Serializable{
     private Long id;
-     private String nombre;
+    private String nombre;
     private String director;
     private String creditos;
     private String pais;
     private Integer duracion;
     private Double puntaje;
+    private String trailer;
+    private String poster;
+
+    
+    
     
     
     public PeliculaDTO(){
@@ -37,6 +42,8 @@ public class PeliculaDTO implements Serializable{
             this.pais=pelicula.getPais();
             this.duracion=pelicula.getDuracion();
             this.puntaje=pelicula.getPuntaje();
+            this.trailer = pelicula.getTrailer();
+            this.poster = pelicula.getPoster();
         }
                
     }
@@ -95,6 +102,21 @@ public class PeliculaDTO implements Serializable{
 
     public void setPuntaje(double puntaje) {
         this.puntaje = puntaje;
+    }
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
     
      /**
