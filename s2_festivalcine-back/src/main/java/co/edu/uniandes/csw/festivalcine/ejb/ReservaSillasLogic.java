@@ -83,11 +83,13 @@ public class ReservaSillasLogic
      * @param reservasId El ID de la reserva buscada
      * @return La lista de sillas de la reserva
      */
-    public List<SillaEntity> getSillas(Long reservasId) 
+    public List<SillaEntity> getSillasReserva(Long reservasId) 
     {
         LOGGER.log(Level.INFO, "Inicia proceso de consultar las sillas asociados a la reserva con id = {0}", reservasId);
         return persistence.findReserva(reservasId).getSillas();
     }
+    
+    
     
      /**
      * Retorna una silla asociado a una reserva
@@ -99,7 +101,6 @@ public class ReservaSillasLogic
      * reserva
      */
     public SillaEntity getSilla(Long reservasId, Long sillasId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la silla con id = {0} de la reserva con id = " + reservasId, sillasId);
         List<SillaEntity> sillas = persistence.findReserva(reservasId).getSillas();
         SillaEntity sillaEntity = sillaPersistence.find(sillasId);
         for(int i = 0; i < sillas.size(); i++)
