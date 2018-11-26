@@ -22,7 +22,9 @@ public class CalificacionDTO implements Serializable
     
     private String comentario;
     
-    
+    private UsuarioDTO usuario;
+
+   
     
     
     //Constructor ----------------------------------------------------------------------------
@@ -36,6 +38,7 @@ public class CalificacionDTO implements Serializable
             this.id = calificacionEntity.getId();
             this.puntaje = calificacionEntity.getPuntaje();
             this.comentario = calificacionEntity.getComentario();
+            this.usuario = new UsuarioDTO(calificacionEntity.getUsuario());
             
         }
     }
@@ -57,10 +60,13 @@ public class CalificacionDTO implements Serializable
         return comentario;
     }
     
-    
-    
-    
-    
+     public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
+    }
     
     public void setId(Long id)
     {

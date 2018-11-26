@@ -217,12 +217,11 @@ public class CalificacionLogictest
     }
     
     @Test
-    public void getCalificacionst() throws BusinessLogicException
+    public void getCalificacionsTest() throws BusinessLogicException
     {
         CalificacionEntity entity = data.get(0);
         CalificacionEntity resultEntity = calificacionLogic.getCalificacion(entity.getId());
         Assert.assertNotNull(resultEntity);
-        Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getComentario(), resultEntity.getComentario());
         Assert.assertEquals(entity.getPuntaje(), resultEntity.getPuntaje());
         Assert.assertEquals(entity.getUsuario(), resultEntity.getUsuario());
