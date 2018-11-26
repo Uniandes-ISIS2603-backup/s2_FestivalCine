@@ -112,7 +112,7 @@ public class FestivalLogic {
      * @param festivalId: id del festival a borrar
      * @throws BusinessLogicException 
      */
-    public void deleteFestival(Long festivalId) throws BusinessLogicException {
+    public void deleteFestival(Long festivalId) {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar el festival con id = {0}", festivalId);
         
         persistence.delete(festivalId);

@@ -122,10 +122,9 @@ public class CalificacionLogic
     
     public boolean validateCalificacion(Long calificacionesId)
     {
-        if(calificacionesId == null || calificacionesId <= 0 || persistence.find(calificacionesId) == null )
-        {
-         return true;
-        }
-        return false;
+         return (calificacionesId == null || calificacionesId <= 0 || persistence.find(calificacionesId) == null );
+       
     }
+    
+    
 }

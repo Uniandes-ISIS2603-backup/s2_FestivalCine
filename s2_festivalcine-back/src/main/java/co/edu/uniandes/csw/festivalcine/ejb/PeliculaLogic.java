@@ -60,7 +60,7 @@ public class PeliculaLogic {
     public List<PeliculaEntity> findByName( String nombre){
         List<PeliculaEntity> peliculasBuscadas= persistence.findByName(nombre);
         
-        if (peliculasBuscadas.isEmpty()==true){
+        if (peliculasBuscadas.isEmpty()){
             throw new WebApplicationException("No existe la pelicula con el nombre"+ nombre, 404);
         }
         
