@@ -118,6 +118,10 @@ public class TeatroLogicTest
         TeatroEntity entity = em.find(TeatroEntity.class, result.getId());
         Assert.assertEquals(newEntity.getId(), entity.getId());
         Assert.assertEquals(newEntity.getNombre(), entity.getNombre());
+        Assert.assertEquals(newEntity.getDireccion(), entity.getDireccion());
+        Assert.assertEquals(newEntity.getFestival(), entity.getFestival());
+        Assert.assertEquals(newEntity.getFunciones(), entity.getFunciones());
+        
     }
     
     /**
@@ -164,6 +168,9 @@ public class TeatroLogicTest
         Assert.assertNotNull(resultEntity);
         Assert.assertEquals(entity.getId(), resultEntity.getId());
         Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
+         Assert.assertEquals(entity.getDireccion(), resultEntity.getDireccion());
+        Assert.assertEquals(entity.getFestival(), resultEntity.getFestival());
+        Assert.assertEquals(entity.getFunciones(), resultEntity.getFunciones());
     }
     
     /**
@@ -178,6 +185,9 @@ public class TeatroLogicTest
         TeatroEntity resp = em.find(TeatroEntity.class, entity.getId());
         Assert.assertEquals(pojoEntity.getId(), resp.getId());
         Assert.assertEquals(pojoEntity.getNombre(), resp.getNombre());
+         Assert.assertEquals(pojoEntity.getDireccion(), resp.getDireccion());
+        Assert.assertEquals(pojoEntity.getFestival(), resp.getFestival());
+        Assert.assertEquals(pojoEntity.getFunciones(), resp.getFunciones());
     }
 
     /**
