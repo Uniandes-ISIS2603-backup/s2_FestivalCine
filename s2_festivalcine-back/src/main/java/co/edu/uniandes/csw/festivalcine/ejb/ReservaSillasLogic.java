@@ -31,20 +31,22 @@ public class ReservaSillasLogic
     @Inject
     private SillaPersistence sillaPersistence;
     
-     /**
-     *
-     * Obtener todas las reservas existentes en la base de datos.
-     *
-     * @return una lista de reservas.
-     */
-    public List<SillaEntity> getSillas() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las sillas");
-       
-        List<SillaEntity> sillas = sillaPersistence.findAll();
-        
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las sillas");
-        return sillas;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * LÓGICA DE LA RELACIÓN CON SILLA

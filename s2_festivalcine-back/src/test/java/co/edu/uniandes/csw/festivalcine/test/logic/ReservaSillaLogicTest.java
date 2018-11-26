@@ -145,17 +145,18 @@ public class ReservaSillaLogicTest
         Assert.assertEquals(1, list.size());
     }
     
-     /**
-     * Retorna todos las sillas asociadas a una reserva
-     *
-     * @param reservasId El ID de la reserva buscada
-     * @return La lista de sillas de la reserva
-     */
-    @Test
-    public void getSillasTest() {
-        List<SillaEntity> list = reservaSillasLogic.getSillas();
-        Assert.assertEquals(3, list.size());
-    }
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Prueba para obtener una instancia de sillas asociada a una instancia
      * reserva.

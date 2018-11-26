@@ -74,7 +74,7 @@ public class ReservaFuncionLogic
      * @throws BusinessLogicException Si la funcion no está asociado a la reserva
      */
     public FuncionEntity getFuncion(Long reservasId, Long funcionsId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {0} de la reserva con id = " + reservasId, funcionsId);
+        
         List<FuncionEntity> funciones = persistence.findReserva(reservasId).getFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionsId);
        for(int i = 0; i < funciones.size(); i++)

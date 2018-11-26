@@ -65,23 +65,26 @@ public class ReservaSillasResource
         return sillaDTO;
     }
 
-     /**
-     * 
-     * @param reservasId
-     * @return 
-     */
-    @GET
-    @Path("{reservasId: \\d+}/sillas")
-    public List<SillaDTO> getSillas(@PathParam("reservasId") Long reservasId)
-    {
-        List<SillaDTO> listaSillas = listEntitySilla2DTO(reservaSillasLogic.getSillas());
-//        if (listaSillas.isEmpty()) 
-//        {
-//             throw new WebApplicationException("El recurso /reservas/" + reservasId + "/sillas no existe.", 404);
-//        }
-        LOGGER.log(Level.INFO, "SillaResource getSillas: output: {0}", listaSillas);
-        return listaSillas;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * Busca la funcion con el id asociado dentro de la reserva con id asociado.
