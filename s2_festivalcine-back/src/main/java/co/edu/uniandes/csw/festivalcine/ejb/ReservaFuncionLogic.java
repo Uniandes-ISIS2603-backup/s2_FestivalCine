@@ -92,14 +92,15 @@ public class ReservaFuncionLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {0} de la reserva con id = " + reservasId, funcionsId);
         List<FuncionEntity> funciones = persistence.findReserva(reservasId).getFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionsId);
-        
-        int index = funciones.indexOf(funcionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion con id = {0} de la reserva con id  = " + reservasId, funcionsId);
-        if (index >= 0) 
+       for(int i = 0; i < funciones.size(); i++)
         {
-            return funciones.get(index);
-        }
-        throw new BusinessLogicException("La función no está asociada a la reserva");
+            if(funciones.get(i).getId().equals(funcionEntity.getId()))
+            {
+                return funciones.get(i);
+            }
+        }   
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion");      
+        throw new BusinessLogicException("La funcion no esta asociada a la reserva");
     }
 
     /**

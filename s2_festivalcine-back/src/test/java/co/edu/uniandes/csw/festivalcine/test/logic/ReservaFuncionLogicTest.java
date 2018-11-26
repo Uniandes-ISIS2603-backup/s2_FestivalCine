@@ -190,12 +190,13 @@ public class ReservaFuncionLogicTest {
      *
      */
     @Test
-    public void removeFuncionTest() 
+    public void removeFuncionTest() throws BusinessLogicException 
     {
         for (FuncionEntity funcion : funcionData) 
         {
             reservaFuncionLogic.removeFuncion(reserva.getId(), funcion.getId());
+            Assert.assertTrue(reservaFuncionLogic.getFuncion(reserva.getId(), funcion.getId()) == null);
         }
-        Assert.assertTrue(reservaFuncionLogic.getFunciones(reserva.getId()).isEmpty());
+        
     }
 }

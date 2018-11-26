@@ -36,6 +36,7 @@ public class SalaPersistence {
         LOGGER.log(Level.INFO, "Creando una sala nueva");
         em.persist(salaEntity);
         LOGGER.log(Level.INFO, "Saliendo de crear una sala nueva");
+        LOGGER.log(Level.INFO, salaEntity.getTeatro() + "");
         return salaEntity;
     }
 	

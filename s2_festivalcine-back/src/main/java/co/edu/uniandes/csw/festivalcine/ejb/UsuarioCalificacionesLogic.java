@@ -75,11 +75,14 @@ public class UsuarioCalificacionesLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, calificacionesId);
         List<CalificacionEntity> calificaciones = persistence.findUsuario(usuariosId).getCalificaciones();
         CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
-         int index = calificaciones.indexOf(calificacionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la calificacion con id = {0} del usuario con id = " + usuariosId, calificacionesId);
-        if (index >= 0) {
-            return calificaciones.get(index);
-        }
-        throw new BusinessLogicException("La calificacion no esta asociada al usuario");
+        for(int i = 0; i < calificaciones.size(); i++)
+        {
+            if(calificaciones.get(i).getId().equals(calificacionEntity.getId()))
+            {
+                return calificaciones.get(i);
+            }
+        }   
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la calificacion");      
+        throw new BusinessLogicException("La calificacion no esta asociada a la reserva");
     }
 }

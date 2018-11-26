@@ -68,7 +68,8 @@ public class CalificacionEntity extends BaseEntity implements Serializable
     @Override
     public boolean equals(Object obj) 
     {
-      return !super.equals(obj);    
+     CalificacionEntity obje = (CalificacionEntity) obj;
+      return !super.id.equals(obje.id);    
     }
 
     @Override

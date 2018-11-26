@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
@@ -23,11 +24,11 @@ import uk.co.jemos.podam.common.PodamExclude;
 public class TeatroEntity extends BaseEntity implements Serializable{
     
     @PodamExclude
-    @OneToMany(mappedBy = "teatro", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teatro",  fetch = FetchType.LAZY)
     private List<FuncionEntity> funciones = new ArrayList<>();
 
     @PodamExclude
-    @OneToMany(mappedBy = "teatro", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teatro",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SalaEntity> salas = new ArrayList<>(); 
     
     @PodamExclude

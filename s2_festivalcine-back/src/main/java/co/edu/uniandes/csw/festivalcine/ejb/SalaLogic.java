@@ -44,9 +44,10 @@ public class SalaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         // Invoca la persistencia para crear la sala
         persistence.create(salaEntity);
-        
+        LOGGER.log(Level.INFO, salaEntity.getTeatro() + "");
         //Regla de negocio: el teatro asociadas a la sala debe existir y estar persistidas
-        if (salaEntity.getTeatro() == null || teatroPersistence.find(salaEntity.getTeatro().getId()) == null) {
+        if (salaEntity.getTeatro() == null || teatroPersistence.find(salaEntity.getTeatro().getId()) == null) 
+        {
             throw new BusinessLogicException("El teatro es invalido");
         }
         LOGGER.log(Level.INFO, "Termina proceso de creación de la sala");
@@ -105,10 +106,10 @@ public class SalaLogic {
      */
     public void deleteSala(Long salasId) throws BusinessLogicException {
         LOGGER.log(Level.INFO, "Inicia proceso de borrar la sala con id = {0}", salasId);
-       
-        // REGLA DE NEGOCIO: No se puede eliminar una sala con una función asignada
+ 
         List<FuncionEntity> funciones = persistence.find(salasId).getFuncion();
-        if (funciones != null && !funciones.isEmpty()) {
+        if (funciones != null || !funciones.isEmpty()) 
+        {
             throw new BusinessLogicException("No se puede borrar la sala con id = " + salasId + " porque tiene funciones asociados");
         }
         persistence.delete(salasId);

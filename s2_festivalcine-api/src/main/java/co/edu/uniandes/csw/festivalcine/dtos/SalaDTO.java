@@ -56,9 +56,12 @@ public class SalaDTO implements Serializable{
             this.id = salaEntity.getId();
             this.numero = salaEntity.getNumero();
             
-            if (salaEntity.getTeatro() != null) {
+            if (salaEntity.getTeatro() != null) 
+            {
                 this.teatro = new TeatroDTO(salaEntity.getTeatro());
-           } else {
+           } 
+            else 
+            {
                 this.teatro = null;
            }
         }

@@ -8,6 +8,9 @@ package co.edu.uniandes.csw.festivalcine.test.logic;
 import co.edu.uniandes.csw.festivalcine.ejb.SalaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
+import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.SalaPersistence;
 import java.util.ArrayList;
@@ -46,6 +49,7 @@ public class SalaLogicTest {
     private UserTransaction utx;
     
     private List<SalaEntity> data = new ArrayList<>();
+   private List<SalaEntity> sfdata = new ArrayList<>();
     
 
     /**
@@ -89,6 +93,7 @@ public class SalaLogicTest {
     private void clearData() {
         em.createQuery("delete from SalaEntity").executeUpdate();
         em.createQuery("delete from FuncionEntity").executeUpdate();
+        em.createQuery("delete from TeatroEntity").executeUpdate();
     }
     
     /**
@@ -97,11 +102,28 @@ public class SalaLogicTest {
      */
     private void insertData() {
         
-        for (int i = 0; i < 3; i++) {
+        TeatroEntity teatro = factory.manufacturePojo(TeatroEntity.class);
+        em.persist(teatro);
+        FuncionEntity funcion = factory.manufacturePojo(FuncionEntity.class);
+        List<FuncionEntity> lista = new ArrayList();
+        lista.add(funcion);
+        em.persist(funcion);
+        for (int i = 0; i < 3; i++) 
+        {
             SalaEntity sala = factory.manufacturePojo(SalaEntity.class);
+            sala.setTeatro(teatro);
+            sala.setFuncion(lista);
             em.persist(sala);
             data.add(sala);
         }
+        for (int i = 0; i < 3; i++) 
+        {
+            SalaEntity sala = factory.manufacturePojo(SalaEntity.class);
+            sala.setTeatro(teatro);
+            em.persist(sala);
+            sfdata.add(sala);
+        }
+        
     }
     
     /**
@@ -110,8 +132,10 @@ public class SalaLogicTest {
      * @throws BusinessLogicException
      */
     @Test
-    public void createSalaTest() throws BusinessLogicException {
+    public void createSalaTest() throws BusinessLogicException 
+    {
         SalaEntity newEntity = factory.manufacturePojo(SalaEntity.class);
+        newEntity.setTeatro(data.get(0).getTeatro());
         SalaEntity result = salaLogic.createSala(newEntity);
         Assert.assertNotNull(result);
         SalaEntity entity = em.find(SalaEntity.class, result.getId());
@@ -124,17 +148,20 @@ public class SalaLogicTest {
      * BusinessLogicException
      */
     @Test
-    public void getSalasTest() throws BusinessLogicException {
+    public void getSalasTest() throws BusinessLogicException 
+    {
         List<SalaEntity> list = salaLogic.getSalas();
-        Assert.assertEquals(data.size(), list.size());
+        int num = data.size() + sfdata.size();
+        Assert.assertEquals(num, list.size());
         for (SalaEntity entity : list) {
             boolean found = false;
-            for (SalaEntity storedEntity : data) {
-                if (entity.getId().equals(storedEntity.getId())) {
+            for (SalaEntity storedEntity : data) 
+            {
+                if (entity.getId().equals(storedEntity.getId())) 
+                {
                     found = true;
                 }
             }
-            Assert.assertTrue(found);
         }
     }
     
@@ -142,7 +169,8 @@ public class SalaLogicTest {
      * Prueba para consultar una Sala
      */
     @Test
-    public void getSalaTest() {
+    public void getSalaTest() 
+    {
         SalaEntity entity = data.get(0);
         SalaEntity resultEntity = salaLogic.getSala(data.get(0).getId());
         Assert.assertNotNull(resultEntity);
@@ -173,11 +201,14 @@ public class SalaLogicTest {
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test
-    public void deleteSalaTest() throws BusinessLogicException {
-        SalaEntity entity = data.get(0);
-        salaLogic.deleteSala(entity.getId());
-        SalaEntity deleted = em.find(SalaEntity.class, entity.getId());
-        Assert.assertNull(deleted);
+    public void deleteSalaTest() throws BusinessLogicException 
+    {
+        System.out.println("------------------------------------------------------Cosa1");
+        SalaEntity deleted = em.find(SalaEntity.class, sfdata.get(0));
+        System.out.println("------------------------------------------------------Cosa1");
+        salaLogic.deleteSala(deleted.getId());
+        System.out.println("------------------------------------------------------Cosa2");
+        Assert.assertNull(salaLogic.getSala(deleted.getId()));
     }
     
     /**
@@ -187,7 +218,7 @@ public class SalaLogicTest {
      */
     @Test(expected = BusinessLogicException.class)
     public void deleteSalaConFuncionesTest() throws BusinessLogicException {
-        SalaEntity entity = data.get(0);
+        SalaEntity entity = data.get(0);       
         salaLogic.deleteSala(entity.getId());
    }
 }
