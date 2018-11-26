@@ -29,21 +29,25 @@ public class ReservaUsuarioLogic
     @Inject
     private UsuarioPersistence usuarioPersistence;
     
-    /**
-     * Remplazar el usuario de una reserva.
-     *
-     * @param reservasId id de la reserva que se quiere actualizar.
-     * @param usuariosId El id del usuario que se será del libro.
-     * @return la nueva reserva.
-     */
-    public ReservaEntity replaceUsuario(Long reservasId, Long usuariosId) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar reserva con id = {0}", reservasId);
-        UsuarioEntity usuarioEntity = usuarioPersistence.findUsuario(usuariosId);
-        ReservaEntity reservaEntity = persistence.findReserva(reservasId);
-        reservaEntity.setUsuario(usuarioEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar reserva con id = {0}", reservaEntity.getId());
-        return reservaEntity;
-    }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Borrar una reserva de un usuario. Este metodo se utiliza para borrar la

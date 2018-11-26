@@ -79,21 +79,22 @@ public class SillaLogic {
         return sillaEntity;
     }
 
-    /**
-     *
-     * Actualizar una silla
-     *
-     * @param sillasId: id de la silla para buscarla en la base de
-     * datos.
-     * @param sillaEntity: silla con los cambios para ser actualizada,
-     * @return la silla con los cambios actualizados en la base de datos.
-     */
-    public SillaEntity updateSilla(Long sillasId, SillaEntity sillaEntity) {
-        LOGGER.log(Level.INFO, "Inicia proceso de actualizar la silla con id = {0}", sillasId);
-        SillaEntity newEntity = persistence.update(sillaEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de actualizar la silla con id = {0}", sillaEntity.getId());
-        return newEntity;
-    }
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Borrar una silla

@@ -41,30 +41,31 @@ public class ReservaUsuarioResource
     @Inject
     private UsuarioLogic usuarioLogic; // Variable para acceder a la lógica de la aplicación. Es una inyección de dependencias.
 
-    /**
-     * Remplaza la instancia de Usuario asociada a una Reserva.
-     *
-     * @param reservasId Identificador de la reserva que se esta actualizando. Este
-     * debe ser una cadena de dígitos.
-     * @param usuario El usuario que se será de la  reserva.
-     * @return JSON {@link ReservaDetailDTO} - El arreglo de reservas guardado en el
-     * usuario.
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra el usuario de
-     * la reserva.
-     */
-    @PUT
-    public ReservaDetailDTO replaceUsuario(@PathParam("reservasId") Long reservasId, UsuarioDTO usuario) 
-    {
-        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: input: reservasId{0} , Usuario:{1}", new Object[]{reservasId, usuario});
-        if (reservaLogic.getReserva(reservasId) == null) {
-            throw new WebApplicationException("El recurso /reservas/" + reservasId + " no existe.", 404);
-        }
-        if (usuarioLogic.getUsuario(usuario.getId()) == null) {
-            throw new WebApplicationException("El recurso /usuarios/" + usuario.getId() + " no existe.", 404);
-        }
-        ReservaDetailDTO reservaDetailDTO = new ReservaDetailDTO(reservaUsuarioLogic.replaceUsuario(reservasId, usuario.getId()));
-        LOGGER.log(Level.INFO, "ReservaUsuarioResource replaceUsuario: output: {0}", reservaDetailDTO);
-        return reservaDetailDTO;
-    }   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

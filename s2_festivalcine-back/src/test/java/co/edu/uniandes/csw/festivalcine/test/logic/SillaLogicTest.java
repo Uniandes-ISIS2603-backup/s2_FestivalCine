@@ -176,22 +176,23 @@ public class SillaLogicTest {
         Assert.assertEquals(resultEntity.getNumero(), entity.getNumero());
     }
     
-    /**
-     * Prueba para actualizar una Silla.
-     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
-     */
-    @Test
-    public void updateSillaTest() throws BusinessLogicException {
-        SillaEntity entity = data.get(0);
-        SillaEntity pojoEntity = factory.manufacturePojo(SillaEntity.class);
-        pojoEntity.setId(entity.getId());
-        sillaLogic.updateSilla(pojoEntity.getId(), pojoEntity);
-
-        SillaEntity resp = em.find(SillaEntity.class, entity.getId());
-
-        Assert.assertEquals(pojoEntity.getId(), resp.getId());
-        Assert.assertEquals(pojoEntity.getNumero(), resp.getNumero());
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /**
      * Prueba para eliminar una Silla.

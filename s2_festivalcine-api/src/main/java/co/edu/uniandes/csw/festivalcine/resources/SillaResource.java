@@ -107,30 +107,31 @@ public class SillaResource {
        return detailDTO;
     }
 
-    /**
-     * Actualiza la silla con el id recibido en la URL con la informacion
-     * que se recibe en el cuerpo de la petición.
-     *
-     * @param sillasId Identificador de la silla que se desea
-     * actualizar. Este debe ser una cadena de dígitos.
-     * @param silla {@link SillaDTO} La Silla que se desea guardar.
-     * @return JSON {@link SillaDTO} - La Silla guardada.
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la Silla a
-     * actualizar.
-     */
-    @PUT
-    @Path("{sillasId: \\d+}")
-    public SillaDTO updateSilla(@PathParam("sillasId") Long sillasId, SillaDTO silla)  {
-       LOGGER.log(Level.INFO, "SillaResource updateSilla: input: id:{0} , silla: {1}", new Object[]{sillasId, silla});
-       silla.setId(sillasId);
-       if (sillaLogic.getSilla(sillasId) == null) {
-           throw new WebApplicationException(elRecursoSillas + sillasId + noexiste, 404);
-       }
-       SillaDTO detailDTO = new SillaDTO(sillaLogic.updateSilla(sillasId, silla.toEntity()));
-       LOGGER.log(Level.INFO, "SillaResource updateSilla: output: {0}", detailDTO);
-       return silla;
-    }
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Borra la silla con el id asociado recibido en la URL.
