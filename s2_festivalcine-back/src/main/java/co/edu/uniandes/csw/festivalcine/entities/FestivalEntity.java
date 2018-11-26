@@ -28,11 +28,11 @@ import uk.co.jemos.podam.common.PodamExclude;
 @Entity
 public class FestivalEntity  extends BaseEntity implements Serializable {
 
-   @Temporal(TemporalType.TIMESTAMP)
+   @Temporal(TemporalType.DATE)
     //@PodamStrategyValue(DateStrategy.class)
     private Date fechaInicio;
     
- @Temporal(TemporalType.TIMESTAMP)
+ @Temporal(TemporalType.DATE)
     //@PodamStrategyValue(DateStrategy.class)
     private Date fechaFin;
     
