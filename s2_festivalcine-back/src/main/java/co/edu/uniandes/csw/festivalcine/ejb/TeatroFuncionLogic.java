@@ -82,10 +82,4 @@ public class TeatroFuncionLogic
         }      
         throw new BusinessLogicException("La función no está asociado a un teatro");
     }  
-    
-    
-    
-    
-    
-    
 }
