@@ -146,8 +146,6 @@ public class CriticoLogicTest
             em.persist(critico);
             data.add(critico);
         }
-
-        LOGGER.log(Level.INFO, data.size() + "");
         
     }
     
@@ -207,9 +205,7 @@ public class CriticoLogicTest
     
    @Test
     public void getCriticoTest() throws BusinessLogicException
-    {
-        
-        LOGGER.log(Level.INFO, data.get(0).darNombres());
+    {       
         CriticoEntity entity = data.get(0);
         CriticoEntity resultEntity = criticoLogic.getCritico(entity.getId());
         Assert.assertNotNull(resultEntity);

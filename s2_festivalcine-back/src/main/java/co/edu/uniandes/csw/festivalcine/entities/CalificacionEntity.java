@@ -64,19 +64,5 @@ public class CalificacionEntity extends BaseEntity implements Serializable
     {
         this.usuario = usuario;
     }
-    
-    @Override
-    public boolean equals(Object obj) 
-    {
-     CalificacionEntity obje = (CalificacionEntity) obj;
-      return !super.id.equals(obje.id);    
-    }
 
-    @Override
-    public int hashCode() 
-    {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.id);
-        return hash;
-    }
 }

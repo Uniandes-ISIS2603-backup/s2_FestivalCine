@@ -164,6 +164,6 @@ public class UsuarioCalificacionLogicTest
         Assert.assertEquals(calificacionEntity.getId(), response.getId());
         Assert.assertEquals(calificacionEntity.getPuntaje(), response.getPuntaje());
         Assert.assertEquals(calificacionEntity.getComentario(), response.getComentario());
-        Assert.assertEquals(calificacionEntity.getUsuario(), response.getUsuario());
+        Assert.assertEquals(calificacionEntity.getUsuario().getNombres(), response.getUsuario().getNombres());
     }
 }

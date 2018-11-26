@@ -44,7 +44,6 @@ public class SalaLogic {
         LOGGER.log(Level.INFO, "Inicia proceso de creación de la función");
         // Invoca la persistencia para crear la sala
         persistence.create(salaEntity);
-        LOGGER.log(Level.INFO, salaEntity.getTeatro() + "");
         //Regla de negocio: el teatro asociadas a la sala debe existir y estar persistidas
         if (salaEntity.getTeatro() == null || teatroPersistence.find(salaEntity.getTeatro().getId()) == null) 
         {
