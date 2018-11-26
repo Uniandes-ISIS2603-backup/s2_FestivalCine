@@ -73,20 +73,13 @@ public class TeatroFuncionLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {0} del teatro con id = " + funcionId , teatroId);
         List<FuncionEntity> funciones = persistence.find(teatroId).getFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionId);
-        
-        int index = -1;
-        
-        if(funciones.indexOf(funcionEntity) >= 0)
+        for(int i = 0; i < funciones.size(); i++)
         {
-            index = funciones.indexOf(funcionEntity);
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion con id = {0} del teatro con id = " + funcionId, teatroId);
-        
-        if (index >= 0) 
-        {
-            return funciones.get(index);
-        }
-        
+            if(funciones.get(i).getId().equals(funcionEntity.getId()))
+            {
+                return funciones.get(i);
+            }
+        }      
         throw new BusinessLogicException("La función no está asociado a un teatro");
     }   
 }

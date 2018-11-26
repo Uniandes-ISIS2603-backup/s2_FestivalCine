@@ -5,12 +5,17 @@
  */
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
+import co.edu.uniandes.csw.festivalcine.ejb.FestivalCriticoLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.FestivalLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.UsuarioReservasLogic;
-
+import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
+import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
+import co.edu.uniandes.csw.festivalcine.persistence.FestivalPersistence;
 import co.edu.uniandes.csw.festivalcine.persistence.UsuarioPersistence;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,20 +34,16 @@ import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
-/**
- *
- * @author PAULA VELANDIIA
- */
 @RunWith(Arquillian.class)
-public class UsuarioReservaLogicTest 
+public class FestivalCriticoLogicTest 
 {
     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private UsuarioLogic usuarioLogic;
+    private FestivalLogic festivalLogic;
 
      @Inject
-    private UsuarioReservasLogic usuarioReservaLogic;
+    private FestivalCriticoLogic festivalCriticoLogic;
      
     @PersistenceContext
     private EntityManager em;
@@ -50,9 +51,9 @@ public class UsuarioReservaLogicTest
     @Inject
     private UserTransaction utx;
 
-    private List<UsuarioEntity> data = new ArrayList<UsuarioEntity>();
+    private List<FestivalEntity> data = new ArrayList<FestivalEntity>();
 
-    private List<ReservaEntity> reservasData = new ArrayList<ReservaEntity>();
+    private List<CriticoEntity> criticosData = new ArrayList<CriticoEntity>();
 
     
      /**
@@ -63,9 +64,9 @@ public class UsuarioReservaLogicTest
     @Deployment
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addPackage(UsuarioEntity.class.getPackage())
-                .addPackage(UsuarioLogic.class.getPackage())
-                .addPackage(UsuarioPersistence.class.getPackage())
+                .addPackage(FestivalEntity.class.getPackage())
+                .addPackage(FestivalLogic.class.getPackage())
+                .addPackage(FestivalPersistence.class.getPackage())
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }
@@ -94,8 +95,8 @@ public class UsuarioReservaLogicTest
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from ReservaEntity").executeUpdate();
-        em.createQuery("delete from UsuarioEntity").executeUpdate();
+        em.createQuery("delete from CriticoEntity").executeUpdate();
+        em.createQuery("delete from FestivalEntity").executeUpdate();
     }
 
     /**
@@ -105,36 +106,31 @@ public class UsuarioReservaLogicTest
     private void insertData() {
         for (int i = 0; i < 3; i++) 
         {
-            ReservaEntity reservas = factory.manufacturePojo(ReservaEntity.class);
-            em.persist(reservas);
-            reservasData.add(reservas);
+            CriticoEntity criticos = factory.manufacturePojo(CriticoEntity.class);
+            em.persist(criticos);
+            criticosData.add(criticos);
         }
         for (int i = 0; i < 3; i++) 
         {
-            UsuarioEntity entity = factory.manufacturePojo(UsuarioEntity.class);
+            FestivalEntity entity = factory.manufacturePojo(FestivalEntity.class);
             em.persist(entity);
             data.add(entity);
-            if (i == 0) 
-            {
-                reservasData.get(i).setUsuario(entity);
-            }
+            entity.setCriticos(criticosData);
         }
     }
     
-    /**
-
-    /**
+     /**
      * Prueba para asociar una reservas existente a un Usuario.
      */
     @Test
-    public void addReservasTest() 
+    public void addCriticosTest() 
     {
-        UsuarioEntity entity = data.get(0);
-        ReservaEntity reservaEntity = reservasData.get(1);
-        ReservaEntity response = usuarioReservaLogic.addReserva(reservaEntity.getId(), entity.getId());
+        FestivalEntity entity = data.get(0);
+        CriticoEntity criticoEntity = criticosData.get(1);
+        CriticoEntity response = festivalCriticoLogic.addCritico(criticoEntity.getId(), entity.getId());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(reservaEntity.getId(), response.getId());
+        Assert.assertEquals(criticoEntity.getId(), response.getId());
     }
     
     /**
@@ -142,9 +138,9 @@ public class UsuarioReservaLogicTest
      * instancia Usuario.
      */
     @Test
-    public void getReservasTest() 
+    public void getCriticosTest() 
     {
-        List<ReservaEntity> list = usuarioReservaLogic.getReservas(data.get(0).getId());
+        List<CriticoEntity> list = festivalCriticoLogic.getCriticos(data.get(0).getId());
 
         Assert.assertEquals(1, list.size());
     }
@@ -156,15 +152,22 @@ public class UsuarioReservaLogicTest
      * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
      */
     @Test
-    public void getReservaTest() throws BusinessLogicException 
+    public void getCriticoTest() throws BusinessLogicException 
     {
-        UsuarioEntity entity = data.get(0);
-        ReservaEntity reservaEntity = reservasData.get(0);
-        ReservaEntity response = usuarioReservaLogic.getReserva(entity.getId(), reservaEntity.getId());
+        FestivalEntity entity = data.get(0);
+        CriticoEntity criticoEntity = criticosData.get(0);
+        CriticoEntity response = festivalCriticoLogic.getCritico(entity.getId(), criticoEntity.getId());
 
-        Assert.assertEquals(reservaEntity.getId(), response.getId());
-        Assert.assertEquals(reservaEntity.getAbono(), response.getAbono());
-        Assert.assertEquals(reservaEntity.getPrecioTotal(), response.getPrecioTotal());
-        Assert.assertEquals(reservaEntity.getDescuento(), response.getDescuento());
+        Assert.assertEquals(criticoEntity.getId(), response.getId());
+        Assert.assertEquals(criticoEntity.darNombres(), response.darNombres());
+        Assert.assertEquals(criticoEntity.darApellidos(), response.darApellidos());
+        Assert.assertEquals(criticoEntity.darIdentificacion(), response.darIdentificacion());
+        Assert.assertEquals(criticoEntity.darCelular(), response.darCelular());
+        Assert.assertEquals(criticoEntity.darEmail(), response.darEmail());
+        Assert.assertEquals(criticoEntity.darTipoPersona(), response.darTipoPersona());
+        Assert.assertEquals(criticoEntity.darNickName(), response.darNickName());
+        Assert.assertEquals(criticoEntity.darPassword(), response.darPassword());
+        Assert.assertEquals(criticoEntity.darPuntaje(), response.darPuntaje());
+        
     }
 }
