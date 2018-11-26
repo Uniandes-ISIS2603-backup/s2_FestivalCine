@@ -105,27 +105,5 @@ public class PeliculaLogic {
     public void delete(Long id){
          LOGGER.log(Level.INFO, "Inicia proceso de borrar una pelicula con id={0}", id);
          persistence.delete(id);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
 }
