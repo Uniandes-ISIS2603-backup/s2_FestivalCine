@@ -71,10 +71,9 @@ public class SalaEntity extends BaseEntity implements Serializable {
         return teatro;
     }
     
-    @Override
-    public boolean equals(Object obj) 
+    public boolean equals(SalaEntity obj) 
     {
-      return !super.equals(obj);    
+      return !super.id.equals(obj.id);    
     }
 
     @Override

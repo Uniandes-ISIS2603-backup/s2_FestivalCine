@@ -210,9 +210,11 @@ public class UsuarioEntity extends BaseEntity implements Serializable
     }
     
     
-    public boolean equals(UsuarioEntity obj) 
+    @Override
+    public boolean equals( Object obj) 
     {
-      return !super.id.equals(obj.id);    
+      UsuarioEntity obje = (UsuarioEntity) obj;
+      return !super.id.equals(obje.id);    
     }
 
     @Override
