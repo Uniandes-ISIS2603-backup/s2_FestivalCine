@@ -113,27 +113,7 @@ public class ReservaFuncionResource
         LOGGER.log(Level.INFO, "ReservaResource getFuncion: output: {0}", funcionDTO);
         return funcionDTO;
     }
-    
-    /**
-     * Elimina la conexión entre la funcion y la reservarecibidos en la URL.
-     *
-     * @param reservasId El ID de la reserva al cual se le va a desasociar la funcion
-     * @param funcionId El ID la funcion que se desasocia
-     * @throws WebApplicationException {@link WebApplicationExceptionMapper} -
-     * Error de lógica que se genera cuando no se encuentra la funcion.
-     */
-    @DELETE
-    @Path("{funcionId: \\d+}")
-    public void removeFuncion(@PathParam("reservasId") Long reservasId, @PathParam("funcionId") Long funcionId) {
-        LOGGER.log(Level.INFO, "ReservaFuncionResource deleteFuncion: input: reservasId {0} , funcionId {1}", new Object[]{reservasId, funcionId});
-        if (funcionLogic.getFuncion(funcionId) == null) 
-        {
-            throw new WebApplicationException("El recurso /funciones/" + funcionId + noexiste, 404);
-        }
-        reservaFuncionLogic.removeFuncion(reservasId, funcionId);
-        LOGGER.info("ReservaFuncionResource deleteFuncion: output: void");
-    }
- 
+  
     private List<FuncionDTO> funcionesListEntity2DTO(List<FuncionEntity> entityList) {
         List<FuncionDTO> list = new ArrayList<>();
         for (FuncionEntity entity : entityList) {
@@ -141,4 +121,25 @@ public class ReservaFuncionResource
         }
         return list;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

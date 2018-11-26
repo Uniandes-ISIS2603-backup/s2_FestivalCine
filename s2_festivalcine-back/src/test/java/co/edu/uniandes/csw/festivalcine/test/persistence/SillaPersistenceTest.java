@@ -99,7 +99,7 @@ public class SillaPersistenceTest {
      */
     
     @Test
-    public void createSalaTest(){
+    public void createSillaTest(){
         PodamFactory factory = new PodamFactoryImpl();
         SillaEntity newEntity = factory.manufacturePojo(SillaEntity.class);
         SillaEntity result = sillaPersistence.create(newEntity);
@@ -116,7 +116,7 @@ public class SillaPersistenceTest {
      * Prueba para consultar la lista de salas.
      */
     @Test
-    public void getSalasTest() {
+    public void getSillasTest() {
         List<SillaEntity> list = sillaPersistence.findAll();
         Assert.assertEquals(data.size(), list.size());
         for (SillaEntity ent : list) {
@@ -134,7 +134,7 @@ public class SillaPersistenceTest {
      * Prueba para consultar una Sala
      */
     @Test
-    public void getSalaTest() {
+    public void getSillaTest() {
         SillaEntity entity = data.get(0);
         SillaEntity newEntity = sillaPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
@@ -145,7 +145,7 @@ public class SillaPersistenceTest {
      * Prueba para eliminar una Funcion
      */
     @Test
-    public void deleteFuncionTest() {
+    public void deleteSillaTest() {
         SillaEntity entity = data.get(0);
         sillaPersistence.delete(entity.getId());
         SillaEntity deleted = em.find(SillaEntity.class, entity.getId());
@@ -156,7 +156,7 @@ public class SillaPersistenceTest {
      * Prueba para actualizar una Funcion
      */
     @Test
-    public void updateFuncionTest() {
+    public void updateSillaTest() {
         SillaEntity entity = data.get(0);
         PodamFactory factory = new PodamFactoryImpl();
         SillaEntity newEntity = factory.manufacturePojo(SillaEntity.class);

@@ -30,21 +30,6 @@ public class ReservaFuncionLogic
     
     @Inject
     private FuncionPersistence funcionPersistence;
-    
-     /**
-     *
-     * Obtener todas las funciones existentes en la base de datos.
-     *
-     * @return una lista de reservas.
-     */
-    public List<FuncionEntity> getFunciones() {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar todas las funciones");
-       
-        List<FuncionEntity> funciones = funcionPersistence.findAll();
-        
-        LOGGER.log(Level.INFO, "Termina proceso de consultar todas las funciones");
-        return funciones;
-    }
     /**
      * LÓGICA DE LA RELACIÓN CON FUNCIÓN
      */
@@ -103,21 +88,22 @@ public class ReservaFuncionLogic
         throw new BusinessLogicException("La funcion no esta asociada a la reserva");
     }
 
-    /**
-     * Desasocia una funcion existente de una reserva existente
-     *
-     * @param reservasId Identificador de la instancia de Reserva
-     * @param funcionId Identificador de la instancia de Funcion
-     */
-    public void removeFuncion(Long reservasId, Long funcionId) 
-    {
-        LOGGER.log(Level.INFO, "Inicia proceso de borrar una funcion de la reserva con id = {0}", reservasId);
-        
-        ReservaEntity reservaEntity = persistence.findReserva(reservasId);
-        FuncionEntity funcionEntity = funcionPersistence.find(funcionId);
-        funcionEntity.getReservas().remove(reservaEntity);
-        reservaEntity.getFunciones().remove(funcionEntity);
-        
-        LOGGER.log(Level.INFO, "Termina proceso de borrar una función de la reserva con id = {0}", reservasId);
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

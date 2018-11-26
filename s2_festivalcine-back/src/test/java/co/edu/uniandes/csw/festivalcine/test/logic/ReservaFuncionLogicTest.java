@@ -7,10 +7,10 @@ package co.edu.uniandes.csw.festivalcine.test.logic;
 
 import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
-import co.edu.uniandes.csw.festivalcine.ejb.ReservaLogic;
+
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
@@ -185,15 +185,16 @@ public class ReservaFuncionLogicTest {
         Assert.assertEquals(funcionEntity.getPelicula(), funcion.getPelicula());
     }
     
-    /**
-     * Prueba desasociar un funcion con una reserva.
-     *
-     */
-    @Test
-    public void removeFuncionTest() throws BusinessLogicException 
-    {  
-            reservaFuncionLogic.removeFuncion(reserva.getId(), reserva.getFunciones().get(0).getId());
-            Assert.assertTrue(reserva.getFunciones().get(0) == null);
-           
-    }
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
