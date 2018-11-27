@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
 
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
@@ -59,6 +60,8 @@ public class ReservaFuncionLogicTest {
     private ReservaEntity reserva = new ReservaEntity();
 
     private List<FuncionEntity> funcionData = new ArrayList();
+    
+    private List<FuncionEntity> funcionesSolas = new ArrayList();
     
     private UsuarioEntity usuario = new UsuarioEntity();
 
@@ -128,6 +131,10 @@ public class ReservaFuncionLogicTest {
             funcionData.add(entity);
             reserva.getFunciones().add(entity);
         }
+        
+        FuncionEntity entity = factory.manufacturePojo(FuncionEntity.class);
+        funcionesSolas.add(entity);
+        
     }
     
      /**
@@ -185,7 +192,6 @@ public class ReservaFuncionLogicTest {
         Assert.assertEquals(funcionEntity.getPelicula(), funcion.getPelicula());
     }
     
-  
     
     
     
@@ -193,6 +199,8 @@ public class ReservaFuncionLogicTest {
     
     
     
+    
+   
     
     
     

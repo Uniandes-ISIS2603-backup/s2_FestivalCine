@@ -75,16 +75,16 @@ public class ReservaFuncionLogic
      */
     public FuncionEntity getFuncion(Long reservasId, Long funcionsId) throws BusinessLogicException {
         
-        List<FuncionEntity> funciones = persistence.findReserva(reservasId).getFunciones();
-        FuncionEntity funcionEntity = funcionPersistence.find(funcionsId);
+       List<FuncionEntity> funciones = persistence.findReserva(reservasId).getFunciones();
+       FuncionEntity funcionEntity = funcionPersistence.find(funcionsId);
        for(int i = 0; i < funciones.size(); i++)
-        {
+       {
             if(funciones.get(i).getId().equals(funcionEntity.getId()))
             {
                 return funciones.get(i);
             }
-        }      
-        throw new BusinessLogicException("La funcion no esta asociada a la reserva");
+       }      
+       return null;
     }
     
 

@@ -152,7 +152,8 @@ public class FuncionLogicTest {
      * @throws BusinessLogicException
      */
     @Test
-    public void createFuncionTest() throws BusinessLogicException {
+    public void createFuncionTest() throws BusinessLogicException 
+    {
         FuncionEntity newEntity = factory.manufacturePojo(FuncionEntity.class);
         newEntity.setPelicula(peliculaData.get(0));
         newEntity.setSala(salaData.get(0));

@@ -122,16 +122,15 @@ public class ReservaResource
      */
     @PUT
     @Path("{reservasId: \\d+}")
-    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDTO reserva)
+    public ReservaDTO updateReserva(@PathParam("reservasId") Long reservasId, ReservaDetailDTO reserva)
     {
         LOGGER.log(Level.INFO, "ReservaResource updateReserva: input: id: {0} , reserva: {1}", new Object[]{reservasId, reserva});
         reserva.setId(reservasId);
-        ReservaDetailDTO detailDTO = null;
         if (reservaLogic.getReserva(reservasId) == null) 
         {
             throw new WebApplicationException(elRecursoReservas + reservasId + noexiste, 404);
         }
-        detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
+        ReservaDetailDTO detailDTO = new ReservaDetailDTO(reservaLogic.updateReserva(reservasId, reserva.toEntity()));
         LOGGER.log(Level.INFO, "ReservaResource updateReserva: output: {0}", detailDTO);
         return detailDTO;
     }
