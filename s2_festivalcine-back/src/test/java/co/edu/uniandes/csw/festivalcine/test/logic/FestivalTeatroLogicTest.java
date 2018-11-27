@@ -5,18 +5,16 @@
  */
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
-import co.edu.uniandes.csw.festivalcine.ejb.FestivalCriticoLogic;
+
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.FestivalTeatroLogic;
 
 
 
-import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
-
-
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.FestivalPersistence;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -34,16 +32,20 @@ import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
+/**
+ *
+ * @author estudiante
+ */
 @RunWith(Arquillian.class)
-public class FestivalCriticoLogicTest 
+public class FestivalTeatroLogicTest 
 {
-    private PodamFactory factory = new PodamFactoryImpl();
+     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
     private FestivalLogic festivalLogic;
 
-     @Inject
-    private FestivalCriticoLogic festivalCriticoLogic;
+    @Inject
+    private FestivalTeatroLogic festivalTeatroLogic;
      
     @PersistenceContext
     private EntityManager em;
@@ -53,8 +55,7 @@ public class FestivalCriticoLogicTest
 
     private List<FestivalEntity> data = new ArrayList<>();
 
-    private List<CriticoEntity> criticosData = new ArrayList<>();
-
+    private List<TeatroEntity> teatrosData = new ArrayList<>();
     
      /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -95,10 +96,10 @@ public class FestivalCriticoLogicTest
      * Limpia las tablas que están implicadas en la prueba.
      */
     private void clearData() {
-        em.createQuery("delete from CriticoEntity").executeUpdate();
+        em.createQuery("delete from TeatroEntity").executeUpdate();
         em.createQuery("delete from FestivalEntity").executeUpdate();
     }
-
+    
     /**
      * Inserta los datos iniciales para el correcto funcionamiento de las
      * pruebas.
@@ -106,10 +107,10 @@ public class FestivalCriticoLogicTest
     private void insertData() {
         for (int i = 0; i < 3; i++) 
         {
-            CriticoEntity criticos = factory.manufacturePojo(CriticoEntity.class);
-           
-            em.persist(criticos);
-             criticosData.add(criticos);
+            TeatroEntity teatros = factory.manufacturePojo(TeatroEntity.class);
+            
+            em.persist(teatros);
+            teatrosData.add(teatros);
            
         }
         for (int i = 0; i < 3; i++) 
@@ -121,7 +122,7 @@ public class FestivalCriticoLogicTest
             data.add(entity);
             if (i == 0) 
             {
-                criticosData.get(i).setFestivales(list);
+                teatrosData.get(i).setFestival(list);
             }
         }
     }
@@ -130,14 +131,17 @@ public class FestivalCriticoLogicTest
      * Prueba para asociar una reservas existente a un Usuario.
      */
     @Test
-    public void addCriticosTest() 
+    public void addTeatrosTest() 
     {
         FestivalEntity entity = data.get(0);
-        CriticoEntity criticoEntity = criticosData.get(1);
-        CriticoEntity response = festivalCriticoLogic.addCritico(criticoEntity.getId(), entity.getId());
+        TeatroEntity teatroEntity = teatrosData.get(1);
+        TeatroEntity response = festivalTeatroLogic.addTeatro(teatroEntity.getId(), entity.getId());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(criticoEntity.getId(), response.getId());
+        Assert.assertEquals(teatroEntity.getId(), response.getId());
+        Assert.assertEquals(teatroEntity.getDireccion(), response.getDireccion());
+        Assert.assertEquals(teatroEntity.getNombre(), response.getNombre());
+        Assert.assertEquals(teatroEntity.getNumSalasFest(), response.getNumSalasFest());
     }
     
     /**
@@ -145,37 +149,27 @@ public class FestivalCriticoLogicTest
      * instancia Usuario.
      */
     @Test
-    public void getCriticosTest() 
+    public void getTeatrosTest() 
     {
-        List<CriticoEntity> list = festivalCriticoLogic.getCriticos(data.get(0).getId());
+        List<TeatroEntity> list = festivalTeatroLogic.getTeatros(data.get(0).getId());
 
         Assert.assertEquals(1, list.size());
     }
     
-    /**
-     * Prueba para obtener una instancia de Reservas asociada a una instancia
-     * Usuario.
-     *
-     
-     * @throws co.edu.uniandes.csw.bookstore.exceptions.BusinessLogicException
-     */
-    @Test
-    public void getCriticoTest() throws BusinessLogicException 
+     @Test
+    public void getTeatroTest() throws BusinessLogicException 
     {
         FestivalEntity entity = data.get(0);
-        CriticoEntity criticoEntity = criticosData.get(0);
-        CriticoEntity response = festivalCriticoLogic.getCritico(entity.getId(), criticoEntity.getId());
+        TeatroEntity teatroEntity = teatrosData.get(0);
+        TeatroEntity response = festivalTeatroLogic.getTeatro(entity.getId(), teatroEntity.getId());
 
-        Assert.assertEquals(criticoEntity.getId(), response.getId());
-        Assert.assertEquals(criticoEntity.darNombres(), response.darNombres());
-        Assert.assertEquals(criticoEntity.darApellidos(), response.darApellidos());
-        Assert.assertEquals(criticoEntity.darIdentificacion(), response.darIdentificacion());
-        Assert.assertEquals(criticoEntity.darCelular(), response.darCelular());
-        Assert.assertEquals(criticoEntity.darEmail(), response.darEmail());
-        Assert.assertEquals(criticoEntity.darTipoPersona(), response.darTipoPersona());
-        Assert.assertEquals(criticoEntity.darNickName(), response.darNickName());
-        Assert.assertEquals(criticoEntity.darPassword(), response.darPassword());
-        Assert.assertEquals(criticoEntity.darPuntaje(), response.darPuntaje());
+        Assert.assertEquals(teatroEntity.getId(), response.getId());
+        Assert.assertEquals(teatroEntity.getDireccion(), response.getDireccion());
+        Assert.assertEquals(teatroEntity.getNombre(), response.getNombre());
+        Assert.assertEquals(teatroEntity.getNumSalasFest(), response.getNumSalasFest());
+        
+        
+        
         
     }
 }
