@@ -225,7 +225,7 @@ public class FuncionLogicTest {
         Assert.assertEquals(resultEntity.getPrecioBase(), entity.getPrecioBase());
         Assert.assertEquals(resultEntity.getFecha(), entity.getFecha());
         Assert.assertEquals(resultEntity.getHora(), entity.getHora());
-
+        Assert.assertEquals(resultEntity.getTeatro(), entity.getTeatro());
     }
     
     /**
@@ -247,6 +247,7 @@ public class FuncionLogicTest {
         Assert.assertEquals(pojoEntity.getPrecioBase(), resp.getPrecioBase());
         Assert.assertEquals(pojoEntity.getFecha(), resp.getFecha());
         Assert.assertEquals(pojoEntity.getHora(), resp.getHora());
+        Assert.assertEquals(pojoEntity.getTeatro(), entity.getTeatro());
     }
     
     

@@ -113,7 +113,14 @@ public class FuncionPersistenceTest {
         
         FuncionEntity entity = em.find(FuncionEntity.class, result.getId());
 
-        Assert.assertEquals(newEntity.getId(), entity.getId());          
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getPrecioBase(), entity.getPrecioBase());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(newEntity.getHora(), entity.getHora());
+        Assert.assertEquals(newEntity.getTeatro(), entity.getTeatro());
+        
+        
     }
     
      /**
@@ -142,7 +149,11 @@ public class FuncionPersistenceTest {
         FuncionEntity entity = data.get(0);
         FuncionEntity newEntity = funcionPersistence.find(entity.getId());
         Assert.assertNotNull(newEntity);
-        Assert.assertEquals(entity.getPrecioBase(), newEntity.getPrecioBase());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getPrecioBase(), entity.getPrecioBase());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(newEntity.getHora(), entity.getHora());
+        Assert.assertEquals(newEntity.getTeatro(), entity.getTeatro());
     }
 
     /**
@@ -171,7 +182,11 @@ public class FuncionPersistenceTest {
 
         FuncionEntity resp = em.find(FuncionEntity.class, entity.getId());
 
-        Assert.assertEquals(newEntity.getPrecioBase(), resp.getPrecioBase());
+        Assert.assertEquals(newEntity.getId(), entity.getId());
+        Assert.assertEquals(newEntity.getPrecioBase(), entity.getPrecioBase());
+        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
+        Assert.assertEquals(newEntity.getHora(), entity.getHora());
+        Assert.assertEquals(newEntity.getTeatro(), entity.getTeatro());
     }
 
 }
