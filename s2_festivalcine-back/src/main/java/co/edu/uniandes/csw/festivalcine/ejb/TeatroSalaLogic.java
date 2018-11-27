@@ -83,4 +83,11 @@ public class TeatroSalaLogic
         LOGGER.log(Level.INFO, "Termina proceso de consultar la sala");      
         throw new BusinessLogicException("La sala no esta asociada a la teatro");
     }   
+    
+    
+    
+    
+    
+    
+    
 }
