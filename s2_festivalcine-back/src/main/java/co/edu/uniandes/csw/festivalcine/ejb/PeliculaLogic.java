@@ -91,15 +91,12 @@ public class PeliculaLogic {
 
    
    
-   public PeliculaEntity update(PeliculaEntity pelicula){
-       PeliculaEntity peli= persistence.findById(pelicula.getId());
-       
-      // se valida que la pelicula exista en el sistema
-      if(peli==null){
-           throw new WebApplicationException("No se encontró ninguna pelicula con el id:" + pelicula.getId(),404);
-      }
-      
-      return persistence.update(peli);
+   public PeliculaEntity update(Long peliculasId, PeliculaEntity peliculaEntity){
+       LOGGER.log(Level.INFO, "Inicia proceso de actualizar la pelicula con id = {0}", peliculasId);
+        // Note que, por medio de la inyección de dependencias se llama al método "update(entity)" que se encuentra en la persistencia.
+        PeliculaEntity newEntity = persistence.update(peliculaEntity);
+        LOGGER.log(Level.INFO, "Termina proceso de actualizar la pelicula con id = {0}", peliculaEntity.getId());
+        return newEntity;
    }
    
     public void delete(Long id){

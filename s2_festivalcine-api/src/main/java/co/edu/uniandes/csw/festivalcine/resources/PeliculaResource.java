@@ -126,7 +126,7 @@ public class PeliculaResource {
             throw new WebApplicationException("La pelicula no existe", 404);
         }
         
-        return new PeliculaDTO(peliculaLogic.update(dto.toEntity()));
+        return new PeliculaDTO(peliculaLogic.update(id, dto.toEntity()));
     }
 
     /**

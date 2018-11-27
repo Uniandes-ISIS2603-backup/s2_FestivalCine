@@ -35,7 +35,7 @@ public class PeliculaPersistence {
     }
     
     public PeliculaEntity update(PeliculaEntity entity){
-         LOGGER.info("Actualizando un Recurso Pelicula");
+        LOGGER.info("Actualizando un Recurso Pelicula");
         return em.merge(entity);
     }
     
@@ -57,8 +57,8 @@ public class PeliculaPersistence {
     }
     
    public List<PeliculaEntity> findByName(String name){
-        TypedQuery query = em.createQuery("select u From PeliculaEntity e where e.nombre = :name", PeliculaEntity.class);
-        query = query.setParameter("name",name);
+        TypedQuery query = em.createQuery("select e From PeliculaEntity e where e.nombre = :nombre", PeliculaEntity.class);
+        query = query.setParameter("nombre",name);
         
         List<PeliculaEntity> sameName = query.getResultList();
         if(sameName.isEmpty())
@@ -86,7 +86,7 @@ public class PeliculaPersistence {
    }
     
      public List<PeliculaEntity> findByPuntaje(double puntaje){
-        TypedQuery query = em.createQuery("select u From PeliculaEntity e where e.puntaje = :puntaje", PeliculaEntity.class);
+        TypedQuery query = em.createQuery("select e From PeliculaEntity e where e.puntaje = :puntaje", PeliculaEntity.class);
         query = query.setParameter("puntaje",puntaje);
         
         List<PeliculaEntity> samePuntaje = query.getResultList();

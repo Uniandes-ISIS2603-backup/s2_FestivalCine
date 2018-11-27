@@ -117,4 +117,6 @@ public class UsuarioLogic
         persistence.deleteUsuario(usuariosId);
         LOGGER.log(Level.INFO, "Termina proceso de borrar el usuario con id = {0}", usuariosId);
     }
+    
+    
 }

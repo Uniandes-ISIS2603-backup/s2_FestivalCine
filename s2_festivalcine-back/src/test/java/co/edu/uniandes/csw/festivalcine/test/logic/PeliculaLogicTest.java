@@ -122,15 +122,28 @@ public class PeliculaLogicTest
     }
     
     @Test
-    public void cratePelicuaIdInvalidaTest() throws BusinessLogicException
+    public void createPelicuaIdInvalidaTest() throws BusinessLogicException
     {
         PeliculaEntity newEntity = factory.manufacturePojo(PeliculaEntity.class);
   
     }
     
-   
-    
-
+    @Test
+    public void getPeliculaTest() {
+        PeliculaEntity entity = data.get(0);
+        PeliculaEntity resultEntity = peliculaLogic.findById(entity.getId());
+        Assert.assertNotNull(resultEntity);
+        Assert.assertEquals(entity.getId(), resultEntity.getId());
+        Assert.assertEquals(entity.getNombre(), resultEntity.getNombre());
+        Assert.assertEquals(entity.getCreditos(), resultEntity.getCreditos());
+        Assert.assertEquals(entity.getDirector(), resultEntity.getDirector());
+        Assert.assertEquals(entity.getDuracion(), resultEntity.getDuracion());
+        Assert.assertEquals(entity.getPais(), resultEntity.getPais());
+        Assert.assertEquals(entity.getPoster(), resultEntity.getPoster());
+        Assert.assertEquals(entity.getPais(), resultEntity.getPais());
+        Assert.assertEquals(entity.getPuntaje(), resultEntity.getPuntaje());
+        Assert.assertEquals(entity.getTrailer(), resultEntity.getTrailer());
+    }
     
     @Test
     public void getPeliculasTest()
@@ -151,6 +164,63 @@ public class PeliculaLogicTest
         }
     }
     
-  
+    @Test
+    public void getPeliculaByNameTest() {
+        PeliculaEntity entity = data.get(0);
+        List<PeliculaEntity> resultEntity = peliculaLogic.findByName(entity.getNombre());
+        Assert.assertNotNull(resultEntity);
+ 
+    }
+    
+    @Test
+    public void getPeliculaByDirectorTest() {
+        PeliculaEntity entity = data.get(0);
+        List<PeliculaEntity> resultEntity = peliculaLogic.findByDirector(entity.getDirector());
+        Assert.assertNotNull(resultEntity);
+ 
+    }
+   
+    @Test
+    public void getPeliculaByPuntajeTest() {
+        PeliculaEntity entity = data.get(0);
+        List<PeliculaEntity> resultEntity = peliculaLogic.findByPuntaje(entity.getPuntaje());
+        Assert.assertNotNull(resultEntity);
+ 
+    }
+    
+    /**
+     * Prueba para actualizar un Usuario.
+     */
+    @Test
+    public void updatePeliculaTest() {
+        PeliculaEntity entity = data.get(0);
+        PeliculaEntity pojoEntity = factory.manufacturePojo(PeliculaEntity.class);
+        pojoEntity.setId(entity.getId());
+        peliculaLogic.update(pojoEntity.getId(), pojoEntity);
+        PeliculaEntity resp = em.find(PeliculaEntity.class, entity.getId());
+        Assert.assertEquals(pojoEntity.getId(), resp.getId());
+        Assert.assertEquals(resp.getNombre(), pojoEntity.getNombre());
+        Assert.assertEquals(resp.getCreditos(), pojoEntity.getCreditos());
+        Assert.assertEquals(resp.getDirector(), pojoEntity.getDirector());
+        Assert.assertEquals(resp.getDuracion(), pojoEntity.getDuracion());
+        Assert.assertEquals(resp.getPais(), pojoEntity.getPais());
+        Assert.assertEquals(resp.getPoster(), pojoEntity.getPoster());
+        Assert.assertEquals(resp.getPais(), pojoEntity.getPais());
+        Assert.assertEquals(resp.getPuntaje(), pojoEntity.getPuntaje());
+        Assert.assertEquals(resp.getTrailer(), pojoEntity.getTrailer());
+    }
+    
+     /**
+     * Prueba para eliminar un Usuario.
+     *
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
+     */
+    @Test
+    public void deletePeliculaTest() throws BusinessLogicException {
+        PeliculaEntity entity = data.get(1);
+        peliculaLogic.delete(entity.getId());
+        PeliculaEntity deleted = em.find(PeliculaEntity.class, entity.getId());
+        Assert.assertNull(deleted);
+    }
     
 }
