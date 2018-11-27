@@ -29,7 +29,7 @@ public class CriticoDTO implements Serializable
     
     private String email;
     
-    private Integer tipoPersona;
+  
     
     private String nickName;
     
@@ -60,7 +60,6 @@ public class CriticoDTO implements Serializable
             this.identificacion = criticoEntity.darIdentificacion();
             this.celular = criticoEntity.darCelular();
             this.email = criticoEntity.darEmail();
-            this.tipoPersona = criticoEntity.darTipoPersona();
             this.nickName = criticoEntity.darNickName();
             this.password= criticoEntity.darPassword();
             this.puntaje = criticoEntity.darPuntaje();
@@ -124,14 +123,6 @@ public class CriticoDTO implements Serializable
         return email;
     }
     
-    /**
-     * Devuelve el tipo de persona del critico
-     * @return int con el tipo de persona
-     */
-    public int getTipoPersona()
-    {
-        return tipoPersona;
-    }
     
     /**
      * Devuelve el nickName (apodo) del critico
@@ -223,14 +214,6 @@ public class CriticoDTO implements Serializable
         this.email = email;
     }
     
-    /**
-     * Modifica el tipo de persona del critico
-     * @param tipoPersona nuevo tipo de persona
-     */
-    public void setTipoPersona(int tipoPersona)
-    {
-        this.tipoPersona = tipoPersona;
-    }
     
     /**
      * Modifica el nickName (apodo) del critico
@@ -281,7 +264,6 @@ public class CriticoDTO implements Serializable
         criticoEntity.setIdentificacion(this.identificacion);
         criticoEntity.setCelular(this.celular);
         criticoEntity.setEmail(this.email);
-        criticoEntity.setTipoPersona(this.tipoPersona);
         criticoEntity.setNickName(this.nickName);
         criticoEntity.setPassword(this.password);
         criticoEntity.setPuntaje(this.puntaje);
