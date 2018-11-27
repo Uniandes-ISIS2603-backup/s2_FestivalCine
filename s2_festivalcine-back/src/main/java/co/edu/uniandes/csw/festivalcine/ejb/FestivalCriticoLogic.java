@@ -70,7 +70,6 @@ public class FestivalCriticoLogic
      */
     public CriticoEntity getCritico(Long festivalId, Long criticoId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar el critico con id = {0} del festival con id = " + criticoId , festivalId);
         List<CriticoEntity> criticos = persistence.find(festivalId).getCriticos();
         CriticoEntity criticoEntity = criticoPersistence.find(criticoId);
         
@@ -83,6 +82,7 @@ public class FestivalCriticoLogic
         }       
         throw new BusinessLogicException("El critico no esta asociado al festival");
     }
+    
     
     
     
