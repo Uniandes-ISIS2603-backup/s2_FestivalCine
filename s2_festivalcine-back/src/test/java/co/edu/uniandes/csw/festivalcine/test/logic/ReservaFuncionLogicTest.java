@@ -9,7 +9,7 @@ import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
 
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
-import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
+
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 
 import co.edu.uniandes.csw.festivalcine.entities.UsuarioEntity;
@@ -139,23 +139,18 @@ public class ReservaFuncionLogicTest {
     
      /**
      * Prueba para asociar una funcion existente a una reserva.
+     * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException
      */
     @Test
-    public void addFuncionTest() 
+    public void addFuncionTest() throws BusinessLogicException 
     {
-        try 
-        {
             FuncionEntity newFuncion = factory.manufacturePojo(FuncionEntity.class);
             funcionLogic.createFuncion(newFuncion);
             FuncionEntity funcionEntity = reservaFuncionLogic.addFuncion(reserva.getId(), newFuncion.getId());
             Assert.assertNotNull(funcionEntity);
             Assert.assertEquals(funcionEntity.getId(), newFuncion.getId());
             Assert.assertEquals(funcionEntity.getCritico(), newFuncion.getCritico());
-        } 
-        catch (BusinessLogicException ex)
-        {
-            Logger.getLogger(ReservaFuncionLogicTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
     
      /**
@@ -191,6 +186,12 @@ public class ReservaFuncionLogicTest {
         Assert.assertEquals(funcionEntity.getCritico(), funcion.getCritico());
         Assert.assertEquals(funcionEntity.getPelicula(), funcion.getPelicula());
     }
+    
+    
+    
+    
+    
+    
     
     
     
