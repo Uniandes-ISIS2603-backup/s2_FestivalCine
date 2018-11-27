@@ -1,0 +1,643 @@
+{
+	"id": "f67a8226-8a6c-4b65-b031-e517ca92b4a5",
+	"name": "UsuarioTest",
+	"allTests": [],
+	"timestamp": "2018-11-27T22:27:43.929Z",
+	"collection_id": "9c175727-c0d8-4362-bdcf-cfcc2d334770",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "73bb0844-f6c9-40f5-8c8d-ff168e15e166",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "9c175727-c0d8-4362-bdcf-cfcc2d334770",
+		"name": "UsuarioTest",
+		"description": "",
+		"auth": null,
+		"events": null,
+		"variables": [],
+		"order": [
+			"11d723aa-6ff5-4c57-a53e-5142bfa11424",
+			"cb01ba61-e8cb-4143-9680-03d2ebf81413",
+			"d2f4abf5-996f-403c-95c3-4222904ec324",
+			"0fd8d8c0-3408-4c28-a084-6686a408c0e7",
+			"f386633b-7ea7-4a61-b7e7-7ef5fd9c85fd",
+			"6e0671fa-e86d-406e-9acf-0a197e264f35",
+			"fcb74f26-e19d-4b0b-97cc-885bc9897d0e",
+			"33ca1178-adf1-4894-bb4e-f13278e24b0f",
+			"bb890744-d21a-4c5d-9bfc-6ca8ab32f763",
+			"a6b1b4ca-79ab-4177-b6e2-e8683135b31f"
+		],
+		"folders_order": [],
+		"owner": "0",
+		"permissions": {},
+		"favorite": false,
+		"shared": false,
+		"type": "collection",
+		"depth": 0
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [
+		{
+			"value": "",
+			"key": "new_id_e",
+			"enabled": true
+		},
+		{
+			"value": "",
+			"key": "new_id_e2",
+			"enabled": true
+		}
+	],
+	"results": [
+		{
+			"name": "Crear usuario",
+			"id": "11d723aa-6ff5-4c57-a53e-5142bfa11424",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "no genera error en el Post",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"45"
+			],
+			"allTests": [
+				{
+					"no genera error en el Post": true
+				}
+			],
+			"time": "45",
+			"totalRequestTime": "45",
+			"iterationResults": {}
+		},
+		{
+			"name": "Crea una reserva para un usuario",
+			"id": "cb01ba61-e8cb-4143-9680-03d2ebf81413",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "no genera error en el Post",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"14"
+			],
+			"allTests": [
+				{
+					"no genera error en el Post": true
+				}
+			],
+			"time": "14",
+			"totalRequestTime": "14",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtiene todas las reservas",
+			"id": "d2f4abf5-996f-403c-95c3-4222904ec324",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Get all",
+				"status": "pass",
+				"editorials count": true
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"editorials count": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"347"
+			],
+			"allTests": [
+				{
+					"No genera error en el Get all": true,
+					"editorials count": true
+				}
+			],
+			"time": "347",
+			"totalRequestTime": "347",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtiene una reserva",
+			"id": "0fd8d8c0-3408-4c28-a084-6686a408c0e7",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas/32",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "no genera error en el Post",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"11"
+			],
+			"allTests": [
+				{
+					"no genera error en el Post": true
+				}
+			],
+			"time": "11",
+			"totalRequestTime": "11",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtiene todos los usuarios",
+			"id": "f386633b-7ea7-4a61-b7e7-7ef5fd9c85fd",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Get all",
+				"status": "pass",
+				"editorials count": true
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"editorials count": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"1085"
+			],
+			"allTests": [
+				{
+					"No genera error en el Get all": true,
+					"editorials count": true
+				}
+			],
+			"time": "1085",
+			"totalRequestTime": "1085",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtiene un usuario",
+			"id": "6e0671fa-e86d-406e-9acf-0a197e264f35",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "no genera error en el Post",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"64"
+			],
+			"allTests": [
+				{
+					"no genera error en el Post": true
+				}
+			],
+			"time": "64",
+			"totalRequestTime": "64",
+			"iterationResults": {}
+		},
+		{
+			"name": "Obtiene todas las reservas de un usuario",
+			"id": "fcb74f26-e19d-4b0b-97cc-885bc9897d0e",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31/reservas",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Get all",
+				"status": "pass",
+				"Editorial count with books": true
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Editorial count with books": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"19"
+			],
+			"allTests": [
+				{
+					"No genera error en el Get all": true,
+					"Editorial count with books": true
+				}
+			],
+			"time": "19",
+			"totalRequestTime": "19",
+			"iterationResults": {}
+		},
+		{
+			"name": "Actualiza usuario por id",
+			"id": "33ca1178-adf1-4894-bb4e-f13278e24b0f",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Put",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"No genera error en el Put": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{
+					"No genera error en el Put": true
+				}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "Elimina una reserva",
+			"id": "bb890744-d21a-4c5d-9bfc-6ca8ab32f763",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas/32",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Delete",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"No genera error en el Delete": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"20"
+			],
+			"allTests": [
+				{
+					"No genera error en el Delete": true
+				}
+			],
+			"time": "20",
+			"totalRequestTime": "20",
+			"iterationResults": {}
+		},
+		{
+			"name": "Elimina usuario por id",
+			"id": "a6b1b4ca-79ab-4177-b6e2-e8683135b31f",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"tests": {
+				"name": "No genera error en el Delete",
+				"status": "pass"
+			},
+			"testPassFailCounts": {
+				"No genera error en el Delete": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"15"
+			],
+			"allTests": [
+				{
+					"No genera error en el Delete": true
+				}
+			],
+			"time": "15",
+			"totalRequestTime": "15",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 13,
+	"totalFail": 0,
+	"totalTime": 1640,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Crear usuario",
+			"id": "11d723aa-6ff5-4c57-a53e-5142bfa11424",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Crea una reserva para un usuario",
+			"id": "cb01ba61-e8cb-4143-9680-03d2ebf81413",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtiene todas las reservas",
+			"id": "d2f4abf5-996f-403c-95c3-4222904ec324",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"editorials count": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtiene una reserva",
+			"id": "0fd8d8c0-3408-4c28-a084-6686a408c0e7",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas/32",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtiene todos los usuarios",
+			"id": "f386633b-7ea7-4a61-b7e7-7ef5fd9c85fd",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"editorials count": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtiene un usuario",
+			"id": "6e0671fa-e86d-406e-9acf-0a197e264f35",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"no genera error en el Post": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Obtiene todas las reservas de un usuario",
+			"id": "fcb74f26-e19d-4b0b-97cc-885bc9897d0e",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31/reservas",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Get all": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Editorial count with books": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Actualiza usuario por id",
+			"id": "33ca1178-adf1-4894-bb4e-f13278e24b0f",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Put": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Elimina una reserva",
+			"id": "bb890744-d21a-4c5d-9bfc-6ca8ab32f763",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/reservas/32",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Delete": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Elimina usuario por id",
+			"id": "a6b1b4ca-79ab-4177-b6e2-e8683135b31f",
+			"url": "http://172.24.41.94:8080/s2_festivalcine-api/api/usuarios/31",
+			"time": "2018-11-27T22:27:43.929Z",
+			"responseCode": {
+				"code": 204,
+				"name": "No Content",
+				"detail": {
+					"name": "No Content",
+					"detail": "The server successfully processed the request, but is not returning any content."
+				}
+			},
+			"testPassFailCounts": {
+				"No genera error en el Delete": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
