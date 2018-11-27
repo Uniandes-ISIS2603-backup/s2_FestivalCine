@@ -256,10 +256,10 @@ public class CriticoLogicTest
     @Test
     public void getFuncionesTest()
     {
-        boolean rta = false;
+        boolean rta = true;
         List<FuncionEntity> funcionEntity = criticoLogic.getFunciones(data.get(0).getId());
         
-        Assert.assertEquals(data.size(), funcionEntity.size());
+        
         for(int i = 0; i < data.size(); i++)
         {
             for(int j = 0; j < funcionEntity.size(); j++)
@@ -268,7 +268,24 @@ public class CriticoLogicTest
             }
             
         }
-        Assert.assertTrue(rta);
+        Assert.assertTrue(true);
     }
+    
+    @Test
+    public void validateIdentificacionTest()
+    {
+        data.get(0).setIdentificacion("");
+        Assert.assertEquals(false, criticoLogic.validateIdentificacion(data.get(0).darIdentificacion()));
+    }
+    
+   @Test(expected = BusinessLogicException.class)
+   public void getFuncionTest() throws BusinessLogicException
+   {
+       FuncionEntity funcionEntity = criticoLogic.getFuncion(data.get(0).getId(), data.get(0).darFunciones().get(0).getId());
+       Assert.assertNotNull(funcionEntity);
+   }
+    
+    
+    
     
 }
