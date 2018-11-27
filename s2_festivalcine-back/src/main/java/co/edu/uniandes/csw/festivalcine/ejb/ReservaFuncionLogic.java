@@ -83,10 +83,10 @@ public class ReservaFuncionLogic
             {
                 return funciones.get(i);
             }
-        }   
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion");      
+        }      
         throw new BusinessLogicException("La funcion no esta asociada a la reserva");
     }
+    
 
     
     
