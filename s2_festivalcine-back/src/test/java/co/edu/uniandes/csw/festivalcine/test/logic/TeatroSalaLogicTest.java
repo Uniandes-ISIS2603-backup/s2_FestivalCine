@@ -5,18 +5,17 @@
  */
 package co.edu.uniandes.csw.festivalcine.test.logic;
 
-import co.edu.uniandes.csw.festivalcine.ejb.FestivalCriticoLogic;
+
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalLogic;
-
-
-
+import co.edu.uniandes.csw.festivalcine.ejb.TeatroLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.TeatroSalaLogic;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
+
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
-
-
+import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
+import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.FestivalPersistence;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -34,16 +33,20 @@ import org.junit.runner.RunWith;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
+/**
+ *
+ * @author PAULA VELANDIA
+ */
 @RunWith(Arquillian.class)
-public class FestivalCriticoLogicTest 
+public class TeatroSalaLogicTest 
 {
-    private PodamFactory factory = new PodamFactoryImpl();
+     private PodamFactory factory = new PodamFactoryImpl();
 
     @Inject
-    private FestivalLogic festivalLogic;
+    private TeatroLogic teatroLogic;
 
      @Inject
-    private FestivalCriticoLogic festivalCriticoLogic;
+    private TeatroSalaLogic teatroSalaLogic;
      
     @PersistenceContext
     private EntityManager em;
@@ -51,12 +54,11 @@ public class FestivalCriticoLogicTest
     @Inject
     private UserTransaction utx;
 
-    private List<FestivalEntity> data = new ArrayList<>();
+    private List<TeatroEntity> data = new ArrayList<>();
 
-    private List<CriticoEntity> criticosData = new ArrayList<>();
-
+    private List<SalaEntity> salasData = new ArrayList<>();
     
-     /**
+    /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
      * El jar contiene las clases, el descriptor de la base de datos y el
      * archivo beans.xml para resolver la inyección de dependencias.
@@ -90,7 +92,7 @@ public class FestivalCriticoLogicTest
             }
         }
     }
-
+    
     /**
      * Limpia las tablas que están implicadas en la prueba.
      */
@@ -106,22 +108,21 @@ public class FestivalCriticoLogicTest
     private void insertData() {
         for (int i = 0; i < 3; i++) 
         {
-            CriticoEntity criticos = factory.manufacturePojo(CriticoEntity.class);
+            SalaEntity salas = factory.manufacturePojo(SalaEntity.class);
            
-            em.persist(criticos);
-             criticosData.add(criticos);
+            em.persist(salas);
+            salasData.add(salas);
            
         }
         for (int i = 0; i < 3; i++) 
         {
-            List<FestivalEntity> list = new ArrayList();
-            FestivalEntity entity = factory.manufacturePojo(FestivalEntity.class);
-            list.add(entity);
+            TeatroEntity entity = factory.manufacturePojo(TeatroEntity.class);
+            
             em.persist(entity);
             data.add(entity);
             if (i == 0) 
             {
-                criticosData.get(i).setFestivales(list);
+                salasData.get(i).setTeatro(entity);
             }
         }
     }
@@ -130,25 +131,27 @@ public class FestivalCriticoLogicTest
      * Prueba para asociar una reservas existente a un Usuario.
      */
     @Test
-    public void addCriticosTest() 
+    public void addSalasTest() 
     {
-        FestivalEntity entity = data.get(0);
-        CriticoEntity criticoEntity = criticosData.get(1);
-        CriticoEntity response = festivalCriticoLogic.addCritico(criticoEntity.getId(), entity.getId());
+        TeatroEntity entity = data.get(0);
+        SalaEntity salaEntity = salasData.get(1);
+        SalaEntity response = teatroSalaLogic.addSala(salaEntity.getId(), entity.getId());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(criticoEntity.getId(), response.getId());
+        Assert.assertEquals(salaEntity.getId(), response.getId());
+        Assert.assertEquals(salaEntity.getNumero(), response.getNumero());
+        Assert.assertEquals(salaEntity.getSillas(), response.getSillas());
+        
     }
     
-    /**
+     /**
      * Prueba para obtener una colección de instancias de Reservas asociadas a una
      * instancia Usuario.
      */
     @Test
-    public void getCriticosTest() 
+    public void getSalasTest() 
     {
-        List<CriticoEntity> list = festivalCriticoLogic.getCriticos(data.get(0).getId());
-
+        List<SalaEntity> list = teatroSalaLogic.getSalas(data.get(0).getId());
         Assert.assertEquals(1, list.size());
     }
     
@@ -161,20 +164,12 @@ public class FestivalCriticoLogicTest
     @Test
     public void getCriticoTest() throws BusinessLogicException 
     {
-        FestivalEntity entity = data.get(0);
-        CriticoEntity criticoEntity = criticosData.get(0);
-        CriticoEntity response = festivalCriticoLogic.getCritico(entity.getId(), criticoEntity.getId());
-
-        Assert.assertEquals(criticoEntity.getId(), response.getId());
-        Assert.assertEquals(criticoEntity.darNombres(), response.darNombres());
-        Assert.assertEquals(criticoEntity.darApellidos(), response.darApellidos());
-        Assert.assertEquals(criticoEntity.darIdentificacion(), response.darIdentificacion());
-        Assert.assertEquals(criticoEntity.darCelular(), response.darCelular());
-        Assert.assertEquals(criticoEntity.darEmail(), response.darEmail());
-        Assert.assertEquals(criticoEntity.darTipoPersona(), response.darTipoPersona());
-        Assert.assertEquals(criticoEntity.darNickName(), response.darNickName());
-        Assert.assertEquals(criticoEntity.darPassword(), response.darPassword());
-        Assert.assertEquals(criticoEntity.darPuntaje(), response.darPuntaje());
+        TeatroEntity entity = data.get(0);
+        SalaEntity salaEntity = salasData.get(0);
+        SalaEntity response = teatroSalaLogic.getSala(entity.getId(), salaEntity.getId());
         
+        Assert.assertEquals(salaEntity.getId(), response.getId());
+        Assert.assertEquals(salaEntity.getNumero(), response.getNumero());
+        Assert.assertEquals(salaEntity.getSillas(), response.getSillas());
     }
 }
