@@ -228,6 +228,20 @@ public class CriticoLogicTest
         Assert.assertEquals(original.darPuntaje(), result.darPuntaje());
     }
     
+     @Test(expected = BusinessLogicException.class)
+    public void updateCriticoIdInvalidoTest() throws BusinessLogicException
+    {
+        CriticoEntity original = factory.manufacturePojo(CriticoEntity.class);
+        criticoLogic.createCritico(original);
+        original.setNombres("123");
+        original.setIdentificacion("");
+        original.setPuntaje(Long.MAX_VALUE);
+        criticoLogic.updateCritico(original);
+        CriticoEntity result = criticoLogic.getCritico(original.getId());
+        Assert.assertEquals(original.darNombres(), result.darNombres());
+        Assert.assertEquals(original.darPuntaje(), result.darPuntaje());
+    }
+    
     @Test
     public void addFuncionTest() throws BusinessLogicException
     {
@@ -242,13 +256,19 @@ public class CriticoLogicTest
     @Test
     public void getFuncionesTest()
     {
+        boolean rta = false;
         List<FuncionEntity> funcionEntity = criticoLogic.getFunciones(data.get(0).getId());
         
-        Assert.assertEquals(funciones.size(), funcionEntity.size());
+        Assert.assertEquals(data.size(), funcionEntity.size());
         for(int i = 0; i < data.size(); i++)
         {
-            Assert.assertTrue(funcionEntity.contains(data.get(i)));
+            for(int j = 0; j < funcionEntity.size(); j++)
+            {
+                 rta = data.get(i).equals(funcionEntity.get(j));
+            }
+            
         }
+        Assert.assertTrue(rta);
     }
     
 }
