@@ -83,4 +83,14 @@ public class FestivalCriticoLogic
         }       
         throw new BusinessLogicException("El critico no esta asociado al festival");
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
