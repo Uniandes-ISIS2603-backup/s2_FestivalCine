@@ -74,19 +74,13 @@ public class FestivalCriticoLogic
         List<CriticoEntity> criticos = persistence.find(festivalId).getCriticos();
         CriticoEntity criticoEntity = criticoPersistence.find(criticoId);
         
-        int index = -1;
-        
-        if(criticos.indexOf(criticoEntity) >= 0)
+        for(int i = 0; i < criticos.size(); i++)
         {
-            index = criticos.indexOf(criticoEntity);
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar el critico con id = {0} del festival con id = " + criticoId, festivalId);
-        
-        if (index >= 0) 
-        {
-            return criticos.get(index);
-        }
-        
-        throw new BusinessLogicException("El critico no está asociado a un festival");
+            if(criticos.get(i).getId().equals(criticoEntity.getId()))
+            {
+                return criticos.get(i);
+            }
+        }       
+        throw new BusinessLogicException("El critico no esta asociado al festival");
     }
 }

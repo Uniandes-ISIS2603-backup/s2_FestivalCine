@@ -143,8 +143,9 @@ public class CriticoLogicTest
             critico.darFunciones().add(funciones.get(i));
             critico.darPeliculas().add(peliculas.get(i));
             critico.darCalificaciones().add(calificaciones.get(i));
-            em.persist(critico);
             data.add(critico);
+            em.persist(critico);
+            
         }
         
     }
@@ -205,9 +206,12 @@ public class CriticoLogicTest
     
    @Test
     public void getCriticoTest() throws BusinessLogicException
-    {       
-        CriticoEntity entity = data.get(0);
-        CriticoEntity resultEntity = criticoLogic.getCritico(entity.getId());
+    {   
+        CriticoEntity original = factory.manufacturePojo(CriticoEntity.class);
+        criticoLogic.createCritico(original);
+        original.setNombres("123");
+        original.setPuntaje(Long.MAX_VALUE);
+        CriticoEntity resultEntity = criticoLogic.getCritico(original.getId());
         Assert.assertNotNull(resultEntity);
     }
     

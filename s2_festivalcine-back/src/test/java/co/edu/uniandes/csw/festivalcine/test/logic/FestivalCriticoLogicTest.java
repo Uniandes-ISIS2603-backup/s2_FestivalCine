@@ -107,15 +107,16 @@ public class FestivalCriticoLogicTest
         for (int i = 0; i < 3; i++) 
         {
             CriticoEntity criticos = factory.manufacturePojo(CriticoEntity.class);
-            em.persist(criticos);
             criticosData.add(criticos);
+            em.persist(criticos);
+           
         }
         for (int i = 0; i < 3; i++) 
         {
             FestivalEntity entity = factory.manufacturePojo(FestivalEntity.class);
-            em.persist(entity);
-            data.add(entity);
             entity.setCriticos(criticosData);
+            em.persist(entity);
+            data.add(entity);           
         }
     }
     
@@ -142,7 +143,7 @@ public class FestivalCriticoLogicTest
     {
         List<CriticoEntity> list = festivalCriticoLogic.getCriticos(data.get(0).getId());
 
-        Assert.assertEquals(1, list.size());
+        Assert.assertEquals(criticosData.size(), list.size());
     }
     
     /**

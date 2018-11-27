@@ -203,11 +203,8 @@ public class SalaLogicTest {
     @Test
     public void deleteSalaTest() throws BusinessLogicException 
     {
-        System.out.println("------------------------------------------------------Cosa1");
         SalaEntity deleted = em.find(SalaEntity.class, sfdata.get(0));
-        System.out.println("------------------------------------------------------Cosa1");
         salaLogic.deleteSala(deleted.getId());
-        System.out.println("------------------------------------------------------Cosa2");
         Assert.assertNull(salaLogic.getSala(deleted.getId()));
     }
     
