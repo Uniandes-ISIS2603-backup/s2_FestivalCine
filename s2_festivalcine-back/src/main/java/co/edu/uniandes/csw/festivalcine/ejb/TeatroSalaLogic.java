@@ -73,20 +73,14 @@ public class TeatroSalaLogic
         LOGGER.log(Level.INFO, "Inicia proceso de consultar la sala con id = {0} del teatro con id = " + salaId , teatroId);
         List<SalaEntity> salas = persistence.find(teatroId).getSalas();
         SalaEntity salaEntity = salaPersistence.find(salaId);
-        
-        int index = -1;
-        
-        if(salas.indexOf(salaEntity) >= 0)
+        for(int i = 0; i < salas.size(); i++)
         {
-            index = salas.indexOf(salaEntity);
-        }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la sala con id = {0} del teatro con id = " + salaId, teatroId);
-        
-        if (index >= 0) 
-        {
-            return salas.get(index);
-        }
-        
-        throw new BusinessLogicException("La sala no está asociado a un teatro");
+            if(salas.get(i).getId().equals(salaEntity.getId()))
+            {
+                return salas.get(i);
+            }
+        }   
+        LOGGER.log(Level.INFO, "Termina proceso de consultar la sala");      
+        throw new BusinessLogicException("La sala no esta asociada a la teatro");
     }   
 }

@@ -7,11 +7,13 @@ package co.edu.uniandes.csw.festivalcine.test.logic;
 
 
 import co.edu.uniandes.csw.festivalcine.ejb.FestivalLogic;
+import co.edu.uniandes.csw.festivalcine.ejb.TeatroFuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.TeatroLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.TeatroSalaLogic;
-import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
+
 
 import co.edu.uniandes.csw.festivalcine.entities.FestivalEntity;
+import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
 import co.edu.uniandes.csw.festivalcine.entities.SalaEntity;
 import co.edu.uniandes.csw.festivalcine.entities.TeatroEntity;
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
@@ -38,7 +40,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
  * @author PAULA VELANDIA
  */
 @RunWith(Arquillian.class)
-public class TeatroSalaLogicTest 
+public class TeatroFuncionLogicTest 
 {
      private PodamFactory factory = new PodamFactoryImpl();
 
@@ -46,7 +48,7 @@ public class TeatroSalaLogicTest
     private TeatroLogic teatroLogic;
 
      @Inject
-    private TeatroSalaLogic teatroSalaLogic;
+    private TeatroFuncionLogic teatroFuncionLogic;
      
     @PersistenceContext
     private EntityManager em;
@@ -56,7 +58,7 @@ public class TeatroSalaLogicTest
 
     private List<TeatroEntity> data = new ArrayList<>();
 
-    private List<SalaEntity> salasData = new ArrayList<>();
+    private List<FuncionEntity> funcionesData = new ArrayList<>();
     
     /**
      * @return Devuelve el jar que Arquillian va a desplegar en Payara embebido.
@@ -108,10 +110,10 @@ public class TeatroSalaLogicTest
     private void insertData() {
         for (int i = 0; i < 3; i++) 
         {
-            SalaEntity salas = factory.manufacturePojo(SalaEntity.class);
+            FuncionEntity funciones = factory.manufacturePojo(FuncionEntity.class);
            
-            em.persist(salas);
-            salasData.add(salas);
+            em.persist(funciones);
+            funcionesData.add(funciones);
            
         }
         for (int i = 0; i < 3; i++) 
@@ -122,7 +124,7 @@ public class TeatroSalaLogicTest
             data.add(entity);
             if (i == 0) 
             {
-                salasData.get(i).setTeatro(entity);
+                funcionesData.get(i).setTeatro(entity);
             }
         }
     }
@@ -131,17 +133,17 @@ public class TeatroSalaLogicTest
      * Prueba para asociar una reservas existente a un Usuario.
      */
     @Test
-    public void addSalasTest() 
+    public void addFuncionesTest() 
     {
         TeatroEntity entity = data.get(0);
-        SalaEntity salaEntity = salasData.get(1);
-        SalaEntity response = teatroSalaLogic.addSala(salaEntity.getId(), entity.getId());
+        FuncionEntity funcionEntity = funcionesData.get(1);
+        FuncionEntity response = teatroFuncionLogic.addFuncion(funcionEntity.getId(), entity.getId());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(salaEntity.getId(), response.getId());
-        Assert.assertEquals(salaEntity.getNumero(), response.getNumero());
-        Assert.assertEquals(salaEntity.getSillas(), response.getSillas());
-        
+        Assert.assertEquals(funcionEntity.getId(), response.getId());
+        Assert.assertEquals(funcionEntity.getHora(), response.getHora());
+        Assert.assertEquals(funcionEntity.getFecha(), response.getFecha());
+       Assert.assertEquals(funcionEntity.getPrecioBase(), response.getPrecioBase());
     }
     
      /**
@@ -149,9 +151,9 @@ public class TeatroSalaLogicTest
      * instancia Usuario.
      */
     @Test
-    public void getSalasTest() 
+    public void getFuncionesTest() 
     {
-        List<SalaEntity> list = teatroSalaLogic.getSalas(data.get(0).getId());
+        List<FuncionEntity> list = teatroFuncionLogic.getFunciones(data.get(0).getId());
         Assert.assertEquals(1, list.size());
     }
     
@@ -162,14 +164,15 @@ public class TeatroSalaLogicTest
      * @throws co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException     
      */
     @Test
-    public void getSalaTest() throws BusinessLogicException 
+    public void getFuncionTest() throws BusinessLogicException 
     {
         TeatroEntity entity = data.get(0);
-        SalaEntity salaEntity = salasData.get(0);
-        SalaEntity response = teatroSalaLogic.getSala(entity.getId(), salaEntity.getId());
+        FuncionEntity funcionEntity = funcionesData.get(0);
+        FuncionEntity response = teatroFuncionLogic.getFuncion(entity.getId(), funcionEntity.getId());
         
-        Assert.assertEquals(salaEntity.getId(), response.getId());
-        Assert.assertEquals(salaEntity.getNumero(), response.getNumero());
-        Assert.assertEquals(salaEntity.getSillas(), response.getSillas());
+        Assert.assertEquals(funcionEntity.getId(), response.getId());
+        Assert.assertEquals(funcionEntity.getHora(), response.getHora());
+        Assert.assertEquals(funcionEntity.getFecha(), response.getFecha());
+       Assert.assertEquals(funcionEntity.getPrecioBase(), response.getPrecioBase());
     }
 }
