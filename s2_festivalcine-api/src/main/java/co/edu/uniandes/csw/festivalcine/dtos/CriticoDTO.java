@@ -248,4 +248,9 @@ public class CriticoDTO implements Serializable
     
     
     
+    
+    
+    
+    
+    
 }
