@@ -62,7 +62,7 @@ public class CalificacionResource
     @POST
     public CalificacionDTO createCalificacion(CalificacionDTO calificacion)
     {
-        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: input: {0} " + calificacion.toString());
+        LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: input: {0} " + calificacion);
         CalificacionDTO nuevaCalificacionDTO = new CalificacionDTO(calificacionLogic.createCalificacion(calificacion.toEntity()));
         LOGGER.log(Level.INFO, "CalificacionResource createCalificacion: output: {0}", nuevaCalificacionDTO);
         return nuevaCalificacionDTO;

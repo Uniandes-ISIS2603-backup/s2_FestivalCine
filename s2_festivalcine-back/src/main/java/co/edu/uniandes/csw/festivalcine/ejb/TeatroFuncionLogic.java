@@ -70,7 +70,7 @@ public class TeatroFuncionLogic
      */
     public FuncionEntity getFuncion(Long teatroId, Long funcionId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {0} del teatro con id = " + funcionId , teatroId);
+        
         List<FuncionEntity> funciones = persistence.find(teatroId).getFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionId);
         for(int i = 0; i < funciones.size(); i++)

@@ -72,7 +72,7 @@ public class UsuarioCalificacionesLogic
      */
     public CalificacionEntity getCalificacion(Long usuariosId, Long calificacionesId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, calificacionesId);
+        
         List<CalificacionEntity> calificaciones = persistence.findUsuario(usuariosId).getCalificaciones();
         CalificacionEntity calificacionEntity = calificacionPersistence.find(calificacionesId);
         for(int i = 0; i < calificaciones.size(); i++)

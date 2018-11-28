@@ -326,7 +326,7 @@ public class CriticoResource
             throw new WebApplicationException(elRecursoPeliculas + peliculasId + noexiste, 404);
         }
         PeliculaDTO peliculaDTO = new PeliculaDTO(criticoLogic.addPelicula(criticosId, peliculasId));
-        LOGGER.log(Level.INFO, "CriticoResource addPelicula: output: {0}", peliculaDTO.toString());
+        LOGGER.log(Level.INFO, "CriticoResource addPelicula: output: {0}", peliculaDTO);
         return peliculaDTO;
     }    
     /**

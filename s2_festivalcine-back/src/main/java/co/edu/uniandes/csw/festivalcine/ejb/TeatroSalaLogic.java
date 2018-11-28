@@ -70,7 +70,7 @@ public class TeatroSalaLogic
      */
     public SalaEntity getSala(Long teatroId, Long salaId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la sala con id = {0} del teatro con id = " + salaId , teatroId);
+        
         List<SalaEntity> salas = persistence.find(teatroId).getSalas();
         SalaEntity salaEntity = salaPersistence.find(salaId);
         for(int i = 0; i < salas.size(); i++)

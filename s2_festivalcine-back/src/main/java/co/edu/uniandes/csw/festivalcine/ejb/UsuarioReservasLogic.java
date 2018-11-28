@@ -71,7 +71,7 @@ public class UsuarioReservasLogic {
      */
     public ReservaEntity getReserva(Long usuariosId, Long reservasId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);
+        
         List<ReservaEntity> reservas = persistence.findUsuario(usuariosId).getReservas();
         ReservaEntity reservaEntity = reservaPersistence.findReserva(reservasId);
         for(int i = 0; i < reservas.size(); i++)
@@ -81,7 +81,7 @@ public class UsuarioReservasLogic {
                 return reservas.get(i);
             }
         }   
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la reserva con id = {0} del usuario con id = " + usuariosId, reservasId);      
+             
         throw new BusinessLogicException("La reserva no esta asociada al usuario");
     }
 }

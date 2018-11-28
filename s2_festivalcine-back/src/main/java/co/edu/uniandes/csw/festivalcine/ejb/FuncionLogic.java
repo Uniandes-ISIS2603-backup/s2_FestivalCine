@@ -155,7 +155,7 @@ public class FuncionLogic {
         CriticoEntity criticoEntity = criticoPersistence.find(funcionEntity.getCritico().getId());
         funcionEntity.setCritico(null);
         criticoEntity.darFunciones().remove(funcionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de borrar el crítico con id = {0} de la función con id = " + funcionesId, criticoEntity.getId());
+        
     }
  
     

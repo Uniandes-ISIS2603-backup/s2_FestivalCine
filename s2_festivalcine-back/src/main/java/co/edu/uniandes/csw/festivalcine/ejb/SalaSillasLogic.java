@@ -80,7 +80,7 @@ public class SalaSillasLogic {
      * sala
      */
     public SillaEntity getSilla(Long salasId, Long sillasId) throws BusinessLogicException {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la silla con id = {0} de la sala con id = " + salasId, sillasId);
+        
         List<SillaEntity> sillas = salaPersistence.find(salasId).getSillas();
         SillaEntity sillaEntity = sillaPersistence.find(sillasId);
         for(int i = 0; i < sillas.size(); i++)

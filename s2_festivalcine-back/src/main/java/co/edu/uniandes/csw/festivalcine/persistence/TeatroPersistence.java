@@ -101,7 +101,7 @@ public List<TeatroEntity> findAll() {
      */ 
     public TeatroEntity findUserByName(String name) 
      {
-        LOGGER.log(Level.INFO, "Consultando teatro por nombre ", name);
+        
         TypedQuery query = em.createQuery("Select e From TeatroEntity e where e.nombre = :nombre", TeatroEntity.class); 
         query = query.setParameter("nombre", name);
         List<TeatroEntity> sameName = query.getResultList();
@@ -118,7 +118,7 @@ public List<TeatroEntity> findAll() {
         {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar teatro por nombre ", name);
+        
         return result;
     }
 

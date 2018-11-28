@@ -114,24 +114,24 @@ public class ReservaSillasResource
         return sillaDTO;
     }
     
-    /**
-     * Convierte una lista de entidades a DTO.
-     *
-     * Este método convierte una lista de objetos EditorialEntity a una lista de
-     * objetos EditorialDTO (json)
-     *
-     * @param entityList corresponde a la lista de editoriales de tipo Entity
-     * que vamos a convertir a DTO.
-     * @return la lista de editoriales en forma DTO (json)
-     */
-    private List<SillaDTO> listEntitySilla2DTO(List<SillaEntity> entityList)
-    {
-        List<SillaDTO> list = new ArrayList<>();
-        for (SillaEntity entity : entityList) {
-            list.add(new SillaDTO(entity));
-        }
-        return list;
-    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
    
 }
