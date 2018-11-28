@@ -182,11 +182,11 @@ public class CriticoLogic {
      */
     public FuncionEntity getFuncion(Long criticosId, Long funcionesId) throws BusinessLogicException
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar la funcion con id = {1} del critico con id = {0}", funcionesId);
+        
         List<FuncionEntity> funciones = persistence.find(criticosId).darFunciones();
         FuncionEntity funcionEntity = funcionPersistence.find(funcionesId);
         int index = funciones.indexOf(funcionEntity);
-        LOGGER.log(Level.INFO, "Termina proceso de consultar la funcion con id = {1} del criticocon id = {0}", funcionesId);
+        
         if(index >=0)
         {
             return funciones.get(index);
