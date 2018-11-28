@@ -6,8 +6,8 @@
 package co.edu.uniandes.csw.festivalcine.dtos;
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import java.io.Serializable;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+
+
 /**
  *
  * @author estudiante
@@ -233,11 +233,11 @@ public class CriticoDTO implements Serializable
         return criticoEntity;
     }
     
-    @Override
-    public String toString()
-    {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    } 
+    
+    
+    
+    
+    
     
     
     
