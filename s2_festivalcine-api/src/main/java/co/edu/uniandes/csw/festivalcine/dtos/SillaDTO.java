@@ -32,6 +32,13 @@ public class SillaDTO implements Serializable{
      * Numero de la silla
      */
     private Integer numero;
+    
+     /*
+    * Relación a una sala
+    * dado que esta tiene cardinalidad 1.
+     */
+
+    private SalaDTO sala;
 
     //Constructor ----------------------------------------------------------------------------
     
@@ -53,6 +60,13 @@ public class SillaDTO implements Serializable{
             this.disponible = sillaEntity.getDisponible();
             this.tipo= sillaEntity.getTipo();
             this.numero = sillaEntity.getNumero();
+            
+                       
+           if (sillaEntity.getSala() != null) {
+                this.sala = new SalaDTO(sillaEntity.getSala());
+           } else {
+                this.sala = null;
+           }
         }
     }
     
@@ -132,6 +146,24 @@ public class SillaDTO implements Serializable{
     {
         this.tipo =tipo;
     }
+    
+    /**
+     * Devuelve la sala en la que se presentará la función
+     * @return SalaDTO
+     */
+    public SalaDTO getSala()
+    {
+        return sala;
+    }
+    
+         /**
+     * Modifica la sala de la función
+     * @param sala
+     */
+    public void setSala(SalaDTO sala)
+    {
+        this.sala = sala;
+    }
     /**
      * Convertir DTO a Entity
      * @return Entity funcion con los valores de FuncionDTO
@@ -143,6 +175,10 @@ public class SillaDTO implements Serializable{
        sillaEntity.setNumero(this.numero);
        sillaEntity.setDisponible( this.disponible);
        sillaEntity.setTipo ( this.tipo);
+             if (this.sala != null) {
+            sillaEntity.setSala(this.sala.toEntity());
+      }
+       
        return sillaEntity ;
     }
     

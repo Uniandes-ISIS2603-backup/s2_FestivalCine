@@ -1,4 +1,4 @@
-insert into SILLAENTITY (id, numero, tipo, disponible) values (393, 33, true, true);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (999, 1, 2, 1, 100);
 insert into SILLAENTITY (id, numero, tipo, disponible) values (190, 55, false, true);
 insert into SILLAENTITY (id, numero, tipo, disponible) values (195, 44, false, true);
 insert into SILLAENTITY (id, numero, tipo, disponible) values (330, 69, true, true);

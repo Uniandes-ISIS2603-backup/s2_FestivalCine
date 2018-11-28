@@ -1,0 +1,2257 @@
+{
+	"info": {
+		"_postman_id": "8eab904d-a4ff-4d0e-8482-8d143769f0a3",
+		"name": "Pruebas Tarantino",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear festival",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be5412f3-5eff-46c2-b59d-f33dea0da235",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"idFest\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Untitled\",\n\t\"patrocinador\": \"Roland\",\n\t\"Ciudad\": \"Helsinki\",\n\t\"duracion\": \"20\",\n\t\"fechaInicio\": \"10/10/2018\",\n\t\"fechaFin\": \"09/07/2018\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los festivales",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bd5a6fa-fa86-499a-9b86-1046ca702b07",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero festivales\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un festival",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e263fde-79e8-4b49-a80f-6113a7a2a84f",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"idFest\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales/{{idFest}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales",
+						"{{idFest}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un festival",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"postman\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales/{{idFest}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales",
+						"{{idFest}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear festival Con teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4c84b7ce-98e2-48fe-ab84-c461f4edac8e",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"idFestTeatro\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Medallo\",\n\t\"patrocinador\": \"Roland\",\n\t\"ciudad\": \"Helsinki\",\n\t\"duracion\": \"20\",\n\t\"fechaInicio\": \"10/10/2018\",\n\t\"fechaFin\": \"09/07/2018\",\n\t\"teatros\": [{\n\t\t\"nombre\": \"Hands Away\",\n\t\t\"direccion\": \"Cali\",\n\t\t\"numSalasfest\": 3\n\t}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear festival con critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "37bda8a7-7347-4c65-86e8-f86aec63ef7b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"idFestCrit\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"Untitled\",\n\t\"patrocinador\": \"Roland\",\n\t\"Ciudad\": \"Helsinki\",\n\t\"duracion\": \"20\",\n\t\"fechaInicio\": \"10/10/2018\",\n\t\"fechaFin\": \"09/07/2018\",\n\t\"criticos\": [{\n\t\t\"apellido\": \"criticazo\",\n\t\t\"celular\": \"111111\",\n\t\t\"credenciales\": \"capo\",\n\t\t\"email\": \"elcapo@criticazo.com\",\n\t\t\"identificacion\": \"0000\",\n\t\t\"nickname\": \"elpapu\",\n\t\t\"nombres\": \"papu\",\n\t\t\"password\": \"quienteconoce123\",\n\t\t\"puntaje\": 100,\n\t\t\"tipoPersona\": 1\n\t}]\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ec6491e-03f7-498b-942f-f9f491923656",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"teatroId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"nombre\": \"Hands Away\",\n\t\t\"direccion\": \"Cali\",\n\t\t\"numSalasfest\": 3\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los teatros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "66ab5008-24e0-4f4f-a514-8d59d536b8c7",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero teatros\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f135e311-a55d-4276-afba-7aa90cd224c4",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"teatroId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros/{{teatroId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"{{teatroId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\": \"postman\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros/{{teatroId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"{{teatroId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear teatro con funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ecf0a93-2167-4dbf-b21e-4091a290b85c",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"teatroFuncId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"nombre\": \"Specialist\",\n\t\t\"direccion\": \"Cali\",\n\t\t\"numSalasfest\": 5,\n\t\t\"funciones\": [{\n\t\t\t\"fecha\": \"08/09/2017\",\n\t\t\t\"hora\": \"20\",\n\t\t\t\"precioBase\": \"10000\"\n\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear teatro con sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b07ca40-68b7-4430-8627-b0c918b4cbd0",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"teatroSalaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"nombre\": \"Vanderlile\",\n\t\t\"direccion\": \"Cali\",\n\t\t\"numSalasfest\": 5,\n\t\t\"salasAsignadas\": [{\n\t\t\t\"numero\": 10\n\t\t}]\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "28dbef9f-fbed-473a-afe3-e744b48ae156",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"criticoId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/criticos",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"criticos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todos los criticos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60cb4e28-6b7b-4754-a7d0-b82fd086f837",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero criticos\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/criticos",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"criticos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a76c5fc-98bf-4bdb-929a-4d6cb9a13fc0",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"criticoId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/criticos/{{criticoId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"criticos",
+						"{{criticoId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza un critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\"nombres\":\"kelly Katerine\",\n\t\t\"apellidos\":\"Peñaranda Rivera\",\n\t\t\"identificacion\":\"1001012007\",\n\t\t\"celular\":\"315787878\",\n\t\t\"email\":\"kk.penaranda@uniandes.edu.co\",\n\t\t\"tipoPersona\":2,\n\t\t\"nickName\":\"kk.penaranda\",\n\t\t\"password\":\"kelly123123\",\n\t\t\"puntaje\":0,\n\t\t\"credencial\":\"123312245\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/criticos/{{criticoId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"criticos",
+						"{{criticoId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear calificacion para un critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c9bec9c-00ab-44d9-8508-d91dd406a434",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"criticoCaliId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comentario\": \"pura basura\",\n\t\"puntaje\": 4.9,\n\t\"critico_id\": {{criticoId}},\n\t\"usuario_id\": \"{{usuarioId}}\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "101bd851-6f2a-4797-9cef-8feffeaceaf1",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"usuarioId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\": \"Josefina v3\",\n\t\"apellidos\": \"Martinez\",\n\t\"identificacion\": 1,\n\t\"celular\": 3143982366,\n\t\"email\": \"josefina.pp3@uniandes.edu.co\",\n\t\"tipoPersona\": 1,\n\t\"nickname\": \"Sofi\",\n\t\"password\": \"contrasenia\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Se crea un usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Crea una reserva para un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3aacee4b-5524-4903-915f-c46b1355d75b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"reservaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"abono\": false,\n\t\"descuento\": 0,\n\t\"precioTotal\": 12000,\n\t\"usuario\":\n\t{\n\t\t\"id\": {{usuarioId}},\n\t\t\"type\": \"usuarioDetailDTO\",\n    \t\"apellidos\": \"Martinez\",\n    \t\"celular\": \"3143982366\",\n    \t\"email\": \"josefina.y3@uniandes.edu.co\",\n    \t\"identificacion\": \"1\",\n    \t\"nombres\": \"Josefina v3\",\n    \t\"password\": \"contrasenia\",\n    \t\"tipoPersona\": 1,\n    \t\"calificaciones\": [],\n    \t\"reservas\": []\n\t\t\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todas las reservas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df7d1165-614d-45d2-bd2c-5231a108ee30",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"editorials count\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas"
+					]
+				},
+				"description": "Se accede a todas las reservas de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene una reserva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d540d67-c2ef-4215-9c4d-834763c5a8d1",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"reservaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/{{reservaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas",
+						"{{reservaId}}"
+					]
+				},
+				"description": "Se actualiza la información de un usuario de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todos los usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24e09239-b816-43f0-8d5c-2c138d68745a",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"editorials count\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Se accede a todos los usuarios de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d2a16d3a-8588-4337-b6bb-3de06d98d6b8",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"usuarioId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{usuarioId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{usuarioId}}"
+					]
+				},
+				"description": "Se accede a una reserva de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todas las reservas de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "874206e9-ab1b-4ad8-ac2c-4bd277baf80c",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"Editorial count with books\"] = data.length >= 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{usuarioId}}/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{usuarioId}}",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza usuario por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e84f8735-8a06-4f8c-935e-0f477666d474",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\": \"PaulaAndrea\",\n\t\"apellidos\": \"Velandia\",\n\t\"identificacion\": 1014309227,\n\t\"celular\": 3143982366,\n\t\"email\": \"pa.velandiar@uniandes.edu.co\",\n\t\"tipoPersona\": 2,\n\t\"nickname\": \"Paulis\",\n\t\"password\": \"contrasenia\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{usuarioId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{usuarioId}}"
+					]
+				},
+				"description": "Se actualiza la información de un usuario de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8dc95ecd-5e1e-475e-8f78-957949c3afb5",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"peliculaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"Prueba\",\n\t\"director\":\"Tarantino\",\n\t\"creditos\":\"ejemplo\",\n\t\"pais\":\"Argentina\",\n\t\"duracion\":60,\n\t\"puntaje\":76,\n\t\"poster\": \"sasd\",\n\t\"trailer\": \"no idea\"\n\t\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"peliculas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las peliculas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "394a09ad-6033-4576-b02a-795c0f0eb26d",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero peliculas\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"peliculas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "abad4401-c696-42ac-8b9d-ecdd683212ba",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"peliculaId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/{{peliculaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"peliculas",
+						"{{peliculaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear calificacion para una pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fd33f038-0c08-4b33-952c-0e139daf56c5",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"peliculaCaliId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comentario\": \"pura basura\",\n\t\"puntaje\": 4.9,\n\t\"pelicula_id\": {{peliculaId}},\n\t\"usuario_id\": {{usuarioId}}\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/calificaciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"calificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"The painter\",\n\t\"director\":\"Tarantino\",\n\t\"creditos\":\"ejemplo\",\n\t\"pais\":\"Argentina\",\n\t\"duracion\":60,\n\t\"puntaje\":76,\n\t\"poster\": \"sasd\",\n\t\"trailer\": \"no idea\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/{{peliculaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"peliculas",
+						"{{peliculaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b27f8457-1a17-4a94-b201-752f474da01d",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"salaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\t\t\"numero\": 2,\n\t\t\t\t\"teatro\":{\n\t\t\t\t\t\"id\": {{teatroId}},\n\t\t\t\t\t\"nombre\": \"prueba\",\n\t\t\t\t\t\"direccion\": \"su casa\",\n\t\t\t\t\t\"numSalasFest\": 5\n\t\t\t\t}\n\t\t\t\t\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/salas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"salas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las salas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "56231b76-d310-4dce-8de6-4da6a96db3b5",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero salas\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/salas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"salas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b6c1a94-ae54-4633-badd-1ec53bd4f1ee",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"salaId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/salas/{{salaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"salas",
+						"{{salaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\t\t\t\"numero\": 50,\n\t\t\t\t\"teatro\":{\n\t\t\t\t\t\"id\": {{teatroId}},\n\t\t\t\t\t\"nombre\": \"prueba\",\n\t\t\t\t\t\"direccion\": \"su casa\",\n\t\t\t\t\t\"numSalasFest\": 5\n\t\t\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/salas/{{salaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"salas",
+						"{{salaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a826832d-0751-40e5-8a12-bf76d68dbdb9",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"funcionId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\t\t\n\t\t\t\"fecha\": \"08/09/2017\",\n\t\t\t\"hora\": \"20\",\n\t\t\t\"precioBase\": \"10000\",\n\t\t\t\"sala\": {\n\t\t\t\t\"id\": {{salaId}},\n\t\t\t\t\"numero\": 2,\n\t\t\t\t\"teatro\":{\n\t\t\t\t\t\"id\": {{teatroId}},\n\t\t\t\t\t\"nombre\": \"prueba\",\n\t\t\t\t\t\"direccion\": \"su casa\",\n\t\t\t\t\t\"numSalasFest\": 5\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"pelicula\": {\n\t\t\t\t\"id\": {{peliculaId}},\n\t\t\t\t\"nombre\":\"Prueba\",\n\t\t\t\t\"director\":\"Tarantino\",\n\t\t\t\t\"creditos\":\"ejemplo\",\n\t\t\t\t\"pais\":\"Argentina\",\n\t\t\t\t\"duracion\":60,\n\t\t\t\t\"puntaje\":76,\n\t\t\t\t\"poster\": \"sasd\",\n\t\t\t\t\"trailer\": \"no idea\"\n\t\t\t\t\n\t\t\t},\n\t\t\t\"critico\":{\n\t\"id\": {{criticoId}},\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n\t\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"funciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las funciones",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a13043af-fe6a-48b6-9555-d2ae8c093f68",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero funciones\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"funciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f850600-6302-4701-9746-13d8bcd4dc7a",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"funcionId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/{{funcionId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"funciones",
+						"{{funcionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza una funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36ecf90b-9386-4cc9-9cbd-443ef68f582b",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\t\t\n\t\t\t\n\t\t\t\"fecha\": \"08/09/2017\",\n\t\t\t\"hora\": \"10\",\n\t\t\t\"precioBase\": \"10000\",\n\t\t\t\"sala\": {\n\t\t\t\t\"id\": {{salaId}},\n\t\t\t\t\"numero\": 2,\n\t\t\t\t\"teatro\":{\n\t\t\t\t\t\"id\": {{teatroId}},\n\t\t\t\t\t\"nombre\": \"prueba\",\n\t\t\t\t\t\"direccion\": \"su casa\",\n\t\t\t\t\t\"numSalasFest\": 5\n\t\t\t\t\t\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"pelicula\": {\n\t\t\t\t\"id\": {{peliculaId}},\n\t\t\t\t\"nombre\":\"Prueba\",\n\t\t\t\t\"director\":\"Tarantino\",\n\t\t\t\t\"creditos\":\"ejemplo\",\n\t\t\t\t\"pais\":\"Argentina\",\n\t\t\t\t\"duracion\":60,\n\t\t\t\t\"puntaje\":76,\n\t\t\t\t\"poster\": \"sasd\",\n\t\t\t\t\"trailer\": \"no idea\"\n\t\t\t\t\n\t\t\t},\n\t\t\t\"critico\":{\n\t\"id\": {{criticoId}},\n\t\"nombres\":\"Andres Felipe\",\n\t\"apellidos\":\"Rodriguez Murillo\",\n\t\"identificacion\":\"1004996937\",\n\t\"celular\":\"3167463624\",\n\t\"email\":\"af.rodriguezm1@uniandes.edu.co\",\n\t\"tipoPersona\":1,\n\t\"nickName\":\"af.rodriguezm1\",\n\t\"password\":\"pipe123456789\",\n\t\"puntaje\":4.6,\n\t\"credencial\":\"3123123456321\"\n\t\t\t}\n\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/{{funcionId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"funciones",
+						"{{funcionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear silla",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f561e4a-0261-423d-b72c-1a3d5ff8e0b7",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"sillaId\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"disponible\": 0,\n\t\"numero\": 10,\n\t\"tipo\": 1,\n\t\"sala\":{\n\t\t\t\t\"id\": {{salaId}},\n\t\t\t\t\"numero\": 2,\n\t\t\t\t\"teatro\":{\n\t\t\t\t\t\"id\": {{teatroId}},\n\t\t\t\t\t\"nombre\": \"prueba\",\n\t\t\t\t\t\"direccion\": \"su casa\",\n\t\t\t\t\t\"numSalasFest\": 5\n\t\t\t\t}\n\t\t\t\t\n}\n}\n"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"sillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las sillas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a1265db-0dce-4400-ae1d-f257049fdedc",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"numero sillas\"] = data.length >= 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"sillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una silla",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e22500f4-b8c3-41f9-99ce-e58bd5701e1c",
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"sillaId\",data.id);",
+							"tests[\"no genera error en el get\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas/{{sillaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"sillas",
+						"{{sillaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una silla",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/sillas/{{sillaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"sillas",
+						"{{sillaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un teatro con funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros/{{teatroFuncId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"{{teatroFuncId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un teatro con sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros/{{teatroSalaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"{{teatroSalaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una funcion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/funciones/{{funcionId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"funciones",
+						"{{funcionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una sala",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/salas/{{salaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"salas",
+						"{{salaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una reserva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1f6225a-f97e-4277-8b4f-2e21dc106b19",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/{{reservaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas",
+						"{{reservaId}}"
+					]
+				},
+				"description": "Se borra una reserva de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina usuario por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5613b87e-b871-4ae5-847c-600c477688bc",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{usuarioId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{usuarioId}}"
+					]
+				},
+				"description": "Se borra un usuario de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/criticos/{{criticoId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"criticos",
+						"{{criticoId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/peliculas/{{peliculaId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"peliculas",
+						"{{peliculaId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una calificacion de un critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/calificaciones/{{criticoCaliId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"calificaciones",
+						"{{criticoCaliId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una calificacion de una pelicula",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/calificaciones/{{peliculaCaliId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"calificaciones",
+						"{{peliculaCaliId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/teatros/{{teatroId}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"teatros",
+						"{{teatroId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un festival",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c253b9-9691-4843-b10d-bfc74dc325dd",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales/{{idFest}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales",
+						"{{idFest}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un festival con teatro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales/{{idFestTeatro}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales",
+						"{{idFestTeatro}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina un festival con critico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24146a4b-e921-4260-bb3c-740e31fe81d5",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/festivales/{{idFestCrit}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"festivales",
+						"{{idFestCrit}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
