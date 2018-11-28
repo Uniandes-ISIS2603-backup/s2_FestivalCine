@@ -40,25 +40,16 @@ public class CriticoEntity extends BaseEntity implements Serializable
      */
     private String identificacion;
     
-    /**
-     * Número celular del critico
-     */
-    private String celular;
+   
     
     /**
      * Correo electronico del critico
      */
     private String email;
     
-    /**
-     * tipo de persona del critico
-     */
-    private Integer tipoPersona;
     
-    /**
-     * NickName del critico
-     */
-    private String nickName;
+    
+    
     
     /**
      * Contraseña del critico
@@ -128,14 +119,7 @@ public class CriticoEntity extends BaseEntity implements Serializable
         return identificacion;
     }
     
-    /**
-     * Retorna el número celular del critico
-     * @return String con el número de celular del critico
-     */
-    public String darCelular()
-    {
-        return celular;
-    }
+    
     
     /**
      * Retorna la dirección de correo electrónico del critico
@@ -146,23 +130,9 @@ public class CriticoEntity extends BaseEntity implements Serializable
         return email;
     }
     
-    /**
-     * Retorna el tipo de persona del critico
-     * @return int con el tipo de persona del critico
-     */
-    public Integer darTipoPersona()
-    {
-        return tipoPersona;
-    }
     
-    /**
-     * retorna el nickname (apodo) del critico
-     * @return String con el nickname del critico
-     */
-    public String darNickName()
-    {
-        return nickName;
-    }
+    
+    
     
     /**
      * Retorna la contaseña del critico
@@ -233,25 +203,16 @@ public class CriticoEntity extends BaseEntity implements Serializable
         this.identificacion = identificacion;
     }
     
-    public void setCelular(String celular)
-    {
-        this.celular = celular;
-    }
+    
     
     public void setEmail(String email)
     {
         this.email = email;
     }
     
-    public void setTipoPersona(int tipoPersona)
-    {
-        this.tipoPersona = tipoPersona;
-    }
     
-    public void setNickName(String nickName)
-    {
-        this.nickName = nickName;
-    }
+    
+    
     
     public void setPassword(String password)
     {
@@ -294,6 +255,8 @@ public class CriticoEntity extends BaseEntity implements Serializable
     }
     
    
+    
+    
     
     
     

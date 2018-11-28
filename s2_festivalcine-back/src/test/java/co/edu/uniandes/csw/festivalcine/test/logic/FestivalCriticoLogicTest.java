@@ -169,10 +169,10 @@ public class FestivalCriticoLogicTest
         Assert.assertEquals(criticoEntity.darNombres(), response.darNombres());
         Assert.assertEquals(criticoEntity.darApellidos(), response.darApellidos());
         Assert.assertEquals(criticoEntity.darIdentificacion(), response.darIdentificacion());
-        Assert.assertEquals(criticoEntity.darCelular(), response.darCelular());
+        
         Assert.assertEquals(criticoEntity.darEmail(), response.darEmail());
-        Assert.assertEquals(criticoEntity.darTipoPersona(), response.darTipoPersona());
-        Assert.assertEquals(criticoEntity.darNickName(), response.darNickName());
+        
+        
         Assert.assertEquals(criticoEntity.darPassword(), response.darPassword());
         Assert.assertEquals(criticoEntity.darPuntaje(), response.darPuntaje());
         

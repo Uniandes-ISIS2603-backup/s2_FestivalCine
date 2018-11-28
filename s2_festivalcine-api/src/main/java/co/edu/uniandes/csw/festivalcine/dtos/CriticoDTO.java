@@ -23,11 +23,11 @@ public class CriticoDTO implements Serializable
     
     private String identificacion;
     
-    private String celular;
+
     
     private String email;
     
-    private String nickName;
+
     
     private String password;
     
@@ -52,9 +52,9 @@ public class CriticoDTO implements Serializable
             this.nombres= criticoEntity.darNombres();
             this.apellidos = criticoEntity.darApellidos();
             this.identificacion = criticoEntity.darIdentificacion();
-            this.celular = criticoEntity.darCelular();
+            
             this.email = criticoEntity.darEmail();
-            this.nickName = criticoEntity.darNickName();
+            
             this.password= criticoEntity.darPassword();
             this.puntaje = criticoEntity.darPuntaje();
             this.credencial = criticoEntity.darCredencial();
@@ -97,14 +97,7 @@ public class CriticoDTO implements Serializable
         return identificacion;
     }
     
-    /**
-     * Devuelve el numero de celular del critico
-     * @return String con el número de celular
-     */
-    public String getCelular()
-    {
-        return celular;
-    }
+    
     
     /**
      * Devuelve el email del critico
@@ -115,14 +108,7 @@ public class CriticoDTO implements Serializable
         return email;
     } 
     
-    /**
-     * Devuelve el nickName (apodo) del critico
-     * @return String con nickName
-     */
-    public String getNickName()
-    {
-        return nickName;
-    }
+    
     
     /**
      * Devuelve la contraseña del critico
@@ -187,14 +173,7 @@ public class CriticoDTO implements Serializable
         this.identificacion = identificacion;
     }
     
-    /**
-     * Modifica el número de celular del critico
-     * @param celular nuevo número de celular
-     */
-    public void setCelular(String celular)
-    {
-        this.celular = celular;
-    }
+    
     
     /**
      * Modifica el email del critico
@@ -205,14 +184,7 @@ public class CriticoDTO implements Serializable
         this.email = email;
     }  
     
-    /**
-     * Modifica el nickName (apodo) del critico
-     * @param nickName nuevo nickName
-     */
-    public void setNickName(String nickName)
-    {
-        this.nickName= nickName;
-    }
+    
 
     /**
      * Modifica la contraseña del critico
@@ -252,9 +224,9 @@ public class CriticoDTO implements Serializable
         criticoEntity.setNombres(this.nombres);
         criticoEntity.setApellidos(this.apellidos);
         criticoEntity.setIdentificacion(this.identificacion);
-        criticoEntity.setCelular(this.celular);
+        
         criticoEntity.setEmail(this.email);
-        criticoEntity.setNickName(this.nickName);
+        
         criticoEntity.setPassword(this.password);
         criticoEntity.setPuntaje((this.puntaje == null)?0:this.puntaje);
         criticoEntity.setCredencial(this.credencial);
@@ -266,6 +238,9 @@ public class CriticoDTO implements Serializable
     {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
     } 
+    
+    
+    
     
     
     

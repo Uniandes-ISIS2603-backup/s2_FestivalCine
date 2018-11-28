@@ -131,7 +131,7 @@ public class CriticoPersistenceTest
         Assert.assertNotNull(newEntity);
         Assert.assertEquals(entity.darNombres(), newEntity.darNombres());
         Assert.assertEquals(entity.darApellidos(), newEntity.darApellidos());
-        Assert.assertEquals(entity.darCelular(), newEntity.darCelular());
+       
         Assert.assertEquals(entity.darCredencial(), newEntity.darCredencial());
     }
     
