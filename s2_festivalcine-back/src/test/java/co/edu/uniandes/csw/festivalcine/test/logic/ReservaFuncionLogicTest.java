@@ -9,6 +9,7 @@ import co.edu.uniandes.csw.festivalcine.ejb.FuncionLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaFuncionLogic;
 
 import co.edu.uniandes.csw.festivalcine.entities.FuncionEntity;
+import co.edu.uniandes.csw.festivalcine.entities.PeliculaEntity;
 
 import co.edu.uniandes.csw.festivalcine.entities.ReservaEntity;
 
@@ -17,8 +18,8 @@ import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
 import co.edu.uniandes.csw.festivalcine.persistence.ReservaPersistence;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -144,12 +145,11 @@ public class ReservaFuncionLogicTest {
     @Test
     public void addFuncionTest() throws BusinessLogicException 
     {
-            FuncionEntity newFuncion = factory.manufacturePojo(FuncionEntity.class);
-            funcionLogic.createFuncion(newFuncion);
-            FuncionEntity funcionEntity = reservaFuncionLogic.addFuncion(reserva.getId(), newFuncion.getId());
+            
+            FuncionEntity funcionEntity = reservaFuncionLogic.addFuncion(reserva.getId(), funcionData.get(0).getId());
             Assert.assertNotNull(funcionEntity);
-            Assert.assertEquals(funcionEntity.getId(), newFuncion.getId());
-            Assert.assertEquals(funcionEntity.getCritico(), newFuncion.getCritico());
+            Assert.assertEquals(funcionEntity.getId(), funcionData.get(0).getId());
+            Assert.assertEquals(funcionEntity.getCritico(), funcionData.get(0).getCritico());
         
     }
     
