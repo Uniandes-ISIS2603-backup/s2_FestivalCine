@@ -265,5 +265,6 @@ public class CriticoDTO implements Serializable
     public String toString()
     {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }   
+    } 
+    
 }
