@@ -1,0 +1,455 @@
+{
+	"info": {
+		"_postman_id": "9c175727-c0d8-4362-bdcf-cfcc2d334770",
+		"name": "UsuarioTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a4c474f-16cb-4316-8790-0146a311632d",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_e\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\": \"Josefina v3\",\n\t\"apellidos\": \"Martinez\",\n\t\"identificacion\": 1,\n\t\"celular\": 3143982366,\n\t\"email\": \"josefina.pp3@uniandes.edu.co\",\n\t\"tipoPersona\": 1,\n\t\"nickname\": \"Sofi\",\n\t\"password\": \"contrasenia\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Se crea un usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "Crea una reserva para un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82065978-294e-4fbb-8073-41a56a52f2a2",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_e2\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"abono\": false,\n\t\"descuento\": 0,\n\t\"precioTotal\": 12000,\n\t\"usuario\":\n\t{\n\t\t\"id\": {{new_id_e}},\n\t\t\"type\": \"usuarioDetailDTO\",\n    \t\"apellidos\": \"Martinez\",\n    \t\"celular\": \"3143982366\",\n    \t\"email\": \"josefina.y3@uniandes.edu.co\",\n    \t\"identificacion\": \"1\",\n    \t\"nombres\": \"Josefina v3\",\n    \t\"password\": \"contrasenia\",\n    \t\"tipoPersona\": 1,\n    \t\"calificaciones\": [],\n    \t\"reservas\": []\n\t\t\n\t}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todas las reservas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d50133e-8a1e-4b00-9ac4-fb90a02ac528",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"editorials count\"] = data.length > 1;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas"
+					]
+				},
+				"description": "Se accede a todas las reservas de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene una reserva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d12ce5b2-4cb1-41e2-916f-bbaace27470a",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_e2\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/{{new_id_e2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas",
+						"{{new_id_e2}}"
+					]
+				},
+				"description": "Se actualiza la información de un usuario de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todos los usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42d7a228-f5ad-4ee7-b34d-4d97d57725ba",
+						"type": "text/javascript",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"editorials count\"] = data.length > 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios"
+					]
+				},
+				"description": "Se accede a todos los usuarios de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24b86f54-caa4-4186-8dfa-53dfd6804bbf",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"new_id_e\",data.id);",
+							"tests[\"no genera error en el Post\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{new_id_e}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{new_id_e}}"
+					]
+				},
+				"description": "Se accede a una reserva de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtiene todas las reservas de un usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "874206e9-ab1b-4ad8-ac2c-4bd277baf80c",
+						"exec": [
+							"var data= JSON.parse(responseBody);",
+							"tests[\"No genera error en el Get all\"] = responseCode.code === 200;",
+							"tests[\"Editorial count with books\"] = data.length >= 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{new_id_e}}/reservas",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{new_id_e}}",
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualiza usuario por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e84f8735-8a06-4f8c-935e-0f477666d474",
+						"type": "text/javascript",
+						"exec": [
+							"console.log(responseBody);",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"No genera error en el Put\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombres\": \"PaulaAndrea\",\n\t\"apellidos\": \"Velandia\",\n\t\"identificacion\": 1014309227,\n\t\"celular\": 3143982366,\n\t\"email\": \"pa.velandiar@uniandes.edu.co\",\n\t\"tipoPersona\": 2,\n\t\"nickname\": \"Paulis\",\n\t\"password\": \"contrasenia\"\n}"
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{new_id_e}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{new_id_e}}"
+					]
+				},
+				"description": "Se actualiza la información de un usuario de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina una reserva",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b1f6225a-f97e-4277-8b4f-2e21dc106b19",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/reservas/{{new_id_e2}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"reservas",
+						"{{new_id_e2}}"
+					]
+				},
+				"description": "Se borra una reserva de la aplicación"
+			},
+			"response": []
+		},
+		{
+			"name": "Elimina usuario por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5613b87e-b871-4ae5-847c-600c477688bc",
+						"exec": [
+							"tests[\"No genera error en el Delete\"] = responseCode.code === 204;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/s2_festivalcine-api/api/usuarios/{{new_id_e}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"s2_festivalcine-api",
+						"api",
+						"usuarios",
+						"{{new_id_e}}"
+					]
+				},
+				"description": "Se borra un usuario de la aplicación"
+			},
+			"response": []
+		}
+	]
+}
