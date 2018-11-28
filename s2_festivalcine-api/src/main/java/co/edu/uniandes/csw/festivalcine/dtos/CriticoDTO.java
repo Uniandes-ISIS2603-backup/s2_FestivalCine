@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package co.edu.uniandes.csw.festivalcine.dtos;
-
 import co.edu.uniandes.csw.festivalcine.entities.CriticoEntity;
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-
 /**
  *
  * @author estudiante
@@ -29,8 +27,6 @@ public class CriticoDTO implements Serializable
     
     private String email;
     
-  
-    
     private String nickName;
     
     private String password;
@@ -38,8 +34,6 @@ public class CriticoDTO implements Serializable
     private Double puntaje;
     
     private String credencial;
-    
-    //Constructor ----------------------------------------------------------------------------
     
     /**
      * Constructor por defecto
@@ -66,8 +60,6 @@ public class CriticoDTO implements Serializable
             this.credencial = criticoEntity.darCredencial();
         }
     }
-    
-    //Métodos -------------------------------------------------------------------------------
     
     /**
      * Devuelve el ID del critico
@@ -121,8 +113,7 @@ public class CriticoDTO implements Serializable
     public String getEmail()
     {
         return email;
-    }
-    
+    } 
     
     /**
      * Devuelve el nickName (apodo) del critico
@@ -212,8 +203,7 @@ public class CriticoDTO implements Serializable
     public void setEmail(String email)
     {
         this.email = email;
-    }
-    
+    }  
     
     /**
      * Modifica el nickName (apodo) del critico
@@ -266,7 +256,7 @@ public class CriticoDTO implements Serializable
         criticoEntity.setEmail(this.email);
         criticoEntity.setNickName(this.nickName);
         criticoEntity.setPassword(this.password);
-        criticoEntity.setPuntaje(this.puntaje);
+        criticoEntity.setPuntaje((this.puntaje == null)?0:this.puntaje);
         criticoEntity.setCredencial(this.credencial);
         return criticoEntity;
     }
@@ -275,21 +265,5 @@ public class CriticoDTO implements Serializable
     public String toString()
     {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
 }
