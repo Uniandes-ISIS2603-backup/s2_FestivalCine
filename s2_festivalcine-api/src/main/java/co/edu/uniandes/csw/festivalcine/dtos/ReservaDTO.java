@@ -162,9 +162,10 @@ public class ReservaDTO implements Serializable
         return reservaEntity;
     }
 
-   @Override
-    public String toString()
-    {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+   
+    
+    
+    
+    
+    
 }

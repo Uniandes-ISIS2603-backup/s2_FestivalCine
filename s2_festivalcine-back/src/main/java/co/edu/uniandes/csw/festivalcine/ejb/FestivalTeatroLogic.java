@@ -70,7 +70,7 @@ public class FestivalTeatroLogic
      */
     public TeatroEntity getTeatro(Long festivalId, Long teatroId) throws BusinessLogicException 
     {
-        LOGGER.log(Level.INFO, "Inicia proceso de consultar el teatro con id = {0} del festival con id = " + teatroId , festivalId);
+        LOGGER.log(Level.INFO, "Inicia proceso de consultar el teatro con id = {0} del festival con id = ", festivalId);
         List<TeatroEntity> teatros = persistence.find(festivalId).getTeatros();
         TeatroEntity teatroEntity = teatroPersistence.find(teatroId);
         
@@ -80,7 +80,7 @@ public class FestivalTeatroLogic
         {
             index = teatros.indexOf(teatroEntity);
         }
-        LOGGER.log(Level.INFO, "Termina proceso de consultar el teatro con id = {0} del festival con id = " + teatroId, festivalId);
+        LOGGER.log(Level.INFO, "Termina proceso de consultar el teatro con id = {0} del festival con id = ", festivalId);
         
         if (index >= 0) 
         {

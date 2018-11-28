@@ -6,7 +6,7 @@
 package co.edu.uniandes.csw.festivalcine.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;

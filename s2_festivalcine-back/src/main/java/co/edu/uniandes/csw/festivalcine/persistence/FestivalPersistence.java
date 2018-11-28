@@ -101,7 +101,7 @@ public List<FestivalEntity> findAll() {
      */ 
     public FestivalEntity findUserByName(String name) 
      {
-        LOGGER.log(Level.INFO, "Consultando festival por nombre ", name);
+        
         TypedQuery query = em.createQuery("Select e From FestivalEntity e where e.nombre = :nombre", FestivalEntity.class); 
         query = query.setParameter("nombre", name);
         List<FestivalEntity> sameName = query.getResultList();
@@ -118,7 +118,7 @@ public List<FestivalEntity> findAll() {
         {
             result = sameName.get(0);
         }
-        LOGGER.log(Level.INFO, "Saliendo de consultar festival por nombre ", name);
+        
         return result;
     }
 
