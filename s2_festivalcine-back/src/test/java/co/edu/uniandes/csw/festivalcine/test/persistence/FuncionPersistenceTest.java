@@ -183,9 +183,6 @@ public class FuncionPersistenceTest {
         FuncionEntity resp = em.find(FuncionEntity.class, entity.getId());
 
         Assert.assertEquals(newEntity.getId(), entity.getId());
-        Assert.assertEquals(newEntity.getPrecioBase(), entity.getPrecioBase());
-        Assert.assertEquals(newEntity.getFecha(), entity.getFecha());
-        Assert.assertEquals(newEntity.getHora(), entity.getHora());
         Assert.assertEquals(newEntity.getTeatro(), entity.getTeatro());
     }
 
