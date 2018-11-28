@@ -8,10 +8,10 @@ package co.edu.uniandes.csw.festivalcine.resources;
 import co.edu.uniandes.csw.festivalcine.dtos.SillaDTO;
 import co.edu.uniandes.csw.festivalcine.ejb.ReservaSillasLogic;
 import co.edu.uniandes.csw.festivalcine.ejb.SillaLogic;
-import co.edu.uniandes.csw.festivalcine.entities.SillaEntity;
+
 import co.edu.uniandes.csw.festivalcine.exceptions.BusinessLogicException;
-import java.util.ArrayList;
-import java.util.List;
+
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
