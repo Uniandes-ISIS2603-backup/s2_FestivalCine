@@ -7,8 +7,8 @@ package co.edu.uniandes.csw.festivalcine.dtos;
 
 import co.edu.uniandes.csw.festivalcine.entities.CalificacionEntity;
 import java.io.Serializable;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+
+
 
 /**
  *
@@ -98,8 +98,8 @@ public class CalificacionDTO implements Serializable
         return calificacionEntity;
     }
     
-    public String toString()
-    {
-        return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
-    }
+    
+    
+    
+    
 }
