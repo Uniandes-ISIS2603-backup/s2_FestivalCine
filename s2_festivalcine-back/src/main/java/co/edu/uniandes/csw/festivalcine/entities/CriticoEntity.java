@@ -273,5 +273,6 @@ public class CriticoEntity extends BaseEntity implements Serializable
     
     
     
+    
 }
 
