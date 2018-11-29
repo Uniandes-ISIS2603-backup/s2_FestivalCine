@@ -1,803 +1,1354 @@
-delete from FestivalEntity;
-delete from TeatroEntity;
-delete from FUNCIONENTITY;
-delete from salaentity;
-delete from UsuarioEntity;
-delete from ReservaEntity;
-delete from criticoentity;
-delete from calificacionentity;
 
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (1, 'Kingsford', 'Brainverse', 50, '16/05/2018', '19/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (2, 'Sunnyside', 'Oyoloo', 164, '12/04/2018', '18/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (3, 'Linden', 'Aivee', 7, '03/03/2018', '02/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (4, 'Morning', 'Livepath', 91, '08/11/2017', '03/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (5, 'Monica', 'Voolia', 50, '07/01/2018', '07/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (6, 'Spohn', 'Jabberstorm', 20, '19/01/2018', '31/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (7, 'Dawn', 'Dazzlesphere', 146, '24/12/2017', '15/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (8, 'Mallard', 'Twimm', 73, '11/08/2018', '21/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (9, 'Dottie', 'Podcat', 164, '04/09/2018', '08/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (10, 'Hintze', 'Photolist', 109, '07/10/2018', '12/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (11, 'Melvin', 'Wikizz', 43, '13/04/2018', '28/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (12, 'Shoshone', 'Agivu', 22, '21/02/2018', '18/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (13, 'Warrior', 'Yacero', 199, '19/11/2017', '02/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (14, 'Banding', 'Myworks', 185, '18/11/2017', '02/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (15, 'Longview', 'Shuffledrive', 180, '16/07/2018', '09/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (16, 'Rowland', 'Jaxnation', 168, '15/04/2018', '06/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (17, 'Gerald', 'Realbridge', 49, '07/10/2018', '31/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (18, 'Nobel', 'Wordtune', 194, '11/07/2018', '17/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (19, 'Bay', 'Realpoint', 164, '06/01/2018', '03/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (20, 'Harper', 'Realfire', 107, '25/10/2017', '26/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (21, 'Stephen', 'Lazz', 108, '08/06/2018', '07/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (22, 'Brentwood', 'Jaxnation', 30, '10/09/2018', '01/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (23, 'West', 'Edgewire', 67, '16/08/2018', '08/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (24, 'Schlimgen', 'Jetpulse', 147, '28/09/2018', '09/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (25, 'Village', 'Cogilith', 66, '16/03/2018', '19/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (26, 'Luster', 'Twitternation', 144, '07/04/2018', '07/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (27, 'Maple', 'Ainyx', 113, '31/12/2017', '13/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (28, 'Mcguire', 'Ooba', 115, '12/03/2018', '05/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (29, 'Myrtle', 'Flashset', 116, '08/04/2018', '05/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (30, 'Butterfield', 'Mynte', 146, '29/03/2018', '03/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (31, 'Scofield', 'Zoozzy', 112, '06/04/2018', '23/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (32, 'Stang', 'Linktype', 186, '18/09/2018', '04/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (33, 'Canary', 'Thoughtworks', 193, '16/12/2017', '20/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (34, 'Eggendart', 'Edgewire', 198, '14/10/2018', '06/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (35, 'Cardinal', 'Riffwire', 9, '11/07/2018', '10/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (36, 'Evergreen', 'Bluejam', 79, '21/10/2018', '15/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (37, 'Logan', 'Flashpoint', 181, '20/01/2018', '25/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (38, 'Arkansas', 'Plajo', 117, '10/07/2018', '05/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (39, 'Michigan', 'Babbleblab', 84, '15/04/2018', '15/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (40, 'Helena', 'Riffpath', 159, '28/10/2017', '10/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (41, 'Mendota', 'Youbridge', 61, '05/11/2017', '05/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (42, 'Meadow Vale', 'Wordpedia', 198, '31/12/2017', '23/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (43, 'Valley Edge', 'Lazzy', 154, '10/12/2017', '12/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (44, 'Southridge', 'Jaxspan', 178, '06/09/2018', '26/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (45, 'Sage', 'Devify', 175, '31/10/2017', '17/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (46, 'Bayside', 'Myworks', 51, '27/09/2018', '21/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (47, 'Forest Dale', 'Zoombeat', 43, '21/01/2018', '17/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (48, 'Ramsey', 'Pixoboo', 18, '18/06/2018', '23/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (49, 'Arkansas', 'Wikido', 192, '10/09/2018', '28/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (50, 'Talisman', 'Thoughtsphere', 148, '21/06/2018', '07/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (51, 'Melrose', 'Browsebug', 49, '23/11/2017', '25/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (52, 'Lakewood', 'Devify', 174, '22/07/2018', '04/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (53, 'Aberg', 'Linkbuzz', 191, '02/09/2018', '28/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (54, 'Dakota', 'Brainverse', 40, '12/09/2018', '03/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (55, 'Northridge', 'Leexo', 158, '28/05/2018', '16/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (56, 'Manitowish', 'Vipe', 3, '14/09/2018', '01/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (57, 'Gina', 'Agimba', 199, '09/03/2018', '01/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (58, 'Meadow Ridge', 'Edgetag', 51, '17/04/2018', '10/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (59, 'Spenser', 'Photofeed', 3, '03/11/2017', '29/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (60, 'Linden', 'Skyba', 39, '21/01/2018', '30/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (61, 'Linden', 'Wordpedia', 78, '11/09/2018', '11/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (62, 'Village', 'Aimbo', 102, '20/06/2018', '14/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (63, 'Summerview', 'Feedfish', 164, '05/08/2018', '26/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (64, 'Ryan', 'Realpoint', 186, '08/08/2018', '27/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (65, 'Upham', 'Plambee', 149, '25/06/2018', '28/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (66, 'Manley', 'Twiyo', 165, '31/10/2017', '27/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (67, 'Del Sol', 'Wordpedia', 134, '13/04/2018', '08/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (68, 'Springview', 'Voomm', 72, '01/03/2018', '15/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (69, 'Bay', 'Voomm', 117, '19/05/2018', '28/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (70, 'Swallow', 'Avaveo', 39, '07/08/2018', '13/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (71, 'Graedel', 'Roomm', 59, '17/01/2018', '11/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (72, 'Clemons', 'Jatri', 149, '17/05/2018', '13/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (73, 'Hagan', 'Brainbox', 135, '23/01/2018', '03/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (74, 'Stang', 'Blogtag', 8, '20/09/2018', '29/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (75, 'Bunker Hill', 'Flashpoint', 99, '07/08/2018', '22/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (76, 'Westport', 'Twitterbridge', 133, '26/09/2018', '16/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (77, 'Erie', 'Yamia', 189, '29/10/2017', '20/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (78, 'Oneill', 'Oyoyo', 156, '19/02/2018', '09/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (79, 'Tomscot', 'Tagtune', 168, '09/08/2018', '04/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (80, 'Emmet', 'Shufflebeat', 169, '14/12/2017', '13/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (81, 'Wayridge', 'Mymm', 113, '07/12/2017', '18/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (82, 'Kennedy', 'Skipfire', 84, '07/04/2018', '15/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (83, 'Butternut', 'Gigaclub', 200, '30/07/2018', '03/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (84, 'Donald', 'Skyvu', 59, '08/03/2018', '05/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (85, 'Ridgeview', 'Npath', 179, '20/03/2018', '29/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (86, 'Sutteridge', 'Skinte', 30, '03/09/2018', '09/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (87, 'Claremont', 'Gabvine', 93, '14/05/2018', '10/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (88, 'Redwing', 'Dabvine', 154, '31/10/2017', '13/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (89, 'Bluestem', 'Zooxo', 142, '21/12/2017', '28/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (90, 'Clove', 'Skyble', 77, '23/06/2018', '17/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (91, 'Drewry', 'Pixope', 133, '14/05/2018', '31/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (92, 'Stephen', 'Youspan', 197, '04/01/2018', '23/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (93, 'Thackeray', 'Dabfeed', 67, '06/02/2018', '28/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (94, 'Schlimgen', 'Realfire', 88, '25/02/2018', '26/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (95, 'Twin Pines', 'Skyba', 78, '06/12/2017', '27/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (96, 'Sycamore', 'Oyoloo', 14, '23/05/2018', '12/11/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (97, 'Dakota', 'Gabspot', 161, '06/03/2018', '16/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (98, 'Dayton', 'Linktype', 70, '28/08/2018', '28/12/2018');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (99, 'Crescent Oaks', 'Babblestorm', 25, '21/02/2018', '01/01/2019');
-insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin) values (100, 'Brentwood', 'Trupe', 194, '11/12/2017', '11/12/2018');
 
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (1, 'Spohn', '1898 Harbort Alley', 1);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (2, 'Reinke', '664 Novick Street', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (3, 'Bobwhite', '4820 John Wall Road', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (4, 'Homewood', '4726 3rd Alley', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (5, 'Thierer', '5 Rowland Park', 9);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (6, 'Cascade', '10 Summerview Circle', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (7, 'Delladonna', '3049 Blue Bill Park Plaza', 4);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (8, 'Barnett', '8 Havey Road', 15);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (9, 'Sundown', '83 Kropf Center', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (10, 'Packers', '8 Upham Hill', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (11, 'Myrtle', '6 Surrey Terrace', 1);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (12, 'Gateway', '060 Hayes Road', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (13, 'Moose', '8 Talisman Circle', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (14, 'Corscot', '1415 Lien Terrace', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (15, 'Forster', '5 Moland Junction', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (16, 'Golf Course', '30620 Shopko Point', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (17, 'Pond', '39750 Darwin Drive', 15);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (18, 'Mifflin', '07 Main Plaza', 3);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (19, 'Merry', '5 Parkside Road', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (20, 'Birchwood', '41126 Crowley Trail', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (21, 'Little Fleur', '49765 Warner Point', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (22, 'Tony', '99 Rigney Street', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (23, 'Memorial', '198 Petterle Point', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (24, 'Nova', '73455 Moulton Plaza', 10);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (25, 'Oak', '61 Fieldstone Drive', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (26, 'Bowman', '09850 Butterfield Junction', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (27, 'North', '11 Atwood Lane', 4);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (28, 'Laurel', '835 Stephen Junction', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (29, 'Continental', '57065 Kim Circle', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (30, 'Cambridge', '13975 Anderson Parkway', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (31, 'Ridge Oak', '90 Vernon Parkway', 15);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (32, 'Eggendart', '20 Nancy Park', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (33, 'Walton', '6712 Algoma Alley', 3);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (34, 'Bobwhite', '2397 Esker Drive', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (35, 'Carey', '3607 Mariners Cove Crossing', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (36, 'Porter', '559 Glacier Hill Circle', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (37, 'Almo', '2305 Meadow Valley Pass', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (38, 'Riverside', '291 Dexter Parkway', 3);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (39, 'Mallard', '1303 Sundown Alley', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (40, 'Gina', '955 Melvin Lane', 4);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (41, 'Badeau', '56 Melody Crossing', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (42, 'Grim', '86921 Menomonie Park', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (43, 'Gateway', '280 Valley Edge Lane', 4);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (44, 'Autumn Leaf', '733 Del Mar Court', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (45, 'Spenser', '7157 Marquette Park', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (46, 'Lillian', '8 Southridge Crossing', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (47, 'Kedzie', '875 Moose Junction', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (48, 'Oriole', '836 Talmadge Place', 1);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (49, 'Dunning', '61 Garrison Plaza', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (50, 'Bunker Hill', '039 Lakewood Point', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (51, 'Jenna', '56 Merchant Point', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (52, 'Grasskamp', '0636 Ilene Place', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (53, 'Portage', '726 Kenwood Trail', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (54, 'Canary', '91937 Moose Avenue', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (55, 'Welch', '1 Iowa Trail', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (56, 'Oneill', '588 Toban Pass', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (57, 'Eliot', '692 Crescent Oaks Pass', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (58, 'Tennessee', '96437 Shelley Point', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (59, 'Manley', '904 Ryan Hill', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (60, 'Scofield', '60232 Maywood Place', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (61, 'Lakewood Gardens', '84 Fairview Park', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (62, 'Parkside', '677 Hermina Place', 3);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (63, 'Muir', '85079 Lyons Circle', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (64, 'Rockefeller', '437 Twin Pines Way', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (65, 'Walton', '88 Norway Maple Court', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (66, 'Sherman', '656 Morningstar Junction', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (67, 'Rockefeller', '8 Manley Parkway', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (68, 'Donald', '7857 Hanover Crossing', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (69, 'Charing Cross', '56829 Riverside Terrace', 4);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (70, 'Corben', '194 Daystar Hill', 1);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (71, 'Hauk', '65089 Chive Pass', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (72, 'Shoshone', '02 Sheridan Drive', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (73, 'Gale', '8276 Londonderry Avenue', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (74, 'Di Loreto', '9609 Dwight Terrace', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (75, 'Moulton', '3717 Fisk Way', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (76, 'Arizona', '12 Steensland Way', 12);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (77, 'Holy Cross', '90 Stang Park', 12);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (78, 'Warbler', '111 Pleasure Lane', 12);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (79, 'Moulton', '57 Corscot Lane', 5);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (80, 'Drewry', '614 Di Loreto Crossing', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (81, 'Scofield', '1027 Blaine Trail', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (82, 'Oriole', '623 Emmet Court', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (83, 'Redwing', '2331 Ryan Junction', 9);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (84, 'Moulton', '835 Manufacturers Point', 7);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (85, 'Shasta', '795 Barby Pass', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (86, 'Village', '52723 Vermont Crossing', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (87, 'Eastwood', '416 Grim Crossing', 6);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (88, 'Transport', '96 Fieldstone Lane', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (89, 'Bunting', '8275 Miller Point', 1);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (90, 'David', '4180 Muir Road', 3);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (91, 'Meadow Ridge', '436 Michigan Street', 9);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (92, 'Hoffman', '305 Judy Court', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (93, 'Pine View', '658 Longview Road', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (94, 'Jenna', '99 Donald Way', 13);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (95, 'Morningstar', '39473 Daystar Way', 14);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (96, 'Delladonna', '2109 Farwell Hill', 9);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (97, 'Drewry', '651 Thackeray Lane', 2);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (98, 'Grover', '193 Victoria Plaza', 8);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (99, 'Chinook', '695 Gulseth Parkway', 11);
-insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (100, 'Arrowood', '2 Heath Circle', 10);
+--inserta criticos
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (100, 'Jermain', 'Musla', 'jmusla0@flickr.com', '5010129226556458', 'cAmxQY', 1.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (101, 'Lind', 'Auchinleck', 'lauchinleck1@blog.com', '6333724870232972', 'hlw7H8OEMauP', 1.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (102, 'Lusa', 'Luppitt', 'lluppitt2@liveinternet.ru', '6392238172092479', 'ukL5AN9', 4.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (103, 'Antons', 'Grisley', 'agrisley3@opensource.org', '4917611296655069', 'OCYvD3ISS1', 2.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (104, 'Cyrille', 'Andersson', 'candersson4@toplist.cz', '3550372796454552', 'JKh3J077C', 1.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (105, 'Tildy', 'McCathie', 'tmccathie5@edublogs.org', '201777726165004', 'ZJJYVDKcHYy', 1.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (106, 'Mellisent', 'Counter', 'mcounter6@flickr.com', '676104556769286090', 'PI8XK7', 1.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (107, 'Gifford', 'Jobson', 'gjobson7@marketwatch.com', '374283131840464', 'y6L3yv7YRqV', 1.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (108, 'Ragnar', 'Eakins', 'reakins8@slashdot.org', '3579950518291977', '3NznmmxdWw', 4.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (109, 'Ernie', 'Green', 'egreen9@issuu.com', '67620101073036811', 'mmrq4L2hD', 4.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (110, 'Ban', 'Pirdy', 'bpirdya@dropbox.com', '201959926506423', 'DffcHm', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (111, 'Gennie', 'Terram', 'gterramb@google.com.br', '560222798822066027', 'Qgw6eEhj', 4.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (112, 'Mano', 'Richie', 'mrichiec@jimdo.com', '30158167788397', 'NgFeB20', 4.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (113, 'Kristy', 'Palek', 'kpalekd@skype.com', '3541917682467902', 'uJiRAwbaFPG', 2.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (114, 'Maxie', 'Olyonov', 'molyonove@mtv.com', '201792078865275', 'iDchmYn', 3.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (115, 'Matias', 'Skull', 'mskullf@ed.gov', '5602211382815243', 'k4AvUTcLdIUw', 3.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (116, 'Elita', 'Reeks', 'ereeksg@reddit.com', '3577061814095146', 'Ovkp73lIw', 3.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (117, 'Stace', 'Mathews', 'smathewsh@360.cn', '3580985178946509', 'WoQPS1aV', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (118, 'Caesar', 'Glendza', 'cglendzai@huffingtonpost.com', '3567059206987021', 'ajEpZEc', 4.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (119, 'Adeline', 'Fortnam', 'afortnamj@blog.com', '3566776030246644', 'UMI5WKWmmc', 1.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (120, 'Randie', 'Dorsey', 'rdorseyk@army.mil', '3537526229324579', 'vQzYRs', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (121, 'Hedvig', 'Novelli', 'hnovellil@surveymonkey.com', '3574639270249530', 'i4aqLrLV', 4.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (122, 'Kari', 'Laird-Craig', 'klairdcraigm@accuweather.com', '4946187214572', 'YKCpvZAP', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (123, 'Rosemary', 'Wardhough', 'rwardhoughn@g.co', '5100175680311998', '21dYPpj1', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (124, 'Porter', 'Grattage', 'pgrattageo@usgs.gov', '5100144390483679', 'wV3h22', 1.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (125, 'Damiano', 'Last', 'dlastp@linkedin.com', '3548899621487527', 'e4I2Apy5na', 2.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (126, 'Fons', 'O''Dare', 'fodareq@nih.gov', '3545700243030542', 'J8K2kzBC', 2.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (127, 'Sandy', 'Went', 'swentr@ezinearticles.com', '3559384140624633', 'sTHTeyqnAW', 2.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (128, 'Gay', 'Saice', 'gsaices@irs.gov', '5108753471265375', 'zBZUMn09MK', 1.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (129, 'Silvain', 'Raiker', 'sraikert@elpais.com', '3566480041031000', 'IDONgU', 1.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (130, 'Chet', 'Mallabund', 'cmallabundu@jimdo.com', '6331105149733807475', 'jlLAuy', 1.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (131, 'Brit', 'Colvill', 'bcolvillv@nsw.gov.au', '36883085100094', 'H6sSzqe', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (132, 'Karlyn', 'Landell', 'klandellw@wikia.com', '6709661696316256', '6kNxlq', 1.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (133, 'Lemar', 'Rollin', 'lrollinx@odnoklassniki.ru', '4405896375408709', 'SSmfSa5fLpyY', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (134, 'Celia', 'Hepher', 'chephery@wikimedia.org', '675987173994702539', 'vs4t37mnMCXN', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (135, 'Chiquia', 'Domenico', 'cdomenicoz@weibo.com', '6380569415278309', 'fdDp1A7lR', 3.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (136, 'Sile', 'Raff', 'sraff10@cnbc.com', '5602255898837324', 'wjpvFES', 1.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (137, 'Roddie', 'Nolte', 'rnolte11@nasa.gov', '374622026965516', 'Ll82t78Ijr', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (138, 'Jacquelin', 'Laidler', 'jlaidler12@thetimes.co.uk', '3555500345882254', 'rOXjPMRQ', 3.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (139, 'Kelley', 'La Grange', 'klagrange13@yahoo.co.jp', '3564320641652890', 'itKCXd', 1.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (140, 'Christel', 'Martinetto', 'cmartinetto14@rambler.ru', '5602251261199939', 'v2XbOgYZ', 2.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (141, 'Sibella', 'Friedman', 'sfriedman15@goodreads.com', '3576460281277800', 'eX7B8kdoE4Jz', 4.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (142, 'Dina', 'Althrop', 'dalthrop16@jugem.jp', '3570762012130059', 'Sht58I9ll', 1.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (143, 'Essie', 'Beddon', 'ebeddon17@miibeian.gov.cn', '4913177082051651', 'nzrhUwP', 1.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (144, 'Harris', 'Espasa', 'hespasa18@house.gov', '4905492000462363707', 'fhTYp3dq6', 4.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (145, 'Casey', 'Entwistle', 'centwistle19@ucla.edu', '633110374847353160', 'xtCW8MoZ', 3.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (146, 'Agnella', 'McKintosh', 'amckintosh1a@google.ru', '5020860736284116549', '7FaAil68', 3.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (147, 'Liza', 'Sulley', 'lsulley1b@deviantart.com', '3558990771008093', 'ywSQpUYL', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (148, 'Carol-jean', 'Rubinivitz', 'crubinivitz1c@virginia.edu', '560221348969163004', 'EvnzbSCWPse', 4.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (149, 'Cherise', 'Fairlie', 'cfairlie1d@mit.edu', '3540026975326048', '7I1sDvutQ', 4.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (150, 'Torre', 'Davydychev', 'tdavydychev1e@istockphoto.com', '3565818047687708', '4dsDKXjtgZ', 2.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (151, 'Talyah', 'Witcherley', 'twitcherley1f@wikipedia.org', '3562689163140795', '162d0K', 4.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (152, 'Kearney', 'Derx', 'kderx1g@a8.net', '3567090067007641', 'kUCznAi', 3.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (153, 'Belvia', 'Gerald', 'bgerald1h@123-reg.co.uk', '5602214816912958', 'SU3jotoIU1HA', 4.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (154, 'Carlotta', 'Kobu', 'ckobu1i@istockphoto.com', '3588502091227669', 'IGYsbOZvdtg', 1.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (155, 'Allister', 'Riccioppo', 'ariccioppo1j@discuz.net', '3536699561040490', 'bKhAyCwDOd', 3.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (156, 'Horacio', 'Chapelhow', 'hchapelhow1k@bbb.org', '5038740506803143', 'g5LBNk10mSQC', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (157, 'Leicester', 'Innis', 'linnis1l@nifty.com', '3538594960457726', 'fqpen7i', 4.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (158, 'Caresa', 'Grabb', 'cgrabb1m@soup.io', '5641827786665760', 'j43VBJnfng2Q', 3.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (159, 'Holli', 'Girogetti', 'hgirogetti1n@weather.com', '490556581796624104', 'IbjOnDyXXPOX', 2.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (160, 'Hershel', 'Dooman', 'hdooman1o@bbb.org', '4913791623436823', 'ZrAz9h7pSXs', 3.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (161, 'Tracie', 'Landman', 'tlandman1p@ox.ac.uk', '3571656090181589', 'Htdt0so9x', 3.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (162, 'Robenia', 'Legerton', 'rlegerton1q@wisc.edu', '6373998712762484', 'RDHr6k7mS', 3.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (163, 'Filippa', 'Bruster', 'fbruster1r@imgur.com', '201773347457615', 'qsSA8K', 1.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (164, 'Fey', 'Bemlott', 'fbemlott1s@ox.ac.uk', '30035959899139', 'aAblEmM', 4.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (165, 'Hobey', 'L''Archer', 'hlarcher1t@paginegialle.it', '6759244846261926882', 'ZbRbOo7', 2.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (166, 'Svend', 'Clinnick', 'sclinnick1u@wired.com', '560221619051413873', '4bet1Eh9jk', 3.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (167, 'Beltran', 'Dragonette', 'bdragonette1v@edublogs.org', '3575329009717010', 'pTkz3NavZ9P', 4.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (168, 'Aubine', 'Elcombe', 'aelcombe1w@shinystat.com', '3565170380264293', '2UjfXea7BT', 2.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (169, 'Rolando', 'Gun', 'rgun1x@typepad.com', '36161621812922', 'r7UxTCcDG2Tf', 1.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (170, 'Alissa', 'Sorby', 'asorby1y@live.com', '374283503684441', '3F3rcsK7', 4.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (171, 'Gunar', 'Pechard', 'gpechard1z@soundcloud.com', '3543023858949472', 'wwYD3x3BPfhq', 3.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (172, 'Dukey', 'Jiroudek', 'djiroudek20@tamu.edu', '3588299889185205', 'OpKkKiW7IJVZ', 2.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (173, 'Abie', 'Gitthouse', 'agitthouse21@lycos.com', '675990880845661491', 'njywjLyPty', 1.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (174, 'Davidde', 'Fenkel', 'dfenkel22@usda.gov', '4917558001817601', 'QCOCrj14uFR4', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (175, 'Ingamar', 'Zelland', 'izelland23@webnode.com', '4905297707379988', 'gJExBsgoHb0O', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (176, 'Ardeen', 'Giovanardi', 'agiovanardi24@myspace.com', '3575467568761175', 'uSzOxGP', 4.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (177, 'Edith', 'Wearn', 'ewearn25@wix.com', '3533404291437394', 'jPntwn8P', 5.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (178, 'Broddie', 'Brightman', 'bbrightman26@newsvine.com', '3560135930771431', 'XxkHnBfIoj', 1.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (179, 'Geoffry', 'Grosvenor', 'ggrosvenor27@wordpress.org', '6763911708988422393', 's1f40D', 3.9);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (180, 'Kevon', 'Alcoran', 'kalcoran28@java.com', '4917309620846708', 'oeWYi1BAv9', 3.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (181, 'Katy', 'Sherlock', 'ksherlock29@princeton.edu', '3573652888171047', 'd0Ef8XxwDsT', 3.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (182, 'Winslow', 'Bedell', 'wbedell2a@answers.com', '30418623300728', 't7RobeVpSi7', 2.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (183, 'Melinda', 'Iacomettii', 'miacomettii2b@nbcnews.com', '3544594286132823', '8m6npAv', 1.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (184, 'Artur', 'Poulden', 'apoulden2c@vistaprint.com', '3573209088471345', '9mRl6uWrS5XD', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (185, 'Lindie', 'Metzke', 'lmetzke2d@liveinternet.ru', '3580046774966746', 'oLM7Tq', 5.0);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (186, 'Adora', 'Haworth', 'ahaworth2e@howstuffworks.com', '5465247869493571', 'g0b3zrs6gt', 3.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (187, 'Robenia', 'Goodyear', 'rgoodyear2f@xinhuanet.com', '3534083414411509', 'CIJuYd', 3.3);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (188, 'Fanchon', 'Shawell', 'fshawell2g@last.fm', '5018789185102038984', '9k8ECEw', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (189, 'Katlin', 'Blitzer', 'kblitzer2h@typepad.com', '6398886167639920', '1r72c7V6Sbt', 3.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (190, 'Perri', 'Ebbing', 'pebbing2i@smh.com.au', '4026526379400514', 'WYxMDJozq', 4.5);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (191, 'Oby', 'Skeel', 'oskeel2j@furl.net', '503824962813183488', 'wrKrvBFz', 2.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (192, 'Care', 'Fyall', 'cfyall2k@latimes.com', '5038093078796281441', 'bx00v8s29B3', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (193, 'Zak', 'Dalston', 'zdalston2l@php.net', '5018176027095055', 'uBBMtFVP', 3.7);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (194, 'Germaine', 'Wolland', 'gwolland2m@fc2.com', '676276409821266191', 'eHSSOYVA', 3.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (195, 'Bryanty', 'Egalton', 'begalton2n@naver.com', '3548195487577752', '87QZvT', 2.2);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (196, 'Korney', 'Shinefield', 'kshinefield2o@usa.gov', '3576443905114914', 'B2uqrYB', 3.1);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (197, 'Myriam', 'Songust', 'msongust2p@irs.gov', '633481080725949190', '6kRVWwSG3H', 2.4);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (198, 'Bernice', 'Volkers', 'bvolkers2q@hibu.com', '3533007671818008', 'hltFOEJxTr', 2.8);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (199, 'Alister', 'Bernardini', 'abernardini2r@skyrock.com', '6386977533380796', 'fIKZDqfXFRUU', 2.6);
+insert into criticoEntity (id, nombres, apellidos, email, identificacion, password, puntaje) values (200, 'Clovis', 'Shoard', 'cshoard2s@auda.org.au', '6767578425006918444', 'gw2L3W6', 1.2);
+
+
+--Inserta usuarios
+
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (100, 'Anitra', 'Farmar', '06046469878644333', '192-658-4807', 'akaretl@symantec.com', 1, 'Bo8Fbh');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (101, 'Tedi', 'McKeaney', '06046469878644905', '192-658-4806', 'tmckeaney0@odnoklassniki.ru', 1, '5QoOcipxO');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (102, 'Ibby', 'Gidney', '6333194056839115869', '419-426-2158', 'igidney1@netscape.com', 1, '9eQ7BN');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (103, 'Carie', 'Sutherland', '3532429963451069', '603-287-5108', 'csutherland2@walmart.com', 1, 'AGkXjK');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (104, 'Anitra', 'Tamas', '3576176372562013', '391-304-7726', 'atamas3@technorati.com', 1, 'J3cp8yZN');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (105, 'Town', 'Koles', '201543409336779', '203-758-2160', 'tkoles4@cpanel.net', 1, 'LfgoGrY6NWD');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (106, 'Kellsie', 'Brigstock', '5346003956561639', '937-609-3631', 'kbrigstock5@wikipedia.org', 1, 'ANcZVrQTj');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (107, 'Mellie', 'Goatman', '4175000605455097', '344-764-9797', 'mgoatman6@independent.co.uk', 1, 'XFb0RX');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (108, 'Faye', 'Cromb', '633110846288568026', '488-487-2656', 'fcromb7@netlog.com', 1, 'B0CsP6eJ6gfv');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (109, 'Christie', 'Le land', '6331105505815563361', '502-399-1087', 'cleland8@globo.com', 1, 'mNIaqQ');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (110, 'Silvano', 'Farmar', '5048378833386330', '433-466-3918', 'sfarmar9@gnu.org', 1, 'sHv0HNw');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (111, 'Des', 'Bradnock', '3562480804474615', '694-836-3981', 'dbradnocka@chronoengine.com', 1, '8rSMAsr');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (112, 'Baxter', 'Pond-Jones', '3578216748748496', '541-111-4264', 'bpondjonesb@foxnews.com', 1, 'tYFYMtiA');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (113, 'Nell', 'Mucklestone', '3560608794040499', '787-281-4409', 'nmucklestonec@geocities.com', 1, 'l41itOBw');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (114, 'Hyacinthie', 'Fautley', '56022146052186381', '250-870-6934', 'hfautleyd@ucoz.com', 1, 'TNjRhoVaHVE8');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (115, 'Elsworth', 'Petticrow', '3558369721080884', '209-312-3205', 'epetticrowe@meetup.com', 1, 'LPOgtcKSwvz');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (116, 'Bernhard', 'Guerrieri', '3551687100367045', '578-642-2830', 'bguerrierif@elpais.com', 1, 'B5ZuHSMlogUA');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (117, 'Xerxes', 'Jovicic', '3534473302620990', '323-490-4999', 'xjovicicg@hubpages.com', 1, 'sniSEUCshKbe');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (118, 'Federico', 'Brisker', '5602233689089363', '981-556-0390', 'fbriskerh@google.com.au', 1, 'IMmhlOpkae');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (119, 'Lizabeth', 'Franzen', '36460253317667', '750-591-9864', 'lfranzeni@deviantart.com', 1, '37uJIVz2P');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (120, 'Lindy', 'Gynni', '5469093964946741', '964-418-3233', 'lgynnij@merriam-webster.com', 1, 'csn1ZlsnoCJL');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (121, 'Aurilia', 'Simukov', '560225274333290081', '234-681-2776', 'asimukovk@amazon.com', 1, '2Cbxezv');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (122, 'Adelbert', 'Karet', '5007663530752085', '863-532-3044', 'akaretl@symantec.com', 1, 'jp0k1rjPLka');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (123, 'Jerrylee', 'MacCaughan', '3563288296342698', '629-383-7641', 'jmaccaughanm@virginia.edu', 1, 'jl2Fxq');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (124, 'Abram', 'McClure', '4017956422182408', '846-550-0663', 'amccluren@marriott.com', 1, '9R3tN1H68Wr');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (125, 'Evyn', 'Lauthian', '3535318025883830', '380-397-1170', 'elauthiano@joomla.org', 1, 'WsWv6s');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (126, 'Vivi', 'Hargitt', '67615920124793006', '345-754-1206', 'vhargittp@abc.net.au', 1, '4IU4T4');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (127, 'Darby', 'Bento', '201579182362871', '319-773-0320', 'dbentoq@google.fr', 1, 'td6HCK');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (128, 'Jasun', 'Dairton', '63044133294188375', '382-999-5520', 'jdairtonr@123-reg.co.uk', 1, '8MWKbt');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (129, 'Sarge', 'Lorentzen', '3555473716038510', '837-951-2380', 'slorentzens@1und1.de', 1, 'EopOCs');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (130, 'Jeni', 'Barnish', '3559401213055667', '858-109-5460', 'jbarnisht@furl.net', 1, 'SwTLfg1');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (131, 'Steward', 'Tureville', '3530996077902817', '513-165-6334', 'sturevilleu@stumbleupon.com', 1, 'TrlmlqH4Aw');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (132, 'Easter', 'Kellen', '3572551232534853', '635-181-0432', 'ekellenv@com.com', 1, 'eWyqIj');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (133, 'Mort', 'O''Doghesty', '5100173008559083', '353-419-5753', 'modoghestyw@arizona.edu', 1, 'Bo8FbP');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (134, 'Hiram', 'Tewkesberrie', '491138785585796859', '610-381-4207', 'htewkesberriex@tmall.com', 1, 'GQZi0WHxKjg');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (135, 'Hanni', 'Keets', '4175009888508993', '682-242-2463', 'hkeetsy@uiuc.edu', 1, 'EA3Vp99');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (136, 'Clary', 'Sorro', '3535588298848401', '443-487-2862', 'csorroz@census.gov', 1, 'PE1poN');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (137, 'Tomasine', 'Rontree', '5641829726357406763', '732-255-6174', 'trontree10@economist.com', 1, '6IcgriXN');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (138, 'Hildagard', 'Hodgins', '5610354073234025', '223-473-1150', 'hhodgins11@umn.edu', 1, 'hXKTZ2qVOg');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (139, 'Marlon', 'Noads', '6392321147059813', '434-241-7795', 'mnoads12@msu.edu', 1, 'aR2VktoD');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (140, 'Jaquenetta', 'Leteurtre', '3528524725640763', '434-427-3309', 'jleteurtre13@loc.gov', 1, 'uLdPeAk');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (141, 'Wally', 'Feedome', '3589247864601315', '640-592-0171', 'wfeedome14@newsvine.com', 1, '4tZFPuJVeIW');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (142, 'Torey', 'MacMychem', '675932549839294038', '420-274-5364', 'tmacmychem15@mapy.cz', 1, 'l1CU6CtfWO');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (143, 'Gan', 'Danielsen', '630401948527720089', '614-801-6155', 'gdanielsen16@deliciousdays.com', 1, 'f3mAKYpP0lDt');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (144, 'Marcelo', 'Belfit', '58933665068164458', '710-753-9776', 'mbelfit17@sogou.com', 1, '8RM52qkPl');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (145, 'Fidelia', 'Brophy', '6395238883299998', '238-423-0484', 'fbrophy18@youtu.be', 1, 'hJsKMF');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (146, 'Derick', 'Gullick', '3541227178927744', '939-348-7447', 'dgullick19@dion.ne.jp', 1, 'tVbTrPx7gL');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (147, 'Ruprecht', 'Heathwood', '4913469817401222', '136-818-5299', 'rheathwood1a@utexas.edu', 1, 'vEQ4po');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (148, 'Thorsten', 'Smallacombe', '201448369687486', '612-968-4133', 'tsmallacombe1b@myspace.com', 1, '9O38ajNECw');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (149, 'Linzy', 'Winram', '3560230921571914', '118-771-3632', 'lwinram1c@va.gov', 1, 'iRTCdZV');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (150, 'Gilemette', 'Greenstead', '30288124787149', '201-160-4364', 'ggreenstead1d@harvard.edu', 1, 'rObv9jz');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (151, 'Putnem', 'Facchini', '3560342851371585', '106-848-0905', 'pfacchini1e@google.co.jp', 1, 'mdayhc');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (152, 'Ynez', 'Norvel', '3562089703591443', '724-495-5298', 'ynorvel1f@mail.ru', 1, 'Il2ql1');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (153, 'Pascal', 'Revely', '201953601580217', '842-860-5082', 'prevely1g@utexas.edu', 1, 'w1rw8Vr9V');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (154, 'Toinette', 'Sherebrooke', '5100146416443934', '839-854-8449', 'tsherebrooke1h@nba.com', 1, '0dZQAj');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (155, 'Charlean', 'Leport', '5513267429606555', '522-264-1595', 'cleport1i@chronoengine.com', 1, 'ZPiuMdAIVx');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (156, 'Hamel', 'Heijne', '5602252918479584357', '704-643-1253', 'hheijne1j@discovery.com', 1, '4tmaTiXmuA0');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (157, 'Kevina', 'Kernan', '633334131126334802', '161-793-6873', 'kkernan1k@webeden.co.uk', 1, '1KntConLLF');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (158, 'Amity', 'Minto', '3530693732226738', '867-864-2120', 'aminto1l@phoca.cz', 1, 'yAUqHZpf');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (159, 'Linnea', 'Blomfield', '5108751358324448', '585-467-1335', 'lblomfield1m@goodreads.com', 1, 'X0XQgM1cDnkN');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (160, 'Aloin', 'Beathem', '67618690072670616', '520-769-8245', 'abeathem1n@ca.gov', 1, 'ijJ6wr7SQL3');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (161, 'Eleanor', 'Bloomfield', '5573774839494156', '215-817-3616', 'ebloomfield1o@boston.com', 1, 'gZJQNnH');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (162, 'Cris', 'Matuszynski', '3561568900389256', '489-537-3446', 'cmatuszynski1p@usa.gov', 1, '3c9GyAR');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (163, 'Lennie', 'Ervine', '3569619519516136', '227-847-8130', 'lervine1q@google.cn', 1, 'a4s5nXfjG4W');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (164, 'Eloise', 'Folliott', '5002359270599092', '921-926-4010', 'efolliott1r@nhs.uk', 1, 'motg6mWNHiqT');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (165, 'Cordell', 'Shower', '3565164260582221', '435-760-0140', 'cshower1s@nifty.com', 1, 'BXP98YY');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (166, 'Phaidra', 'Sidwick', '4936464704445260', '108-274-7576', 'psidwick1t@amazon.de', 1, 'EaNRMcVWY');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (167, 'Donella', 'Standish', '3528187689494120', '293-925-7606', 'dstandish1u@cbslocal.com', 1, 'U7wtciHCJ');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (168, 'Bili', 'Breissan', '3558114692283582', '338-689-8089', 'bbreissan1v@dmoz.org', 1, 'l0dUBs');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (169, 'Jessie', 'Barreau', '378634392192621', '479-953-5096', 'jbarreau1w@dropbox.com', 1, 'aC90qTw');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (170, 'Coleen', 'Gasson', '3542765679157542', '914-300-3482', 'cgasson1x@utexas.edu', 1, 'mpSLRD');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (171, 'Karry', 'Olding', '5602217144463834', '879-362-1261', 'kolding1y@imgur.com', 1, 'QfjbSz');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (172, 'Rodolph', 'Brangan', '3547434999051803', '170-935-2932', 'rbrangan1z@pen.io', 1, 'kewf8I62');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (173, 'Lodovico', 'Waples', '5641823390502408', '825-543-4368', 'lwaples20@unesco.org', 1, 'TEb45EtZT');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (174, 'Blaire', 'Manser', '3549940671141827', '235-897-6198', 'bmanser21@mapy.cz', 1, 'm5NlgOYgd');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (175, 'Sibylle', 'Asp', '3532668393726414', '441-715-6943', 'sasp22@youku.com', 1, 'iSSBIBQz2');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (176, 'Wyn', 'Drewery', '3558871756906925', '658-301-2560', 'wdrewery23@ocn.ne.jp', 1, 'PzYbxa7sIlu');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (177, 'Janek', 'Blackler', '3585276632506435', '271-718-8483', 'jblackler24@indiegogo.com', 1, 'a3HC3w1Lrz');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (178, 'Rois', 'Budding', '3528683144649902', '188-501-7536', 'rbudding25@admin.ch', 1, 'CXuqc3bjg');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (179, 'Wyn', 'Kaminski', '30233765351268', '607-852-9154', 'wkaminski26@1688.com', 1, 'eVVVS9R');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (180, 'Augustine', 'Cuskery', '4913690695892311', '804-880-8440', 'acuskery27@seattletimes.com', 1, '2rOMaqz');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (181, 'Aimil', 'Dinnington', '6331108297744938', '488-638-1790', 'adinnington28@addthis.com', 1, 'bZzoKJ0E');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (182, 'Victoir', 'Billing', '3552191601495610', '356-518-5579', 'vbilling29@wsj.com', 1, 'cmnMHOTfA');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (183, 'Marinna', 'Hawney', '4508019325114725', '841-776-8468', 'mhawney2a@xinhuanet.com', 1, '2XPTnfsX8');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (184, 'Lucila', 'Tirrey', '501874541581528729', '506-573-4480', 'ltirrey2b@wikispaces.com', 1, 'iYiC2R');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (185, 'Kipp', 'Pieche', '5290668741934444', '540-930-7770', 'kpieche2c@over-blog.com', 1, 'IoG4yfE1');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (186, 'Lita', 'Decort', '3567374140071901', '999-253-4430', 'ldecort2d@oaic.gov.au', 1, 'EATKl7LMZ');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (187, 'Griffie', 'Inde', '201691396921549', '190-828-9390', 'ginde2e@youtube.com', 1, 'kq8tLGOV1BuV');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (188, 'Erl', 'O''Duggan', '6391227441802546', '802-164-3921', 'eoduggan2f@cnbc.com', 1, 'IVfXBKaaH');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (189, 'Jefferson', 'Sharnock', '3554360947963999', '793-830-3203', 'jsharnock2g@dyndns.org', 1, 'GLj8JTOJb1');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (190, 'Lincoln', 'Triggel', '3535768766970271', '253-982-7708', 'ltriggel2h@cargocollective.com', 1, 'OGzN42w32');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (191, 'Katharine', 'Huitt', '3546759226564363', '341-444-6239', 'khuitt2i@w3.org', 1, '0bosWZ');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (192, 'Ekaterina', 'Dickman', '3547619626230644', '305-961-8034', 'edickman2j@nydailynews.com', 1, 'wltTQMByfS');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (193, 'Benni', 'Rainton', '376614647091739', '723-478-1683', 'brainton2k@google.it', 1, '5vkUgh');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (194, 'Ancell', 'Weippert', '5010121597548743', '293-533-7303', 'aweippert2l@jigsy.com', 1, 'xj27dGotbq');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (195, 'Rab', 'Lavell', '4041375472719', '817-224-3212', 'rlavell2m@jimdo.com', 1, '8BVnhj2E');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (196, 'Gypsy', 'Bowker', '502018459728964340', '956-583-6002', 'gbowker2n@ovh.net', 1, '2he69bGi');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (197, 'Eleni', 'Shillito', '3558522455246747', '510-524-7161', 'eshillito2o@unicef.org', 1, 'gD2tViaEm');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (198, 'Collin', 'Pennock', '5038421250253822875', '637-332-9216', 'cpennock2p@bandcamp.com', 1, 'gD881T8');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (199, 'Christopher', 'Cohen', '0604445276383491', '644-285-3884', 'ccohen2q@php.net', 1, 'NnA6DvWo');
+insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (200, 'Thomasine', 'Glynne', '3556625069266498', '369-318-8031', 'tglynne2r@webeden.co.uk', 1, 'yhzEN0');
+
+--Inserta las peliculas
+
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (100, 'Porgy and Bess', 'Cleavland', 'China', 'QUALITY CHOICE (Chain Drug Marketing Association)', 298, 0.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (101, 'Happiness Never Comes Alone (Un bonheur n''arrive jamais seul)', 'Tait', 'United States', 'Deb USA, Inc.', 53, 4.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (102, 'Dudesons Movie, The', 'Valentijn', 'Peru', 'Rebel Distributors Corp', 65, 4.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (103, 'Rat Pfink a Boo Boo', 'Richardo', 'Canada', 'Preferred Pharmaceuticals, Inc.', 93, 4.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (104, 'Over Your Cities Grass Will Grow', 'Kimmy', 'Japan', 'Your Military Exchange', 275, 4.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (105, 'Charlie Chan''s Secret', 'Leroi', 'Honduras', 'PD-Rx Pharmaceuticals, Inc.', 154, 4.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (106, 'The Circle', 'Gennie', 'Bosnia and Herzegovina', 'CLINIQUE LABORATORIES INC', 38, 4.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (107, 'Computer Chess', 'Justino', 'Mozambique', 'MSD Consumer Care, Inc.', 237, 2.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (108, 'Ghostmaker, The (Box of Shadows)', 'Eben', 'Thailand', 'Bryant Ranch Prepack', 176, 0.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (109, 'The Horseplayer', 'Roseann', 'Poland', 'Nelco Laboratories, Inc.', 275, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (110, 'Pride', 'Enrika', 'Dominican Republic', 'Teva Parenteral Medicines, Inc.', 267, 0.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (111, 'Camino', 'Leif', 'Guatemala', 'Contract Pharmacy Services-PA', 37, 2.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (112, 'The Brain', 'Georges', 'Afghanistan', 'Oberon Cosmetic Co., Ltd.', 109, 2.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (113, 'Secret Things (Choses secrètes)', 'Peg', 'Indonesia', 'Nartex Laboratorios Homeopaticos, S.A. De C.V.', 211, 3.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (114, 'Last Sunset, The', 'Veronike', 'Indonesia', 'Nelco Laboratories, Inc.', 92, 3.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (115, 'Personal Velocity', 'Corri', 'China', 'HOMEOLAB USA INC', 287, 2.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (116, 'The Photographer', 'Burtie', 'Sweden', 'Novartis Consumer Health, Inc.', 246, 3.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (117, 'Last Days of Mussolini (Mussolini: Ultimo atto)', 'Ricky', 'Poland', 'Bausch & Lomb Incorporated', 169, 4.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (118, 'Old Man Made in Spain (Abuelo made in Spain)', 'Nicolas', 'Canada', 'Rebel Distributors Corp', 164, 0.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (119, 'Category 7: The End of the World', 'Freemon', 'Brazil', 'PD-Rx Pharmaceuticals, Inc.', 84, 2.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (120, 'Lumumba', 'Humberto', 'China', 'Sandoz Inc', 192, 0.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (121, 'DiG!', 'Alwyn', 'Dominica', 'PD-Rx Pharmaceuticals, Inc.', 73, 0.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (122, 'Going My Way', 'Brodie', 'Russia', 'Nelco Laboratories, Inc.', 166, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (123, 'Call of Cthulhu, The', 'Briny', 'Indonesia', 'The Mentholatum Company', 89, 3.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (124, 'Spite Marriage', 'Valentine', 'Indonesia', 'Unifirst First Aid Corporation', 70, 2.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (125, 'Journey, The', 'Wendie', 'China', 'Uriel Pharmacy Inc.', 159, 1.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (126, 'Quid Pro Quo', 'Barde', 'Poland', 'Meijer Distribution Inc', 178, 4.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (127, 'Call Me Kuchu', 'Burnard', 'Indonesia', 'Qualitest Pharmaceuticals', 138, 0.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (128, 'Green Lantern: Emerald Knights', 'Cammy', 'Mexico', 'Unit Dose Services', 65, 3.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (129, 'Sammy and Rosie Get Laid', 'Binni', 'Egypt', 'West-ward Pharmaceutical Corp.', 84, 3.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (130, 'Mark Twain', 'Davie', 'Peru', 'Paradigm, Inc.', 130, 3.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (131, 'Extraordinary Stories (Historias extraordinarias)', 'Eirena', 'China', 'AbbVie Inc.', 291, 4.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (132, 'Confession', 'Ogden', 'Madagascar', 'Teva Pharmaceuticals USA Inc', 86, 0.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (133, 'The Time of Their Lives', 'Ginger', 'China', 'Watson Laboratories, Inc.', 74, 3.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (134, 'Bloodtide', 'Augie', 'Philippines', 'Breckenridge Pharmaceutical, Inc.', 80, 3.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (135, 'Fate Is the Hunter', 'Lindsay', 'Bangladesh', 'ViiV Healthcare Company', 207, 3.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (136, 'Reality', 'Hodge', 'China', 'Atlantic Biologicals Corps', 277, 3.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (137, 'Pyramid of Triboulet, The (La pyramide de Triboulet)', 'Gusty', 'Portugal', 'Kmart Corporation', 201, 3.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (138, 'Life in Flight ', 'Amerigo', 'China', 'Conopco Inc. d/b/a Unilever', 296, 1.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (139, 'Designing Woman', 'Ethelda', 'Benin', 'TOP CARE (Topco Associates LLC)', 176, 3.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (140, 'Darling', 'Ranna', 'Indonesia', 'Family Dollar Services Inc', 297, 4.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (141, 'Eaten Alive', 'Keenan', 'Brazil', 'Nelco Laboratories, Inc.', 167, 0.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (142, 'Days of Glory', 'Darla', 'China', 'St Marys Medical Park Pharmacy', 44, 3.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (143, 'Kocken', 'Elnar', 'Greece', 'Kmart Corporation', 71, 2.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (144, 'Marilena de la P7', 'Gianna', 'Croatia', 'Lake Erie Medical DBA Quality Care Products LLC', 217, 3.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (145, 'Forever Strong', 'Jessi', 'Brazil', 'True Botanica, LLC', 54, 1.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (146, 'Unlawful Entry', 'Dietrich', 'Czech Republic', 'Major Pharmaceuticals', 194, 3.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (147, '54', 'Ginevra', 'Portugal', 'Pharmaceutica North America, Inc.', 53, 1.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (148, 'Married to It', 'Rowena', 'Indonesia', 'E.R. Squibb & Sons, L.L.C.', 134, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (149, 'Murder in Greenwich', 'Win', 'China', 'Allermed Laboratories, Inc.', 269, 1.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (150, 'Journey to the Sun (Günese yolculuk)', 'Rowney', 'Brazil', 'Rebel Distributors Corp', 155, 1.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (151, 'Doctor Detroit', 'Neilla', 'Portugal', 'PURITY CYLINDER GASES, INC.', 216, 3.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (152, 'Alice in Wonderland', 'Phyllis', 'Argentina', 'Wyeth Pharmaceuticals Inc., a subsidiary of Pfizer Inc.', 262, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (153, 'Hatchet', 'Cello', 'South Korea', 'State of Florida DOH Central Pharmacy', 256, 2.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (154, 'Open Road, The', 'Sena', 'Latvia', 'KINeSYS Pharmaceutical Inc.', 280, 2.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (155, 'Dancing Masters, The', 'Drusi', 'Poland', 'RxPak Division of McKesson Corporation', 120, 3.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (156, 'Caprice', 'Karlotta', 'China', 'REMEDYREPACK INC.', 94, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (157, 'Arthur', 'Rollo', 'Peru', 'Kinray Inc.', 83, 1.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (158, 'Taming of the Shrew, The', 'Dulcia', 'Indonesia', 'AMOREPACIFIC', 98, 3.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (159, 'Rock ''n'' Roll Nightmare', 'Kingston', 'Portugal', 'Total Resources International', 113, 1.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (160, 'Saving Santa', 'Julissa', 'Indonesia', 'Medline Industries, Inc.', 97, 3.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (161, 'Delphine 1, Yvan 0', 'Joyous', 'Guatemala', 'Unit Dose Services', 264, 0.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (162, 'Holy Guests (Ha-Ushpizin)', 'Loren', 'China', 'PD-Rx Pharmaceuticals, Inc.', 232, 4.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (163, 'No Distance Left to Run', 'Lonna', 'Cameroon', 'Proficient Rx LP', 134, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (164, 'Bananas!*', 'Nertie', 'China', 'PD-Rx Pharmaceuticals, Inc.', 256, 1.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (165, 'Never Give a Sucker an Even Break', 'Marthena', 'Portugal', 'Apotheca, Inc.', 47, 3.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (166, 'Miami Blues', 'Sher', 'Indonesia', 'Nostrum Laboratories, Inc.', 209, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (167, 'God Save My Shoes', 'Gaylord', 'China', 'TYA Pharmaceuticals', 156, 3.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (168, 'Happy New Year (La Bonne Année)', 'Maryanna', 'Ukraine', 'Heritage Pharmaceuticals Inc.', 285, 3.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (169, 'Littlest Rebel, The', 'Drew', 'Mexico', 'Physicians Total Care, Inc.', 145, 4.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (170, 'Mudlark, The', 'Louie', 'China', 'RedPharm Drug Inc.', 84, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (171, 'Killing of Sister George, The', 'Devon', 'Portugal', 'Energizer Personal Care LLC', 257, 0.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (172, 'Soldier''s Tale, A', 'Rodrique', 'Brazil', 'Bonne Bell LLC', 250, 0.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (173, 'Marty', 'Netti', 'Portugal', 'Hospira, Inc.', 250, 0.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (174, 'Titfield Thunderbolt, The', 'Abel', 'France', 'Jafra cosmetics International', 99, 1.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (175, 'Resurrection', 'Leonora', 'Czech Republic', 'Nelco Laboratories, Inc.', 176, 3.4);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (176, 'Ditchdigger''s Daughters, The', 'Alex', 'Latvia', 'Dispensing Solutions, Inc.', 91, 2.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (177, 'Love Bug, The', 'Tamas', 'Indonesia', 'National Pen Co., LLC', 75, 4.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (178, 'Hand, The (Ruka)', 'Maribelle', 'Argentina', 'Guthy-Renker LLC', 115, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (179, 'Schmatta: Rags to Riches to Rags', 'Marcile', 'Indonesia', 'Mission Pharmacal Company', 196, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (180, 'Strange One, The', 'Harold', 'Ivory Coast', 'ALILY (ZHANGZHOU) BATH PRODUCTS LTD.', 32, 2.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (181, 'Stuck in Love', 'Kayle', 'China', 'REMEDYREPACK INC.', 169, 1.3);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (182, 'My Kidnapper', 'Lizzy', 'Indonesia', 'Novartis Pharmaceuticals Corporation', 111, 2.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (183, 'Blue Hawaii', 'Markos', 'Indonesia', 'Similasan Corporation', 48, 4.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (184, 'Miss Bala', 'Ewan', 'Indonesia', 'Cephalon, Inc.', 135, 3.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (185, 'Box, The', 'Cherise', 'Argentina', 'Nelco Laboratories, Inc.', 239, 0.1);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (186, 'Lady in the Water', 'Brig', 'Iceland', 'REMEDYREPACK INC.', 120, 3.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (187, 'World According to Dick Cheney, The ', 'Lori', 'China', 'Contract Pharmacy Services-PA', 191, 2.9);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (188, 'Elizabeth: The Golden Age', 'Monroe', 'China', 'L''Oreal USA Florence Manufacturing', 175, 5.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (189, 'Metsän tarina', 'Kalli', 'Portugal', 'TYA Pharmaceuticals', 292, 0.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (190, 'Great Day in the Morning', 'Barry', 'China', 'Dolgencorp LLC', 211, 4.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (191, 'Glumov''s Diary (Dnevnik Glumova)', 'Corie', 'China', 'Amerisource Bergen', 183, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (192, 'First Grader, The', 'Corty', 'Greece', 'HOMEOLAB USA INC', 141, 1.6);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (193, 'Woman In Berlin, A (Anonyma - Eine Frau in Berlin)', 'Pedro', 'Grenada', 'Victor Welding Supply Company', 54, 1.0);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (194, 'Vampire Hunter D: Bloodlust (Banpaia hantâ D)', 'Augie', 'China', 'Eon Labs, Inc.', 204, 0.5);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (195, 'Evangelion: 3.0 You Can (Not) Redo', 'Anneliese', 'Sweden', 'Apotex Corp.', 272, 0.2);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (196, 'City of Industry', 'Baudoin', 'Cameroon', 'Peaceful Mountain, Inc.', 296, 2.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (197, 'Hobson''s Choice', 'Leroy', 'China', 'AmersourceBergen', 89, 1.7);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (198, 'Escape Fire: The Fight to Rescue American Healthcare', 'Ilka', 'Thailand', 'Roxane Laboratories, Inc.', 203, 1.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (199, 'Big Shot''s Funeral (Da Wan)', 'Micheil', 'Indonesia', 'Roxane Laboratories, Inc.', 161, 3.8);
+insert into peliculaEntity (id, nombre, director, pais, creditos, duracion, puntaje) values (200, 'Busses Roar (Buses Roar)', 'Callida', 'New Zealand', 'Peaceful Mountain, Inc.', 120, 0.4);
+
+--Inserta los teatros
+
+
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (100, 'Summerview', '5 Mallory Lane', 6);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (101, 'Brentwood', '22 Charing Cross Point', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (102, 'Park Meadow', '5 Bay Place', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (103, 'Summer Ridge', '6 Loomis Alley', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (104, 'Drewry', '9 Westerfield Plaza', 3);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (105, 'Sherman', '32755 Briar Crest Court', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (106, 'Lukken', '59595 Cody Street', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (107, 'Annamark', '907 Coleman Center', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (108, 'Rusk', '43 Judy Crossing', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (109, 'Forest Dale', '789 Grayhawk Court', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (110, 'Fairfield', '66 Thierer Hill', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (111, 'Forest', '0896 Truax Court', 11);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (112, 'Lyons', '497 Londonderry Road', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (113, 'Buell', '4711 Crownhardt Terrace', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (114, 'Bartelt', '40 Warrior Circle', 7);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (115, 'Delaware', '002 Vernon Trail', 13);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (116, 'Northport', '55 American Hill', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (117, 'Roxbury', '5763 Declaration Plaza', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (118, 'Packers', '3851 Dwight Park', 13);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (119, 'Mockingbird', '4721 Loftsgordon Street', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (120, '1st', '69580 Fisk Road', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (121, 'Pearson', '00 Merrick Center', 6);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (122, 'Fallview', '2366 Hintze Way', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (123, 'Forest Run', '11 Debra Center', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (124, 'Brickson Park', '7990 Coleman Hill', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (125, 'Caliangt', '870 Southridge Crossing', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (126, 'Rowland', '470 Morrow Park', 3);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (127, 'American', '7 Hagan Circle', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (128, 'East', '294 Maywood Road', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (129, 'Hansons', '910 Glacier Hill Circle', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (130, 'Muir', '16 Aberg Lane', 7);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (131, 'Eggendart', '2780 Sundown Trail', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (132, 'Trailsway', '697 Gina Road', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (133, 'Meadow Ridge', '0443 Basil Avenue', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (134, 'Crownhardt', '53985 Bartelt Road', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (135, 'Thompson', '6 Old Shore Center', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (136, 'Mcguire', '3411 Ohio Avenue', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (137, 'Doe Crossing', '37 Memorial Center', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (138, 'Mccormick', '1219 Merry Road', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (139, 'Towne', '5215 Mandrake Avenue', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (140, 'Grasskamp', '6785 Schurz Point', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (141, 'Oakridge', '85974 Mosinee Parkway', 6);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (142, 'Farmco', '40749 Spaight Avenue', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (143, 'Leroy', '11259 Tomscot Park', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (144, 'Montana', '90586 Stuart Court', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (145, 'Banding', '9 Prairieview Crossing', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (146, 'Burning Wood', '0907 Pleasure Parkway', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (147, 'Morrow', '3 Mariners Cove Junction', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (148, 'Acker', '3 Mifflin Terrace', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (149, 'Cottonwood', '53 Summer Ridge Crossing', 11);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (150, 'Forest', '8429 Reindahl Pass', 3);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (151, 'Spohn', '95507 Carioca Lane', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (152, 'Towne', '9529 Parkside Hill', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (153, 'Stang', '8076 Karstens Avenue', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (154, 'Grim', '63025 Swallow Terrace', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (155, 'Victoria', '9102 Redwing Pass', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (156, 'Del Mar', '8791 Mifflin Crossing', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (157, 'Butternut', '4 Walton Trail', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (158, 'Sherman', '42 Heffernan Way', 13);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (159, 'Esch', '2386 Kinsman Parkway', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (160, 'Rigney', '94491 Corben Trail', 7);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (161, 'Pankratz', '5739 Manley Road', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (162, 'Buhler', '25016 Oneill Trail', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (163, 'Susan', '99468 Wayridge Terrace', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (164, 'Arapahoe', '2807 Elka Park', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (165, 'Waubesa', '977 Northland Plaza', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (166, 'Mallard', '3 Havey Point', 11);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (167, 'Sullivan', '00 Cordelia Park', 3);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (168, 'Merry', '85 Elmside Way', 5);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (169, 'Springs', '0 Stone Corner Crossing', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (170, 'Debra', '06116 Esch Junction', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (171, 'Tomscot', '5591 Vera Park', 7);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (172, 'Derek', '1212 Gerald Street', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (173, 'Debs', '599 Mesta Circle', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (174, 'Jackson', '0374 Kedzie Alley', 8);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (175, 'Tennessee', '98476 Elka Crossing', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (176, 'Kropf', '72679 Declaration Park', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (177, 'Monument', '28 Express Point', 6);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (178, 'Milwaukee', '18 Mariners Cove Plaza', 3);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (179, 'Lien', '6868 Ronald Regan Avenue', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (180, 'Kipling', '44 Crest Line Plaza', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (181, 'Golf', '4822 Northfield Circle', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (182, 'Red Cloud', '40438 Granby Street', 11);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (183, 'Bluejay', '48481 Summit Center', 11);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (184, 'Sycamore', '62634 Vernon Road', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (185, 'Fallview', '518 Forest Dale Pass', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (186, 'Duke', '208 Ilene Terrace', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (187, 'Grasskamp', '885 Burrows Park', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (188, 'Melvin', '4 Green Ridge Court', 15);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (189, 'Cascade', '2 Kingsford Point', 12);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (190, 'Commercial', '41798 Pine View Pass', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (191, 'Farwell', '78980 Utah Plaza', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (192, 'Sullivan', '35551 Nelson Trail', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (193, 'Forest Dale', '45044 Maple Circle', 1);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (194, 'Forest Run', '5930 Mcbride Crossing', 9);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (195, 'Paget', '589 Northland Pass', 14);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (196, 'Leroy', '18 Kim Plaza', 10);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (197, 'Dexter', '4 Crest Line Park', 6);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (198, 'West', '87508 Arrowood Circle', 2);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (199, 'Holy Cross', '24581 Schlimgen Place', 4);
+insert into TeatroEntity (id, nombre, direccion, numSalasFest) values (200, 'Linden', '913 Londonderry Trail', 11);
+
+--Inserta las salas
+
+insert into SALAENTITY (id, numero, teatro_id) values (100, 16, 105);
+insert into SALAENTITY (id, numero, teatro_id) values (101, 9, 180);
+insert into SALAENTITY (id, numero, teatro_id) values (102, 18, 140);
+insert into SALAENTITY (id, numero, teatro_id) values (103, 22, 182);
+insert into SALAENTITY (id, numero, teatro_id) values (104, 27, 200);
+insert into SALAENTITY (id, numero, teatro_id) values (105, 16, 173);
+insert into SALAENTITY (id, numero, teatro_id) values (106, 10, 166);
+insert into SALAENTITY (id, numero, teatro_id) values (107, 1, 184);
+insert into SALAENTITY (id, numero, teatro_id) values (108, 23, 168);
+insert into SALAENTITY (id, numero, teatro_id) values (109, 25, 154);
+insert into SALAENTITY (id, numero, teatro_id) values (110, 19, 151);
+insert into SALAENTITY (id, numero, teatro_id) values (111, 23, 170);
+insert into SALAENTITY (id, numero, teatro_id) values (112, 21, 114);
+insert into SALAENTITY (id, numero, teatro_id) values (113, 5, 123);
+insert into SALAENTITY (id, numero, teatro_id) values (114, 15, 157);
+insert into SALAENTITY (id, numero, teatro_id) values (115, 19, 155);
+insert into SALAENTITY (id, numero, teatro_id) values (116, 1, 121);
+insert into SALAENTITY (id, numero, teatro_id) values (117, 12, 196);
+insert into SALAENTITY (id, numero, teatro_id) values (118, 1, 160);
+insert into SALAENTITY (id, numero, teatro_id) values (119, 3, 163);
+insert into SALAENTITY (id, numero, teatro_id) values (120, 9, 144);
+insert into SALAENTITY (id, numero, teatro_id) values (121, 16, 196);
+insert into SALAENTITY (id, numero, teatro_id) values (122, 26, 115);
+insert into SALAENTITY (id, numero, teatro_id) values (123, 29, 109);
+insert into SALAENTITY (id, numero, teatro_id) values (124, 21, 137);
+insert into SALAENTITY (id, numero, teatro_id) values (125, 8, 159);
+insert into SALAENTITY (id, numero, teatro_id) values (126, 26, 197);
+insert into SALAENTITY (id, numero, teatro_id) values (127, 24, 111);
+insert into SALAENTITY (id, numero, teatro_id) values (128, 16, 170);
+insert into SALAENTITY (id, numero, teatro_id) values (129, 19, 129);
+insert into SALAENTITY (id, numero, teatro_id) values (130, 12, 194);
+insert into SALAENTITY (id, numero, teatro_id) values (131, 4, 180);
+insert into SALAENTITY (id, numero, teatro_id) values (132, 9, 168);
+insert into SALAENTITY (id, numero, teatro_id) values (133, 23, 109);
+insert into SALAENTITY (id, numero, teatro_id) values (134, 11, 164);
+insert into SALAENTITY (id, numero, teatro_id) values (135, 16, 200);
+insert into SALAENTITY (id, numero, teatro_id) values (136, 30, 133);
+insert into SALAENTITY (id, numero, teatro_id) values (137, 13, 195);
+insert into SALAENTITY (id, numero, teatro_id) values (138, 6, 149);
+insert into SALAENTITY (id, numero, teatro_id) values (139, 11, 107);
+insert into SALAENTITY (id, numero, teatro_id) values (140, 1, 140);
+insert into SALAENTITY (id, numero, teatro_id) values (141, 27, 196);
+insert into SALAENTITY (id, numero, teatro_id) values (142, 27, 111);
+insert into SALAENTITY (id, numero, teatro_id) values (143, 29, 111);
+insert into SALAENTITY (id, numero, teatro_id) values (144, 13, 141);
+insert into SALAENTITY (id, numero, teatro_id) values (145, 29, 173);
+insert into SALAENTITY (id, numero, teatro_id) values (146, 24, 190);
+insert into SALAENTITY (id, numero, teatro_id) values (147, 6, 171);
+insert into SALAENTITY (id, numero, teatro_id) values (148, 19, 192);
+insert into SALAENTITY (id, numero, teatro_id) values (149, 4, 110);
+insert into SALAENTITY (id, numero, teatro_id) values (150, 3, 113);
+insert into SALAENTITY (id, numero, teatro_id) values (151, 27, 134);
+insert into SALAENTITY (id, numero, teatro_id) values (152, 4, 193);
+insert into SALAENTITY (id, numero, teatro_id) values (153, 15, 147);
+insert into SALAENTITY (id, numero, teatro_id) values (154, 8, 112);
+insert into SALAENTITY (id, numero, teatro_id) values (155, 3, 159);
+insert into SALAENTITY (id, numero, teatro_id) values (156, 14, 169);
+insert into SALAENTITY (id, numero, teatro_id) values (157, 8, 189);
+insert into SALAENTITY (id, numero, teatro_id) values (158, 28, 105);
+insert into SALAENTITY (id, numero, teatro_id) values (159, 4, 140);
+insert into SALAENTITY (id, numero, teatro_id) values (160, 13, 101);
+insert into SALAENTITY (id, numero, teatro_id) values (161, 27, 125);
+insert into SALAENTITY (id, numero, teatro_id) values (162, 13, 131);
+insert into SALAENTITY (id, numero, teatro_id) values (163, 19, 137);
+insert into SALAENTITY (id, numero, teatro_id) values (164, 22, 144);
+insert into SALAENTITY (id, numero, teatro_id) values (165, 28, 126);
+insert into SALAENTITY (id, numero, teatro_id) values (166, 29, 156);
+insert into SALAENTITY (id, numero, teatro_id) values (167, 8, 153);
+insert into SALAENTITY (id, numero, teatro_id) values (168, 11, 135);
+insert into SALAENTITY (id, numero, teatro_id) values (169, 17, 188);
+insert into SALAENTITY (id, numero, teatro_id) values (170, 13, 127);
+insert into SALAENTITY (id, numero, teatro_id) values (171, 25, 128);
+insert into SALAENTITY (id, numero, teatro_id) values (172, 8, 139);
+insert into SALAENTITY (id, numero, teatro_id) values (173, 14, 112);
+insert into SALAENTITY (id, numero, teatro_id) values (174, 2, 169);
+insert into SALAENTITY (id, numero, teatro_id) values (175, 24, 173);
+insert into SALAENTITY (id, numero, teatro_id) values (176, 22, 133);
+insert into SALAENTITY (id, numero, teatro_id) values (177, 26, 151);
+insert into SALAENTITY (id, numero, teatro_id) values (178, 10, 181);
+insert into SALAENTITY (id, numero, teatro_id) values (179, 2, 102);
+insert into SALAENTITY (id, numero, teatro_id) values (180, 19, 192);
+insert into SALAENTITY (id, numero, teatro_id) values (181, 1, 139);
+insert into SALAENTITY (id, numero, teatro_id) values (182, 13, 172);
+insert into SALAENTITY (id, numero, teatro_id) values (183, 11, 147);
+insert into SALAENTITY (id, numero, teatro_id) values (184, 26, 182);
+insert into SALAENTITY (id, numero, teatro_id) values (185, 3, 165);
+insert into SALAENTITY (id, numero, teatro_id) values (186, 30, 178);
+insert into SALAENTITY (id, numero, teatro_id) values (187, 1, 199);
+insert into SALAENTITY (id, numero, teatro_id) values (188, 19, 132);
+insert into SALAENTITY (id, numero, teatro_id) values (189, 20, 176);
+insert into SALAENTITY (id, numero, teatro_id) values (190, 4, 156);
+insert into SALAENTITY (id, numero, teatro_id) values (191, 19, 182);
+insert into SALAENTITY (id, numero, teatro_id) values (192, 30, 163);
+insert into SALAENTITY (id, numero, teatro_id) values (193, 3, 101);
+insert into SALAENTITY (id, numero, teatro_id) values (194, 11, 120);
+insert into SALAENTITY (id, numero, teatro_id) values (195, 30, 198);
+insert into SALAENTITY (id, numero, teatro_id) values (196, 1, 162);
+insert into SALAENTITY (id, numero, teatro_id) values (197, 14, 157);
+insert into SALAENTITY (id, numero, teatro_id) values (198, 8, 162);
+insert into SALAENTITY (id, numero, teatro_id) values (199, 28, 193);
+insert into SALAENTITY (id, numero, teatro_id) values (200, 30, 200);
+
+--Inserta las sillas
+
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (100, 1, 2, 1, 100);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (101, 2, 2, 2, 101);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (102, 3, 2, 1, 102);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (103, 4, 1, 2, 103);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (104, 5, 2, 1, 104);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (105, 6, 2, 2, 105);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (106, 7, 2, 1, 106);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (107, 8, 2, 1, 107);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (108, 9, 2, 2, 108);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (109, 10, 1, 1, 109);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (110, 11, 2, 2, 110);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (111, 12, 2, 1, 111);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (112, 13, 1, 2, 112);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (113, 14, 1, 1, 113);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (114, 15, 2, 1, 114);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (115, 16, 2, 1, 115);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (116, 17, 2, 1, 116);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (117, 18, 1, 2, 117);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (118, 19, 1, 1, 118);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (119, 20, 2, 1, 119);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (120, 21, 2, 1, 120);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (121, 22, 1, 1, 121);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (122, 23, 1, 1, 122);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (123, 24, 2, 2, 123);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (124, 25, 2, 1, 124);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (125, 26, 1, 2, 125);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (126, 27, 1, 1, 126);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (127, 28, 2, 1, 127);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (128, 29, 2, 1, 128);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (129, 30, 2, 2, 129);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (130, 31, 2, 2, 130);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (131, 32, 2, 1, 131);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (132, 33, 1, 1, 132);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (133, 34, 1, 1, 133);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (134, 35, 1, 2, 134);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (135, 36, 2, 2, 135);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (136, 37, 1, 1, 136);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (137, 38, 1, 2, 137);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (138, 39, 2, 1, 138);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (139, 40, 1, 1, 139);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (140, 41, 2, 2, 140);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (141, 42, 2, 1, 141);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (142, 43, 2, 2, 142);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (143, 44, 2, 1, 143);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (144, 45, 2, 1, 144);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (145, 46, 1, 1, 145);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (146, 47, 2, 1, 146);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (147, 48, 2, 2, 147);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (148, 49, 1, 1, 148);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (149, 50, 1, 2, 149);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (150, 51, 1, 2, 150);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (151, 52, 1, 1, 151);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (152, 53, 1, 1, 152);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (153, 54, 1, 2, 153);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (154, 55, 1, 2, 154);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (155, 56, 2, 1, 155);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (156, 57, 2, 1, 156);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (157, 58, 1, 2, 157);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (158, 59, 1, 2, 158);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (159, 60, 2, 1, 159);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (160, 61, 1, 2, 160);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (161, 62, 2, 2, 161);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (162, 63, 1, 1, 162);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (163, 64, 2, 2, 163);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (164, 65, 1, 2, 164);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (165, 66, 1, 1, 165);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (166, 67, 1, 1, 166);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (167, 68, 1, 1, 167);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (168, 69, 2, 1, 168);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (169, 70, 1, 1, 169);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (170, 71, 1, 1, 170);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (171, 72, 1, 1, 171);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (172, 73, 2, 2, 172);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (173, 74, 1, 2, 173);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (174, 75, 1, 2, 174);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (175, 76, 2, 2, 175);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (176, 77, 2, 1, 176);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (177, 78, 2, 1, 177);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (178, 79, 1, 1, 178);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (179, 80, 2, 1, 179);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (180, 81, 2, 2, 180);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (181, 82, 1, 2, 181);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (182, 83, 2, 2, 182);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (183, 84, 1, 1, 183);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (184, 85, 2, 2, 184);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (185, 86, 1, 2, 185);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (186, 87, 2, 2, 186);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (187, 88, 2, 2, 187);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (188, 89, 1, 1, 188);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (189, 90, 2, 2, 189);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (190, 91, 2, 1, 190);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (191, 92, 1, 1, 191);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (192, 93, 1, 1, 192);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (193, 94, 2, 1, 193);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (194, 95, 1, 2, 194);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (195, 96, 1, 2, 195);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (196, 97, 2, 1, 196);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (197, 98, 2, 2, 197);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (198, 99, 2, 2, 198);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (199, 100, 2, 2, 199);
+insert into sillaEntity (id, numero, tipo, disponible, sala_id) values (200, 101, 2, 2, 200);
+
+--Inserta las peliculas
+
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (101, 118);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (109, 121);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (194, 103);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (185, 107);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (110, 196);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (181, 197);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (112, 177);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (138, 145);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (136, 156);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (125, 163);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (195, 129);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (161, 191);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (143, 114);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (195, 130);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (155, 156);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (131, 134);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (189, 136);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (106, 158);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (159, 198);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (131, 198);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (172, 114);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (131, 163);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (101, 177);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (164, 168);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (139, 141);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (120, 182);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (105, 108);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (136, 147);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (190, 186);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (176, 183);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (154, 177);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (149, 128);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (107, 195);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (155, 190);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (156, 104);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (126, 124);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (169, 193);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (133, 183);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (135, 128);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (178, 118);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (104, 144);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (151, 136);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (193, 171);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (122, 159);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (169, 181);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (107, 146);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (200, 181);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (195, 186);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (190, 138);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (133, 106);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (116, 193);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (187, 159);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (104, 133);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (141, 181);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (147, 115);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (190, 128);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (159, 106);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (144, 185);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (186, 106);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (112, 189);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (153, 114);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (158, 181);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (150, 175);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (144, 122);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (163, 107);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (187, 182);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (170, 152);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (199, 117);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (153, 173);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (171, 140);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (127, 123);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (121, 166);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (164, 147);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (166, 116);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (134, 103);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (159, 142);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (155, 178);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (172, 118);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (117, 144);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (179, 163);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (148, 134);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (114, 110);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (174, 155);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (188, 112);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (189, 156);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (141, 141);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (189, 133);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (169, 117);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (183, 134);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (106, 181);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (172, 183);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (155, 163);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (154, 163);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (106, 151);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (192, 198);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (128, 190);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (129, 118);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (134, 189);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (178, 178);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (120, 199);
+insert into peliculaEntity_CriticoEntity (peliculas_id, criticos_id) values (178, 186);
+
+--Inserta las funciones
+
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (400, '2019-02-25', 7, 10078, 1, 133, 1, 1);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (101, '2019-07-15 13:46:24', 4, 16134, 2, 132, 121, 178);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (102, '2019-05-19 07:14:24', 15, 17641, 3, 195, 124, 116);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (103, '2019-10-28 07:14:28', 24, 12685, 4, 197, 186, 149);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (104, '2019-03-24 08:43:01', 1, 13758, 105, 119, 138, 119);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (105, '2019-08-01 06:31:43', 7, 6879, 132, 102, 168, 171);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (106, '2019-08-08 12:48:07', 1, 9762, 109, 133, 120, 188);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (107, '2019-08-19 06:22:31', 22, 8766, 169, 125, 108, 181);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (108, '2019-03-13 17:56:39', 1, 8628, 109, 182, 148, 170);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (109, '2019-10-29 10:11:29', 23, 8498, 175, 190, 104, 163);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (110, '2019-03-27 22:08:19', 12, 6410, 155, 102, 191, 143);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (111, '2019-09-21 05:43:50', 12, 15047, 113, 104, 137, 162);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (112, '2019-03-03 02:41:17', 15, 16026, 133, 156, 155, 167);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (113, '2019-07-08 16:29:14', 12, 15737, 191, 131, 161, 190);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (114, '2019-04-24 08:57:25', 7, 12361, 165, 134, 190, 155);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (115, '2019-05-23 05:48:27', 18, 7814, 128, 119, 117, 122);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (116, '2019-04-25 19:53:42', 1, 14549, 133, 141, 118, 169);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (117, '2019-09-21 21:47:22', 1, 8755, 131, 137, 140, 125);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (118, '2019-02-26 08:42:36', 19, 15678, 129, 177, 126, 159);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (119, '2019-10-17 18:25:01', 13, 8198, 195, 135, 155, 121);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (120, '2019-03-19 09:25:03', 11, 6671, 149, 178, 197, 102);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (121, '2018-12-30 06:37:57', 2, 19062, 163, 166, 109, 168);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (122, '2019-06-10 19:31:57', 6, 5907, 143, 162, 183, 190);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (123, '2018-12-31 06:40:53', 2, 7639, 154, 147, 166, 158);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (124, '2019-07-08 03:20:48', 12, 7166, 192, 106, 120, 125);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (125, '2019-08-05 23:29:22', 10, 17891, 128, 189, 171, 198);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (126, '2019-01-06 01:11:44', 5, 14989, 152, 174, 104, 195);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (127, '2019-09-05 09:29:06', 4, 6487, 188, 196, 111, 144);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (128, '2018-11-10 03:48:51', 6, 15396, 176, 113, 106, 146);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (129, '2019-03-13 15:49:59', 2, 6362, 182, 135, 110, 175);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (130, '2019-04-27 20:17:38', 1, 8553, 151, 168, 177, 175);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (131, '2018-11-21 03:45:40', 5, 17156, 156, 148, 158, 166);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (132, '2019-10-15 01:43:55', 1, 11589, 136, 149, 120, 159);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (133, '2019-01-12 05:44:06', 3, 19338, 179, 174, 150, 164);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (134, '2019-01-05 07:32:16', 23, 17939, 184, 195, 115, 183);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (135, '2019-09-19 23:55:41', 11, 15901, 109, 118, 125, 151);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (136, '2019-01-07 04:14:17', 18, 14550, 192, 118, 151, 177);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (137, '2019-02-21 04:38:55', 13, 9792, 174, 107, 198, 134);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (138, '2018-12-07 18:33:07', 20, 5758, 200, 151, 142, 134);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (139, '2019-11-04 10:00:07', 2, 10608, 191, 200, 175, 167);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (140, '2019-07-29 17:27:28', 22, 11810, 171, 118, 199, 176);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (141, '2018-12-09 23:23:30', 16, 18796, 163, 116, 123, 138);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (142, '2019-02-25 23:41:51', 6, 15811, 165, 135, 196, 190);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (143, '2019-06-07 15:43:54', 4, 5317, 185, 153, 109, 149);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (144, '2019-08-21 23:10:19', 2, 7707, 133, 118, 156, 191);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (145, '2019-04-14 14:53:08', 20, 10771, 173, 198, 131, 165);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (146, '2019-01-28 08:46:37', 20, 8849, 107, 155, 115, 146);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (147, '2018-11-30 08:39:36', 23, 12744, 200, 149, 163, 143);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (148, '2018-12-27 17:59:16', 14, 15490, 169, 140, 183, 164);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (149, '2019-06-18 18:20:34', 17, 9524, 166, 152, 123, 123);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (150, '2019-01-18 18:47:04', 4, 16973, 108, 190, 116, 129);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (151, '2019-01-19 12:24:40', 23, 19361, 144, 159, 167, 151);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (152, '2019-05-13 12:47:05', 11, 18189, 116, 178, 117, 151);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (153, '2019-06-01 12:18:10', 9, 8085, 122, 126, 107, 154);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (154, '2019-01-30 17:17:46', 13, 19214, 180, 157, 134, 166);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (155, '2019-04-15 02:03:11', 18, 8979, 151, 172, 129, 102);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (156, '2019-01-09 12:26:05', 9, 14053, 121, 196, 181, 159);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (157, '2019-10-21 05:41:16', 4, 6837, 105, 132, 184, 174);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (158, '2019-06-18 14:55:30', 11, 11202, 171, 103, 185, 172);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (159, '2019-05-18 10:16:12', 6, 14400, 160, 192, 194, 183);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (160, '2018-12-03 21:37:00', 9, 10170, 131, 145, 102, 123);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (161, '2019-05-22 13:35:56', 12, 6217, 141, 175, 100, 148);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (162, '2018-12-06 11:15:33', 8, 17487, 169, 147, 128, 163);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (163, '2019-01-29 22:50:35', 7, 14956, 112, 108, 124, 159);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (164, '2019-03-11 07:07:58', 22, 11259, 176, 180, 197, 181);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (165, '2018-12-01 05:08:07', 23, 10492, 188, 160, 194, 178);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (166, '2019-05-30 04:34:21', 21, 9710, 130, 143, 102, 143);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (167, '2019-02-15 12:48:38', 13, 8949, 121, 140, 163, 175);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (168, '2019-10-16 07:55:46', 18, 10689, 181, 188, 122, 109);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (169, '2019-08-08 20:41:02', 13, 13869, 109, 140, 166, 176);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (170, '2018-12-19 14:11:40', 5, 6644, 172, 122, 121, 137);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (171, '2019-09-17 05:21:06', 11, 14413, 143, 194, 135, 182);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (172, '2019-08-25 07:00:14', 13, 19631, 181, 125, 181, 111);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (173, '2019-06-17 04:07:20', 18, 12917, 143, 158, 113, 108);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (174, '2019-03-06 05:34:14', 12, 18598, 193, 195, 104, 107);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (175, '2019-10-11 05:19:37', 21, 18032, 117, 150, 181, 107);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (176, '2019-03-18 02:32:26', 11, 6735, 182, 172, 108, 123);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (177, '2018-12-01 08:53:56', 14, 17996, 103, 118, 173, 125);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (178, '2018-11-20 05:57:05', 9, 11345, 167, 154, 137, 171);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (179, '2019-05-12 05:34:30', 5, 10691, 156, 153, 177, 146);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (180, '2019-09-29 03:17:54', 11, 7208, 152, 175, 199, 102);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (181, '2019-05-18 18:03:53', 20, 18106, 173, 115, 192, 186);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (182, '2019-07-14 23:26:49', 23, 7517, 138, 121, 198, 167);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (183, '2019-03-21 08:17:35', 14, 9907, 183, 109, 134, 190);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (184, '2018-12-14 07:42:33', 12, 8100, 148, 130, 143, 111);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (185, '2018-11-20 02:19:42', 11, 8792, 104, 154, 150, 130);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (186, '2019-02-09 03:46:44', 12, 12814, 119, 190, 119, 117);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (187, '2019-06-16 10:10:38', 21, 9872, 172, 180, 167, 103);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (188, '2019-09-25 23:39:15', 5, 7117, 189, 160, 109, 104);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (189, '2019-09-23 18:32:05', 18, 6594, 133, 173, 132, 194);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (190, '2019-10-07 23:38:25', 23, 5050, 159, 109, 197, 164);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (191, '2019-08-15 17:08:33', 9, 6629, 108, 105, 129, 200);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (192, '2019-09-03 15:00:37', 16, 12353, 116, 134, 176, 163);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (193, '2019-06-26 04:58:31', 2, 11589, 151, 185, 151, 155);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (194, '2019-03-05 04:54:08', 5, 15899, 100, 159, 103, 186);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (195, '2019-05-03 23:07:20', 15, 13303, 112, 194, 192, 111);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (196, '2019-06-06 16:19:02', 9, 13446, 103, 121, 158, 140);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (197, '2019-08-29 23:10:59', 24, 19740, 120, 116, 133, 187);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (198, '2018-12-03 02:23:33', 1, 19278, 106, 125, 113, 122);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (199, '2019-06-17 20:50:58', 17, 5386, 119, 110, 157, 164);
+insert into FUNCIONENTITY (id, fecha, hora, precioBase, critico_id, pelicula_id, sala_id, teatro_id) values (200, '2019-01-22 00:28:53', 9, 15678, 186, 189, 147, 184);
+
+--Inserta los festivales
+
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (100, 'Izio', 'Teddy', 90, '2019-03-26 07:59:49', '2019-02-27 05:53:44', 'Dieppe');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (101, 'Yombu', 'Westleigh', 65, '2019-03-23 23:53:07', '2019-01-08 08:28:31', 'Banjar Pangkungtibah Selatan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (102, 'Katz', 'Garner', 87, '2019-01-02 16:26:21', '2019-03-15 10:12:33', 'Senglea');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (103, 'Thoughtstorm', 'Millard', 58, '2019-03-26 13:10:44', '2019-01-17 00:36:58', 'Punkalaidun');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (104, 'Katz', 'Rochette', 8, '2019-01-15 14:26:01', '2019-01-14 17:16:14', 'Igarassu');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (105, 'Bubblebox', 'Charity', 82, '2019-03-06 09:49:35', '2019-03-24 16:23:10', 'Myski');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (106, 'Skinte', 'Nicolai', 88, '2019-03-27 11:19:43', '2019-03-19 17:25:57', 'Milano');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (107, 'Twinder', 'Kaia', 63, '2019-01-22 13:21:42', '2019-03-21 18:42:20', 'Dian-ay');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (108, 'Avaveo', 'Rennie', 14, '2019-01-22 06:36:34', '2019-03-25 21:37:15', 'Nenotes');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (109, 'Babblestorm', 'Mohandis', 75, '2019-02-26 11:14:48', '2019-03-26 11:50:46', 'Omaha');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (110, 'Oodoo', 'Brandyn', 15, '2019-01-28 01:11:35', '2019-01-22 01:20:01', 'Akhtopol');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (111, 'Demivee', 'Stevy', 74, '2019-03-06 18:43:03', '2019-01-10 13:00:38', 'Waikambila');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (112, 'Twimm', 'Valentine', 16, '2019-03-20 00:04:05', '2019-03-04 20:28:20', 'Chiang Khan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (113, 'Riffpedia', 'Ciel', 73, '2019-03-14 16:26:22', '2019-03-12 08:02:09', 'Izyaslav');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (114, 'Meezzy', 'Selene', 56, '2019-02-27 13:02:57', '2019-03-17 03:43:09', 'Trzciana');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (115, 'Lazzy', 'Jere', 44, '2019-03-24 22:55:07', '2019-03-05 00:45:09', 'Żabbar');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (116, 'Bluezoom', 'Giacopo', 8, '2019-01-14 07:02:41', '2019-02-17 23:12:22', 'Yuanqiao');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (117, 'Kwilith', 'Lorianna', 84, '2019-02-08 16:02:54', '2019-03-03 19:50:32', 'Nanuque');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (118, 'Rhynoodle', 'Ewan', 91, '2019-01-11 14:57:58', '2019-01-01 22:17:07', 'Enzan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (119, 'Quinu', 'Dodi', 52, '2019-01-17 11:21:24', '2019-01-22 14:03:11', 'Wendengying');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (120, 'Mita', 'Robbie', 41, '2019-03-29 03:47:55', '2019-03-24 04:31:25', 'Maxiao');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (121, 'Jabbersphere', 'Dahlia', 19, '2019-03-20 11:51:20', '2019-03-08 12:51:17', 'Leudelange');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (122, 'Oba', 'My', 28, '2019-02-25 17:54:19', '2019-03-14 03:54:19', 'Gahe');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (123, 'Abata', 'Isador', 46, '2019-01-09 17:51:07', '2019-03-15 03:51:42', 'Kitimat');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (124, 'Blognation', 'Astrix', 20, '2019-02-08 14:43:56', '2019-02-14 15:39:49', 'Yuanjue');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (125, 'Feedmix', 'Fidole', 72, '2019-01-20 06:33:38', '2019-01-05 08:38:27', 'Colonia Elía');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (126, 'Avamm', 'Ario', 56, '2019-01-03 12:47:34', '2019-01-12 15:15:04', 'San Pedro');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (127, 'Yoveo', 'Shellie', 10, '2019-03-18 02:25:06', '2019-02-01 03:13:53', 'Valle de Ángeles');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (128, 'Shufflester', 'Hobey', 31, '2019-02-23 09:00:33', '2019-01-07 01:44:40', 'Aix-en-Provence');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (129, 'Abatz', 'Pepi', 56, '2019-01-01 14:30:30', '2019-02-05 08:24:37', 'Gondomar');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (130, 'Oodoo', 'Bernardo', 15, '2019-01-22 12:24:16', '2019-03-12 13:55:54', 'Duncan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (131, 'Tagchat', 'Conchita', 38, '2019-01-01 22:34:01', '2019-02-26 02:45:15', 'Livramento');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (132, 'Centimia', 'Yetty', 52, '2019-03-01 11:34:52', '2019-03-17 06:43:52', 'Beitan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (133, 'Ailane', 'Jodi', 42, '2019-03-28 23:05:21', '2019-03-08 07:38:32', 'Örebro');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (134, 'Janyx', 'Gris', 82, '2019-01-15 01:17:36', '2019-02-07 19:30:30', 'Citeureup');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (135, 'Eazzy', 'Faun', 50, '2019-03-13 15:34:27', '2019-02-04 00:53:15', 'Daying');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (136, 'Eazzy', 'Louisa', 39, '2019-02-28 15:32:18', '2019-03-22 12:50:16', 'Chabařovice');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (137, 'Meejo', 'Claresta', 20, '2019-02-23 15:21:53', '2019-03-24 21:21:18', 'Białobrzegi');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (138, 'Zazio', 'Raffaello', 7, '2019-01-27 22:16:59', '2019-01-02 04:17:10', 'Wachira Barami');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (139, 'Yacero', 'Grantham', 56, '2019-03-29 02:26:35', '2019-02-06 14:46:01', 'Daloa');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (140, 'Centimia', 'Coralie', 32, '2019-03-23 13:45:58', '2019-03-13 06:55:39', 'Sampués');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (141, 'Cogilith', 'Gabriello', 36, '2019-02-04 17:02:31', '2019-03-07 13:07:14', 'Sokal’');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (142, 'Jabberbean', 'Lavena', 59, '2019-01-29 18:55:45', '2019-03-30 02:54:48', 'Halton');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (143, 'Divavu', 'Cilka', 48, '2019-03-11 23:58:25', '2019-03-25 16:48:14', 'Veracruz');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (144, 'Livepath', 'Nessa', 83, '2019-01-23 07:44:31', '2019-01-30 06:16:01', 'Gumdag');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (145, 'Divavu', 'Jackie', 73, '2019-02-14 08:22:56', '2019-03-28 15:36:46', 'Guanyinge');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (146, 'Topicshots', 'Carlene', 62, '2019-02-17 21:35:22', '2019-02-25 07:46:03', 'Hadano');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (147, 'Jatri', 'Egon', 61, '2019-03-02 20:33:18', '2019-03-06 16:58:45', 'Maastricht');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (148, 'Realcube', 'Mabelle', 33, '2019-03-12 22:27:59', '2019-03-27 09:35:30', 'Tian’an');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (149, 'Ntags', 'Jori', 12, '2019-02-28 18:58:59', '2019-03-04 18:59:07', 'Ikhtiman');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (150, 'Aimbu', 'Mano', 84, '2019-01-20 17:35:56', '2019-01-02 15:10:00', 'Bordeaux');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (151, 'Pixope', 'Dorolisa', 93, '2019-01-12 23:30:58', '2019-01-11 14:03:14', 'Istaravshan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (152, 'Twimbo', 'Evelyn', 28, '2019-03-11 03:43:23', '2019-02-02 06:17:50', 'Tal’ne');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (153, 'Skimia', 'Hedwiga', 31, '2019-02-16 08:07:44', '2019-03-26 20:18:15', 'Alès');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (154, 'BlogXS', 'Elissa', 13, '2019-01-16 01:36:14', '2019-03-02 19:50:53', 'Pego Longo');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (155, 'Bubblebox', 'Gunter', 26, '2019-02-17 16:01:52', '2019-02-20 11:07:33', 'Parchowo');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (156, 'Tagopia', 'Baxie', 91, '2019-03-14 08:49:25', '2019-03-09 20:22:06', 'Dohār');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (157, 'Pixope', 'Jaclyn', 44, '2019-03-10 20:36:17', '2019-02-27 13:42:09', 'Hauhena');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (158, 'Kaymbo', 'Gillie', 9, '2019-01-05 15:06:48', '2019-01-29 15:03:37', 'Sangmu');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (159, 'Oyoyo', 'Maxim', 56, '2019-02-23 15:43:20', '2019-01-04 03:33:35', 'Espargos');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (160, 'Rooxo', 'Valentia', 43, '2019-03-03 23:50:17', '2019-02-28 20:19:00', 'Xinyi');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (161, 'Cogibox', 'Sindee', 45, '2019-01-19 05:25:24', '2019-01-29 08:25:07', 'Nam Phong');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (162, 'Topicstorm', 'Rochella', 100, '2019-01-24 11:25:38', '2019-03-22 13:56:04', 'Dolgoderevenskoye');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (163, 'Zoomcast', 'Maritsa', 26, '2019-01-21 00:41:20', '2019-03-21 20:30:14', 'Ballymun');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (164, 'Devify', 'Christophorus', 96, '2019-01-04 10:27:37', '2019-01-28 20:56:43', 'Chợ Mới');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (165, 'Linklinks', 'Curr', 20, '2019-01-30 00:35:57', '2019-01-25 20:46:19', 'Hanlin');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (166, 'Avaveo', 'Kirbee', 56, '2019-01-08 14:19:11', '2019-01-16 22:45:13', 'Bulqizë');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (167, 'Dabtype', 'Norean', 75, '2019-01-09 21:04:24', '2019-02-27 15:39:36', 'Tugu');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (168, 'Brainsphere', 'Briny', 15, '2019-01-10 04:03:23', '2019-01-12 00:43:55', 'San Miguel');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (169, 'Zoomlounge', 'Kare', 100, '2019-03-22 09:09:36', '2019-02-07 14:38:36', 'Toledo');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (170, 'Feednation', 'Avigdor', 78, '2019-02-21 22:35:14', '2019-01-31 23:00:42', 'Compostela');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (171, 'Twinder', 'Rudyard', 62, '2019-03-20 19:59:20', '2019-01-21 15:25:01', 'Galimuyod');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (172, 'Tagopia', 'Griffith', 20, '2019-03-28 17:11:45', '2019-02-15 20:02:21', 'Wugong');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (173, 'Divavu', 'Pooh', 51, '2019-01-22 06:04:42', '2019-01-28 04:46:38', 'Anjirserapat');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (174, 'Quimba', 'Kelley', 8, '2019-02-19 23:12:23', '2019-02-01 11:44:19', 'Knurów');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (175, 'Gigashots', 'Allyce', 98, '2019-02-23 18:54:59', '2019-03-04 16:49:28', 'Brooklyn');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (176, 'Oozz', 'Clare', 29, '2019-03-29 16:17:09', '2019-01-05 23:50:55', 'Buliran');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (177, 'Skiba', 'Merilee', 77, '2019-03-29 00:53:47', '2019-03-21 12:46:30', 'Towa');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (178, 'Mymm', 'Hamnet', 24, '2019-01-25 08:26:13', '2019-01-09 14:36:39', 'Rybno');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (179, 'Roodel', 'Wenona', 7, '2019-02-09 03:26:40', '2019-01-02 02:28:23', 'Ben Arous');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (180, 'Wikizz', 'Karylin', 65, '2019-02-05 09:41:30', '2019-03-27 15:53:39', 'Sandakan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (181, 'Devpoint', 'Viole', 11, '2019-03-06 11:51:05', '2019-03-29 14:51:36', 'Oyo');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (182, 'Realblab', 'Collin', 10, '2019-02-27 12:41:20', '2019-03-30 23:08:42', 'Le Perreux-sur-Marne');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (183, 'Kazu', 'Clemence', 10, '2019-01-06 12:23:51', '2019-02-09 03:47:21', 'Espanola');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (184, 'Riffpath', 'Raeann', 52, '2019-03-23 22:49:39', '2019-02-21 20:47:43', 'Stockholm');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (185, 'Abatz', 'Denys', 37, '2019-02-03 18:44:57', '2019-02-10 19:56:19', 'Isperikh');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (186, 'Tazzy', 'Brook', 18, '2019-02-19 15:26:58', '2019-01-20 23:06:07', 'Sandefjord');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (187, 'Myworks', 'Malcolm', 88, '2019-01-24 13:24:45', '2019-02-20 15:39:50', 'San Diego');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (188, 'Brightbean', 'Mortie', 36, '2019-03-10 09:28:51', '2019-02-03 19:12:45', 'Wakkanai');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (189, 'Dynava', 'Midge', 90, '2019-03-10 17:31:45', '2019-02-06 09:23:51', 'Novyy Starodub');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (190, 'Vidoo', 'Amberly', 60, '2019-01-05 11:20:17', '2019-03-15 15:38:15', 'Shiqiaotou');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (191, 'Quire', 'Don', 32, '2019-03-13 22:31:45', '2019-02-16 10:05:16', 'Lamawalang');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (192, 'Zoomdog', 'Hilda', 24, '2019-03-18 12:39:56', '2019-03-08 21:24:16', 'Hinunangan');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (193, 'Mynte', 'Niki', 67, '2019-02-20 01:20:33', '2019-02-12 17:24:43', 'Andovoranto');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (194, 'Pixope', 'Ardeen', 15, '2019-01-20 07:40:31', '2019-01-20 08:34:17', 'Mezhdurechensk');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (195, 'Quamba', 'Dani', 33, '2019-01-20 13:57:40', '2019-03-07 19:42:41', 'Hougang');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (196, 'Tanoodle', 'Ingamar', 46, '2019-03-24 11:31:27', '2019-01-22 14:45:23', 'Haodian');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (197, 'Fivechat', 'Natalie', 44, '2019-01-02 04:47:00', '2019-01-08 15:51:16', 'Jiaojie');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (198, 'Realbuzz', 'Paton', 99, '2019-03-05 06:24:15', '2019-01-05 03:16:15', 'Caucasia');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (199, 'Dabvine', 'Shaylyn', 62, '2019-01-17 11:42:17', '2019-01-19 00:21:45', 'Sigaozhuang');
+insert into FestivalEntity (id, nombre, patrocinador, duracion, fechaInicio, fechaFin, ciudad) values (200, 'Jaxspan', 'Gwendolyn', 91, '2019-03-22 09:20:29', '2019-02-08 22:53:40', 'Issy-les-Moulineaux');
+
+--Inserta las reservas
+
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (101, 1, 25, 8, 101);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (102, 0, 84, 10, 102);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (103, 1, 27, 50, 103);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (104, 1, 48, 65, 104);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (105, 1, 66, 70, 105);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (106, 1, 5, 10, 106);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (107, 0, 82, 25, 107);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (108, 0, 26, 35, 108);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (109, 1, 22, 40, 109);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (110, 1, 90, 55, 110);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (111, 0, 48, 60, 111);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (112, 0, 46, 19, 112);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (113, 1, 13, 3, 113);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (114, 1, 0, 21, 114);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (115, 1, 23, 13, 115);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (116, 1, 83, 16, 116);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (117, 1, 88, 18, 117);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (118, 1, 22, 29, 118);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (119, 1, 28, 32, 119);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (120, 1, 54, 36, 120);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (121, 1, 63, 38, 121);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (122, 1, 60, 40, 122);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (123, 1, 96, 16, 123);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (124, 1, 40, 88, 124);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (125, 0, 21, 76, 125);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (126, 0, 69, 85, 126);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (127, 1, 85, 95, 127);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (128, 0, 46, 20, 128);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (129, 0, 97, 26, 129);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (130, 0, 76, 28, 130);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (131, 0, 53, 23, 131);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (132, 0, 88, 16, 132);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (133, 0, 46, 30, 133);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (134, 0, 19, 38, 134);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (135, 0, 83, 11, 135);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (136, 0, 8, 16, 136);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (137, 0, 92, 68, 137);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (138, 0, 1, 70, 138);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (139, 0, 28, 3, 139);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (140, 0, 27, 66, 140);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (141, 0, 63, 61, 141);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (142, 1, 47, 57, 142);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (143, 0, 63, 95, 143);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (144, 1, 5, 74, 144);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (145, 0, 51, 4, 145);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (146, 1, 76, 18, 146);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (147, 1, 42, 77, 147);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (148, 0, 87, 91, 148);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (149, 0, 74, 18, 149);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (150, 0, 50, 17, 150);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (151, 1, 40, 17, 151);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (152, 0, 35, 11, 152);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (153, 0, 88, 44, 153);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (154, 0, 80, 65, 154);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (155, 1, 14, 37, 155);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (156, 1, 32, 84, 156);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (157, 0, 88, 22, 157);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (158, 0, 96, 72, 158);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (159, 1, 1, 16, 159);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (160, 1, 17, 17, 160);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (161, 0, 97, 85, 161);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (162, 0, 50, 33, 162);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (163, 1, 81, 34, 163);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (164, 1, 59, 12, 164);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (165, 0, 21, 19, 165);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (166, 1, 69, 49, 166);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (167, 0, 45, 25, 167);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (168, 1, 74, 71, 168);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (169, 1, 1, 18, 169);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (170, 0, 87, 42, 170);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (171, 0, 76, 21, 171);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (172, 0, 16, 17, 172);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (173, 1, 41, 77, 173);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (174, 1, 21, 79, 174);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (175, 0, 26, 23, 175);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (176, 0, 2, 14, 176);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (177, 1, 27, 88, 177);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (178, 1, 29, 31, 178);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (179, 1, 35, 66, 179);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (180, 0, 25, 39, 180);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (181, 1, 55, 48, 181);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (182, 0, 97, 94, 182);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (183, 1, 21, 5, 183);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (184, 1, 46, 11, 184);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (185, 1, 70, 13, 185);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (186, 0, 4, 20, 186);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (187, 1, 20, 10, 187);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (188, 0, 6, 41, 188);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (189, 0, 14, 5, 189);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (190, 1, 59, 35, 190);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (191, 1, 64, 27, 191);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (192, 0, 0, 27, 192);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (193, 0, 4, 92, 193);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (194, 0, 31, 2, 194);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (195, 1, 8, 61, 195);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (196, 1, 72, 72, 196);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (197, 0, 52, 70, 197);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (198, 0, 52, 39, 198);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (199, 0, 59, 26, 199);
+insert into ReservaEntity (id, abono, descuento, precioTotal, usuario_id) values (200, 1, 84, 33, 200);
+
+--Inserta las calificaciones
+
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (100, 1.9, 'Pseudoleistes virescens', 139, 100, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (101, 3.8, 'Libellula quadrimaculata', null, 101, 130);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (102, 2.1, 'Branta canadensis', null, 102, 196);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (103, 5.0, 'Tamiasciurus hudsonicus', 193, 103, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (104, 3.3, 'Myrmecophaga tridactyla', 177, 104, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (105, 2.9, 'Stercorarius longicausus', null, 105, 117);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (106, 2.2, 'Tayassu tajacu', 168, 106, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (107, 4.4, 'Oncorhynchus nerka', null, 107, 178);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (108, 3.8, 'Ceratotherium simum', 151, 108, 191);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (109, 2.8, 'Phalacrocorax albiventer', null, 109, 196);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (110, 3.0, 'Buteo regalis', 100, 110, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (111, 4.7, 'Pavo cristatus', 144, 111, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (112, 2.5, 'Cordylus giganteus', 158, 112, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (113, 1.0, 'Nannopterum harrisi', null, 113, 177);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (114, 5.0, 'Corvus albus', 117, 114, 176);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (115, 1.0, 'Columba livia', 124, 115, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (116, 4.2, 'Gyps bengalensis', null, 116, 169);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (117, 2.7, 'Sagittarius serpentarius', null, 117, 104);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (118, 5.0, 'Equus hemionus', 200, 118, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (119, 3.8, 'Cacatua galerita', 165, 119, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (120, 1.8, 'Felis concolor', 194, 120, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (121, 3.6, 'Vulpes cinereoargenteus', 123, 121, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (122, 3.3, 'Bassariscus astutus', 199, 122, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (123, 2.3, 'Anhinga rufa', 156, 123, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (124, 1.9, 'Tachyglossus aculeatus', null, 124, 122);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (125, 1.5, 'Phoenicopterus ruber', null, 125, 192);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (126, 2.4, 'Dendrocitta vagabunda', 155, 126, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (127, 3.6, 'Gyps bengalensis', 152, 127, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (128, 1.4, 'Alopochen aegyptiacus', null, 128, 126);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (129, 2.8, 'Microcavia australis', null, 129, 111);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (130, 3.0, 'Amphibolurus barbatus', 111, 130, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (131, 4.0, 'Merops sp.', 175, 131, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (132, 2.5, 'Sauromalus obesus', 129, 132, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (133, 1.9, 'Eudyptula minor', null, 133, 158);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (134, 1.4, 'Cordylus giganteus', null, 134, 188);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (135, 1.3, 'Lophoaetus occipitalis', null, 135, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (136, 1.1, 'Delphinus delphis', null, 136, 172);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (137, 1.7, 'Spizaetus coronatus', 129, 137, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (138, 4.7, 'Procyon cancrivorus', null, 138, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (139, 3.8, 'Phoca vitulina', 148, 139, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (140, 4.1, 'Lutra canadensis', null, 140, 190);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (141, 4.2, 'Smithopsis crassicaudata', null, 141, 159);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (142, 2.8, 'Falco peregrinus', 156, 142, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (143, 2.7, 'Funambulus pennati', null, 143, 187);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (144, 2.8, 'Bugeranus caruncalatus', 139, 144, 110);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (145, 3.0, 'Prionace glauca', 118, 145, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (146, 3.6, 'Phascolarctos cinereus', 135, 146, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (147, 1.7, 'Taxidea taxus', null, 147, 116);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (148, 2.3, 'Milvus migrans', 200, 148, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (149, 4.2, 'Felis caracal', 195, 149, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (150, 2.8, 'Meles meles', null, 150, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (151, 1.6, 'Chelodina longicollis', 139, 151, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (152, 2.7, 'Threskionis aethiopicus', 190, 152, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (153, 4.8, 'Motacilla aguimp', null, 153, 126);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (154, 1.8, 'Felis caracal', null, 154, 196);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (155, 2.8, 'Colaptes campestroides', null, 155, 117);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (156, 3.6, 'Sula nebouxii', 189, 156, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (157, 3.4, 'Phalaropus lobatus', null, 157, 182);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (158, 2.2, 'Mustela nigripes', null, 158, 199);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (159, 3.2, 'Lemur catta', 108, 159, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (160, 1.9, 'Callorhinus ursinus', null, 160, 128);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (161, 2.1, 'Vulpes cinereoargenteus', null, 161, 164);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (162, 2.2, 'unavailable', 145, 162, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (163, 2.5, 'Nycticorax nycticorax', 148, 163, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (164, 3.8, 'Vombatus ursinus', null, 164, 148);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (165, 3.5, 'Vombatus ursinus', 134, 165, 108);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (166, 2.4, 'Theropithecus gelada', 101, 166, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (167, 4.5, 'Myrmecophaga tridactyla', null, 167, 178);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (168, 4.4, 'Cacatua galerita', 121, 168, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (169, 4.3, 'Tachyglossus aculeatus', null, 169, 142);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (170, 2.6, 'Nycticorax nycticorax', 101, 170, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (171, 1.1, 'Tockus flavirostris', 117, 171, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (172, 1.6, 'Lepus arcticus', 138, 172, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (173, 2.3, 'Myiarchus tuberculifer', 128, 173, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (174, 4.8, 'Otaria flavescens', null, 174, 197);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (175, 4.3, 'Ursus maritimus', 105, 175, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (176, 4.3, 'Geochelone radiata', null, 176, 163);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (177, 3.4, 'Camelus dromedarius', 137, 177, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (178, 2.1, 'Ramphastos tucanus', null, 178, 178);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (179, 2.0, 'Limnocorax flavirostra', 197, 179, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (180, 3.9, 'Felis serval', 146, 180, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (181, 2.4, 'Pterocles gutturalis', 173, 181, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (182, 2.9, 'Columba livia', null, 182, 190);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (183, 3.2, 'Zenaida asiatica', 117, 183, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (184, 3.3, 'Hyaena hyaena', 169, 184, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (185, 3.2, 'Lutra canadensis', null, 185, 118);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (186, 3.6, 'Ictonyx striatus', null, 186, 151);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (187, 1.3, 'Aonyx cinerea', null, 187, 198);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (188, 4.4, 'Echimys chrysurus', 191, 188, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (189, 4.4, 'Globicephala melas', null, 189, 137);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (190, 3.7, 'Chauna torquata', null, 190, 113);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (191, 4.4, 'Vulpes vulpes', 178, 191, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (192, 1.8, 'Graspus graspus', null, 192, 116);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (193, 2.8, 'Corvus brachyrhynchos', 134, 193, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (194, 4.1, 'Lasiodora parahybana', null, 194, 132);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (195, 4.3, 'Kobus leche robertsi', 164, 195, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (196, 1.3, 'Petaurus breviceps', 163, 196, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (197, 2.8, 'Kobus defassa', 114, 197, null);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (198, 2.4, 'Oreotragus oreotragus', null, 198, 171);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (199, 1.3, 'unavailable', null, 199, 167);
+insert into calificacionEntity (id, puntaje, comentario, critico_id, usuario_id, pelicula_id) values (200, 1.7, 'Lama glama', 135, 200, null);
+
+--Inserta ReservaEntity_FuncionEntity
+
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (106, 125);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (158, 173);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (129, 153);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (184, 164);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (200, 197);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (152, 182);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (172, 200);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (154, 169);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (118, 118);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (180, 165);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (153, 102);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (111, 103);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (106, 158);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (125, 154);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (156, 115);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (199, 108);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (176, 150);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (185, 197);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (132, 122);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (121, 149);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (103, 136);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (147, 200);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (199, 107);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (138, 196);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (102, 195);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (182, 110);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (110, 113);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (140, 103);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (113, 112);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (105, 110);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (131, 149);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (106, 189);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (175, 109);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (185, 153);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (190, 186);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (107, 137);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (128, 102);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (166, 185);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (130, 168);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (172, 117);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (145, 166);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (122, 114);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (144, 101);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (178, 107);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (157, 134);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (130, 133);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (136, 188);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (150, 150);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (114, 185);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (106, 106);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (123, 166);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (134, 195);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (166, 111);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (124, 197);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (150, 119);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (185, 197);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (169, 187);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (111, 184);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (188, 173);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (170, 143);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (152, 196);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (129, 119);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (124, 154);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (125, 121);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (138, 105);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (186, 141);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (147, 103);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (169, 112);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (114, 120);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (166, 136);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (131, 173);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (200, 115);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (167, 144);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (142, 138);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (123, 136);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (190, 166);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (115, 187);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (199, 134);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (175, 126);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (158, 165);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (157, 192);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (142, 174);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (169, 175);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (200, 177);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (134, 187);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (129, 134);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (168, 181);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (186, 200);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (152, 190);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (162, 137);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (161, 159);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (138, 142);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (129, 173);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (133, 142);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (189, 113);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (177, 144);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (129, 121);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (133, 178);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (183, 191);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (179, 142);
+insert into reservaEntity_FuncionEntity (funciones_id, reservas_id) values (162, 174);
+
+--Inserta TeatroEntity_FestivalEntity
+
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (160, 163);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (150, 150);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (143, 170);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (188, 135);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (101, 150);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (144, 145);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (199, 161);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (169, 129);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (142, 132);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (154, 173);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (178, 192);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (122, 147);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (123, 159);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (114, 171);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (143, 106);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (113, 116);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (130, 128);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (141, 141);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (198, 135);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (125, 171);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (133, 122);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (178, 113);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (175, 189);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (166, 175);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (176, 192);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (172, 165);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (125, 112);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (200, 155);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (115, 156);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (113, 176);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (112, 144);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (180, 185);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (165, 157);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (152, 166);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (166, 189);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (162, 155);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (146, 122);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (185, 187);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (110, 160);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (168, 171);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (129, 104);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (103, 148);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (106, 151);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (133, 176);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (112, 151);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (193, 165);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (150, 145);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (107, 106);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (192, 144);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (132, 177);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (160, 163);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (134, 157);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (163, 165);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (169, 119);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (111, 136);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (197, 105);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (151, 197);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (133, 188);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (162, 160);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (163, 148);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (173, 138);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (185, 139);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (102, 165);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (109, 107);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (155, 115);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (137, 159);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (198, 108);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (169, 169);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (130, 161);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (110, 185);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (133, 134);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (159, 176);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (183, 168);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (177, 197);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (150, 143);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (122, 147);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (126, 197);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (181, 159);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (103, 176);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (194, 200);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (149, 105);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (140, 119);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (145, 188);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (158, 168);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (187, 164);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (101, 109);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (147, 124);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (132, 154);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (199, 176);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (200, 174);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (176, 171);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (200, 192);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (156, 200);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (177, 155);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (108, 143);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (121, 155);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (150, 194);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (169, 135);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (194, 106);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (117, 157);
+insert into teatroEntity_festivalEntity (festivales_id, teatros_id) values (120, 115);
 
-
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (1, 'Bethina', 'Gobat', '535-27-6979', '112 718 2761', 'bgobat0@twitpic.com', 2, 'bgobat0', 'MMhP2N', 2.2, '469-80-0353');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (2, 'Bria', 'Yeandel', '180-24-6742', '767 244 8416', 'byeandel1@aboutads.info', 2, 'byeandel1', 'XwKVOnc0I', 2.9, '604-06-9553');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (3, 'Sheeree', 'Males', '742-33-1689', '639 880 3688', 'smales2@unblog.fr', 2, 'smales2', 'CiimHFV6', 4.7, '468-15-2556');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (4, 'Micah', 'Schuricke', '798-72-1583', '498 376 8933', 'mschuricke3@nymag.com', 2, 'mschuricke3', 'urqpdxb2e6yD', 2.8, '286-81-2838');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (5, 'Rosco', 'Tebbutt', '312-83-5755', '825 168 2346', 'rtebbutt4@godaddy.com', 2, 'rtebbutt4', 'c5nsgqpx', 0.3, '705-64-0376');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (6, 'Harvey', 'Fend', '438-68-6824', '239 137 9362', 'hfend5@redcross.org', 2, 'hfend5', 'KUGISMTazH9', 2.7, '717-87-9872');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (7, 'Malory', 'Tramel', '417-37-9234', '853 616 8316', 'mtramel6@gmpg.org', 2, 'mtramel6', 'VRtt7aKEW7i', 1.3, '430-08-1679');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (8, 'Giles', 'Chretien', '549-32-0020', '940 685 9645', 'gchretien7@163.com', 2, 'gchretien7', 'eLYBS7Nh', 1.9, '715-18-9849');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (9, 'Perice', 'Beebis', '498-61-0383', '832 284 1946', 'pbeebis8@ifeng.com', 2, 'pbeebis8', 'Q9Opev', 3.8, '129-41-7213');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (10, 'Gearalt', 'Flinn', '624-99-1485', '122 891 9721', 'gflinn9@loc.gov', 2, 'gflinn9', 'SObX6ikp', 1.5, '102-86-8549');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (11, 'Anjanette', 'Wardington', '648-62-2026', '246 702 8479', 'awardingtona@exblog.jp', 2, 'awardingtona', 'kIEh2Qc', 0.7, '767-91-8082');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (12, 'Renado', 'Leverich', '699-85-5142', '461 921 2985', 'rleverichb@elpais.com', 2, 'rleverichb', 'ALtEMHEnk', 3.3, '601-33-9146');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (13, 'Delora', 'Hulkes', '786-55-3207', '157 186 9047', 'dhulkesc@vinaora.com', 2, 'dhulkesc', 'L2AlbFzw', 4.6, '525-24-6592');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (14, 'Francois', 'Roberds', '606-74-1211', '390 191 4073', 'froberdsd@ning.com', 2, 'froberdsd', 'q1T6K0A', 0.5, '429-26-7403');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (15, 'Robby', 'Scherer', '438-17-8228', '184 767 1834', 'rscherere@omniture.com', 2, 'rscherere', 'De6xCWA2PGvK', 2.0, '348-20-5540');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (16, 'Binny', 'Nunns', '109-69-3711', '283 461 4334', 'bnunnsf@github.com', 2, 'bnunnsf', '5xIhBcwOkPs5', 1.4, '261-18-7509');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (17, 'Tonnie', 'Richardes', '346-10-0554', '860 481 3557', 'trichardesg@statcounter.com', 2, 'trichardesg', 'GuS2VdT53Bc', 0.1, '273-38-6686');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (18, 'Lief', 'Ibbison', '769-84-5242', '110 205 6010', 'libbisonh@over-blog.com', 2, 'libbisonh', 'OUiKgl2C', 3.4, '329-85-1319');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (19, 'Adele', 'Paulton', '688-15-0658', '111 577 6220', 'apaultoni@amazon.com', 2, 'apaultoni', 'FhS6FjrCnP', 0.9, '888-62-7901');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (20, 'Juli', 'Martina', '749-62-5233', '527 433 8452', 'jmartinaj@goodreads.com', 2, 'jmartinaj', '7ZyPEXH', 4.9, '595-23-5985');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (21, 'Fey', 'Chicco', '794-02-1654', '291 114 8860', 'fchiccok@usgs.gov', 2, 'fchiccok', 'y9oiUxDl', 1.1, '375-21-9846');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (22, 'Carla', 'Sanham', '570-47-7392', '921 799 8239', 'csanhaml@yahoo.co.jp', 2, 'csanhaml', 'TUNVX1hq', 2.8, '182-35-9233');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (23, 'Gillian', 'Renn', '808-17-7443', '597 200 7630', 'grennm@shutterfly.com', 2, 'grennm', 'W2Wol6uBV', 3.9, '409-11-2916');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (24, 'Roselin', 'Jarrard', '127-52-9848', '105 866 9396', 'rjarrardn@xrea.com', 2, 'rjarrardn', '9u38E3l6O9', 3.7, '607-44-5754');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (25, 'Pooh', 'Croucher', '335-94-6813', '229 635 4736', 'pcrouchero@typepad.com', 2, 'pcrouchero', 'uN30aKNVL', 1.8, '374-11-7357');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (26, 'Davis', 'Parley', '439-37-8002', '642 594 6180', 'dparleyp@wufoo.com', 2, 'dparleyp', 'kz9MeMya9Sy', 1.0, '836-91-7690');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (27, 'Thaine', 'Towler', '632-18-1735', '895 410 1990', 'ttowlerq@blogspot.com', 2, 'ttowlerq', 'uAyiqs', 1.4, '697-96-5462');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (28, 'Purcell', 'Hamber', '186-23-9846', '511 750 1562', 'phamberr@mapquest.com', 2, 'phamberr', 'fcLRePvO', 0.4, '562-05-3010');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (29, 'Marje', 'Jessel', '576-64-8504', '888 766 7492', 'mjessels@intel.com', 2, 'mjessels', '2YkFinvaayQ', 4.0, '558-74-0452');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (30, 'Cyndy', 'Eddoes', '380-27-5923', '808 344 6881', 'ceddoest@rambler.ru', 2, 'ceddoest', 'T6DuxY', 4.6, '222-94-0952');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (31, 'Jaclin', 'Ratie', '492-66-3372', '811 327 0391', 'jratieu@squidoo.com', 2, 'jratieu', 'XnTcfG55', 4.0, '354-83-5274');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (32, 'Augustin', 'McLice', '360-55-3357', '240 883 1986', 'amclicev@wordpress.com', 2, 'amclicev', 't3b4lW', 4.7, '426-32-9868');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (33, 'Albertina', 'Culy', '670-54-7691', '905 489 7837', 'aculyw@blogtalkradio.com', 2, 'aculyw', 't1KKE4', 1.1, '733-20-8877');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (34, 'Koo', 'Kohrt', '315-44-6177', '867 718 4894', 'kkohrtx@reddit.com', 2, 'kkohrtx', 'OyCGOjd5', 3.1, '599-26-1173');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (35, 'Martguerita', 'Beaver', '185-54-9938', '942 856 4172', 'mbeavery@t.co', 2, 'mbeavery', '9fQuqHXD', 4.6, '330-64-6721');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (36, 'Brodie', 'Upsale', '380-39-3025', '930 387 4546', 'bupsalez@dmoz.org', 2, 'bupsalez', 'g0zs7l', 1.9, '719-91-3397');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (37, 'Galen', 'Conre', '213-57-1071', '342 805 4539', 'gconre10@apache.org', 2, 'gconre10', 'MEjht8MYw', 1.3, '600-70-2891');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (38, 'Elaine', 'Rollinshaw', '738-56-6870', '397 774 0441', 'erollinshaw11@europa.eu', 2, 'erollinshaw11', '7VYsUP', 3.1, '110-11-6943');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (39, 'Danila', 'Aitchinson', '668-56-3204', '787 795 4808', 'daitchinson12@friendfeed.com', 2, 'daitchinson12', 'LZpICDVvGm', 3.9, '128-50-8014');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (40, 'Burnard', 'Danilchev', '624-63-9429', '765 445 8151', 'bdanilchev13@vistaprint.com', 2, 'bdanilchev13', 'KqmBShqTWD', 4.0, '459-17-6968');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (41, 'Riane', 'Beenham', '660-50-8916', '987 474 8884', 'rbeenham14@adobe.com', 2, 'rbeenham14', 'jCjzAoU0', 3.5, '193-44-2709');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (42, 'Charleen', 'Mazzilli', '426-78-1598', '461 163 4839', 'cmazzilli15@ebay.co.uk', 2, 'cmazzilli15', 'QhJD0gx', 2.1, '890-28-7701');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (43, 'Leah', 'Twinbourne', '803-79-7147', '309 419 8033', 'ltwinbourne16@google.nl', 2, 'ltwinbourne16', 'NzPE87zdE', 1.6, '434-17-6982');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (44, 'Mina', 'Cubbino', '344-86-2167', '279 784 1462', 'mcubbino17@thetimes.co.uk', 2, 'mcubbino17', 'LQXT7wp22', 0.6, '829-06-9657');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (45, 'Thomasina', 'Abbets', '347-46-1334', '625 242 3357', 'tabbets18@mail.ru', 2, 'tabbets18', 'TBI2MGl', 1.8, '171-40-3550');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (46, 'Allie', 'Sudlow', '219-27-8793', '315 966 7064', 'asudlow19@sourceforge.net', 2, 'asudlow19', 'rqKshcG26Mu', 0.5, '716-48-7161');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (47, 'Paulina', 'Florence', '168-78-1011', '402 411 4209', 'pflorence1a@reuters.com', 2, 'pflorence1a', 'DBAJTux7bZyy', 2.9, '374-88-1271');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (48, 'Elsie', 'Bacher', '849-28-6803', '345 767 7750', 'ebacher1b@illinois.edu', 2, 'ebacher1b', 'TslMTly', 1.5, '379-67-8918');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (49, 'Ephrem', 'Laible', '634-58-6978', '242 531 5969', 'elaible1c@facebook.com', 2, 'elaible1c', 'm2B3Ol', 1.0, '118-20-7110');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (50, 'Page', 'Weippert', '142-40-5135', '680 430 3419', 'pweippert1d@dion.ne.jp', 2, 'pweippert1d', '28uOn2NdZE', 2.8, '816-91-8721');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (51, 'Chrissy', 'Husset', '518-20-5398', '478 487 6784', 'chusset1e@google.ru', 2, 'chusset1e', 'XlopYk', 1.9, '480-05-1319');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (52, 'Alessandro', 'Stryde', '202-24-0995', '879 239 1398', 'astryde1f@amazon.de', 2, 'astryde1f', '7BL499xRZb', 4.0, '122-80-0498');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (53, 'Brendis', 'Viant', '336-97-2133', '268 683 0786', 'bviant1g@cornell.edu', 2, 'bviant1g', '58vCQJKMlWJ2', 2.1, '477-07-9591');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (54, 'Morgen', 'Lampl', '442-34-3672', '783 633 9920', 'mlampl1h@wikia.com', 2, 'mlampl1h', 'NSPDZcl8nnF', 3.7, '828-44-0424');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (55, 'Inessa', 'Pumphrey', '455-69-9620', '643 363 2943', 'ipumphrey1i@marketwatch.com', 2, 'ipumphrey1i', 'Tcpi8tkJh0', 2.3, '758-28-6806');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (56, 'Gare', 'Conningham', '773-43-4514', '485 908 2717', 'gconningham1j@blogtalkradio.com', 2, 'gconningham1j', 'dvPDqBPuaHcS', 4.4, '432-31-2935');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (57, 'Philippine', 'Ettritch', '554-20-4083', '801 816 2177', 'pettritch1k@creativecommons.org', 2, 'pettritch1k', '5uOrH43MhgM', 2.0, '711-89-4301');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (58, 'Erda', 'Otham', '668-75-8653', '237 648 4025', 'eotham1l@flickr.com', 2, 'eotham1l', 'EwZkBSAKrVi', 3.2, '688-03-9719');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (59, 'Brice', 'Tooke', '275-57-9449', '669 941 8007', 'btooke1m@merriam-webster.com', 2, 'btooke1m', 'i9vjBeRVwaNL', 0.7, '260-45-9248');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (60, 'Vina', 'Crowdace', '403-42-9316', '873 841 5325', 'vcrowdace1n@alexa.com', 2, 'vcrowdace1n', 'ywgRku', 1.6, '375-68-8137');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (61, 'Calv', 'Daintree', '502-31-8549', '897 355 4411', 'cdaintree1o@examiner.com', 2, 'cdaintree1o', 'fDwndMZMOxW', 1.0, '521-05-7901');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (62, 'Erda', 'Guinery', '647-85-1457', '664 437 5630', 'eguinery1p@ameblo.jp', 2, 'eguinery1p', 'SQh3T970P', 3.0, '314-13-0559');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (63, 'Janna', 'Lambis', '286-12-7879', '621 898 3602', 'jlambis1q@surveymonkey.com', 2, 'jlambis1q', 'TJIYn38s', 2.9, '842-23-3229');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (64, 'Kimbra', 'D''Souza', '884-53-6673', '529 162 1880', 'kdsouza1r@tuttocitta.it', 2, 'kdsouza1r', '21lG5gmFH', 4.1, '346-41-6102');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (65, 'Yolanda', 'Spadeck', '139-62-9198', '309 756 9442', 'yspadeck1s@marriott.com', 2, 'yspadeck1s', '2z6DrQN3n0L1', 1.8, '475-24-1029');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (66, 'Miranda', 'Stonall', '881-57-5022', '497 519 5047', 'mstonall1t@sohu.com', 2, 'mstonall1t', 'namxOzOkJRt', 4.2, '570-07-3154');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (67, 'Olimpia', 'Larking', '700-78-0406', '310 779 4847', 'olarking1u@fda.gov', 2, 'olarking1u', 'QexDlFodrecq', 0.7, '643-53-1874');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (68, 'Jermayne', 'Pooley', '876-49-1435', '203 452 7742', 'jpooley1v@tmall.com', 2, 'jpooley1v', 'Gj15IVqJ', 2.1, '110-05-8837');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (69, 'Jewelle', 'Zupone', '490-61-9593', '244 925 8969', 'jzupone1w@163.com', 2, 'jzupone1w', '05psMBJn', 1.6, '579-42-8120');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (70, 'Baryram', 'Kener', '599-45-1030', '748 710 6119', 'bkener1x@prnewswire.com', 2, 'bkener1x', '9tDkuyLM', 1.9, '421-22-5823');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (71, 'Archibald', 'Penkman', '509-94-3651', '952 459 7977', 'apenkman1y@cafepress.com', 2, 'apenkman1y', 'WxoEdU', 0.8, '407-03-1781');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (72, 'North', 'Crudge', '318-44-8942', '876 194 4442', 'ncrudge1z@addtoany.com', 2, 'ncrudge1z', 'B3O28K', 0.8, '515-85-1332');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (73, 'Lucille', 'Borborough', '267-26-9849', '151 737 6912', 'lborborough20@webnode.com', 2, 'lborborough20', 'vkmFwAyC', 2.9, '241-48-3178');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (74, 'Bryana', 'Djurkovic', '328-42-4641', '203 609 1862', 'bdjurkovic21@phpbb.com', 2, 'bdjurkovic21', '1mfkBQ', 1.3, '308-70-8132');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (75, 'Esme', 'Sarson', '285-26-3097', '726 534 5701', 'esarson22@usatoday.com', 2, 'esarson22', 'VWujVjgzUNJ', 3.3, '813-47-0247');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (76, 'Rhianna', 'Fairbourne', '804-28-4915', '610 224 7865', 'rfairbourne23@salon.com', 2, 'rfairbourne23', 'xq6AwwBHSCH4', 1.6, '213-50-3276');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (77, 'Egan', 'Philpot', '323-98-8303', '901 663 6117', 'ephilpot24@fc2.com', 2, 'ephilpot24', 'jHpuHjeH5', 4.2, '690-57-1935');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (78, 'Heddie', 'Tenniswood', '236-17-6300', '238 491 2019', 'htenniswood25@weather.com', 2, 'htenniswood25', 'H2cLic4T', 2.0, '245-49-7360');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (79, 'Hartley', 'Redborn', '308-63-7451', '246 636 9589', 'hredborn26@xrea.com', 2, 'hredborn26', 'AKA7tu', 3.9, '160-52-0358');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (80, 'Margalit', 'McNalley', '690-30-5572', '768 139 3383', 'mmcnalley27@state.gov', 2, 'mmcnalley27', 'xXhk1I295', 1.3, '407-18-8480');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (81, 'Courtney', 'Yabsley', '245-09-6093', '725 214 0868', 'cyabsley28@cbslocal.com', 2, 'cyabsley28', 'E6w3nsm', 0.4, '554-58-9516');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (82, 'Danyette', 'Grishenkov', '456-07-6163', '296 638 3463', 'dgrishenkov29@desdev.cn', 2, 'dgrishenkov29', 'AgNTzDl', 0.4, '693-59-3804');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (83, 'Rafaela', 'Wabersinke', '592-83-4929', '607 290 4801', 'rwabersinke2a@techcrunch.com', 2, 'rwabersinke2a', 'XUzmZqp', 3.1, '783-55-8956');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (84, 'Mattias', 'Niess', '569-54-1361', '464 307 4638', 'mniess2b@bbc.co.uk', 2, 'mniess2b', 'oFo4TXAx7lYy', 3.0, '134-23-4816');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (85, 'Katharine', 'Abrahim', '780-22-4009', '364 521 5583', 'kabrahim2c@ft.com', 2, 'kabrahim2c', 'iAu56RhSY', 4.2, '303-02-5783');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (86, 'Riobard', 'Dimic', '497-19-3730', '528 585 3745', 'rdimic2d@xinhuanet.com', 2, 'rdimic2d', '5wFPRt0L3', 4.9, '696-81-1006');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (87, 'Sheila-kathryn', 'Karlolak', '264-28-8339', '205 988 0120', 'skarlolak2e@nature.com', 2, 'skarlolak2e', 'K6lX5h51gz', 4.7, '373-20-6218');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (88, 'Pammy', 'Adicot', '722-15-8389', '585 662 7560', 'padicot2f@mapy.cz', 2, 'padicot2f', 'pTmAUzpL', 4.0, '668-37-4731');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (89, 'Nels', 'Krinks', '426-76-2767', '117 854 4562', 'nkrinks2g@tumblr.com', 2, 'nkrinks2g', 'PSdv9b6SU', 0.0, '657-51-7598');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (90, 'Catlin', 'Mattisson', '534-56-4436', '925 181 0515', 'cmattisson2h@macromedia.com', 2, 'cmattisson2h', 'FuiWXF2TR62', 0.2, '740-58-9839');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (91, 'Sukey', 'Inde', '112-86-3985', '101 178 7873', 'sinde2i@java.com', 2, 'sinde2i', 'sP4kM6SxXysc', 4.3, '488-27-5421');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (92, 'Aylmar', 'Choules', '223-03-8442', '688 734 6316', 'achoules2j@biblegateway.com', 2, 'achoules2j', 'zMqtBJjDM', 2.2, '734-73-0466');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (93, 'Maiga', 'Lanphere', '745-55-8435', '694 254 8476', 'mlanphere2k@hexun.com', 2, 'mlanphere2k', '7jpPBJy1', 2.9, '851-44-0329');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (94, 'Collete', 'Archbald', '486-48-1574', '747 986 8792', 'carchbald2l@bravesites.com', 2, 'carchbald2l', 'fnjf5D', 0.4, '695-16-4325');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (95, 'Brinn', 'Yves', '532-64-4124', '482 671 3049', 'byves2m@kickstarter.com', 2, 'byves2m', 'sFy5cR737Ap', 1.6, '314-79-0822');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (96, 'Kellby', 'Everall', '244-84-5925', '742 248 5483', 'keverall2n@auda.org.au', 2, 'keverall2n', 'xMs0JwYL6', 2.3, '577-63-8851');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (97, 'Dill', 'Dudenie', '663-75-7387', '287 612 6382', 'ddudenie2o@uiuc.edu', 2, 'ddudenie2o', 'HsDOstAyD', 4.5, '440-35-8158');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (98, 'Elna', 'Laurence', '499-70-0156', '441 916 3082', 'elaurence2p@marriott.com', 2, 'elaurence2p', '3AHuHT1WqU', 1.7, '342-32-5374');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (99, 'Gilli', 'Klejin', '795-42-1534', '255 168 5439', 'gklejin2q@nydailynews.com', 2, 'gklejin2q', 'TgToRFvTNn', 3.7, '672-86-0774');
-insert into criticoentity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, nickName, password, puntaje, credencial) values (100, 'Isiahi', 'Gowenlock', '327-72-7888', '125 400 1488', 'igowenlock2r@cnbc.com', 2, 'igowenlock2r', 'WwsbBWtuqi', 4.9, '654-33-8484');
-
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (1, 'Tedi', 'McKeaney', '06046469878644905', '192-658-4806', 'tmckeaney0@odnoklassniki.ru', 1, '5QoOcipxO');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (2, 'Ibby', 'Gidney', '6333194056839115869', '419-426-2158', 'igidney1@netscape.com', 1, '9eQ7BN');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (3, 'Carie', 'Sutherland', '3532429963451069', '603-287-5108', 'csutherland2@walmart.com', 1, 'AGkXjK');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (4, 'Anitra', 'Tamas', '3576176372562013', '391-304-7726', 'atamas3@technorati.com', 1, 'J3cp8yZN');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (5, 'Town', 'Koles', '201543409336779', '203-758-2160', 'tkoles4@cpanel.net', 1, 'LfgoGrY6NWD');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (6, 'Kellsie', 'Brigstock', '5346003956561639', '937-609-3631', 'kbrigstock5@wikipedia.org', 1, 'ANcZVrQTj');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (7, 'Mellie', 'Goatman', '4175000605455097', '344-764-9797', 'mgoatman6@independent.co.uk', 1, 'XFb0RX');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (8, 'Faye', 'Cromb', '633110846288568026', '488-487-2656', 'fcromb7@netlog.com', 1, 'B0CsP6eJ6gfv');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (9, 'Christie', 'Le land', '6331105505815563361', '502-399-1087', 'cleland8@globo.com', 1, 'mNIaqQ');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (10, 'Silvano', 'Farmar', '5048378833386330', '433-466-3918', 'sfarmar9@gnu.org', 1, 'sHv0HNw');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (11, 'Des', 'Bradnock', '3562480804474615', '694-836-3981', 'dbradnocka@chronoengine.com', 1, '8rSMAsr');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (12, 'Baxter', 'Pond-Jones', '3578216748748496', '541-111-4264', 'bpondjonesb@foxnews.com', 1, 'tYFYMtiA');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (13, 'Nell', 'Mucklestone', '3560608794040499', '787-281-4409', 'nmucklestonec@geocities.com', 1, 'l41itOBw');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (14, 'Hyacinthie', 'Fautley', '56022146052186381', '250-870-6934', 'hfautleyd@ucoz.com', 1, 'TNjRhoVaHVE8');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (15, 'Elsworth', 'Petticrow', '3558369721080884', '209-312-3205', 'epetticrowe@meetup.com', 1, 'LPOgtcKSwvz');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (16, 'Bernhard', 'Guerrieri', '3551687100367045', '578-642-2830', 'bguerrierif@elpais.com', 1, 'B5ZuHSMlogUA');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (17, 'Xerxes', 'Jovicic', '3534473302620990', '323-490-4999', 'xjovicicg@hubpages.com', 1, 'sniSEUCshKbe');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (18, 'Federico', 'Brisker', '5602233689089363', '981-556-0390', 'fbriskerh@google.com.au', 1, 'IMmhlOpkae');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (19, 'Lizabeth', 'Franzen', '36460253317667', '750-591-9864', 'lfranzeni@deviantart.com', 1, '37uJIVz2P');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (20, 'Lindy', 'Gynni', '5469093964946741', '964-418-3233', 'lgynnij@merriam-webster.com', 1, 'csn1ZlsnoCJL');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (21, 'Aurilia', 'Simukov', '560225274333290081', '234-681-2776', 'asimukovk@amazon.com', 1, '2Cbxezv');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (22, 'Adelbert', 'Karet', '5007663530752085', '863-532-3044', 'akaretl@symantec.com', 1, 'jp0k1rjPLka');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (23, 'Jerrylee', 'MacCaughan', '3563288296342698', '629-383-7641', 'jmaccaughanm@virginia.edu', 1, 'jl2Fxq');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (24, 'Abram', 'McClure', '4017956422182408', '846-550-0663', 'amccluren@marriott.com', 1, '9R3tN1H68Wr');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (25, 'Evyn', 'Lauthian', '3535318025883830', '380-397-1170', 'elauthiano@joomla.org', 1, 'WsWv6s');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (26, 'Vivi', 'Hargitt', '67615920124793006', '345-754-1206', 'vhargittp@abc.net.au', 1, '4IU4T4');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (27, 'Darby', 'Bento', '201579182362871', '319-773-0320', 'dbentoq@google.fr', 1, 'td6HCK');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (28, 'Jasun', 'Dairton', '63044133294188375', '382-999-5520', 'jdairtonr@123-reg.co.uk', 1, '8MWKbt');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (29, 'Sarge', 'Lorentzen', '3555473716038510', '837-951-2380', 'slorentzens@1und1.de', 1, 'EopOCs');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (30, 'Jeni', 'Barnish', '3559401213055667', '858-109-5460', 'jbarnisht@furl.net', 1, 'SwTLfg1');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (31, 'Steward', 'Tureville', '3530996077902817', '513-165-6334', 'sturevilleu@stumbleupon.com', 1, 'TrlmlqH4Aw');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (32, 'Easter', 'Kellen', '3572551232534853', '635-181-0432', 'ekellenv@com.com', 1, 'eWyqIj');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (33, 'Mort', 'O''Doghesty', '5100173008559083', '353-419-5753', 'modoghestyw@arizona.edu', 1, 'Bo8FbP');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (34, 'Hiram', 'Tewkesberrie', '491138785585796859', '610-381-4207', 'htewkesberriex@tmall.com', 1, 'GQZi0WHxKjg');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (35, 'Hanni', 'Keets', '4175009888508993', '682-242-2463', 'hkeetsy@uiuc.edu', 1, 'EA3Vp99');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (36, 'Clary', 'Sorro', '3535588298848401', '443-487-2862', 'csorroz@census.gov', 1, 'PE1poN');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (37, 'Tomasine', 'Rontree', '5641829726357406763', '732-255-6174', 'trontree10@economist.com', 1, '6IcgriXN');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (38, 'Hildagard', 'Hodgins', '5610354073234025', '223-473-1150', 'hhodgins11@umn.edu', 1, 'hXKTZ2qVOg');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (39, 'Marlon', 'Noads', '6392321147059813', '434-241-7795', 'mnoads12@msu.edu', 1, 'aR2VktoD');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (40, 'Jaquenetta', 'Leteurtre', '3528524725640763', '434-427-3309', 'jleteurtre13@loc.gov', 1, 'uLdPeAk');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (41, 'Wally', 'Feedome', '3589247864601315', '640-592-0171', 'wfeedome14@newsvine.com', 1, '4tZFPuJVeIW');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (42, 'Torey', 'MacMychem', '675932549839294038', '420-274-5364', 'tmacmychem15@mapy.cz', 1, 'l1CU6CtfWO');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (43, 'Gan', 'Danielsen', '630401948527720089', '614-801-6155', 'gdanielsen16@deliciousdays.com', 1, 'f3mAKYpP0lDt');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (44, 'Marcelo', 'Belfit', '58933665068164458', '710-753-9776', 'mbelfit17@sogou.com', 1, '8RM52qkPl');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (45, 'Fidelia', 'Brophy', '6395238883299998', '238-423-0484', 'fbrophy18@youtu.be', 1, 'hJsKMF');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (46, 'Derick', 'Gullick', '3541227178927744', '939-348-7447', 'dgullick19@dion.ne.jp', 1, 'tVbTrPx7gL');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (47, 'Ruprecht', 'Heathwood', '4913469817401222', '136-818-5299', 'rheathwood1a@utexas.edu', 1, 'vEQ4po');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (48, 'Thorsten', 'Smallacombe', '201448369687486', '612-968-4133', 'tsmallacombe1b@myspace.com', 1, '9O38ajNECw');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (49, 'Linzy', 'Winram', '3560230921571914', '118-771-3632', 'lwinram1c@va.gov', 1, 'iRTCdZV');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (50, 'Gilemette', 'Greenstead', '30288124787149', '201-160-4364', 'ggreenstead1d@harvard.edu', 1, 'rObv9jz');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (51, 'Putnem', 'Facchini', '3560342851371585', '106-848-0905', 'pfacchini1e@google.co.jp', 1, 'mdayhc');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (52, 'Ynez', 'Norvel', '3562089703591443', '724-495-5298', 'ynorvel1f@mail.ru', 1, 'Il2ql1');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (53, 'Pascal', 'Revely', '201953601580217', '842-860-5082', 'prevely1g@utexas.edu', 1, 'w1rw8Vr9V');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (54, 'Toinette', 'Sherebrooke', '5100146416443934', '839-854-8449', 'tsherebrooke1h@nba.com', 1, '0dZQAj');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (55, 'Charlean', 'Leport', '5513267429606555', '522-264-1595', 'cleport1i@chronoengine.com', 1, 'ZPiuMdAIVx');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (56, 'Hamel', 'Heijne', '5602252918479584357', '704-643-1253', 'hheijne1j@discovery.com', 1, '4tmaTiXmuA0');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (57, 'Kevina', 'Kernan', '633334131126334802', '161-793-6873', 'kkernan1k@webeden.co.uk', 1, '1KntConLLF');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (58, 'Amity', 'Minto', '3530693732226738', '867-864-2120', 'aminto1l@phoca.cz', 1, 'yAUqHZpf');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (59, 'Linnea', 'Blomfield', '5108751358324448', '585-467-1335', 'lblomfield1m@goodreads.com', 1, 'X0XQgM1cDnkN');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (60, 'Aloin', 'Beathem', '67618690072670616', '520-769-8245', 'abeathem1n@ca.gov', 1, 'ijJ6wr7SQL3');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (61, 'Eleanor', 'Bloomfield', '5573774839494156', '215-817-3616', 'ebloomfield1o@boston.com', 1, 'gZJQNnH');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (62, 'Cris', 'Matuszynski', '3561568900389256', '489-537-3446', 'cmatuszynski1p@usa.gov', 1, '3c9GyAR');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (63, 'Lennie', 'Ervine', '3569619519516136', '227-847-8130', 'lervine1q@google.cn', 1, 'a4s5nXfjG4W');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (64, 'Eloise', 'Folliott', '5002359270599092', '921-926-4010', 'efolliott1r@nhs.uk', 1, 'motg6mWNHiqT');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (65, 'Cordell', 'Shower', '3565164260582221', '435-760-0140', 'cshower1s@nifty.com', 1, 'BXP98YY');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (66, 'Phaidra', 'Sidwick', '4936464704445260', '108-274-7576', 'psidwick1t@amazon.de', 1, 'EaNRMcVWY');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (67, 'Donella', 'Standish', '3528187689494120', '293-925-7606', 'dstandish1u@cbslocal.com', 1, 'U7wtciHCJ');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (68, 'Bili', 'Breissan', '3558114692283582', '338-689-8089', 'bbreissan1v@dmoz.org', 1, 'l0dUBs');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (69, 'Jessie', 'Barreau', '378634392192621', '479-953-5096', 'jbarreau1w@dropbox.com', 1, 'aC90qTw');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (70, 'Coleen', 'Gasson', '3542765679157542', '914-300-3482', 'cgasson1x@utexas.edu', 1, 'mpSLRD');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (71, 'Karry', 'Olding', '5602217144463834', '879-362-1261', 'kolding1y@imgur.com', 1, 'QfjbSz');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (72, 'Rodolph', 'Brangan', '3547434999051803', '170-935-2932', 'rbrangan1z@pen.io', 1, 'kewf8I62');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (73, 'Lodovico', 'Waples', '5641823390502408', '825-543-4368', 'lwaples20@unesco.org', 1, 'TEb45EtZT');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (74, 'Blaire', 'Manser', '3549940671141827', '235-897-6198', 'bmanser21@mapy.cz', 1, 'm5NlgOYgd');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (75, 'Sibylle', 'Asp', '3532668393726414', '441-715-6943', 'sasp22@youku.com', 1, 'iSSBIBQz2');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (76, 'Wyn', 'Drewery', '3558871756906925', '658-301-2560', 'wdrewery23@ocn.ne.jp', 1, 'PzYbxa7sIlu');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (77, 'Janek', 'Blackler', '3585276632506435', '271-718-8483', 'jblackler24@indiegogo.com', 1, 'a3HC3w1Lrz');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (78, 'Rois', 'Budding', '3528683144649902', '188-501-7536', 'rbudding25@admin.ch', 1, 'CXuqc3bjg');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (79, 'Wyn', 'Kaminski', '30233765351268', '607-852-9154', 'wkaminski26@1688.com', 1, 'eVVVS9R');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (80, 'Augustine', 'Cuskery', '4913690695892311', '804-880-8440', 'acuskery27@seattletimes.com', 1, '2rOMaqz');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (81, 'Aimil', 'Dinnington', '6331108297744938', '488-638-1790', 'adinnington28@addthis.com', 1, 'bZzoKJ0E');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (82, 'Victoir', 'Billing', '3552191601495610', '356-518-5579', 'vbilling29@wsj.com', 1, 'cmnMHOTfA');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (83, 'Marinna', 'Hawney', '4508019325114725', '841-776-8468', 'mhawney2a@xinhuanet.com', 1, '2XPTnfsX8');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (84, 'Lucila', 'Tirrey', '501874541581528729', '506-573-4480', 'ltirrey2b@wikispaces.com', 1, 'iYiC2R');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (85, 'Kipp', 'Pieche', '5290668741934444', '540-930-7770', 'kpieche2c@over-blog.com', 1, 'IoG4yfE1');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (86, 'Lita', 'Decort', '3567374140071901', '999-253-4430', 'ldecort2d@oaic.gov.au', 1, 'EATKl7LMZ');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (87, 'Griffie', 'Inde', '201691396921549', '190-828-9390', 'ginde2e@youtube.com', 1, 'kq8tLGOV1BuV');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (88, 'Erl', 'O''Duggan', '6391227441802546', '802-164-3921', 'eoduggan2f@cnbc.com', 1, 'IVfXBKaaH');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (89, 'Jefferson', 'Sharnock', '3554360947963999', '793-830-3203', 'jsharnock2g@dyndns.org', 1, 'GLj8JTOJb1');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (90, 'Lincoln', 'Triggel', '3535768766970271', '253-982-7708', 'ltriggel2h@cargocollective.com', 1, 'OGzN42w32');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (91, 'Katharine', 'Huitt', '3546759226564363', '341-444-6239', 'khuitt2i@w3.org', 1, '0bosWZ');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (92, 'Ekaterina', 'Dickman', '3547619626230644', '305-961-8034', 'edickman2j@nydailynews.com', 1, 'wltTQMByfS');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (93, 'Benni', 'Rainton', '376614647091739', '723-478-1683', 'brainton2k@google.it', 1, '5vkUgh');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (94, 'Ancell', 'Weippert', '5010121597548743', '293-533-7303', 'aweippert2l@jigsy.com', 1, 'xj27dGotbq');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (95, 'Rab', 'Lavell', '4041375472719', '817-224-3212', 'rlavell2m@jimdo.com', 1, '8BVnhj2E');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (96, 'Gypsy', 'Bowker', '502018459728964340', '956-583-6002', 'gbowker2n@ovh.net', 1, '2he69bGi');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (97, 'Eleni', 'Shillito', '3558522455246747', '510-524-7161', 'eshillito2o@unicef.org', 1, 'gD2tViaEm');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (98, 'Collin', 'Pennock', '5038421250253822875', '637-332-9216', 'cpennock2p@bandcamp.com', 1, 'gD881T8');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (99, 'Christopher', 'Cohen', '0604445276383491', '644-285-3884', 'ccohen2q@php.net', 1, 'NnA6DvWo');
-insert into UsuarioEntity (id, nombres, apellidos, identificacion, celular, email, tipoPersona, password) values (100, 'Thomasine', 'Glynne', '3556625069266498', '369-318-8031', 'tglynne2r@webeden.co.uk', 1, 'yhzEN0');
-
-insert into calificacionentity (id, puntaje, comentario) values (1, 0.9, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
-insert into calificacionentity (id, puntaje, comentario) values (2, 2.5, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
-
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (3, 2.3, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (4, 3.2, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
-
-Phasellus in felis. Donec semper sapien a libero. Nam dui.');
-insert into calificacionentity (id, puntaje, comentario) values (5, 4.0, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (6, 3.7, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (7, 1.7, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
-insert into calificacionentity (id, puntaje, comentario) values (8, 0.1, 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (9, 4.7, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
-insert into calificacionentity (id, puntaje, comentario) values (10, 0.2, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.');
-insert into calificacionentity (id, puntaje, comentario) values (11, 1.1, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (12, 2.9, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (13, 0.3, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (14, 4.6, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.');
-insert into calificacionentity (id, puntaje, comentario) values (15, 2.1, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
-insert into calificacionentity (id, puntaje, comentario) values (16, 1.6, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into calificacionentity (id, puntaje, comentario) values (17, 2.7, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (18, 4.7, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (19, 2.2, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (20, 2.8, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (21, 0.3, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.');
-insert into calificacionentity (id, puntaje, comentario) values (22, 3.0, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (23, 3.7, 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into calificacionentity (id, puntaje, comentario) values (24, 2.8, 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
-
-Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
-Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (25, 4.3, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (26, 2.3, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (27, 4.4, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.');
-insert into calificacionentity (id, puntaje, comentario) values (28, 1.7, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (29, 4.0, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (30, 2.5, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
-insert into calificacionentity (id, puntaje, comentario) values (31, 2.6, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.');
-insert into calificacionentity (id, puntaje, comentario) values (32, 4.6, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (33, 0.8, 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (34, 1.2, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into calificacionentity (id, puntaje, comentario) values (35, 2.5, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (36, 4.3, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (37, 0.4, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
-
-Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (38, 2.0, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (39, 4.4, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (40, 4.2, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (41, 2.3, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
-insert into calificacionentity (id, puntaje, comentario) values (42, 1.9, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (43, 3.5, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (44, 1.4, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (45, 2.6, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (46, 0.7, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (47, 3.3, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (48, 2.8, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
-
-Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
-insert into calificacionentity (id, puntaje, comentario) values (49, 2.0, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.');
-insert into calificacionentity (id, puntaje, comentario) values (50, 2.0, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (51, 4.2, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.');
-insert into calificacionentity (id, puntaje, comentario) values (52, 1.8, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (53, 3.9, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
-
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (54, 0.0, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.');
-insert into calificacionentity (id, puntaje, comentario) values (55, 2.3, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (56, 1.3, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (57, 4.9, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (58, 4.6, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (59, 0.5, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
-
-Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.');
-insert into calificacionentity (id, puntaje, comentario) values (60, 0.9, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
-
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into calificacionentity (id, puntaje, comentario) values (61, 1.0, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.');
-insert into calificacionentity (id, puntaje, comentario) values (62, 0.4, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
-
-Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (63, 0.9, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.');
-insert into calificacionentity (id, puntaje, comentario) values (64, 4.2, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
-insert into calificacionentity (id, puntaje, comentario) values (65, 2.8, 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.
-
-Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.');
-insert into calificacionentity (id, puntaje, comentario) values (66, 3.9, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.');
-insert into calificacionentity (id, puntaje, comentario) values (67, 3.2, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
-
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.');
-insert into calificacionentity (id, puntaje, comentario) values (68, 0.4, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
-
-Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.');
-insert into calificacionentity (id, puntaje, comentario) values (69, 3.6, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.
-
-Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.');
-insert into calificacionentity (id, puntaje, comentario) values (70, 1.0, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.
-
-Sed ante. Vivamus tortor. Duis mattis egestas metus.');
-insert into calificacionentity (id, puntaje, comentario) values (71, 4.2, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
-insert into calificacionentity (id, puntaje, comentario) values (72, 1.8, 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.');
-insert into calificacionentity (id, puntaje, comentario) values (73, 2.5, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
-
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (74, 2.9, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
-
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (75, 0.6, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (76, 3.9, 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.');
-insert into calificacionentity (id, puntaje, comentario) values (77, 1.8, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
-
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (78, 4.9, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
-insert into calificacionentity (id, puntaje, comentario) values (79, 2.8, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.');
-insert into calificacionentity (id, puntaje, comentario) values (80, 0.5, 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.
-
-Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
-
-In congue. Etiam justo. Etiam pretium iaculis justo.');
-insert into calificacionentity (id, puntaje, comentario) values (81, 4.4, 'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.
-
-Phasellus in felis. Donec semper sapien a libero. Nam dui.');
-insert into calificacionentity (id, puntaje, comentario) values (82, 1.1, 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.
-
-Fusce consequat. Nulla nisl. Nunc nisl.');
-insert into calificacionentity (id, puntaje, comentario) values (83, 1.2, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.');
-insert into calificacionentity (id, puntaje, comentario) values (84, 4.8, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.');
-insert into calificacionentity (id, puntaje, comentario) values (85, 4.4, 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
-
-Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
-
-Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.');
-insert into calificacionentity (id, puntaje, comentario) values (86, 3.0, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
-
-Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
-insert into calificacionentity (id, puntaje, comentario) values (87, 1.8, 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.');
-insert into calificacionentity (id, puntaje, comentario) values (88, 3.0, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
-
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
-
-Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (89, 2.7, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.
-
-In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.');
-insert into calificacionentity (id, puntaje, comentario) values (90, 3.5, 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.');
-insert into calificacionentity (id, puntaje, comentario) values (91, 4.6, 'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.
-
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (92, 0.1, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.');
-insert into calificacionentity (id, puntaje, comentario) values (93, 1.1, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
-
-Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.');
-insert into calificacionentity (id, puntaje, comentario) values (94, 0.3, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.');
-insert into calificacionentity (id, puntaje, comentario) values (95, 3.7, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
-
-Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.');
-insert into calificacionentity (id, puntaje, comentario) values (96, 4.6, 'In congue. Etiam justo. Etiam pretium iaculis justo.
-
-In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
-
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.');
-insert into calificacionentity (id, puntaje, comentario) values (97, 0.1, 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.
-
-Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.');
-insert into calificacionentity (id, puntaje, comentario) values (98, 4.5, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.');
-insert into calificacionentity (id, puntaje, comentario) values (99, 2.7, 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.');
-insert into calificacionentity (id, puntaje, comentario) values (100, 2.4, 'Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.
-
-Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.
-
-Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.');
-
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (1, true, 25, '$7.59');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (2, false, 84, '$7.46');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (3, true, 27, '$1.40');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (4, true, 48, '$8.59');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (5, true, 66, '$9.88');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (6, true, 5, '$2.47');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (7, false, 82, '$9.60');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (8, false, 26, '$3.29');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (9, true, 22, '$3.75');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (10, true, 90, '$7.30');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (11, false, 48, '$4.32');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (12, false, 46, '$2.21');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (13, true, 13, '$8.23');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (14, true, 0, '$5.15');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (15, true, 23, '$0.05');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (16, true, 83, '$9.17');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (17, true, 88, '$5.70');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (18, true, 22, '$6.11');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (19, true, 28, '$3.95');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (20, false, 54, '$6.91');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (21, false, 63, '$4.30');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (22, true, 60, '$7.10');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (23, true, 96, '$4.95');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (24, true, 40, '$3.49');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (25, false, 21, '$6.94');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (26, false, 69, '$0.32');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (27, true, 85, '$0.75');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (28, false, 46, '$9.12');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (29, false, 97, '$7.71');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (30, false, 76, '$5.48');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (31, false, 53, '$5.24');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (32, true, 88, '$6.56');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (33, false, 46, '$7.01');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (34, false, 19, '$6.14');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (35, true, 83, '$2.20');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (36, false, 8, '$5.94');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (37, false, 92, '$5.09');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (38, true, 1, '$3.08');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (39, false, 28, '$3.20');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (40, false, 27, '$6.68');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (41, false, 63, '$6.16');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (42, false, 47, '$0.57');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (43, true, 63, '$9.58');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (44, true, 5, '$7.43');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (45, false, 51, '$4.04');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (46, true, 76, '$1.80');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (47, true, 42, '$7.79');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (48, false, 87, '$9.10');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (49, false, 74, '$1.84');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (50, false, 50, '$4.77');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (51, true, 40, '$8.77');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (52, false, 35, '$5.81');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (53, false, 88, '$4.43');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (54, false, 80, '$6.85');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (55, true, 14, '$3.72');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (56, true, 32, '$8.40');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (57, false, 88, '$2.29');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (58, false, 96, '$7.27');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (59, true, 1, '$1.68');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (60, true, 17, '$0.76');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (61, false, 97, '$9.98');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (62, false, 50, '$0.33');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (63, true, 81, '$9.34');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (64, true, 59, '$9.12');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (65, false, 21, '$8.02');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (66, true, 69, '$4.97');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (67, false, 45, '$8.31');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (68, true, 74, '$9.71');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (69, true, 1, '$1.86');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (70, false, 87, '$4.23');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (71, false, 76, '$2.10');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (72, true, 16, '$5.71');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (73, true, 41, '$7.79');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (74, true, 21, '$7.93');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (75, false, 26, '$2.31');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (76, false, 2, '$8.14');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (77, true, 27, '$8.85');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (78, true, 29, '$3.19');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (79, true, 35, '$6.64');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (80, false, 25, '$3.39');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (81, true, 55, '$4.83');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (82, false, 97, '$9.47');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (83, true, 21, '$5.02');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (84, true, 46, '$1.11');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (85, true, 70, '$7.13');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (86, false, 4, '$5.20');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (87, true, 20, '$9.05');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (88, false, 6, '$1.34');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (89, true, 14, '$1.70');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (90, false, 59, '$8.35');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (91, true, 64, '$5.27');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (92, false, 0, '$2.72');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (93, false, 4, '$4.92');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (94, false, 31, '$2.08');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (95, false, 8, '$2.61');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (96, false, 72, '$9.72');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (97, true, 52, '$9.70');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (98, true, 52, '$9.39');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (99, false, 59, '$2.60');
-insert into ReservaEntity (id, abono, descuento, precioTotal) values (100, false, 84, '$2.33');
